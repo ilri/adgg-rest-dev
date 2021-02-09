@@ -84,5 +84,118 @@ class SmsOutbox
      */
     private $createdBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getMsisdn(): ?string
+    {
+        return $this->msisdn;
+    }
+
+    public function setMsisdn(string $msisdn): self
+    {
+        $this->msisdn = $msisdn;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    public function getSenderId(): ?string
+    {
+        return $this->senderId;
+    }
+
+    public function setSenderId(string $senderId): self
+    {
+        $this->senderId = $senderId;
+
+        return $this;
+    }
+
+    public function getSendStatus(): ?bool
+    {
+        return $this->sendStatus;
+    }
+
+    public function setSendStatus(bool $sendStatus): self
+    {
+        $this->sendStatus = $sendStatus;
+
+        return $this;
+    }
+
+    public function getResponseCode(): ?string
+    {
+        return $this->responseCode;
+    }
+
+    public function setResponseCode(?string $responseCode): self
+    {
+        $this->responseCode = $responseCode;
+
+        return $this;
+    }
+
+    public function getResponseRemarks(): ?string
+    {
+        return $this->responseRemarks;
+    }
+
+    public function setResponseRemarks(?string $responseRemarks): self
+    {
+        $this->responseRemarks = $responseRemarks;
+
+        return $this;
+    }
+
+    public function getAttempts(): ?int
+    {
+        return $this->attempts;
+    }
+
+    public function setAttempts(int $attempts): self
+    {
+        $this->attempts = $attempts;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

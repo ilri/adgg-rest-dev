@@ -91,5 +91,130 @@ class InterfaceBatchUploadDetailsInsemination
      */
     private $notes;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getAnimalId(): ?string
+    {
+        return $this->animalId;
+    }
+
+    public function setAnimalId(?string $animalId): self
+    {
+        $this->animalId = $animalId;
+
+        return $this;
+    }
+
+    public function getServiceDate(): ?string
+    {
+        return $this->serviceDate;
+    }
+
+    public function setServiceDate(?string $serviceDate): self
+    {
+        $this->serviceDate = $serviceDate;
+
+        return $this;
+    }
+
+    public function getAiType(): ?string
+    {
+        return $this->aiType;
+    }
+
+    public function setAiType(?string $aiType): self
+    {
+        $this->aiType = $aiType;
+
+        return $this;
+    }
+
+    public function getStrawId(): ?string
+    {
+        return $this->strawId;
+    }
+
+    public function setStrawId(?string $strawId): self
+    {
+        $this->strawId = $strawId;
+
+        return $this;
+    }
+
+    public function getBodyScore(): ?string
+    {
+        return $this->bodyScore;
+    }
+
+    public function setBodyScore(?string $bodyScore): self
+    {
+        $this->bodyScore = $bodyScore;
+
+        return $this;
+    }
+
+    public function getCost(): ?string
+    {
+        return $this->cost;
+    }
+
+    public function setCost(?string $cost): self
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    public function getAiTech(): ?string
+    {
+        return $this->aiTech;
+    }
+
+    public function setAiTech(?string $aiTech): self
+    {
+        $this->aiTech = $aiTech;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getNotes(): ?string
+    {
+        return $this->notes;
+    }
+
+    public function setNotes(?string $notes): self
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
 
 }

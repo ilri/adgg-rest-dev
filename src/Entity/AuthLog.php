@@ -87,5 +87,118 @@ class AuthLog
      */
     private $userid;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getDate(): ?int
+    {
+        return $this->date;
+    }
+
+    public function setDate(?int $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getCookiebased(): ?bool
+    {
+        return $this->cookiebased;
+    }
+
+    public function setCookiebased(?bool $cookiebased): self
+    {
+        $this->cookiebased = $cookiebased;
+
+        return $this;
+    }
+
+    public function getDuration(): ?int
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(?int $duration): self
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getError(): ?string
+    {
+        return $this->error;
+    }
+
+    public function setError(?string $error): self
+    {
+        $this->error = $error;
+
+        return $this;
+    }
+
+    public function getIp(): ?string
+    {
+        return $this->ip;
+    }
+
+    public function setIp(?string $ip): self
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
+
+    public function getHost(): ?string
+    {
+        return $this->host;
+    }
+
+    public function setHost(?string $host): self
+    {
+        $this->host = $host;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getUseragent(): ?string
+    {
+        return $this->useragent;
+    }
+
+    public function setUseragent(?string $useragent): self
+    {
+        $this->useragent = $useragent;
+
+        return $this;
+    }
+
+    public function getUserid(): ?AuthUsers
+    {
+        return $this->userid;
+    }
+
+    public function setUserid(?AuthUsers $userid): self
+    {
+        $this->userid = $userid;
+
+        return $this;
+    }
+
 
 }

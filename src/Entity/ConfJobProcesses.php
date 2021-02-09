@@ -49,5 +49,58 @@ class ConfJobProcesses
      */
     private $createdAt;
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getJobId(): ?string
+    {
+        return $this->jobId;
+    }
+
+    public function setJobId(string $jobId): self
+    {
+        $this->jobId = $jobId;
+
+        return $this;
+    }
+
+    public function getLastRunDatetime(): ?\DateTimeInterface
+    {
+        return $this->lastRunDatetime;
+    }
+
+    public function setLastRunDatetime(\DateTimeInterface $lastRunDatetime): self
+    {
+        $this->lastRunDatetime = $lastRunDatetime;
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
 
 }

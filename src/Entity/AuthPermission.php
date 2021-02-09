@@ -76,5 +76,94 @@ class AuthPermission
      */
     private $resource;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCanView(): ?bool
+    {
+        return $this->canView;
+    }
+
+    public function setCanView(bool $canView): self
+    {
+        $this->canView = $canView;
+
+        return $this;
+    }
+
+    public function getCanCreate(): ?bool
+    {
+        return $this->canCreate;
+    }
+
+    public function setCanCreate(bool $canCreate): self
+    {
+        $this->canCreate = $canCreate;
+
+        return $this;
+    }
+
+    public function getCanUpdate(): ?bool
+    {
+        return $this->canUpdate;
+    }
+
+    public function setCanUpdate(bool $canUpdate): self
+    {
+        $this->canUpdate = $canUpdate;
+
+        return $this;
+    }
+
+    public function getCanDelete(): ?bool
+    {
+        return $this->canDelete;
+    }
+
+    public function setCanDelete(bool $canDelete): self
+    {
+        $this->canDelete = $canDelete;
+
+        return $this;
+    }
+
+    public function getCanExecute(): ?bool
+    {
+        return $this->canExecute;
+    }
+
+    public function setCanExecute(bool $canExecute): self
+    {
+        $this->canExecute = $canExecute;
+
+        return $this;
+    }
+
+    public function getRole(): ?AuthRoles
+    {
+        return $this->role;
+    }
+
+    public function setRole(?AuthRoles $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getResource(): ?AuthResources
+    {
+        return $this->resource;
+    }
+
+    public function setResource(?AuthResources $resource): self
+    {
+        $this->resource = $resource;
+
+        return $this;
+    }
+
 
 }

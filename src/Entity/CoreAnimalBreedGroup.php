@@ -63,5 +63,82 @@ class CoreAnimalBreedGroup
      */
     private $createdBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getBreeds(): ?array
+    {
+        return $this->breeds;
+    }
+
+    public function setBreeds(array $breeds): self
+    {
+        $this->breeds = $breeds;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

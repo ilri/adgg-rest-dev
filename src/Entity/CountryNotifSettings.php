@@ -104,5 +104,142 @@ class CountryNotifSettings
      */
     private $notification;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getEnableInternalNotification(): ?bool
+    {
+        return $this->enableInternalNotification;
+    }
+
+    public function setEnableInternalNotification(bool $enableInternalNotification): self
+    {
+        $this->enableInternalNotification = $enableInternalNotification;
+
+        return $this;
+    }
+
+    public function getEnableEmailNotification(): ?bool
+    {
+        return $this->enableEmailNotification;
+    }
+
+    public function setEnableEmailNotification(bool $enableEmailNotification): self
+    {
+        $this->enableEmailNotification = $enableEmailNotification;
+
+        return $this;
+    }
+
+    public function getEnableSmsNotification(): ?bool
+    {
+        return $this->enableSmsNotification;
+    }
+
+    public function setEnableSmsNotification(bool $enableSmsNotification): self
+    {
+        $this->enableSmsNotification = $enableSmsNotification;
+
+        return $this;
+    }
+
+    public function getUsers(): ?string
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?string $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    public function getRoles(): ?string
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(?string $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getCountry(): ?CoreCountry
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?CoreCountry $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getNotification(): ?ConfNotifTypes
+    {
+        return $this->notification;
+    }
+
+    public function setNotification(?ConfNotifTypes $notification): self
+    {
+        $this->notification = $notification;
+
+        return $this;
+    }
+
 
 }

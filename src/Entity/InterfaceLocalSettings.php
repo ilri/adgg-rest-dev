@@ -98,5 +98,142 @@ class InterfaceLocalSettings
      */
     private $updatedAt;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getKey(): ?string
+    {
+        return $this->key;
+    }
+
+    public function setKey(?string $key): self
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    public function getValue(): ?string
+    {
+        return $this->value;
+    }
+
+    public function setValue(?string $value): self
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getOrgId(): ?int
+    {
+        return $this->orgId;
+    }
+
+    public function setOrgId(?int $orgId): self
+    {
+        $this->orgId = $orgId;
+
+        return $this;
+    }
+
+    public function getFarmId(): ?int
+    {
+        return $this->farmId;
+    }
+
+    public function setFarmId(?int $farmId): self
+    {
+        $this->farmId = $farmId;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
 
 }

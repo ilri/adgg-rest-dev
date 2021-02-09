@@ -77,5 +77,106 @@ class ConfJobs
      */
     private $endTime;
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getLastRun(): ?\DateTimeInterface
+    {
+        return $this->lastRun;
+    }
+
+    public function setLastRun(?\DateTimeInterface $lastRun): self
+    {
+        $this->lastRun = $lastRun;
+
+        return $this;
+    }
+
+    public function getExecutionType(): ?bool
+    {
+        return $this->executionType;
+    }
+
+    public function setExecutionType(bool $executionType): self
+    {
+        $this->executionType = $executionType;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getThreads(): ?int
+    {
+        return $this->threads;
+    }
+
+    public function setThreads(int $threads): self
+    {
+        $this->threads = $threads;
+
+        return $this;
+    }
+
+    public function getMaxThreads(): ?int
+    {
+        return $this->maxThreads;
+    }
+
+    public function setMaxThreads(int $maxThreads): self
+    {
+        $this->maxThreads = $maxThreads;
+
+        return $this;
+    }
+
+    public function getSleep(): ?int
+    {
+        return $this->sleep;
+    }
+
+    public function setSleep(int $sleep): self
+    {
+        $this->sleep = $sleep;
+
+        return $this;
+    }
+
+    public function getStartTime(): ?\DateTimeInterface
+    {
+        return $this->startTime;
+    }
+
+    public function setStartTime(?\DateTimeInterface $startTime): self
+    {
+        $this->startTime = $startTime;
+
+        return $this;
+    }
+
+    public function getEndTime(): ?\DateTimeInterface
+    {
+        return $this->endTime;
+    }
+
+    public function setEndTime(?\DateTimeInterface $endTime): self
+    {
+        $this->endTime = $endTime;
+
+        return $this;
+    }
+
 
 }

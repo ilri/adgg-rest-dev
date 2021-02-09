@@ -140,5 +140,214 @@ class CoreCountry
      */
     private $updatedBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getContactPerson(): ?string
+    {
+        return $this->contactPerson;
+    }
+
+    public function setContactPerson(?string $contactPerson): self
+    {
+        $this->contactPerson = $contactPerson;
+
+        return $this;
+    }
+
+    public function getContactPhone(): ?string
+    {
+        return $this->contactPhone;
+    }
+
+    public function setContactPhone(?string $contactPhone): self
+    {
+        $this->contactPhone = $contactPhone;
+
+        return $this;
+    }
+
+    public function getContactEmail(): ?string
+    {
+        return $this->contactEmail;
+    }
+
+    public function setContactEmail(?string $contactEmail): self
+    {
+        $this->contactEmail = $contactEmail;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getUnit1Name(): ?string
+    {
+        return $this->unit1Name;
+    }
+
+    public function setUnit1Name(string $unit1Name): self
+    {
+        $this->unit1Name = $unit1Name;
+
+        return $this;
+    }
+
+    public function getUnit2Name(): ?string
+    {
+        return $this->unit2Name;
+    }
+
+    public function setUnit2Name(string $unit2Name): self
+    {
+        $this->unit2Name = $unit2Name;
+
+        return $this;
+    }
+
+    public function getUnit3Name(): ?string
+    {
+        return $this->unit3Name;
+    }
+
+    public function setUnit3Name(string $unit3Name): self
+    {
+        $this->unit3Name = $unit3Name;
+
+        return $this;
+    }
+
+    public function getUnit4Name(): ?string
+    {
+        return $this->unit4Name;
+    }
+
+    public function setUnit4Name(string $unit4Name): self
+    {
+        $this->unit4Name = $unit4Name;
+
+        return $this;
+    }
+
+    public function getDialingCode(): ?string
+    {
+        return $this->dialingCode;
+    }
+
+    public function setDialingCode(?string $dialingCode): self
+    {
+        $this->dialingCode = $dialingCode;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
 
 }

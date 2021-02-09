@@ -105,5 +105,154 @@ class InterfaceBatchUploadDetails
      */
     private $testDayNo;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getMilkDate(): ?string
+    {
+        return $this->milkDate;
+    }
+
+    public function setMilkDate(?string $milkDate): self
+    {
+        $this->milkDate = $milkDate;
+
+        return $this;
+    }
+
+    public function getAnimalId(): ?string
+    {
+        return $this->animalId;
+    }
+
+    public function setAnimalId(?string $animalId): self
+    {
+        $this->animalId = $animalId;
+
+        return $this;
+    }
+
+    public function getAmountMorning(): ?string
+    {
+        return $this->amountMorning;
+    }
+
+    public function setAmountMorning(?string $amountMorning): self
+    {
+        $this->amountMorning = $amountMorning;
+
+        return $this;
+    }
+
+    public function getAmountNoon(): ?string
+    {
+        return $this->amountNoon;
+    }
+
+    public function setAmountNoon(?string $amountNoon): self
+    {
+        $this->amountNoon = $amountNoon;
+
+        return $this;
+    }
+
+    public function getAmountAfternoon(): ?string
+    {
+        return $this->amountAfternoon;
+    }
+
+    public function setAmountAfternoon(?string $amountAfternoon): self
+    {
+        $this->amountAfternoon = $amountAfternoon;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getNotes(): ?string
+    {
+        return $this->notes;
+    }
+
+    public function setNotes(?string $notes): self
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
+    public function getLactationId(): ?int
+    {
+        return $this->lactationId;
+    }
+
+    public function setLactationId(?int $lactationId): self
+    {
+        $this->lactationId = $lactationId;
+
+        return $this;
+    }
+
+    public function getLactationNumber(): ?int
+    {
+        return $this->lactationNumber;
+    }
+
+    public function setLactationNumber(?int $lactationNumber): self
+    {
+        $this->lactationNumber = $lactationNumber;
+
+        return $this;
+    }
+
+    public function getDaysInMilk(): ?int
+    {
+        return $this->daysInMilk;
+    }
+
+    public function setDaysInMilk(?int $daysInMilk): self
+    {
+        $this->daysInMilk = $daysInMilk;
+
+        return $this;
+    }
+
+    public function getTestDayNo(): ?int
+    {
+        return $this->testDayNo;
+    }
+
+    public function setTestDayNo(?int $testDayNo): self
+    {
+        $this->testDayNo = $testDayNo;
+
+        return $this;
+    }
+
 
 }

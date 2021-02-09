@@ -77,5 +77,106 @@ class InterfaceTempGraduationList
      */
     private $uuid;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAnimalId(): ?int
+    {
+        return $this->animalId;
+    }
+
+    public function setAnimalId(?int $animalId): self
+    {
+        $this->animalId = $animalId;
+
+        return $this;
+    }
+
+    public function getAnimalType(): ?int
+    {
+        return $this->animalType;
+    }
+
+    public function setAnimalType(?int $animalType): self
+    {
+        $this->animalType = $animalType;
+
+        return $this;
+    }
+
+    public function getAgeMonths(): ?int
+    {
+        return $this->ageMonths;
+    }
+
+    public function setAgeMonths(?int $ageMonths): self
+    {
+        $this->ageMonths = $ageMonths;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getGraduateFrom(): ?int
+    {
+        return $this->graduateFrom;
+    }
+
+    public function setGraduateFrom(?int $graduateFrom): self
+    {
+        $this->graduateFrom = $graduateFrom;
+
+        return $this;
+    }
+
+    public function getGraduateTo(): ?int
+    {
+        return $this->graduateTo;
+    }
+
+    public function setGraduateTo(?int $graduateTo): self
+    {
+        $this->graduateTo = $graduateTo;
+
+        return $this;
+    }
+
+    public function getGraduationProcessId(): ?int
+    {
+        return $this->graduationProcessId;
+    }
+
+    public function setGraduationProcessId(?int $graduationProcessId): self
+    {
+        $this->graduationProcessId = $graduationProcessId;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
 
 }

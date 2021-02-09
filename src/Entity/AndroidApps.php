@@ -70,5 +70,94 @@ class AndroidApps
      */
     private $createdBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getVersionCode(): ?string
+    {
+        return $this->versionCode;
+    }
+
+    public function setVersionCode(string $versionCode): self
+    {
+        $this->versionCode = $versionCode;
+
+        return $this;
+    }
+
+    public function getVersionName(): ?string
+    {
+        return $this->versionName;
+    }
+
+    public function setVersionName(string $versionName): self
+    {
+        $this->versionName = $versionName;
+
+        return $this;
+    }
+
+    public function getAppUrl(): ?string
+    {
+        return $this->appUrl;
+    }
+
+    public function setAppUrl(?string $appUrl): self
+    {
+        $this->appUrl = $appUrl;
+
+        return $this;
+    }
+
+    public function getApkFile(): ?string
+    {
+        return $this->apkFile;
+    }
+
+    public function setApkFile(?string $apkFile): self
+    {
+        $this->apkFile = $apkFile;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

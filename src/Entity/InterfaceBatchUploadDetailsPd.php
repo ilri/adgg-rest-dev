@@ -91,5 +91,130 @@ class InterfaceBatchUploadDetailsPd
      */
     private $notes;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getAnimalId(): ?string
+    {
+        return $this->animalId;
+    }
+
+    public function setAnimalId(?string $animalId): self
+    {
+        $this->animalId = $animalId;
+
+        return $this;
+    }
+
+    public function getExamDate(): ?string
+    {
+        return $this->examDate;
+    }
+
+    public function setExamDate(?string $examDate): self
+    {
+        $this->examDate = $examDate;
+
+        return $this;
+    }
+
+    public function getPdMethod(): ?string
+    {
+        return $this->pdMethod;
+    }
+
+    public function setPdMethod(?string $pdMethod): self
+    {
+        $this->pdMethod = $pdMethod;
+
+        return $this;
+    }
+
+    public function getPdResults(): ?string
+    {
+        return $this->pdResults;
+    }
+
+    public function setPdResults(?string $pdResults): self
+    {
+        $this->pdResults = $pdResults;
+
+        return $this;
+    }
+
+    public function getStage(): ?string
+    {
+        return $this->stage;
+    }
+
+    public function setStage(?string $stage): self
+    {
+        $this->stage = $stage;
+
+        return $this;
+    }
+
+    public function getBodyCondition(): ?string
+    {
+        return $this->bodyCondition;
+    }
+
+    public function setBodyCondition(?string $bodyCondition): self
+    {
+        $this->bodyCondition = $bodyCondition;
+
+        return $this;
+    }
+
+    public function getPdCost(): ?string
+    {
+        return $this->pdCost;
+    }
+
+    public function setPdCost(?string $pdCost): self
+    {
+        $this->pdCost = $pdCost;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getNotes(): ?string
+    {
+        return $this->notes;
+    }
+
+    public function setNotes(?string $notes): self
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
 
 }

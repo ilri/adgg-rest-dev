@@ -56,5 +56,70 @@ class CoreMasterCountry
      */
     private $currency;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getIso2(): ?string
+    {
+        return $this->iso2;
+    }
+
+    public function setIso2(string $iso2): self
+    {
+        $this->iso2 = $iso2;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getCallCode(): ?string
+    {
+        return $this->callCode;
+    }
+
+    public function setCallCode(?string $callCode): self
+    {
+        $this->callCode = $callCode;
+
+        return $this;
+    }
+
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
 
 }

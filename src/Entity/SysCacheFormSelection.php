@@ -56,5 +56,70 @@ class SysCacheFormSelection
      */
     private $timestamp = 'CURRENT_TIMESTAMP';
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getRoute(): ?string
+    {
+        return $this->route;
+    }
+
+    public function setRoute(string $route): self
+    {
+        $this->route = $route;
+
+        return $this;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getFormClass(): ?string
+    {
+        return $this->formClass;
+    }
+
+    public function setFormClass(string $formClass): self
+    {
+        $this->formClass = $formClass;
+
+        return $this;
+    }
+
+    public function getValue(): ?string
+    {
+        return $this->value;
+    }
+
+    public function setValue(?string $value): self
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    public function getTimestamp(): ?\DateTimeInterface
+    {
+        return $this->timestamp;
+    }
+
+    public function setTimestamp(\DateTimeInterface $timestamp): self
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
 
 }

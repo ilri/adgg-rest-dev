@@ -105,5 +105,154 @@ class InterfaceCalenderEvents
      */
     private $updatedBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getEventStartDatetime(): ?\DateTimeInterface
+    {
+        return $this->eventStartDatetime;
+    }
+
+    public function setEventStartDatetime(\DateTimeInterface $eventStartDatetime): self
+    {
+        $this->eventStartDatetime = $eventStartDatetime;
+
+        return $this;
+    }
+
+    public function getEventEndDatetime(): ?\DateTimeInterface
+    {
+        return $this->eventEndDatetime;
+    }
+
+    public function setEventEndDatetime(\DateTimeInterface $eventEndDatetime): self
+    {
+        $this->eventEndDatetime = $eventEndDatetime;
+
+        return $this;
+    }
+
+    public function getAllDay(): ?bool
+    {
+        return $this->allDay;
+    }
+
+    public function setAllDay(?bool $allDay): self
+    {
+        $this->allDay = $allDay;
+
+        return $this;
+    }
+
+    public function getOrgId(): ?int
+    {
+        return $this->orgId;
+    }
+
+    public function setOrgId(?int $orgId): self
+    {
+        $this->orgId = $orgId;
+
+        return $this;
+    }
+
+    public function getColor(): ?int
+    {
+        return $this->color;
+    }
+
+    public function setColor(?int $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
 
 }

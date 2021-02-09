@@ -28,5 +28,22 @@ class RecordDelete
      */
     private $odkcode;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getOdkcode(): ?string
+    {
+        return $this->odkcode;
+    }
+
+    public function setOdkcode(?string $odkcode): self
+    {
+        $this->odkcode = $odkcode;
+
+        return $this;
+    }
+
 
 }

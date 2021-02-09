@@ -35,5 +35,34 @@ class BirthdateUpdate
      */
     private $birthdate;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAnimalid(): ?int
+    {
+        return $this->animalid;
+    }
+
+    public function setAnimalid(?int $animalid): self
+    {
+        $this->animalid = $animalid;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
 
 }

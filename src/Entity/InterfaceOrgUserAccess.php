@@ -63,5 +63,82 @@ class InterfaceOrgUserAccess
      */
     private $updatedBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): ?string
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?string $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getOrgs(): ?string
+    {
+        return $this->orgs;
+    }
+
+    public function setOrgs(?string $orgs): self
+    {
+        $this->orgs = $orgs;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
 
 }

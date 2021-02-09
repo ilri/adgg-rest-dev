@@ -49,5 +49,58 @@ class AuthPasswordResetCodes
      */
     private $createdAt;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getResetCode(): ?int
+    {
+        return $this->resetCode;
+    }
+
+    public function setResetCode(int $resetCode): self
+    {
+        $this->resetCode = $resetCode;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?int
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(int $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
 
 }

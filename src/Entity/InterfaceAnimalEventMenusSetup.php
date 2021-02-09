@@ -119,5 +119,178 @@ class InterfaceAnimalEventMenusSetup
      */
     private $updatedAt;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAnimalType(): ?int
+    {
+        return $this->animalType;
+    }
+
+    public function setAnimalType(?int $animalType): self
+    {
+        $this->animalType = $animalType;
+
+        return $this;
+    }
+
+    public function getCalving(): ?bool
+    {
+        return $this->calving;
+    }
+
+    public function setCalving(?bool $calving): self
+    {
+        $this->calving = $calving;
+
+        return $this;
+    }
+
+    public function getMilking(): ?bool
+    {
+        return $this->milking;
+    }
+
+    public function setMilking(?bool $milking): self
+    {
+        $this->milking = $milking;
+
+        return $this;
+    }
+
+    public function getHealth(): ?bool
+    {
+        return $this->health;
+    }
+
+    public function setHealth(?bool $health): self
+    {
+        $this->health = $health;
+
+        return $this;
+    }
+
+    public function getBioData(): ?bool
+    {
+        return $this->bioData;
+    }
+
+    public function setBioData(?bool $bioData): self
+    {
+        $this->bioData = $bioData;
+
+        return $this;
+    }
+
+    public function getInsemination(): ?bool
+    {
+        return $this->insemination;
+    }
+
+    public function setInsemination(?bool $insemination): self
+    {
+        $this->insemination = $insemination;
+
+        return $this;
+    }
+
+    public function getSync(): ?bool
+    {
+        return $this->sync;
+    }
+
+    public function setSync(?bool $sync): self
+    {
+        $this->sync = $sync;
+
+        return $this;
+    }
+
+    public function getExit(): ?bool
+    {
+        return $this->exit;
+    }
+
+    public function setExit(?bool $exit): self
+    {
+        $this->exit = $exit;
+
+        return $this;
+    }
+
+    public function getWeight(): ?bool
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(?bool $weight): self
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    public function getPd(): ?bool
+    {
+        return $this->pd;
+    }
+
+    public function setPd(?bool $pd): self
+    {
+        $this->pd = $pd;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
 
 }

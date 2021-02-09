@@ -73,5 +73,94 @@ class CoreFarmMetadata
      */
     private $farm;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(int $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getAdditionalAttributes(): ?array
+    {
+        return $this->additionalAttributes;
+    }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): self
+    {
+        $this->additionalAttributes = $additionalAttributes;
+
+        return $this;
+    }
+
+    public function getCountryId(): ?int
+    {
+        return $this->countryId;
+    }
+
+    public function setCountryId(?int $countryId): self
+    {
+        $this->countryId = $countryId;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getOdkFormUuid(): ?string
+    {
+        return $this->odkFormUuid;
+    }
+
+    public function setOdkFormUuid(?string $odkFormUuid): self
+    {
+        $this->odkFormUuid = $odkFormUuid;
+
+        return $this;
+    }
+
+    public function getFarm(): ?CoreFarm
+    {
+        return $this->farm;
+    }
+
+    public function setFarm(?CoreFarm $farm): self
+    {
+        $this->farm = $farm;
+
+        return $this;
+    }
+
 
 }

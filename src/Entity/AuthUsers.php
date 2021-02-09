@@ -282,5 +282,442 @@ class AuthUsers
      */
     private $country;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getTimezone(): ?string
+    {
+        return $this->timezone;
+    }
+
+    public function setTimezone(?string $timezone): self
+    {
+        $this->timezone = $timezone;
+
+        return $this;
+    }
+
+    public function getPasswordHash(): ?string
+    {
+        return $this->passwordHash;
+    }
+
+    public function setPasswordHash(string $passwordHash): self
+    {
+        $this->passwordHash = $passwordHash;
+
+        return $this;
+    }
+
+    public function getPasswordResetToken(): ?string
+    {
+        return $this->passwordResetToken;
+    }
+
+    public function setPasswordResetToken(?string $passwordResetToken): self
+    {
+        $this->passwordResetToken = $passwordResetToken;
+
+        return $this;
+    }
+
+    public function getAuthKey(): ?string
+    {
+        return $this->authKey;
+    }
+
+    public function setAuthKey(?string $authKey): self
+    {
+        $this->authKey = $authKey;
+
+        return $this;
+    }
+
+    public function getAccountActivationToken(): ?string
+    {
+        return $this->accountActivationToken;
+    }
+
+    public function setAccountActivationToken(?string $accountActivationToken): self
+    {
+        $this->accountActivationToken = $accountActivationToken;
+
+        return $this;
+    }
+
+    public function getRegionId(): ?int
+    {
+        return $this->regionId;
+    }
+
+    public function setRegionId(?int $regionId): self
+    {
+        $this->regionId = $regionId;
+
+        return $this;
+    }
+
+    public function getDistrictId(): ?int
+    {
+        return $this->districtId;
+    }
+
+    public function setDistrictId(?int $districtId): self
+    {
+        $this->districtId = $districtId;
+
+        return $this;
+    }
+
+    public function getWardId(): ?int
+    {
+        return $this->wardId;
+    }
+
+    public function setWardId(?int $wardId): self
+    {
+        $this->wardId = $wardId;
+
+        return $this;
+    }
+
+    public function getVillageId(): ?int
+    {
+        return $this->villageId;
+    }
+
+    public function setVillageId(?int $villageId): self
+    {
+        $this->villageId = $villageId;
+
+        return $this;
+    }
+
+    public function getOrgId(): ?int
+    {
+        return $this->orgId;
+    }
+
+    public function setOrgId(?int $orgId): self
+    {
+        $this->orgId = $orgId;
+
+        return $this;
+    }
+
+    public function getClientId(): ?int
+    {
+        return $this->clientId;
+    }
+
+    public function setClientId(?int $clientId): self
+    {
+        $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getIsMainAccount(): ?bool
+    {
+        return $this->isMainAccount;
+    }
+
+    public function setIsMainAccount(bool $isMainAccount): self
+    {
+        $this->isMainAccount = $isMainAccount;
+
+        return $this;
+    }
+
+    public function getProfileImage(): ?string
+    {
+        return $this->profileImage;
+    }
+
+    public function setProfileImage(?string $profileImage): self
+    {
+        $this->profileImage = $profileImage;
+
+        return $this;
+    }
+
+    public function getRequirePasswordChange(): ?bool
+    {
+        return $this->requirePasswordChange;
+    }
+
+    public function setRequirePasswordChange(bool $requirePasswordChange): self
+    {
+        $this->requirePasswordChange = $requirePasswordChange;
+
+        return $this;
+    }
+
+    public function getAutoGeneratePassword(): ?bool
+    {
+        return $this->autoGeneratePassword;
+    }
+
+    public function setAutoGeneratePassword(bool $autoGeneratePassword): self
+    {
+        $this->autoGeneratePassword = $autoGeneratePassword;
+
+        return $this;
+    }
+
+    public function getBranchId(): ?int
+    {
+        return $this->branchId;
+    }
+
+    public function setBranchId(?int $branchId): self
+    {
+        $this->branchId = $branchId;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getIsDeleted(): ?bool
+    {
+        return $this->isDeleted;
+    }
+
+    public function setIsDeleted(?bool $isDeleted): self
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    public function getDeletedAt(): ?\DateTimeInterface
+    {
+        return $this->deletedAt;
+    }
+
+    public function setDeletedAt(?\DateTimeInterface $deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getDeletedBy(): ?int
+    {
+        return $this->deletedBy;
+    }
+
+    public function setDeletedBy(?int $deletedBy): self
+    {
+        $this->deletedBy = $deletedBy;
+
+        return $this;
+    }
+
+    public function getLastLogin(): ?\DateTimeInterface
+    {
+        return $this->lastLogin;
+    }
+
+    public function setLastLogin(?\DateTimeInterface $lastLogin): self
+    {
+        $this->lastLogin = $lastLogin;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getOdkCode(): ?string
+    {
+        return $this->odkCode;
+    }
+
+    public function setOdkCode(?string $odkCode): self
+    {
+        $this->odkCode = $odkCode;
+
+        return $this;
+    }
+
+    public function getAdditionalAttributes(): ?array
+    {
+        return $this->additionalAttributes;
+    }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): self
+    {
+        $this->additionalAttributes = $additionalAttributes;
+
+        return $this;
+    }
+
+    public function getOdkFormUuid(): ?string
+    {
+        return $this->odkFormUuid;
+    }
+
+    public function setOdkFormUuid(?string $odkFormUuid): self
+    {
+        $this->odkFormUuid = $odkFormUuid;
+
+        return $this;
+    }
+
+    public function getLevel(): ?AuthUserLevels
+    {
+        return $this->level;
+    }
+
+    public function setLevel(?AuthUserLevels $level): self
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    public function getRole(): ?AuthRoles
+    {
+        return $this->role;
+    }
+
+    public function setRole(?AuthRoles $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getCountry(): ?CoreCountry
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?CoreCountry $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
 
 }

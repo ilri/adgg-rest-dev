@@ -119,5 +119,178 @@ class HelpContent
      */
     private $isForAndroid = '0';
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getModuleId(): ?int
+    {
+        return $this->moduleId;
+    }
+
+    public function setModuleId(int $moduleId): self
+    {
+        $this->moduleId = $moduleId;
+
+        return $this;
+    }
+
+    public function getUserLevelId(): ?int
+    {
+        return $this->userLevelId;
+    }
+
+    public function setUserLevelId(?int $userLevelId): self
+    {
+        $this->userLevelId = $userLevelId;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getPermissions(): ?string
+    {
+        return $this->permissions;
+    }
+
+    public function setPermissions(string $permissions): self
+    {
+        $this->permissions = $permissions;
+
+        return $this;
+    }
+
+    public function getTags(): ?string
+    {
+        return $this->tags;
+    }
+
+    public function setTags(?string $tags): self
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    public function getSecondaryPermissions(): ?string
+    {
+        return $this->secondaryPermissions;
+    }
+
+    public function setSecondaryPermissions(?string $secondaryPermissions): self
+    {
+        $this->secondaryPermissions = $secondaryPermissions;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(?bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getIsForAndroid(): ?bool
+    {
+        return $this->isForAndroid;
+    }
+
+    public function setIsForAndroid(?bool $isForAndroid): self
+    {
+        $this->isForAndroid = $isForAndroid;
+
+        return $this;
+    }
+
 
 }

@@ -105,5 +105,154 @@ class ConfNumberingFormat
      */
     private $createdBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getNextNumber(): ?int
+    {
+        return $this->nextNumber;
+    }
+
+    public function setNextNumber(int $nextNumber): self
+    {
+        $this->nextNumber = $nextNumber;
+
+        return $this;
+    }
+
+    public function getMinDigits(): ?int
+    {
+        return $this->minDigits;
+    }
+
+    public function setMinDigits(int $minDigits): self
+    {
+        $this->minDigits = $minDigits;
+
+        return $this;
+    }
+
+    public function getPrefix(): ?string
+    {
+        return $this->prefix;
+    }
+
+    public function setPrefix(?string $prefix): self
+    {
+        $this->prefix = $prefix;
+
+        return $this;
+    }
+
+    public function getSuffix(): ?string
+    {
+        return $this->suffix;
+    }
+
+    public function setSuffix(?string $suffix): self
+    {
+        $this->suffix = $suffix;
+
+        return $this;
+    }
+
+    public function getPreview(): ?string
+    {
+        return $this->preview;
+    }
+
+    public function setPreview(?string $preview): self
+    {
+        $this->preview = $preview;
+
+        return $this;
+    }
+
+    public function getCountryId(): ?int
+    {
+        return $this->countryId;
+    }
+
+    public function setCountryId(?int $countryId): self
+    {
+        $this->countryId = $countryId;
+
+        return $this;
+    }
+
+    public function getIsPrivate(): ?bool
+    {
+        return $this->isPrivate;
+    }
+
+    public function setIsPrivate(bool $isPrivate): self
+    {
+        $this->isPrivate = $isPrivate;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

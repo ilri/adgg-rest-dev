@@ -35,5 +35,34 @@ class SexUpdate
      */
     private $sex;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAnimalid(): ?string
+    {
+        return $this->animalid;
+    }
+
+    public function setAnimalid(?string $animalid): self
+    {
+        $this->animalid = $animalid;
+
+        return $this;
+    }
+
+    public function getSex(): ?string
+    {
+        return $this->sex;
+    }
+
+    public function setSex(?string $sex): self
+    {
+        $this->sex = $sex;
+
+        return $this;
+    }
+
 
 }

@@ -63,5 +63,82 @@ class AuthResources
      */
     private $executable = '0';
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getViewable(): ?bool
+    {
+        return $this->viewable;
+    }
+
+    public function setViewable(bool $viewable): self
+    {
+        $this->viewable = $viewable;
+
+        return $this;
+    }
+
+    public function getCreatable(): ?bool
+    {
+        return $this->creatable;
+    }
+
+    public function setCreatable(bool $creatable): self
+    {
+        $this->creatable = $creatable;
+
+        return $this;
+    }
+
+    public function getEditable(): ?bool
+    {
+        return $this->editable;
+    }
+
+    public function setEditable(bool $editable): self
+    {
+        $this->editable = $editable;
+
+        return $this;
+    }
+
+    public function getDeletable(): ?bool
+    {
+        return $this->deletable;
+    }
+
+    public function setDeletable(bool $deletable): self
+    {
+        $this->deletable = $deletable;
+
+        return $this;
+    }
+
+    public function getExecutable(): ?bool
+    {
+        return $this->executable;
+    }
+
+    public function setExecutable(bool $executable): self
+    {
+        $this->executable = $executable;
+
+        return $this;
+    }
+
 
 }

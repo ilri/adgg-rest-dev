@@ -283,5 +283,454 @@ class CoreFarm
      */
     private $country;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getRegionId(): ?int
+    {
+        return $this->regionId;
+    }
+
+    public function setRegionId(?int $regionId): self
+    {
+        $this->regionId = $regionId;
+
+        return $this;
+    }
+
+    public function getDistrictId(): ?int
+    {
+        return $this->districtId;
+    }
+
+    public function setDistrictId(?int $districtId): self
+    {
+        $this->districtId = $districtId;
+
+        return $this;
+    }
+
+    public function getWardId(): ?int
+    {
+        return $this->wardId;
+    }
+
+    public function setWardId(?int $wardId): self
+    {
+        $this->wardId = $wardId;
+
+        return $this;
+    }
+
+    public function getVillageId(): ?int
+    {
+        return $this->villageId;
+    }
+
+    public function setVillageId(?int $villageId): self
+    {
+        $this->villageId = $villageId;
+
+        return $this;
+    }
+
+    public function getOrgId(): ?int
+    {
+        return $this->orgId;
+    }
+
+    public function setOrgId(?int $orgId): self
+    {
+        $this->orgId = $orgId;
+
+        return $this;
+    }
+
+    public function getClientId(): ?int
+    {
+        return $this->clientId;
+    }
+
+    public function setClientId(?int $clientId): self
+    {
+        $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getRegDate(): ?\DateTimeInterface
+    {
+        return $this->regDate;
+    }
+
+    public function setRegDate(?\DateTimeInterface $regDate): self
+    {
+        $this->regDate = $regDate;
+
+        return $this;
+    }
+
+    public function getFarmerName(): ?string
+    {
+        return $this->farmerName;
+    }
+
+    public function setFarmerName(?string $farmerName): self
+    {
+        $this->farmerName = $farmerName;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getFieldAgentId(): ?int
+    {
+        return $this->fieldAgentId;
+    }
+
+    public function setFieldAgentId(?int $fieldAgentId): self
+    {
+        $this->fieldAgentId = $fieldAgentId;
+
+        return $this;
+    }
+
+    public function getProject(): ?string
+    {
+        return $this->project;
+    }
+
+    public function setProject(?string $project): self
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    public function getFarmType(): ?string
+    {
+        return $this->farmType;
+    }
+
+    public function setFarmType(?string $farmType): self
+    {
+        $this->farmType = $farmType;
+
+        return $this;
+    }
+
+    public function getGenderCode(): ?string
+    {
+        return $this->genderCode;
+    }
+
+    public function setGenderCode(?string $genderCode): self
+    {
+        $this->genderCode = $genderCode;
+
+        return $this;
+    }
+
+    public function getFarmerIsHhHead(): ?bool
+    {
+        return $this->farmerIsHhHead;
+    }
+
+    public function setFarmerIsHhHead(bool $farmerIsHhHead): self
+    {
+        $this->farmerIsHhHead = $farmerIsHhHead;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?string
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?string $latitude): self
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?string
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?string $longitude): self
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getMapAddress(): ?string
+    {
+        return $this->mapAddress;
+    }
+
+    public function setMapAddress(?string $mapAddress): self
+    {
+        $this->mapAddress = $mapAddress;
+
+        return $this;
+    }
+
+    public function getLatlng(): ?string
+    {
+        return $this->latlng;
+    }
+
+    public function setLatlng(?string $latlng): self
+    {
+        $this->latlng = $latlng;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getOdkCode(): ?string
+    {
+        return $this->odkCode;
+    }
+
+    public function setOdkCode(?string $odkCode): self
+    {
+        $this->odkCode = $odkCode;
+
+        return $this;
+    }
+
+    public function getOdkFarmCode(): ?string
+    {
+        return $this->odkFarmCode;
+    }
+
+    public function setOdkFarmCode(?string $odkFarmCode): self
+    {
+        $this->odkFarmCode = $odkFarmCode;
+
+        return $this;
+    }
+
+    public function getAdditionalAttributes(): ?array
+    {
+        return $this->additionalAttributes;
+    }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): self
+    {
+        $this->additionalAttributes = $additionalAttributes;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getIsDeleted(): ?bool
+    {
+        return $this->isDeleted;
+    }
+
+    public function setIsDeleted(bool $isDeleted): self
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    public function getDeletedAt(): ?\DateTimeInterface
+    {
+        return $this->deletedAt;
+    }
+
+    public function setDeletedAt(?\DateTimeInterface $deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getDeletedBy(): ?int
+    {
+        return $this->deletedBy;
+    }
+
+    public function setDeletedBy(?int $deletedBy): self
+    {
+        $this->deletedBy = $deletedBy;
+
+        return $this;
+    }
+
+    public function getMigrationId(): ?string
+    {
+        return $this->migrationId;
+    }
+
+    public function setMigrationId(?string $migrationId): self
+    {
+        $this->migrationId = $migrationId;
+
+        return $this;
+    }
+
+    public function getOdkFormUuid(): ?string
+    {
+        return $this->odkFormUuid;
+    }
+
+    public function setOdkFormUuid(?string $odkFormUuid): self
+    {
+        $this->odkFormUuid = $odkFormUuid;
+
+        return $this;
+    }
+
+    public function getUniqueIdOdk(): ?string
+    {
+        return $this->uniqueIdOdk;
+    }
+
+    public function setUniqueIdOdk(?string $uniqueIdOdk): self
+    {
+        $this->uniqueIdOdk = $uniqueIdOdk;
+
+        return $this;
+    }
+
+    public function getCountry(): ?CoreCountry
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?CoreCountry $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
 
 }

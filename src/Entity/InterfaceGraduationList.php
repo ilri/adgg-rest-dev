@@ -98,5 +98,142 @@ class InterfaceGraduationList
      */
     private $updatedBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAnimalId(): ?int
+    {
+        return $this->animalId;
+    }
+
+    public function setAnimalId(?int $animalId): self
+    {
+        $this->animalId = $animalId;
+
+        return $this;
+    }
+
+    public function getGraduateFrom(): ?int
+    {
+        return $this->graduateFrom;
+    }
+
+    public function setGraduateFrom(?int $graduateFrom): self
+    {
+        $this->graduateFrom = $graduateFrom;
+
+        return $this;
+    }
+
+    public function getGraduateTo(): ?int
+    {
+        return $this->graduateTo;
+    }
+
+    public function setGraduateTo(?int $graduateTo): self
+    {
+        $this->graduateTo = $graduateTo;
+
+        return $this;
+    }
+
+    public function getStatusId(): ?bool
+    {
+        return $this->statusId;
+    }
+
+    public function setStatusId(?bool $statusId): self
+    {
+        $this->statusId = $statusId;
+
+        return $this;
+    }
+
+    public function getGraduationProcessId(): ?int
+    {
+        return $this->graduationProcessId;
+    }
+
+    public function setGraduationProcessId(?int $graduationProcessId): self
+    {
+        $this->graduationProcessId = $graduationProcessId;
+
+        return $this;
+    }
+
+    public function getAction(): ?string
+    {
+        return $this->action;
+    }
+
+    public function setAction(?string $action): self
+    {
+        $this->action = $action;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
 
 }

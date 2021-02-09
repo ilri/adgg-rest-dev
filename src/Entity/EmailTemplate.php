@@ -70,5 +70,94 @@ class EmailTemplate
      */
     private $createdBy;
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(string $subject): self
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    public function getBody(): ?string
+    {
+        return $this->body;
+    }
+
+    public function setBody(string $body): self
+    {
+        $this->body = $body;
+
+        return $this;
+    }
+
+    public function getSender(): ?string
+    {
+        return $this->sender;
+    }
+
+    public function setSender(string $sender): self
+    {
+        $this->sender = $sender;
+
+        return $this;
+    }
+
+    public function getComments(): ?string
+    {
+        return $this->comments;
+    }
+
+    public function setComments(?string $comments): self
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

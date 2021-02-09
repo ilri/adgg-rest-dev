@@ -119,5 +119,178 @@ class CoreExcelImport
      */
     private $createdBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getCountryId(): ?int
+    {
+        return $this->countryId;
+    }
+
+    public function setCountryId(?int $countryId): self
+    {
+        $this->countryId = $countryId;
+
+        return $this;
+    }
+
+    public function getType(): ?bool
+    {
+        return $this->type;
+    }
+
+    public function setType(bool $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getIsProcessed(): ?bool
+    {
+        return $this->isProcessed;
+    }
+
+    public function setIsProcessed(bool $isProcessed): self
+    {
+        $this->isProcessed = $isProcessed;
+
+        return $this;
+    }
+
+    public function getProcessedAt(): ?\DateTimeInterface
+    {
+        return $this->processedAt;
+    }
+
+    public function setProcessedAt(?\DateTimeInterface $processedAt): self
+    {
+        $this->processedAt = $processedAt;
+
+        return $this;
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->fileName;
+    }
+
+    public function setFileName(string $fileName): self
+    {
+        $this->fileName = $fileName;
+
+        return $this;
+    }
+
+    public function getHasErrors(): ?bool
+    {
+        return $this->hasErrors;
+    }
+
+    public function setHasErrors(bool $hasErrors): self
+    {
+        $this->hasErrors = $hasErrors;
+
+        return $this;
+    }
+
+    public function getErrorMessage(): ?array
+    {
+        return $this->errorMessage;
+    }
+
+    public function setErrorMessage(?array $errorMessage): self
+    {
+        $this->errorMessage = $errorMessage;
+
+        return $this;
+    }
+
+    public function getSuccessMessage(): ?array
+    {
+        return $this->successMessage;
+    }
+
+    public function setSuccessMessage(?array $successMessage): self
+    {
+        $this->successMessage = $successMessage;
+
+        return $this;
+    }
+
+    public function getProcessingDurationSeconds(): ?string
+    {
+        return $this->processingDurationSeconds;
+    }
+
+    public function setProcessingDurationSeconds(?string $processingDurationSeconds): self
+    {
+        $this->processingDurationSeconds = $processingDurationSeconds;
+
+        return $this;
+    }
+
+    public function getCurrentProcessedRow(): ?int
+    {
+        return $this->currentProcessedRow;
+    }
+
+    public function setCurrentProcessedRow(?int $currentProcessedRow): self
+    {
+        $this->currentProcessedRow = $currentProcessedRow;
+
+        return $this;
+    }
+
+    public function getErrorCsv(): ?string
+    {
+        return $this->errorCsv;
+    }
+
+    public function setErrorCsv(?string $errorCsv): self
+    {
+        $this->errorCsv = $errorCsv;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

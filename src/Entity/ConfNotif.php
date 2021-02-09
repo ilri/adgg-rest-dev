@@ -66,5 +66,82 @@ class ConfNotif
      */
     private $notifType;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getItemId(): ?int
+    {
+        return $this->itemId;
+    }
+
+    public function setItemId(int $itemId): self
+    {
+        $this->itemId = $itemId;
+
+        return $this;
+    }
+
+    public function getIsRead(): ?bool
+    {
+        return $this->isRead;
+    }
+
+    public function setIsRead(bool $isRead): self
+    {
+        $this->isRead = $isRead;
+
+        return $this;
+    }
+
+    public function getIsSeen(): ?bool
+    {
+        return $this->isSeen;
+    }
+
+    public function setIsSeen(bool $isSeen): self
+    {
+        $this->isSeen = $isSeen;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getNotifType(): ?ConfNotifTypes
+    {
+        return $this->notifType;
+    }
+
+    public function setNotifType(?ConfNotifTypes $notifType): self
+    {
+        $this->notifType = $notifType;
+
+        return $this;
+    }
+
 
 }

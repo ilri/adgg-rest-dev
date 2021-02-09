@@ -133,5 +133,202 @@ class InterfaceBatchUploadDetailsExit
      */
     private $notes;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getAnimalId(): ?string
+    {
+        return $this->animalId;
+    }
+
+    public function setAnimalId(?string $animalId): self
+    {
+        $this->animalId = $animalId;
+
+        return $this;
+    }
+
+    public function getExitDate(): ?string
+    {
+        return $this->exitDate;
+    }
+
+    public function setExitDate(?string $exitDate): self
+    {
+        $this->exitDate = $exitDate;
+
+        return $this;
+    }
+
+    public function getDisposalReason(): ?string
+    {
+        return $this->disposalReason;
+    }
+
+    public function setDisposalReason(?string $disposalReason): self
+    {
+        $this->disposalReason = $disposalReason;
+
+        return $this;
+    }
+
+    public function getDisposalAmount(): ?string
+    {
+        return $this->disposalAmount;
+    }
+
+    public function setDisposalAmount(?string $disposalAmount): self
+    {
+        $this->disposalAmount = $disposalAmount;
+
+        return $this;
+    }
+
+    public function getNewFarmerName(): ?string
+    {
+        return $this->newFarmerName;
+    }
+
+    public function setNewFarmerName(?string $newFarmerName): self
+    {
+        $this->newFarmerName = $newFarmerName;
+
+        return $this;
+    }
+
+    public function getNewFarmerPhoneNumber(): ?string
+    {
+        return $this->newFarmerPhoneNumber;
+    }
+
+    public function setNewFarmerPhoneNumber(?string $newFarmerPhoneNumber): self
+    {
+        $this->newFarmerPhoneNumber = $newFarmerPhoneNumber;
+
+        return $this;
+    }
+
+    public function getNewBreederName(): ?string
+    {
+        return $this->newBreederName;
+    }
+
+    public function setNewBreederName(?string $newBreederName): self
+    {
+        $this->newBreederName = $newBreederName;
+
+        return $this;
+    }
+
+    public function getNewBreederPhoneNumber(): ?string
+    {
+        return $this->newBreederPhoneNumber;
+    }
+
+    public function setNewBreederPhoneNumber(?string $newBreederPhoneNumber): self
+    {
+        $this->newBreederPhoneNumber = $newBreederPhoneNumber;
+
+        return $this;
+    }
+
+    public function getNewCountry(): ?string
+    {
+        return $this->newCountry;
+    }
+
+    public function setNewCountry(?string $newCountry): self
+    {
+        $this->newCountry = $newCountry;
+
+        return $this;
+    }
+
+    public function getNewRegion(): ?string
+    {
+        return $this->newRegion;
+    }
+
+    public function setNewRegion(?string $newRegion): self
+    {
+        $this->newRegion = $newRegion;
+
+        return $this;
+    }
+
+    public function getNewDistrict(): ?string
+    {
+        return $this->newDistrict;
+    }
+
+    public function setNewDistrict(?string $newDistrict): self
+    {
+        $this->newDistrict = $newDistrict;
+
+        return $this;
+    }
+
+    public function getNewWard(): ?string
+    {
+        return $this->newWard;
+    }
+
+    public function setNewWard(?string $newWard): self
+    {
+        $this->newWard = $newWard;
+
+        return $this;
+    }
+
+    public function getNewVillage(): ?string
+    {
+        return $this->newVillage;
+    }
+
+    public function setNewVillage(?string $newVillage): self
+    {
+        $this->newVillage = $newVillage;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getNotes(): ?string
+    {
+        return $this->notes;
+    }
+
+    public function setNotes(?string $notes): self
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
 
 }

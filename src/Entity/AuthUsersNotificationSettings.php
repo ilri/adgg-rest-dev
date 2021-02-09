@@ -90,5 +90,118 @@ class AuthUsersNotificationSettings
      */
     private $notification;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getEnableInternalNotification(): ?bool
+    {
+        return $this->enableInternalNotification;
+    }
+
+    public function setEnableInternalNotification(bool $enableInternalNotification): self
+    {
+        $this->enableInternalNotification = $enableInternalNotification;
+
+        return $this;
+    }
+
+    public function getEnableEmailNotification(): ?bool
+    {
+        return $this->enableEmailNotification;
+    }
+
+    public function setEnableEmailNotification(bool $enableEmailNotification): self
+    {
+        $this->enableEmailNotification = $enableEmailNotification;
+
+        return $this;
+    }
+
+    public function getEnableSmsNotification(): ?bool
+    {
+        return $this->enableSmsNotification;
+    }
+
+    public function setEnableSmsNotification(bool $enableSmsNotification): self
+    {
+        $this->enableSmsNotification = $enableSmsNotification;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getUser(): ?AuthUsers
+    {
+        return $this->user;
+    }
+
+    public function setUser(?AuthUsers $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getNotification(): ?ConfNotifTypes
+    {
+        return $this->notification;
+    }
+
+    public function setNotification(?ConfNotifTypes $notification): self
+    {
+        $this->notification = $notification;
+
+        return $this;
+    }
+
 
 }

@@ -70,5 +70,94 @@ class ConfNotifQueue
      */
     private $updatedAt;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getNotifTypeId(): ?string
+    {
+        return $this->notifTypeId;
+    }
+
+    public function setNotifTypeId(string $notifTypeId): self
+    {
+        $this->notifTypeId = $notifTypeId;
+
+        return $this;
+    }
+
+    public function getItemId(): ?string
+    {
+        return $this->itemId;
+    }
+
+    public function setItemId(string $itemId): self
+    {
+        $this->itemId = $itemId;
+
+        return $this;
+    }
+
+    public function getMaxNotifications(): ?int
+    {
+        return $this->maxNotifications;
+    }
+
+    public function setMaxNotifications(int $maxNotifications): self
+    {
+        $this->maxNotifications = $maxNotifications;
+
+        return $this;
+    }
+
+    public function getNotificationsCount(): ?int
+    {
+        return $this->notificationsCount;
+    }
+
+    public function setNotificationsCount(int $notificationsCount): self
+    {
+        $this->notificationsCount = $notificationsCount;
+
+        return $this;
+    }
+
+    public function getNotificationTime(): ?\DateTimeInterface
+    {
+        return $this->notificationTime;
+    }
+
+    public function setNotificationTime(?\DateTimeInterface $notificationTime): self
+    {
+        $this->notificationTime = $notificationTime;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
 
 }

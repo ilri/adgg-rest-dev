@@ -42,5 +42,46 @@ class AnimalAgenidFarmid
      */
     private $agentid;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getFarmid(): ?string
+    {
+        return $this->farmid;
+    }
+
+    public function setFarmid(?string $farmid): self
+    {
+        $this->farmid = $farmid;
+
+        return $this;
+    }
+
+    public function getAnimalid(): ?string
+    {
+        return $this->animalid;
+    }
+
+    public function setAnimalid(?string $animalid): self
+    {
+        $this->animalid = $animalid;
+
+        return $this;
+    }
+
+    public function getAgentid(): ?string
+    {
+        return $this->agentid;
+    }
+
+    public function setAgentid(?string $agentid): self
+    {
+        $this->agentid = $agentid;
+
+        return $this;
+    }
+
 
 }

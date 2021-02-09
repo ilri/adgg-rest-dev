@@ -49,5 +49,58 @@ class AuthUserLevels
      */
     private $isActive = true;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getForbiddenItems(): ?string
+    {
+        return $this->forbiddenItems;
+    }
+
+    public function setForbiddenItems(?string $forbiddenItems): self
+    {
+        $this->forbiddenItems = $forbiddenItems;
+
+        return $this;
+    }
+
+    public function getParentId(): ?int
+    {
+        return $this->parentId;
+    }
+
+    public function setParentId(?int $parentId): self
+    {
+        $this->parentId = $parentId;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
 
 }

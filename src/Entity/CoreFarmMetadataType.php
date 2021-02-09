@@ -77,5 +77,106 @@ class CoreFarmMetadataType
      */
     private $createdBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCode(): ?int
+    {
+        return $this->code;
+    }
+
+    public function setCode(int $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getFarmerHasMultiple(): ?bool
+    {
+        return $this->farmerHasMultiple;
+    }
+
+    public function setFarmerHasMultiple(bool $farmerHasMultiple): self
+    {
+        $this->farmerHasMultiple = $farmerHasMultiple;
+
+        return $this;
+    }
+
+    public function getParentId(): ?int
+    {
+        return $this->parentId;
+    }
+
+    public function setParentId(?int $parentId): self
+    {
+        $this->parentId = $parentId;
+
+        return $this;
+    }
+
+    public function getModelClassName(): ?string
+    {
+        return $this->modelClassName;
+    }
+
+    public function setModelClassName(string $modelClassName): self
+    {
+        $this->modelClassName = $modelClassName;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

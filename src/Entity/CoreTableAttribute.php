@@ -129,5 +129,190 @@ class CoreTableAttribute
      */
     private $listType;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAttributeKey(): ?string
+    {
+        return $this->attributeKey;
+    }
+
+    public function setAttributeKey(string $attributeKey): self
+    {
+        $this->attributeKey = $attributeKey;
+
+        return $this;
+    }
+
+    public function getAttributeLabel(): ?string
+    {
+        return $this->attributeLabel;
+    }
+
+    public function setAttributeLabel(string $attributeLabel): self
+    {
+        $this->attributeLabel = $attributeLabel;
+
+        return $this;
+    }
+
+    public function getTableId(): ?int
+    {
+        return $this->tableId;
+    }
+
+    public function setTableId(int $tableId): self
+    {
+        $this->tableId = $tableId;
+
+        return $this;
+    }
+
+    public function getGroupId(): ?int
+    {
+        return $this->groupId;
+    }
+
+    public function setGroupId(?int $groupId): self
+    {
+        $this->groupId = $groupId;
+
+        return $this;
+    }
+
+    public function getInputType(): ?int
+    {
+        return $this->inputType;
+    }
+
+    public function setInputType(int $inputType): self
+    {
+        $this->inputType = $inputType;
+
+        return $this;
+    }
+
+    public function getDefaultValue(): ?string
+    {
+        return $this->defaultValue;
+    }
+
+    public function setDefaultValue(?string $defaultValue): self
+    {
+        $this->defaultValue = $defaultValue;
+
+        return $this;
+    }
+
+    public function getEventType(): ?bool
+    {
+        return $this->eventType;
+    }
+
+    public function setEventType(?bool $eventType): self
+    {
+        $this->eventType = $eventType;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getIsAlias(): ?bool
+    {
+        return $this->isAlias;
+    }
+
+    public function setIsAlias(bool $isAlias): self
+    {
+        $this->isAlias = $isAlias;
+
+        return $this;
+    }
+
+    public function getAliasTo(): ?string
+    {
+        return $this->aliasTo;
+    }
+
+    public function setAliasTo(?string $aliasTo): self
+    {
+        $this->aliasTo = $aliasTo;
+
+        return $this;
+    }
+
+    public function getFarmMetadataType(): ?int
+    {
+        return $this->farmMetadataType;
+    }
+
+    public function setFarmMetadataType(?int $farmMetadataType): self
+    {
+        $this->farmMetadataType = $farmMetadataType;
+
+        return $this;
+    }
+
+    public function getOdkAttributeName(): ?string
+    {
+        return $this->odkAttributeName;
+    }
+
+    public function setOdkAttributeName(?string $odkAttributeName): self
+    {
+        $this->odkAttributeName = $odkAttributeName;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getListType(): ?CoreMasterListType
+    {
+        return $this->listType;
+    }
+
+    public function setListType(?CoreMasterListType $listType): self
+    {
+        $this->listType = $listType;
+
+        return $this;
+    }
+
 
 }

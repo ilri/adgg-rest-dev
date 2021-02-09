@@ -35,5 +35,34 @@ class AgentIdUpdateFarmers
      */
     private $agentId;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getFarmernameFarmermobile(): ?string
+    {
+        return $this->farmernameFarmermobile;
+    }
+
+    public function setFarmernameFarmermobile(?string $farmernameFarmermobile): self
+    {
+        $this->farmernameFarmermobile = $farmernameFarmermobile;
+
+        return $this;
+    }
+
+    public function getAgentId(): ?int
+    {
+        return $this->agentId;
+    }
+
+    public function setAgentId(?int $agentId): self
+    {
+        $this->agentId = $agentId;
+
+        return $this;
+    }
+
 
 }

@@ -87,5 +87,118 @@ class AuthAuditTrail
      */
     private $user;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAction(): ?bool
+    {
+        return $this->action;
+    }
+
+    public function setAction(bool $action): self
+    {
+        $this->action = $action;
+
+        return $this;
+    }
+
+    public function getActionDescription(): ?string
+    {
+        return $this->actionDescription;
+    }
+
+    public function setActionDescription(string $actionDescription): self
+    {
+        $this->actionDescription = $actionDescription;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getIpAddress(): ?string
+    {
+        return $this->ipAddress;
+    }
+
+    public function setIpAddress(?string $ipAddress): self
+    {
+        $this->ipAddress = $ipAddress;
+
+        return $this;
+    }
+
+    public function getUserAgent(): ?string
+    {
+        return $this->userAgent;
+    }
+
+    public function setUserAgent(?string $userAgent): self
+    {
+        $this->userAgent = $userAgent;
+
+        return $this;
+    }
+
+    public function getCountryId(): ?int
+    {
+        return $this->countryId;
+    }
+
+    public function setCountryId(?int $countryId): self
+    {
+        $this->countryId = $countryId;
+
+        return $this;
+    }
+
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    public function setDetails(?string $details): self
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUser(): ?AuthUsers
+    {
+        return $this->user;
+    }
+
+    public function setUser(?AuthUsers $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
 
 }

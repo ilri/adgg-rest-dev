@@ -28,5 +28,22 @@ class Migration
      */
     private $applyTime;
 
+    public function getVersion(): ?string
+    {
+        return $this->version;
+    }
+
+    public function getApplyTime(): ?int
+    {
+        return $this->applyTime;
+    }
+
+    public function setApplyTime(?int $applyTime): self
+    {
+        $this->applyTime = $applyTime;
+
+        return $this;
+    }
+
 
 }

@@ -80,5 +80,106 @@ class AuthRoles
      */
     private $level;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getReadonly(): ?bool
+    {
+        return $this->readonly;
+    }
+
+    public function setReadonly(bool $readonly): self
+    {
+        $this->readonly = $readonly;
+
+        return $this;
+    }
+
+    public function getIsFieldAgent(): ?bool
+    {
+        return $this->isFieldAgent;
+    }
+
+    public function setIsFieldAgent(bool $isFieldAgent): self
+    {
+        $this->isFieldAgent = $isFieldAgent;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getLevel(): ?AuthUserLevels
+    {
+        return $this->level;
+    }
+
+    public function setLevel(?AuthUserLevels $level): self
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
 
 }

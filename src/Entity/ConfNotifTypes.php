@@ -175,5 +175,274 @@ class ConfNotifTypes
      */
     private $createdBy;
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    public function getEmailTemplateId(): ?string
+    {
+        return $this->emailTemplateId;
+    }
+
+    public function setEmailTemplateId(?string $emailTemplateId): self
+    {
+        $this->emailTemplateId = $emailTemplateId;
+
+        return $this;
+    }
+
+    public function getSmsTemplateId(): ?string
+    {
+        return $this->smsTemplateId;
+    }
+
+    public function setSmsTemplateId(?string $smsTemplateId): self
+    {
+        $this->smsTemplateId = $smsTemplateId;
+
+        return $this;
+    }
+
+    public function getEnableInternalNotification(): ?bool
+    {
+        return $this->enableInternalNotification;
+    }
+
+    public function setEnableInternalNotification(bool $enableInternalNotification): self
+    {
+        $this->enableInternalNotification = $enableInternalNotification;
+
+        return $this;
+    }
+
+    public function getEnableEmailNotification(): ?bool
+    {
+        return $this->enableEmailNotification;
+    }
+
+    public function setEnableEmailNotification(bool $enableEmailNotification): self
+    {
+        $this->enableEmailNotification = $enableEmailNotification;
+
+        return $this;
+    }
+
+    public function getEnableSmsNotification(): ?bool
+    {
+        return $this->enableSmsNotification;
+    }
+
+    public function setEnableSmsNotification(?bool $enableSmsNotification): self
+    {
+        $this->enableSmsNotification = $enableSmsNotification;
+
+        return $this;
+    }
+
+    public function getNotifyAllUsers(): ?bool
+    {
+        return $this->notifyAllUsers;
+    }
+
+    public function setNotifyAllUsers(bool $notifyAllUsers): self
+    {
+        $this->notifyAllUsers = $notifyAllUsers;
+
+        return $this;
+    }
+
+    public function getNotifyDaysBefore(): ?int
+    {
+        return $this->notifyDaysBefore;
+    }
+
+    public function setNotifyDaysBefore(?int $notifyDaysBefore): self
+    {
+        $this->notifyDaysBefore = $notifyDaysBefore;
+
+        return $this;
+    }
+
+    public function getModelClassName(): ?string
+    {
+        return $this->modelClassName;
+    }
+
+    public function setModelClassName(string $modelClassName): self
+    {
+        $this->modelClassName = $modelClassName;
+
+        return $this;
+    }
+
+    public function getFaIconClass(): ?string
+    {
+        return $this->faIconClass;
+    }
+
+    public function setFaIconClass(string $faIconClass): self
+    {
+        $this->faIconClass = $faIconClass;
+
+        return $this;
+    }
+
+    public function getNotificationTrigger(): ?bool
+    {
+        return $this->notificationTrigger;
+    }
+
+    public function setNotificationTrigger(bool $notificationTrigger): self
+    {
+        $this->notificationTrigger = $notificationTrigger;
+
+        return $this;
+    }
+
+    public function getMaxNotifications(): ?int
+    {
+        return $this->maxNotifications;
+    }
+
+    public function setMaxNotifications(int $maxNotifications): self
+    {
+        $this->maxNotifications = $maxNotifications;
+
+        return $this;
+    }
+
+    public function getNotificationTime(): ?\DateTimeInterface
+    {
+        return $this->notificationTime;
+    }
+
+    public function setNotificationTime(?\DateTimeInterface $notificationTime): self
+    {
+        $this->notificationTime = $notificationTime;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getUsers(): ?string
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?string $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    public function getRoles(): ?string
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(?string $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

@@ -35,5 +35,34 @@ class AgentIdAnimalUpdate
      */
     private $agentIdAnimal;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAnimaid(): ?string
+    {
+        return $this->animaid;
+    }
+
+    public function setAnimaid(?string $animaid): self
+    {
+        $this->animaid = $animaid;
+
+        return $this;
+    }
+
+    public function getAgentIdAnimal(): ?string
+    {
+        return $this->agentIdAnimal;
+    }
+
+    public function setAgentIdAnimal(?string $agentIdAnimal): self
+    {
+        $this->agentIdAnimal = $agentIdAnimal;
+
+        return $this;
+    }
+
 
 }

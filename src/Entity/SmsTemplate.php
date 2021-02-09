@@ -63,5 +63,82 @@ class SmsTemplate
      */
     private $createdBy;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    public function getAvailablePlaceholders(): ?string
+    {
+        return $this->availablePlaceholders;
+    }
+
+    public function setAvailablePlaceholders(?string $availablePlaceholders): self
+    {
+        $this->availablePlaceholders = $availablePlaceholders;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
 
 }

@@ -35,5 +35,34 @@ class SysAppSession
      */
     private $data;
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getExpire(): ?int
+    {
+        return $this->expire;
+    }
+
+    public function setExpire(int $expire): self
+    {
+        $this->expire = $expire;
+
+        return $this;
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    public function setData($data): self
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
 
 }

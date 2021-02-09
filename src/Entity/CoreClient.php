@@ -94,5 +94,130 @@ class CoreClient
      */
     private $country;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getOrgId(): ?int
+    {
+        return $this->orgId;
+    }
+
+    public function setOrgId(?int $orgId): self
+    {
+        $this->orgId = $orgId;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getAdditionalAttributes(): ?array
+    {
+        return $this->additionalAttributes;
+    }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): self
+    {
+        $this->additionalAttributes = $additionalAttributes;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getMigrationId(): ?string
+    {
+        return $this->migrationId;
+    }
+
+    public function setMigrationId(?string $migrationId): self
+    {
+        $this->migrationId = $migrationId;
+
+        return $this;
+    }
+
+    public function getOdkFormUuid(): ?string
+    {
+        return $this->odkFormUuid;
+    }
+
+    public function setOdkFormUuid(?string $odkFormUuid): self
+    {
+        $this->odkFormUuid = $odkFormUuid;
+
+        return $this;
+    }
+
+    public function getCountry(): ?CoreCountry
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?CoreCountry $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
 
 }

@@ -122,5 +122,178 @@ class CountryUnits
      */
     private $country;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getLevel(): ?bool
+    {
+        return $this->level;
+    }
+
+    public function setLevel(bool $level): self
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    public function getParentId(): ?int
+    {
+        return $this->parentId;
+    }
+
+    public function setParentId(?int $parentId): self
+    {
+        $this->parentId = $parentId;
+
+        return $this;
+    }
+
+    public function getContactName(): ?string
+    {
+        return $this->contactName;
+    }
+
+    public function setContactName(?string $contactName): self
+    {
+        $this->contactName = $contactName;
+
+        return $this;
+    }
+
+    public function getContactPhone(): ?string
+    {
+        return $this->contactPhone;
+    }
+
+    public function setContactPhone(?string $contactPhone): self
+    {
+        $this->contactPhone = $contactPhone;
+
+        return $this;
+    }
+
+    public function getContactEmail(): ?string
+    {
+        return $this->contactEmail;
+    }
+
+    public function setContactEmail(?string $contactEmail): self
+    {
+        $this->contactEmail = $contactEmail;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(string $uuid): self
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?int
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(?int $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getCountry(): ?CoreCountry
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?CoreCountry $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
 
 }

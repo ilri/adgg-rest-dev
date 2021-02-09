@@ -157,7 +157,7 @@ class CoreAnimalEvent
     private $testdayNo;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
      */

@@ -31,14 +31,14 @@ class InterfaceBatchUploads
     private $batchType;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="row_attributes", type="json", nullable=true)
      */
     private $rowAttributes;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="column_attributes", type="json", nullable=true)
      */

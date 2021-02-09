@@ -1,9 +1,8 @@
 <?php
 
-/**
- * @ApiResource()
+namespace App\Entity;
 
-
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -74,14 +73,14 @@ class CoreExcelImport
     private $hasErrors = '0';
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="error_message", type="json", nullable=true)
      */
     private $errorMessage;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="success_message", type="json", nullable=true)
      */

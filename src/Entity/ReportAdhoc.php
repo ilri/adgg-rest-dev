@@ -94,7 +94,7 @@ class ReportAdhoc
     private $errorTrace;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="options", type="json", nullable=true)
      */

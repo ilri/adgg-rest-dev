@@ -31,7 +31,7 @@ class CoreFarmMetadata
     private $type;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
      */

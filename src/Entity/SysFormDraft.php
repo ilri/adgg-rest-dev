@@ -24,7 +24,7 @@ class SysFormDraft
     private $id;
 
     /**
-     * @var json
+     * @var array
      *
      * @ORM\Column(name="model_attributes", type="json", nullable=false)
      */

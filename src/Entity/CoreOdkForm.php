@@ -31,7 +31,7 @@ class CoreOdkForm
     private $formUuid;
 
     /**
-     * @var json
+     * @var array
      *
      * @ORM\Column(name="form_data", type="json", nullable=false)
      */
@@ -73,35 +73,35 @@ class CoreOdkForm
     private $errorMessage;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="farm_data", type="json", nullable=true)
      */
     private $farmData;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="farm_metadata", type="json", nullable=true)
      */
     private $farmMetadata;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="animals_data", type="json", nullable=true)
      */
     private $animalsData;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="animal_events_data", type="json", nullable=true)
      */
     private $animalEventsData;
 
     /**
-     * @var json|null
+     * @var array|null
      *
      * @ORM\Column(name="user_data", type="json", nullable=true)
      */

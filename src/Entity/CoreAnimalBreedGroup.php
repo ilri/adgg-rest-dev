@@ -31,7 +31,7 @@ class CoreAnimalBreedGroup
     private $name;
 
     /**
-     * @var json
+     * @var array
      *
      * @ORM\Column(name="breeds", type="json", nullable=false)
      */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceAnimalEventMenusSetup
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_animal_event_menus_setup")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CoreAnimalBreedGroup
  *
+ * @ApiResource()
  * @ORM\Table(name="core_animal_breed_group")
  * @ORM\Entity
  */

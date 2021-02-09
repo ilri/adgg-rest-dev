@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CoreAnimalHerd
  *
+ * @ApiResource()
  * @ORM\Table(name="core_animal_herd", indexes={@ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */

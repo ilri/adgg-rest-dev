@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Entity;
+/**
+ * @ApiResource()
+
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CoreExcelImport
  *
+ * @ApiResource()
  * @ORM\Table(name="core_excel_import", indexes={@ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */

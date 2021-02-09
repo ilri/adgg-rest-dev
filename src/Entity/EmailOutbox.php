@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * EmailOutbox
  *
+ * @ApiResource()
  * @ORM\Table(name="email_outbox")
  * @ORM\Entity
  */

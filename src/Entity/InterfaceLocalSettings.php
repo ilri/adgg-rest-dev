@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceLocalSettings
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_local_settings")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CountryUnits
  *
+ * @ApiResource()
  * @ORM\Table(name="country_units", indexes={@ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */

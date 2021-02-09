@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * HelpContent
  *
+ * @ApiResource()
  * @ORM\Table(name="help_content", indexes={@ORM\Index(name="FK_help_content_help_modules", columns={"module_id"})})
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SysFormDraft
  *
+ * @ApiResource()
  * @ORM\Table(name="sys_form_draft")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceBackgroundProcesses
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_background_processes")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * AuthRoles
  *
+ * @ApiResource()
  * @ORM\Table(name="auth_roles", indexes={@ORM\Index(name="level_id", columns={"level_id"})})
  * @ORM\Entity
  */

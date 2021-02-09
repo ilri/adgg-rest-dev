@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SysCacheFormSelection
  *
+ * @ApiResource()
  * @ORM\Table(name="sys_cache_form_selection")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceCalenderEvents
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_calender_events")
  * @ORM\Entity
  */

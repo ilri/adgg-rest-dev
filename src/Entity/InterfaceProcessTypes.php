@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceProcessTypes
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_process_types")
  * @ORM\Entity
  */

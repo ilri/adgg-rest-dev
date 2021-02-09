@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SexUpdate
  *
+ * @ApiResource()
  * @ORM\Table(name="sex_update")
  * @ORM\Entity
  */

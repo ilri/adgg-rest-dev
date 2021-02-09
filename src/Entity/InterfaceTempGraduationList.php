@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceTempGraduationList
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_temp_graduation_list")
  * @ORM\Entity
  */

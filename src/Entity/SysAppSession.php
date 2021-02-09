@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SysAppSession
  *
+ * @ApiResource()
  * @ORM\Table(name="sys_app_session", indexes={@ORM\Index(name="expire", columns={"expire"})})
  * @ORM\Entity
  */

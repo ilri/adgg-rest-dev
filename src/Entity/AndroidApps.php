@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * AndroidApps
  *
+ * @ApiResource()
  * @ORM\Table(name="android_apps")
  * @ORM\Entity
  */

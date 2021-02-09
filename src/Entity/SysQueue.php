@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SysQueue
  *
+ * @ApiResource()
  * @ORM\Table(name="sys_queue", indexes={@ORM\Index(name="channel", columns={"channel"}), @ORM\Index(name="priority", columns={"priority"}), @ORM\Index(name="reserved_at", columns={"reserved_at"})})
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CoreOdkForm
  *
+ * @ApiResource()
  * @ORM\Table(name="core_odk_form", indexes={@ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */

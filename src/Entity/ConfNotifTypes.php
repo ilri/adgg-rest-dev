@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * ConfNotifTypes
  *
+ * @ApiResource()
  * @ORM\Table(name="conf_notif_types")
  * @ORM\Entity
  */

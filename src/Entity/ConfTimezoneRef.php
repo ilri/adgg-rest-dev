@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * ConfTimezoneRef
  *
+ * @ApiResource()
  * @ORM\Table(name="conf_timezone_ref")
  * @ORM\Entity
  */

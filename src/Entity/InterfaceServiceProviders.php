@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceServiceProviders
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_service_providers")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceGraduationSettings
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_graduation_settings")
  * @ORM\Entity
  */

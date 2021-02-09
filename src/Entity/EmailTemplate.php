@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * EmailTemplate
  *
+ * @ApiResource()
  * @ORM\Table(name="email_template")
  * @ORM\Entity
  */

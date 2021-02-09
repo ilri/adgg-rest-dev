@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Setting
  *
+ * @ApiResource()
  * @ORM\Table(name="setting")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Migration
  *
+ * @ApiResource()
  * @ORM\Table(name="migration")
  * @ORM\Entity
  */

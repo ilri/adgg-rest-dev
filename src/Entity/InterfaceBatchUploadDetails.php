@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InterfaceBatchUploadDetails
  *
+ * @ApiResource()
  * @ORM\Table(name="interface_batch_upload_details")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CalfUpdate
  *
+ * @ApiResource()
  * @ORM\Table(name="calf_update")
  * @ORM\Entity
  */

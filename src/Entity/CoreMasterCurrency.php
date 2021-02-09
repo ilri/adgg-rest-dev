@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CoreMasterCurrency
  *
+ * @ApiResource()
  * @ORM\Table(name="core_master_currency")
  * @ORM\Entity
  */

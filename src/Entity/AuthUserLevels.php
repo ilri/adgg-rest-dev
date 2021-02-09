@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * AuthUserLevels
  *
+ * @ApiResource()
  * @ORM\Table(name="auth_user_levels")
  * @ORM\Entity
  */

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * ConfNumberingFormat
  *
+ * @ApiResource()
  * @ORM\Table(name="conf_numbering_format", indexes={@ORM\Index(name="code", columns={"code"}), @ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */

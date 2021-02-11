@@ -728,7 +728,7 @@ class AuthUsers implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
     /**
@@ -736,7 +736,6 @@ class AuthUsers implements UserInterface
      */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
         return $this->passwordHash;
     }
 

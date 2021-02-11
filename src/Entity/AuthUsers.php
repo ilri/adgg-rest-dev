@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * AuthUsers
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="auth_users", uniqueConstraints={@ORM\UniqueConstraint(name="username", columns={"username"})}, indexes={@ORM\Index(name="branch_id", columns={"branch_id"}), @ORM\Index(name="org_id", columns={"country_id"}), @ORM\Index(name="phone", columns={"phone"}), @ORM\Index(name="role_id", columns={"role_id"}), @ORM\Index(name="user_level", columns={"level_id"})})
  * @ORM\Entity
  */
-class AuthUsers
+class AuthUsers implements UserInterface
 {
     /**
      * @var int
@@ -722,4 +723,36 @@ class AuthUsers
     }
 
 
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getPassword()
+    {
+        // TODO: Implement getPassword() method.
+        return $this->passwordHash;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
 }

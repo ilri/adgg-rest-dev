@@ -119,7 +119,7 @@ class EmailOutbox
      *
      * @ORM\Column(name="date_sent", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $dateSent = 'CURRENT_TIMESTAMP';
+    private $dateSent;
 
     /**
      * @var bool

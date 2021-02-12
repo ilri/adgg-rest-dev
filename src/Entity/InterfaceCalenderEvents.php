@@ -42,14 +42,14 @@ class InterfaceCalenderEvents
      *
      * @ORM\Column(name="event_start_datetime", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $eventStartDatetime = 'CURRENT_TIMESTAMP';
+    private $eventStartDatetime;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="event_end_datetime", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $eventEndDatetime = 'CURRENT_TIMESTAMP';
+    private $eventEndDatetime;
 
     /**
      * @var bool|null
@@ -84,7 +84,7 @@ class InterfaceCalenderEvents
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $createdAt = 'CURRENT_TIMESTAMP';
+    private $createdAt;
 
     /**
      * @var int|null

@@ -35,7 +35,7 @@ class ConfJobProcesses
      *
      * @ORM\Column(name="last_run_datetime", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $lastRunDatetime = 'CURRENT_TIMESTAMP';
+    private $lastRunDatetime;
 
     /**
      * @var bool

@@ -56,7 +56,7 @@ class SysCacheFormSelection
      *
      * @ORM\Column(name="timestamp", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $timestamp = 'CURRENT_TIMESTAMP';
+    private $timestamp;
 
     public function getId(): ?int
     {

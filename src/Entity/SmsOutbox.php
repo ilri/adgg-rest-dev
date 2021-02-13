@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * SmsOutbox
  *
- * @ApiResource()
  * @ORM\Table(name="sms_outbox")
  * @ORM\Entity
  */

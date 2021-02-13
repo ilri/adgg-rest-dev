@@ -6,13 +6,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreAnimal
+ * AnimalEvent
  *
  * @ApiResource()
- * @ORM\Table(name="core_animal", indexes={@ORM\Index(name="animal_type", columns={"animal_type"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="dam_id", columns={"dam_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="reg_date", columns={"reg_date"}), @ORM\Index(name="sire_id", columns={"sire_id"}), @ORM\Index(name="tag_id", columns={"tag_id"})})
+ * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
  * @ORM\Entity
  */
-class CoreAnimal
+class AnimalEvent
 {
     /**
      * @var int
@@ -24,25 +24,11 @@ class CoreAnimal
     private $id;
 
     /**
-     * @var string|null
+     * @var int
      *
-     * @ORM\Column(name="name", type="string", length=128, nullable=true)
+     * @ORM\Column(name="event_type", type="integer", nullable=false)
      */
-    private $name;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="tag_id", type="string", length=128, nullable=true)
-     */
-    private $tagId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="herd_id", type="integer", nullable=true)
-     */
-    private $herdId;
+    private $eventType;
 
     /**
      * @var int
@@ -94,81 +80,18 @@ class CoreAnimal
     private $clientId;
 
     /**
-     * @var int|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="animal_type", type="integer", nullable=true)
+     * @ORM\Column(name="event_date", type="date", nullable=true)
      */
-    private $animalType;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="sex", type="integer", nullable=true)
-     */
-    private $sex;
+    private $eventDate;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="birthdate", type="date", nullable=true)
+     * @ORM\Column(name="data_collection_date", type="date", nullable=true)
      */
-    private $birthdate;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="sire_type", type="integer", nullable=true)
-     */
-    private $sireType;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="sire_id", type="integer", nullable=true)
-     */
-    private $sireId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="sire_tag_id", type="string", length=128, nullable=true)
-     */
-    private $sireTagId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="dam_id", type="integer", nullable=true)
-     */
-    private $damId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="dam_tag_id", type="string", length=128, nullable=true)
-     */
-    private $damTagId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="main_breed", type="integer", nullable=true)
-     */
-    private $mainBreed;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="breed_composition", type="integer", nullable=true)
-     */
-    private $breedComposition;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="animal_photo", type="string", length=255, nullable=true)
-     */
-    private $animalPhoto;
+    private $dataCollectionDate;
 
     /**
      * @var string|null
@@ -206,25 +129,39 @@ class CoreAnimal
     private $uuid;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="field_agent_id", type="integer", nullable=true)
+     */
+    private $fieldAgentId;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="lactation_id", type="integer", nullable=true, options={"comment"="lactation Id/Calving Id for milking record"})
+     */
+    private $lactationId;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="lactation_number", type="integer", nullable=true, options={"comment"="lactation number for calving records"})
+     */
+    private $lactationNumber;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="testday_no", type="integer", nullable=true, options={"comment"="Test day number for milk record"})
+     */
+    private $testdayNo;
+
+    /**
      * @var array|null
      *
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
      */
     private $additionalAttributes;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="reg_date", type="date", nullable=true)
-     */
-    private $regDate;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="hair_sample_id", type="string", length=128, nullable=true)
-     */
-    private $hairSampleId;
 
     /**
      * @var \DateTime
@@ -269,59 +206,28 @@ class CoreAnimal
     private $odkFormUuid;
 
     /**
-     * @var string|null
+     * @var \CoreAnimal
      *
-     * @ORM\Column(name="odk_animal_code", type="string", length=30, nullable=true, options={"comment"="Animal code from Harrison db for odk form versions 1.5 and below "})
-     */
-    private $odkAnimalCode;
-
-    /**
-     * @var \CoreFarm
-     *
-     * @ORM\ManyToOne(targetEntity="CoreFarm")
+     * @ORM\ManyToOne(targetEntity="Animal")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="farm_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
      * })
      */
-    private $farm;
+    private $animal;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getEventType(): ?int
     {
-        return $this->name;
+        return $this->eventType;
     }
 
-    public function setName(?string $name): self
+    public function setEventType(int $eventType): self
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getTagId(): ?string
-    {
-        return $this->tagId;
-    }
-
-    public function setTagId(?string $tagId): self
-    {
-        $this->tagId = $tagId;
-
-        return $this;
-    }
-
-    public function getHerdId(): ?int
-    {
-        return $this->herdId;
-    }
-
-    public function setHerdId(?int $herdId): self
-    {
-        $this->herdId = $herdId;
+        $this->eventType = $eventType;
 
         return $this;
     }
@@ -410,134 +316,26 @@ class CoreAnimal
         return $this;
     }
 
-    public function getAnimalType(): ?int
+    public function getEventDate(): ?\DateTimeInterface
     {
-        return $this->animalType;
+        return $this->eventDate;
     }
 
-    public function setAnimalType(?int $animalType): self
+    public function setEventDate(?\DateTimeInterface $eventDate): self
     {
-        $this->animalType = $animalType;
+        $this->eventDate = $eventDate;
 
         return $this;
     }
 
-    public function getSex(): ?int
+    public function getDataCollectionDate(): ?\DateTimeInterface
     {
-        return $this->sex;
+        return $this->dataCollectionDate;
     }
 
-    public function setSex(?int $sex): self
+    public function setDataCollectionDate(?\DateTimeInterface $dataCollectionDate): self
     {
-        $this->sex = $sex;
-
-        return $this;
-    }
-
-    public function getBirthdate(): ?\DateTimeInterface
-    {
-        return $this->birthdate;
-    }
-
-    public function setBirthdate(?\DateTimeInterface $birthdate): self
-    {
-        $this->birthdate = $birthdate;
-
-        return $this;
-    }
-
-    public function getSireType(): ?int
-    {
-        return $this->sireType;
-    }
-
-    public function setSireType(?int $sireType): self
-    {
-        $this->sireType = $sireType;
-
-        return $this;
-    }
-
-    public function getSireId(): ?int
-    {
-        return $this->sireId;
-    }
-
-    public function setSireId(?int $sireId): self
-    {
-        $this->sireId = $sireId;
-
-        return $this;
-    }
-
-    public function getSireTagId(): ?string
-    {
-        return $this->sireTagId;
-    }
-
-    public function setSireTagId(?string $sireTagId): self
-    {
-        $this->sireTagId = $sireTagId;
-
-        return $this;
-    }
-
-    public function getDamId(): ?int
-    {
-        return $this->damId;
-    }
-
-    public function setDamId(?int $damId): self
-    {
-        $this->damId = $damId;
-
-        return $this;
-    }
-
-    public function getDamTagId(): ?string
-    {
-        return $this->damTagId;
-    }
-
-    public function setDamTagId(?string $damTagId): self
-    {
-        $this->damTagId = $damTagId;
-
-        return $this;
-    }
-
-    public function getMainBreed(): ?int
-    {
-        return $this->mainBreed;
-    }
-
-    public function setMainBreed(?int $mainBreed): self
-    {
-        $this->mainBreed = $mainBreed;
-
-        return $this;
-    }
-
-    public function getBreedComposition(): ?int
-    {
-        return $this->breedComposition;
-    }
-
-    public function setBreedComposition(?int $breedComposition): self
-    {
-        $this->breedComposition = $breedComposition;
-
-        return $this;
-    }
-
-    public function getAnimalPhoto(): ?string
-    {
-        return $this->animalPhoto;
-    }
-
-    public function setAnimalPhoto(?string $animalPhoto): self
-    {
-        $this->animalPhoto = $animalPhoto;
+        $this->dataCollectionDate = $dataCollectionDate;
 
         return $this;
     }
@@ -602,6 +400,54 @@ class CoreAnimal
         return $this;
     }
 
+    public function getFieldAgentId(): ?int
+    {
+        return $this->fieldAgentId;
+    }
+
+    public function setFieldAgentId(?int $fieldAgentId): self
+    {
+        $this->fieldAgentId = $fieldAgentId;
+
+        return $this;
+    }
+
+    public function getLactationId(): ?int
+    {
+        return $this->lactationId;
+    }
+
+    public function setLactationId(?int $lactationId): self
+    {
+        $this->lactationId = $lactationId;
+
+        return $this;
+    }
+
+    public function getLactationNumber(): ?int
+    {
+        return $this->lactationNumber;
+    }
+
+    public function setLactationNumber(?int $lactationNumber): self
+    {
+        $this->lactationNumber = $lactationNumber;
+
+        return $this;
+    }
+
+    public function getTestdayNo(): ?int
+    {
+        return $this->testdayNo;
+    }
+
+    public function setTestdayNo(?int $testdayNo): self
+    {
+        $this->testdayNo = $testdayNo;
+
+        return $this;
+    }
+
     public function getAdditionalAttributes(): ?array
     {
         return $this->additionalAttributes;
@@ -610,30 +456,6 @@ class CoreAnimal
     public function setAdditionalAttributes(?array $additionalAttributes): self
     {
         $this->additionalAttributes = $additionalAttributes;
-
-        return $this;
-    }
-
-    public function getRegDate(): ?\DateTimeInterface
-    {
-        return $this->regDate;
-    }
-
-    public function setRegDate(?\DateTimeInterface $regDate): self
-    {
-        $this->regDate = $regDate;
-
-        return $this;
-    }
-
-    public function getHairSampleId(): ?string
-    {
-        return $this->hairSampleId;
-    }
-
-    public function setHairSampleId(?string $hairSampleId): self
-    {
-        $this->hairSampleId = $hairSampleId;
 
         return $this;
     }
@@ -710,26 +532,14 @@ class CoreAnimal
         return $this;
     }
 
-    public function getOdkAnimalCode(): ?string
+    public function getAnimal(): ?Animal
     {
-        return $this->odkAnimalCode;
+        return $this->animal;
     }
 
-    public function setOdkAnimalCode(?string $odkAnimalCode): self
+    public function setAnimal(?Animal $animal): self
     {
-        $this->odkAnimalCode = $odkAnimalCode;
-
-        return $this;
-    }
-
-    public function getFarm(): ?CoreFarm
-    {
-        return $this->farm;
-    }
-
-    public function setFarm(?CoreFarm $farm): self
-    {
-        $this->farm = $farm;
+        $this->animal = $animal;
 
         return $this;
     }

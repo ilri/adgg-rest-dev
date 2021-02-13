@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Migration
  *
- * @ApiResource()
  * @ORM\Table(name="migration")
  * @ORM\Entity
  */

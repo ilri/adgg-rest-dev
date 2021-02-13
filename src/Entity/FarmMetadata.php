@@ -6,13 +6,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreFarmMetadata
+ * FarmMetadata
  *
  * @ApiResource()
  * @ORM\Table(name="core_farm_metadata", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="type", columns={"type"})})
  * @ORM\Entity
  */
-class CoreFarmMetadata
+class FarmMetadata
 {
     /**
      * @var int
@@ -68,7 +68,7 @@ class CoreFarmMetadata
     /**
      * @var \CoreFarm
      *
-     * @ORM\ManyToOne(targetEntity="CoreFarm")
+     * @ORM\ManyToOne(targetEntity="Farm")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="farm_id", referencedColumnName="id")
      * })
@@ -152,12 +152,12 @@ class CoreFarmMetadata
         return $this;
     }
 
-    public function getFarm(): ?CoreFarm
+    public function getFarm(): ?Farm
     {
         return $this->farm;
     }
 
-    public function setFarm(?CoreFarm $farm): self
+    public function setFarm(?Farm $farm): self
     {
         $this->farm = $farm;
 

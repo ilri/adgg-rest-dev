@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CoreMasterListType
  *
- * @ApiResource()
  * @ORM\Table(name="core_master_list_type")
  * @ORM\Entity
  */

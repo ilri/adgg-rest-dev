@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CountryNotifSettings
  *
- * @ApiResource()
  * @ORM\Table(name="country_notif_settings", indexes={@ORM\Index(name="notification_id", columns={"notification_id"}), @ORM\Index(name="trader_id", columns={"country_id"})})
  * @ORM\Entity
  */

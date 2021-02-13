@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthUsersNotificationSettings
  *
- * @ApiResource()
  * @ORM\Table(name="auth_users_notification_settings", indexes={@ORM\Index(name="notification_id", columns={"notification_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */
@@ -75,7 +74,7 @@ class AuthUsersNotificationSettings
     /**
      * @var \AuthUsers
      *
-     * @ORM\ManyToOne(targetEntity="AuthUsers")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -181,12 +180,12 @@ class AuthUsersNotificationSettings
         return $this;
     }
 
-    public function getUser(): ?AuthUsers
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?AuthUsers $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 

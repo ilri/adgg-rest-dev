@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthAuditTrail
  *
- * @ApiResource()
  * @ORM\Table(name="auth_audit_trail", indexes={@ORM\Index(name="sacco_id", columns={"country_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */
@@ -82,7 +81,7 @@ class AuthAuditTrail
     /**
      * @var \AuthUsers
      *
-     * @ORM\ManyToOne(targetEntity="AuthUsers")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -190,12 +189,12 @@ class AuthAuditTrail
         return $this;
     }
 
-    public function getUser(): ?AuthUsers
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?AuthUsers $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 

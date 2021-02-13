@@ -8,7 +8,7 @@ security:
         # users_in_memory: { memory: null }
         app_user_provider:
             entity:
-                class: 'App\Entity\AuthUsers'
+                class: 'App\Entity\User'
                 property: 'username'
 
     firewalls:
@@ -43,6 +43,6 @@ security:
     access_control:
         - { path: ^/api/docs, roles: IS_AUTHENTICATED_ANONYMOUSLY } # Allows accessing the Swagger UI
         - { path: ^/authentication_token, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/.*, roles: IS_AUTHENTICATED_FULLY }}
+        - { path: ^/.*, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

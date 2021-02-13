@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthLog
  *
- * @ApiResource()
  * @ORM\Table(name="auth_log", indexes={@ORM\Index(name="userId", columns={"userId"})})
  * @ORM\Entity
  */
@@ -82,7 +81,7 @@ class AuthLog
     /**
      * @var \AuthUsers
      *
-     * @ORM\ManyToOne(targetEntity="AuthUsers")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="userId", referencedColumnName="id")
      * })
@@ -190,12 +189,12 @@ class AuthLog
         return $this;
     }
 
-    public function getUserid(): ?AuthUsers
+    public function getUserid(): ?User
     {
         return $this->userid;
     }
 
-    public function setUserid(?AuthUsers $userid): self
+    public function setUserid(?User $userid): self
     {
         $this->userid = $userid;
 

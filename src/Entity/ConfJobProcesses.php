@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ConfJobProcesses
  *
- * @ApiResource()
  * @ORM\Table(name="conf_job_processes", indexes={@ORM\Index(name="job_id", columns={"job_id"})})
  * @ORM\Entity
  */

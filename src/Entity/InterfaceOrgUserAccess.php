@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceOrgUserAccess
  *
- * @ApiResource()
  * @ORM\Table(name="interface_org_user_access")
  * @ORM\Entity
  */

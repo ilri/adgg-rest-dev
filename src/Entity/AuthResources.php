@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthResources
  *
- * @ApiResource()
  * @ORM\Table(name="auth_resources")
  * @ORM\Entity
  */

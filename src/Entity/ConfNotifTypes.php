@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ConfNotifTypes
  *
- * @ApiResource()
  * @ORM\Table(name="conf_notif_types")
  * @ORM\Entity
  */

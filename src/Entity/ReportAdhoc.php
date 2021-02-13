@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ReportAdhoc
  *
- * @ApiResource()
  * @ORM\Table(name="report_adhoc")
  * @ORM\Entity
  */

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthPasswordResetHistory
  *
- * @ApiResource()
  * @ORM\Table(name="auth_password_reset_history", indexes={@ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */
@@ -68,7 +67,7 @@ class AuthPasswordResetHistory
     /**
      * @var \AuthUsers
      *
-     * @ORM\ManyToOne(targetEntity="AuthUsers")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -152,12 +151,12 @@ class AuthPasswordResetHistory
         return $this;
     }
 
-    public function getUser(): ?AuthUsers
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?AuthUsers $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 

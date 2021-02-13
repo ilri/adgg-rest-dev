@@ -6,13 +6,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreAnimalEvent
+ * Herd
  *
  * @ApiResource()
- * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
+ * @ORM\Table(name="core_animal_herd", indexes={@ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */
-class CoreAnimalEvent
+class Herd
 {
     /**
      * @var int
@@ -24,11 +24,18 @@ class CoreAnimalEvent
     private $id;
 
     /**
-     * @var int
+     * @var string|null
      *
-     * @ORM\Column(name="event_type", type="integer", nullable=false)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
-    private $eventType;
+    private $name;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="uuid", type="string", length=128, nullable=true)
+     */
+    private $uuid;
 
     /**
      * @var int
@@ -80,20 +87,6 @@ class CoreAnimalEvent
     private $clientId;
 
     /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="event_date", type="date", nullable=true)
-     */
-    private $eventDate;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="data_collection_date", type="date", nullable=true)
-     */
-    private $dataCollectionDate;
-
-    /**
      * @var string|null
      *
      * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
@@ -122,39 +115,18 @@ class CoreAnimalEvent
     private $latlng;
 
     /**
-     * @var string
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="uuid", type="string", length=255, nullable=false)
+     * @ORM\Column(name="reg_date", type="date", nullable=true)
      */
-    private $uuid;
+    private $regDate;
 
     /**
-     * @var int|null
+     * @var string|null
      *
-     * @ORM\Column(name="field_agent_id", type="integer", nullable=true)
+     * @ORM\Column(name="project", type="string", length=128, nullable=true)
      */
-    private $fieldAgentId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="lactation_id", type="integer", nullable=true, options={"comment"="lactation Id/Calving Id for milking record"})
-     */
-    private $lactationId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="lactation_number", type="integer", nullable=true, options={"comment"="lactation number for calving records"})
-     */
-    private $lactationNumber;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="testday_no", type="integer", nullable=true, options={"comment"="Test day number for milk record"})
-     */
-    private $testdayNo;
+    private $project;
 
     /**
      * @var array|null
@@ -206,28 +178,40 @@ class CoreAnimalEvent
     private $odkFormUuid;
 
     /**
-     * @var \CoreAnimal
+     * @var \CoreFarm
      *
-     * @ORM\ManyToOne(targetEntity="CoreAnimal")
+     * @ORM\ManyToOne(targetEntity="Farm")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="farm_id", referencedColumnName="id")
      * })
      */
-    private $animal;
+    private $farm;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEventType(): ?int
+    public function getName(): ?string
     {
-        return $this->eventType;
+        return $this->name;
     }
 
-    public function setEventType(int $eventType): self
+    public function setName(?string $name): self
     {
-        $this->eventType = $eventType;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(?string $uuid): self
+    {
+        $this->uuid = $uuid;
 
         return $this;
     }
@@ -316,30 +300,6 @@ class CoreAnimalEvent
         return $this;
     }
 
-    public function getEventDate(): ?\DateTimeInterface
-    {
-        return $this->eventDate;
-    }
-
-    public function setEventDate(?\DateTimeInterface $eventDate): self
-    {
-        $this->eventDate = $eventDate;
-
-        return $this;
-    }
-
-    public function getDataCollectionDate(): ?\DateTimeInterface
-    {
-        return $this->dataCollectionDate;
-    }
-
-    public function setDataCollectionDate(?\DateTimeInterface $dataCollectionDate): self
-    {
-        $this->dataCollectionDate = $dataCollectionDate;
-
-        return $this;
-    }
-
     public function getLatitude(): ?string
     {
         return $this->latitude;
@@ -388,62 +348,26 @@ class CoreAnimalEvent
         return $this;
     }
 
-    public function getUuid(): ?string
+    public function getRegDate(): ?\DateTimeInterface
     {
-        return $this->uuid;
+        return $this->regDate;
     }
 
-    public function setUuid(string $uuid): self
+    public function setRegDate(?\DateTimeInterface $regDate): self
     {
-        $this->uuid = $uuid;
+        $this->regDate = $regDate;
 
         return $this;
     }
 
-    public function getFieldAgentId(): ?int
+    public function getProject(): ?string
     {
-        return $this->fieldAgentId;
+        return $this->project;
     }
 
-    public function setFieldAgentId(?int $fieldAgentId): self
+    public function setProject(?string $project): self
     {
-        $this->fieldAgentId = $fieldAgentId;
-
-        return $this;
-    }
-
-    public function getLactationId(): ?int
-    {
-        return $this->lactationId;
-    }
-
-    public function setLactationId(?int $lactationId): self
-    {
-        $this->lactationId = $lactationId;
-
-        return $this;
-    }
-
-    public function getLactationNumber(): ?int
-    {
-        return $this->lactationNumber;
-    }
-
-    public function setLactationNumber(?int $lactationNumber): self
-    {
-        $this->lactationNumber = $lactationNumber;
-
-        return $this;
-    }
-
-    public function getTestdayNo(): ?int
-    {
-        return $this->testdayNo;
-    }
-
-    public function setTestdayNo(?int $testdayNo): self
-    {
-        $this->testdayNo = $testdayNo;
+        $this->project = $project;
 
         return $this;
     }
@@ -532,14 +456,14 @@ class CoreAnimalEvent
         return $this;
     }
 
-    public function getAnimal(): ?CoreAnimal
+    public function getFarm(): ?Farm
     {
-        return $this->animal;
+        return $this->farm;
     }
 
-    public function setAnimal(?CoreAnimal $animal): self
+    public function setFarm(?Farm $farm): self
     {
-        $this->animal = $animal;
+        $this->farm = $farm;
 
         return $this;
     }

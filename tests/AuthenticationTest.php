@@ -6,7 +6,7 @@ use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
 use App\Entity\AuthUsers;
 use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 
-class AuthenticationTest extends ApiTestCase
+class AuthenticationTest extends AuthApiTestCase
 {
     use ReloadDatabaseTrait;
 

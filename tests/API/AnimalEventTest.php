@@ -43,7 +43,6 @@ class AnimalEventTest extends ApiTestCase
             ],
         ]);
         $json = $response->toArray();
-        dump($json);
 
         $this->token = $json['token'];
     }

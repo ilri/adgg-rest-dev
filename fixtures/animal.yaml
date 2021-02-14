@@ -1,0 +1,5 @@
+App\Entity\CoreAnimal:
+    animal_{1..10}:
+      countryId: 1
+      uuid: <numberBetween(1, 1000)>
+      createdAt: <date_create()>

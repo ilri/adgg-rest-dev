@@ -31,7 +31,7 @@ class AnimalEventTest extends AuthApiTestCase
                 'auth_bearer' => $this->token,
                 'json' => [
                     'animal' => '/api/core_animals/1',
-                    'eventType' => 1,
+                    'eventType' => 2, // milking
                     'countryId' => 1,
                     'uuid' => '00001',
                     'eventDate' => '2020-02-03',

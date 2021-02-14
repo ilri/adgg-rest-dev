@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthUsersNotificationSettings
  *
- * @ApiResource()
  * @ORM\Table(name="auth_users_notification_settings", indexes={@ORM\Index(name="notification_id", columns={"notification_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */

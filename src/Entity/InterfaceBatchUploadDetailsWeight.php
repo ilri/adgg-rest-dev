@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceBatchUploadDetailsWeight
  *
- * @ApiResource()
  * @ORM\Table(name="interface_batch_upload_details_weight")
  * @ORM\Entity
  */

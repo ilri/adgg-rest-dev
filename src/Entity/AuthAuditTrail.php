@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthAuditTrail
  *
- * @ApiResource()
  * @ORM\Table(name="auth_audit_trail", indexes={@ORM\Index(name="sacco_id", columns={"country_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */

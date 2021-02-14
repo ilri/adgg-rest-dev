@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * HelpSections
  *
- * @ApiResource()
  * @ORM\Table(name="help_sections", indexes={@ORM\Index(name="FK_help_sections_help_modules", columns={"help_module_id"})})
  * @ORM\Entity
  */

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceLimitParameters
  *
- * @ApiResource()
  * @ORM\Table(name="interface_limit_parameters")
  * @ORM\Entity
  */

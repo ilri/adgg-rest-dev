@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceAiStraws
  *
- * @ApiResource()
  * @ORM\Table(name="interface_ai_straws")
  * @ORM\Entity
  */

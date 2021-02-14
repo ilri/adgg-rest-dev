@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthPasswordResetHistory
  *
- * @ApiResource()
  * @ORM\Table(name="auth_password_reset_history", indexes={@ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */

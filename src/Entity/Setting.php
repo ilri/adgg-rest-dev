@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Setting
  *
- * @ApiResource()
  * @ORM\Table(name="setting")
  * @ORM\Entity
  */

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceBatchStages
  *
- * @ApiResource()
  * @ORM\Table(name="interface_batch_stages")
  * @ORM\Entity
  */

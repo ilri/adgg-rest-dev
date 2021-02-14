@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EmailTemplate
  *
- * @ApiResource()
  * @ORM\Table(name="email_template")
  * @ORM\Entity
  */

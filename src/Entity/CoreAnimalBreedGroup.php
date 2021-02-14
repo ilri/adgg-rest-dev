@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CoreAnimalBreedGroup
  *
- * @ApiResource()
  * @ORM\Table(name="core_animal_breed_group")
  * @ORM\Entity
  */

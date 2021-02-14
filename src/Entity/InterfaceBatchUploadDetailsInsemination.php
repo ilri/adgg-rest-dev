@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceBatchUploadDetailsInsemination
  *
- * @ApiResource()
  * @ORM\Table(name="interface_batch_upload_details_insemination")
  * @ORM\Entity
  */

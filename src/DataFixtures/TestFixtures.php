@@ -9,8 +9,11 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Nelmio\Alice\Loader\NativeLoader;
 
-class AnimalFixtures extends Fixture implements FixtureGroupInterface
+class TestFixtures extends Fixture implements FixtureGroupInterface
 {
+    /**
+     * @var string
+     */
     private $baseDir;
 
     /**
@@ -35,7 +38,7 @@ class AnimalFixtures extends Fixture implements FixtureGroupInterface
     public function load(ObjectManager $manager)
     {
         $loader = new NativeLoader();
-        $objectSet = $loader->loadFile($this->baseDir . '/fixtures/animal.yaml')->getObjects();
+        $objectSet = $loader->loadFile($this->baseDir . '/fixtures/testfixtures.yaml')->getObjects();
         foreach ($objectSet as $object) {
             $manager->persist($object);
         }

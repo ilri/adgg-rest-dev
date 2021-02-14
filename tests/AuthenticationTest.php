@@ -3,7 +3,7 @@
 namespace App\Tests;
 
 use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
-use App\Entity\AuthUsers;
+use App\Entity\User;
 use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 
 class AuthenticationTest extends AuthApiTestCase
@@ -14,7 +14,7 @@ class AuthenticationTest extends AuthApiTestCase
     {
         $client = self::createClient();
 
-        $user = new AuthUsers();
+        $user = new User();
         $user->setName('Test User');
         $user->setUsername('test');
         $user->setPasswordHash(

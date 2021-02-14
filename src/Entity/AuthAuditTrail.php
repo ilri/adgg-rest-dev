@@ -81,7 +81,7 @@ class AuthAuditTrail
     /**
      * @var \AuthUsers
      *
-     * @ORM\ManyToOne(targetEntity="AuthUsers")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -189,12 +189,12 @@ class AuthAuditTrail
         return $this;
     }
 
-    public function getUser(): ?AuthUsers
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?AuthUsers $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 

@@ -4,7 +4,7 @@
 namespace App\DataFixtures;
 
 
-use App\Entity\AuthUsers;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -37,7 +37,7 @@ class UserFixtures extends Fixture implements FixtureGroupInterface
      */
     public function load(ObjectManager $manager)
     {
-        $user = new AuthUsers();
+        $user = new User();
         $user->setName('Test User');
         $user->setUsername('test');
         $user->setPasswordHash(

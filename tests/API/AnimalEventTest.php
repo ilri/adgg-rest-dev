@@ -14,6 +14,9 @@ class AnimalEventTest extends AuthApiTestCase
 
         $response = $this->client->request('GET', '/api/core_animal_events', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
+        $json = $response->toArray();
+        // we have created 10 animal events in the fixtures
+        $this->assertEquals(10, $json['hydra:totalItems']);
     }
 
     public function testPostCollection()
@@ -51,5 +54,8 @@ class AnimalEventTest extends AuthApiTestCase
 
         $response = $this->client->request('GET', '/api/core_animal_events/1', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
+        $json = $response->toArray();
+        $this->assertArrayHasKey('animal', $json);
+        $this->assertArrayHasKey('eventType', $json);
     }
 }

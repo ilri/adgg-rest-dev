@@ -43,4 +43,13 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
     }
+
+    public function testGetItem()
+    {
+        $response = $this->client->request('GET', '/api/core_animal_events/1');
+        $this->assertResponseStatusCodeSame(401);
+
+        $response = $this->client->request('GET', '/api/core_animal_events/1', ['auth_bearer' => $this->token]);
+        $this->assertResponseIsSuccessful();
+    }
 }

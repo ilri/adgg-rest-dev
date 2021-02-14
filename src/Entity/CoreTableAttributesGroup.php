@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CoreTableAttributesGroup
  *
- * @ApiResource()
  * @ORM\Table(name="core_table_attributes_group", indexes={@ORM\Index(name="table", columns={"table_id"})})
  * @ORM\Entity
  */

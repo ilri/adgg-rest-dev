@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CoreCountry
  *
- * @ApiResource()
  * @ORM\Table(name="core_country")
  * @ORM\Entity
  */

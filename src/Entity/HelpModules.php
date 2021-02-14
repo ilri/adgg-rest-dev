@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * HelpModules
  *
- * @ApiResource()
  * @ORM\Table(name="help_modules")
  * @ORM\Entity
  */

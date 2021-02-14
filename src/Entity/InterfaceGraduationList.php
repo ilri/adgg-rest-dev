@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceGraduationList
  *
- * @ApiResource()
  * @ORM\Table(name="interface_graduation_list")
  * @ORM\Entity
  */

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceCalenderStatusColors
  *
- * @ApiResource()
  * @ORM\Table(name="interface_calender_status_colors")
  * @ORM\Entity
  */

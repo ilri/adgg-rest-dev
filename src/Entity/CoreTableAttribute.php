@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CoreTableAttribute
  *
- * @ApiResource()
  * @ORM\Table(name="core_table_attribute", indexes={@ORM\Index(name="farm_metadata_type", columns={"farm_metadata_type"}), @ORM\Index(name="group_id", columns={"group_id"}), @ORM\Index(name="list_type_id", columns={"list_type_id"}), @ORM\Index(name="table_id", columns={"table_id"})})
  * @ORM\Entity
  */

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AndroidApps
  *
- * @ApiResource()
  * @ORM\Table(name="android_apps")
  * @ORM\Entity
  */

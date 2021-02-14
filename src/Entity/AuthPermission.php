@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AuthPermission
  *
- * @ApiResource()
  * @ORM\Table(name="auth_permission", indexes={@ORM\Index(name="resource_id", columns={"resource_id"}), @ORM\Index(name="role_id", columns={"role_id"})})
  * @ORM\Entity
  */

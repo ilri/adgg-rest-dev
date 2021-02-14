@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceBatchTypes
  *
- * @ApiResource()
  * @ORM\Table(name="interface_batch_types")
  * @ORM\Entity
  */

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ConfNotifQueue
  *
- * @ApiResource()
  * @ORM\Table(name="conf_notif_queue")
  * @ORM\Entity
  */

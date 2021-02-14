@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RecordDelete
  *
- * @ApiResource()
  * @ORM\Table(name="record_delete")
  * @ORM\Entity
  */

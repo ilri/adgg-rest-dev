@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CoreMasterCountry
  *
- * @ApiResource()
  * @ORM\Table(name="core_master_country", indexes={@ORM\Index(name="currency_id", columns={"currency"})})
  * @ORM\Entity
  */

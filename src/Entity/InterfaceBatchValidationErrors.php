@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceBatchValidationErrors
  *
- * @ApiResource()
  * @ORM\Table(name="interface_batch_validation_errors")
  * @ORM\Entity
  */

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterfaceAgents
  *
- * @ApiResource()
  * @ORM\Table(name="interface_agents")
  * @ORM\Entity
  */

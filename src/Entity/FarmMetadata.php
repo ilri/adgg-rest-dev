@@ -8,7 +8,27 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * FarmMetadata
  *
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *         "get"={
+ *             "method"="GET"
+ *         },
+ *         "post"={
+ *             "method"="POST"
+ *         },
+ *     },
+ *     itemOperations={
+ *         "get"={
+ *             "method"="GET"
+ *         },
+ *         "put"={
+ *             "method"="PUT"
+ *         },
+ *         "patch"={
+ *             "method"="PATCH"
+ *         }
+ *     }
+ * )
  * @ORM\Table(name="core_farm_metadata", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="type", columns={"type"})})
  * @ORM\Entity
  */

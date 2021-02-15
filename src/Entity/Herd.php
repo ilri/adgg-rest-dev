@@ -8,7 +8,27 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Herd
  *
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *         "get"={
+ *             "method"="GET"
+ *         },
+ *         "post"={
+ *             "method"="POST"
+ *         },
+ *     },
+ *     itemOperations={
+ *         "get"={
+ *             "method"="GET"
+ *         },
+ *         "put"={
+ *             "method"="PUT"
+ *         },
+ *         "patch"={
+ *             "method"="PATCH"
+ *         }
+ *     }
+ * )
  * @ORM\Table(name="core_animal_herd", indexes={@ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */

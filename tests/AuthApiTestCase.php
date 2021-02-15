@@ -6,6 +6,7 @@ namespace App\Tests;
 use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
 use App\DataFixtures\TestFixtures;
 use App\DataFixtures\UserFixtures;
+use App\Entity\User;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTManager;
 use Liip\TestFixturesBundle\Test\FixturesTrait;
 
@@ -30,6 +31,11 @@ class AuthApiTestCase extends ApiTestCase
     private $jwtManager;
 
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
      * @var string
      */
     protected $token;
@@ -47,7 +53,7 @@ class AuthApiTestCase extends ApiTestCase
 
         $this->jwtManager = self::$container->get('lexik_jwt_authentication.jwt_manager');
 
-        $user = $this->fixtures->getReference('test_user');
-        $this->token = $this->jwtManager->create($user);
+        $this->user = $this->fixtures->getReference('test_user');
+        $this->token = $this->jwtManager->create($this->user);
     }
 }

@@ -4,6 +4,7 @@
 namespace App\EventSubscriber;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
+use App\Entity\Animal;
 use App\Entity\AnimalEvent;
 use App\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -13,7 +14,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 
-final class GetUserTokenSubscriber implements EventSubscriberInterface
+final class AuthCheckSubscriber implements EventSubscriberInterface
 {
     /**
      * @var TokenStorageInterface
@@ -40,9 +41,10 @@ final class GetUserTokenSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();
+        $entities = [Animal::class, AnimalEvent::class];
         $methods = [Request::METHOD_POST, Request::METHOD_PUT, Request::METHOD_PATCH];
 
-        if (!$entity instanceof AnimalEvent || !in_array($method, $methods)) {
+        if (!in_array(get_class($entity), $entities) || !in_array($method, $methods)) {
             return;
         }
 

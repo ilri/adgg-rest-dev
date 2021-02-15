@@ -61,4 +61,75 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertArrayHasKey('countryId', $json);
         $this->assertArrayHasKey('uuid', $json);
     }
+
+    public function testPutItem()
+    {
+        $response = $this->client->request('PUT', '/api/animal_events/1');
+        $this->assertResponseStatusCodeSame(401);
+
+        $response = $this->client->request(
+            'PUT',
+            '/api/animal_events/1',
+            [
+                'auth_bearer' => $this->token,
+                'json' => [
+                    'animal' => '/api/animals/1',
+                    'eventType' => 2, // milking
+                    'countryId' => 1,
+                    'uuid' => '00001',
+                    'eventDate' => '2020-02-03',
+                    'additionalAttributes' => [
+                        59 => '5',
+                        61 => '6',
+                        62 => '5',
+                    ],
+                ]
+            ]
+        );
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
+        $json = $response->toArray();
+        $this->assertEquals('5', $json['additionalAttributes'][59]);
+        $this->assertEquals('6', $json['additionalAttributes'][61]);
+        $this->assertEquals('5', $json['additionalAttributes'][62]);
+    }
+
+    public function testDeleteItem()
+    {
+        $response = $this->client->request('DELETE', '/api/animal_events/1');
+        $this->assertResponseStatusCodeSame(405);
+
+        $response = $this->client->request('DELETE', '/api/animal_events/1', ['auth_bearer' => $this->token]);
+        $this->assertResponseStatusCodeSame(405);
+    }
+
+    public function testPatchItem()
+    {
+        $response = $this->client->request('PATCH', '/api/animal_events/1');
+        $this->assertResponseStatusCodeSame(401);
+
+        $response = $this->client->request(
+            'PATCH',
+            '/api/animal_events/1',
+            [
+                'auth_bearer' => $this->token,
+                'headers' => [
+                    'content-type' => 'application/merge-patch+json'
+                ],
+                'json' => [
+                    'additionalAttributes' => [
+                        59 => '8',
+                        61 => '10',
+                        62 => '8',
+                    ],
+                ]
+            ]
+        );
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
+        $json = $response->toArray();
+        $this->assertEquals('8', $json['additionalAttributes'][59]);
+        $this->assertEquals('10', $json['additionalAttributes'][61]);
+        $this->assertEquals('8', $json['additionalAttributes'][62]);
+    }
 }

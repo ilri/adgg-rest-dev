@@ -33,7 +33,6 @@ class AnimalEventTest extends AuthApiTestCase
                     'animal' => '/api/animals/1',
                     'eventType' => 2, // milking
                     'countryId' => 1,
-                    'uuid' => '00001',
                     'eventDate' => '2020-02-03',
                     'additionalAttributes' => [
                         59 => '10',
@@ -45,6 +44,10 @@ class AnimalEventTest extends AuthApiTestCase
         );
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
+        $json = $response->toArray();
+        $this->assertArrayHasKey('uuid', $json);
+        $user = $this->fixtures->getReference('test_user');
+        $this->assertStringStartsWith(sprintf('%s-', $user->getUsername()), $json['uuid']);
     }
 
     public function testGetItem()
@@ -76,7 +79,6 @@ class AnimalEventTest extends AuthApiTestCase
                     'animal' => '/api/animals/1',
                     'eventType' => 2, // milking
                     'countryId' => 1,
-                    'uuid' => '00001',
                     'eventDate' => '2020-02-03',
                     'additionalAttributes' => [
                         59 => '5',

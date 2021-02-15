@@ -22,7 +22,7 @@ class AuthApiTestCase extends ApiTestCase
     /**
      * @var \Doctrine\Common\DataFixtures\ReferenceRepository
      */
-    private $fixtures;
+    protected $fixtures;
 
     /**
      * @var JWTManager

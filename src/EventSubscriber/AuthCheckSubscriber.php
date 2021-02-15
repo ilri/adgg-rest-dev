@@ -59,5 +59,12 @@ final class AuthCheckSubscriber implements EventSubscriberInterface
         }
 
         $entity->setUuid(uniqid(sprintf('%s-', $user->getUsername())));
+
+        if ($method == Request::METHOD_POST) {
+            $entity->setCreatedBy($user->getId());
+        } else {
+            $entity->setUpdatedBy($user->getId());
+            $entity->setUpdatedAt(new \DateTime());
+        }
     }
 }

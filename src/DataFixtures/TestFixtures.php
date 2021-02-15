@@ -38,7 +38,7 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
     public function load(ObjectManager $manager)
     {
         $loader = new NativeLoader();
-        $objectSet = $loader->loadFile($this->baseDir . '/fixtures/testfixtures.yaml')->getObjects();
+        $objectSet = $loader->loadFile($this->baseDir . '/fixtures/test.yaml')->getObjects();
         foreach ($objectSet as $object) {
             $manager->persist($object);
         }

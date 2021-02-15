@@ -1,10 +1,10 @@
-App\Entity\CoreAnimal:
+App\Entity\Animal:
     animal_{1..10}:
         countryId: 1
         uuid: <numberBetween(1, 1000)>
         createdAt: <date_create()>
 
-App\Entity\CoreAnimalEvent:
+App\Entity\AnimalEvent:
     animal_event_{1..10}:
         eventType: <numberBetween(1, 16)>
         countryId: 1

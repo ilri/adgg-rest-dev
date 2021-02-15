@@ -46,8 +46,7 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
         $this->assertArrayHasKey('uuid', $json);
-        $user = $this->fixtures->getReference('test_user');
-        $this->assertStringStartsWith(sprintf('%s-', $user->getUsername()), $json['uuid']);
+        $this->assertStringStartsWith(sprintf('%s-', $this->user->getUsername()), $json['uuid']);
     }
 
     public function testGetItem()

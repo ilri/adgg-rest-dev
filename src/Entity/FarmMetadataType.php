@@ -6,12 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreFarmMetadataType
+ * FarmMetadataType
  *
  * @ORM\Table(name="core_farm_metadata_type", uniqueConstraints={@ORM\UniqueConstraint(name="code_2", columns={"code"})}, indexes={@ORM\Index(name="code", columns={"code"})})
  * @ORM\Entity
  */
-class CoreFarmMetadataType
+class FarmMetadataType
 {
     /**
      * @var int

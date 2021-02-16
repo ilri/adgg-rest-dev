@@ -1,12 +1,33 @@
 App\Entity\Animal:
     animal_{1..10}:
         countryId: 1
-        uuid: <numberBetween(1, 1000)>
+        uuid: <uniqid()>
         createdAt: <date_create()>
 
 App\Entity\AnimalEvent:
     animal_event_{1..10}:
         eventType: <numberBetween(1, 16)>
         countryId: 1
-        uuid: <numberBetween(1, 1000)>
+        uuid: <uniqid()>
         animal: '@animal_<current()>'
+
+App\Entity\Farm:
+    farm_{1..10}:
+        name: <name()>
+        farmerIsHhHead: true
+        isActive: true
+        uuid: <uniqid()>
+        createdAT: <date_create()>
+        isDeleted: false
+
+App\Entity\Herd:
+    herd_{1..10}:
+        countryId: 1
+        createdAt: <date_create()>
+        farm: '@farm_<current()>'
+
+App\Entity\FarmMetadata:
+    farm_metadata_{1..10}:
+        type: <numberBetween(1, 22)>
+        createdAt: <date_create()>
+        farm: '@farm_<current()>'

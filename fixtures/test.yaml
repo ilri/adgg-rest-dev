@@ -17,7 +17,7 @@ App\Entity\Farm:
         farmerIsHhHead: true
         isActive: true
         uuid: <uniqid()>
-        createdAT: <date_create()>
+        createdAt: <date_create()>
         isDeleted: false
 
 App\Entity\Herd:

@@ -6,6 +6,7 @@ namespace App\EventSubscriber;
 use ApiPlatform\Core\EventListener\EventPriorities;
 use App\Entity\Animal;
 use App\Entity\AnimalEvent;
+use App\Entity\Farm;
 use App\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +42,7 @@ final class AuthCheckSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();
-        $entities = [Animal::class, AnimalEvent::class];
+        $entities = [Animal::class, AnimalEvent::class, Farm::class];
         $methods = [Request::METHOD_POST, Request::METHOD_PUT, Request::METHOD_PATCH];
 
         if (!in_array(get_class($entity), $entities) || !in_array($method, $methods)) {

@@ -226,9 +226,10 @@ class Farm
     private $additionalAttributes;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     * @ORM\Version
      */
     private $createdAt;
 

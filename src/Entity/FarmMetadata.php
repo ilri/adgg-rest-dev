@@ -11,21 +11,26 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource(
  *     collectionOperations={
  *         "get"={
- *             "method"="GET"
+ *             "method"="GET",
+ *             "path"="/farm_metadata",
  *         },
  *         "post"={
- *             "method"="POST"
+ *             "method"="POST",
+ *             "path"="/farm_metadata"
  *         },
  *     },
  *     itemOperations={
  *         "get"={
- *             "method"="GET"
+ *             "method"="GET",
+ *             "path"="/farm_metadata/{id}"
  *         },
  *         "put"={
- *             "method"="PUT"
+ *             "method"="PUT",
+ *             "path"="/farm_metadata/{id}"
  *         },
  *         "patch"={
- *             "method"="PATCH"
+ *             "method"="PATCH",
+ *             "path"="/farm_metadata/{id}"
  *         }
  *     }
  * )
@@ -65,9 +70,10 @@ class FarmMetadata
     private $countryId;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     * @ORM\Version
      */
     private $createdAt;
 

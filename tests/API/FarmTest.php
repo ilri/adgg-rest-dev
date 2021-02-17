@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Tests\API;
 
 use App\Tests\AuthApiTestCase;
@@ -15,7 +14,7 @@ class FarmTest extends AuthApiTestCase
         $response = $this->client->request('GET', '/api/farms', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
-        // we have created 10 animal events in the fixtures
+        // we have created 10 farms in the fixtures
         $this->assertEquals(10, $json['hydra:totalItems']);
     }
 

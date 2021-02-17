@@ -23,6 +23,7 @@ App\Entity\Farm:
 App\Entity\Herd:
     herd_{1..10}:
         countryId: 1
+        uuid: <uniqid()>
         createdAt: <date_create()>
         farm: '@farm_<current()>'
 

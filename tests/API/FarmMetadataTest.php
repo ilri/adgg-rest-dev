@@ -77,9 +77,6 @@ class FarmMetadataTest extends AuthApiTestCase
         $json = $response->toArray();
         $this->assertArrayHasKey('type', $json);
         $this->assertEquals(1, $json['type']);
-        $this->assertArrayHasKey('updatedBy', $json);
-        $this->assertEquals($this->user->getId(), $json['updatedBy']);
-        $this->assertArrayHasKey('updatedAt', $json);
     }
 
     public function testDeleteItem()
@@ -114,8 +111,5 @@ class FarmMetadataTest extends AuthApiTestCase
         $json = $response->toArray();
         $this->assertArrayHasKey('type', $json);
         $this->assertEquals(5, $json['type']);
-        $this->assertArrayHasKey('updatedBy', $json);
-        $this->assertEquals($this->user->getId(), $json['updatedBy']);
-        $this->assertArrayHasKey('updatedAt', $json);
     }
 }

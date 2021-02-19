@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * AnimalEvent
@@ -11,21 +12,46 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource(
  *     collectionOperations={
  *         "get"={
- *             "method"="GET"
+ *             "method"="GET",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "animalevent:collection:get"
+ *                 }
+ *             }
  *         },
  *         "post"={
- *             "method"="POST"
+ *             "method"="POST",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "animalevent:collection:post"
+ *                 }
+ *             }
  *         },
  *     },
  *     itemOperations={
  *         "get"={
- *             "method"="GET"
+ *             "method"="GET",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "animalevent:item:get"
+ *                 }
+ *             }
  *         },
  *         "put"={
- *             "method"="PUT"
+ *             "method"="PUT",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "animalevent:item:put"
+ *                 }
+ *             }
  *         },
  *         "patch"={
- *             "method"="PATCH"
+ *             "method"="PATCH",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "animalevent:item:patch"
+ *                 }
+ *             }
  *         }
  *     }
  * )
@@ -63,6 +89,14 @@ class AnimalEvent
      * @var int
      *
      * @ORM\Column(name="event_type", type="integer", nullable=false)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $eventType;
 
@@ -70,6 +104,14 @@ class AnimalEvent
      * @var int
      *
      * @ORM\Column(name="country_id", type="integer", nullable=false)
+     *
+     * @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $countryId;
 
@@ -77,6 +119,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="region_id", type="integer", nullable=true)
+     *
+     * @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $regionId;
 
@@ -84,6 +134,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="district_id", type="integer", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $districtId;
 
@@ -91,6 +149,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="ward_id", type="integer", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $wardId;
 
@@ -98,6 +164,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="village_id", type="integer", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $villageId;
 
@@ -105,6 +179,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="org_id", type="integer", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $orgId;
 
@@ -112,6 +194,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="client_id", type="integer", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $clientId;
 
@@ -119,6 +209,14 @@ class AnimalEvent
      * @var \DateTime|null
      *
      * @ORM\Column(name="event_date", type="date", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $eventDate;
 
@@ -126,6 +224,15 @@ class AnimalEvent
      * @var \DateTime|null
      *
      * @ORM\Column(name="data_collection_date", type="date", nullable=true)
+     *
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $dataCollectionDate;
 
@@ -133,6 +240,14 @@ class AnimalEvent
      * @var string|null
      *
      * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $latitude;
 
@@ -140,6 +255,14 @@ class AnimalEvent
      * @var string|null
      *
      * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $longitude;
 
@@ -147,6 +270,14 @@ class AnimalEvent
      * @var string|null
      *
      * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $mapAddress;
 
@@ -189,6 +320,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="testday_no", type="integer", nullable=true, options={"comment"="Test day number for milk record"})
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $testdayNo;
 
@@ -196,6 +335,14 @@ class AnimalEvent
      * @var array|null
      *
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $additionalAttributes;
 
@@ -204,6 +351,14 @@ class AnimalEvent
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
      * @ORM\Version
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $createdAt;
 
@@ -211,6 +366,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="created_by", type="integer", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $createdBy;
 
@@ -218,6 +381,14 @@ class AnimalEvent
      * @var \DateTime|null
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $updatedAt;
 
@@ -225,6 +396,14 @@ class AnimalEvent
      * @var int|null
      *
      * @ORM\Column(name="updated_by", type="integer", nullable=true)
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $updatedBy;
 
@@ -232,6 +411,14 @@ class AnimalEvent
      * @var string|null
      *
      * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
+     *
+     *  @Groups({
+     * "animal:collection:get",
+     * "animal:collection:post",
+     * "animal:item:get",
+     * "animal:item:put",
+     * "animal:item:patch"
+     * })
      */
     private $migrationId;
 

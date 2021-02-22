@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * FarmMetadata
@@ -13,24 +14,49 @@ use Doctrine\ORM\Mapping as ORM;
  *         "get"={
  *             "method"="GET",
  *             "path"="/farm_metadata",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "farmmetadata:collection:get"
+ *                 }
+ *             }
  *         },
  *         "post"={
  *             "method"="POST",
- *             "path"="/farm_metadata"
+ *             "path"="/farm_metadata",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "farmmetadata:collection:post"
+ *                 }
+ *             }
  *         },
  *     },
  *     itemOperations={
  *         "get"={
  *             "method"="GET",
- *             "path"="/farm_metadata/{id}"
+ *             "path"="/farm_metadata/{id}",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "farmmetadata:item:get"
+ *                 }
+ *             }
  *         },
  *         "put"={
  *             "method"="PUT",
- *             "path"="/farm_metadata/{id}"
+ *             "path"="/farm_metadata/{id}",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "farmmetadata:item:put"
+ *                 }
+ *             }
  *         },
  *         "patch"={
  *             "method"="PATCH",
- *             "path"="/farm_metadata/{id}"
+ *             "path"="/farm_metadata/{id}",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "farmmetadata:item:patch"
+ *                 }
+ *             }
  *         }
  *     }
  * )
@@ -45,6 +71,14 @@ class FarmMetadata
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     *  @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
+     * })
      */
     private $id;
 
@@ -52,6 +86,14 @@ class FarmMetadata
      * @var int
      *
      * @ORM\Column(name="type", type="integer", nullable=false)
+     *
+     * @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
+     * })
      */
     private $type;
 
@@ -59,6 +101,14 @@ class FarmMetadata
      * @var array|null
      *
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
+     *
+     * @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
+     * })
      */
     private $additionalAttributes;
 
@@ -66,6 +116,14 @@ class FarmMetadata
      * @var int|null
      *
      * @ORM\Column(name="country_id", type="integer", nullable=true)
+     *
+     * @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
+     * })
      */
     private $countryId;
 
@@ -74,6 +132,14 @@ class FarmMetadata
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
      * @ORM\Version
+     *
+     * @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
+     * })
      */
     private $createdAt;
 
@@ -81,6 +147,14 @@ class FarmMetadata
      * @var int|null
      *
      * @ORM\Column(name="created_by", type="integer", nullable=true)
+     *
+     * @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
+     * })
      */
     private $createdBy;
 
@@ -88,6 +162,14 @@ class FarmMetadata
      * @var string|null
      *
      * @ORM\Column(name="odk_form_uuid", type="string", length=128, nullable=true)
+     *
+     * @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
+     * })
      */
     private $odkFormUuid;
 
@@ -97,6 +179,14 @@ class FarmMetadata
      * @ORM\ManyToOne(targetEntity="Farm")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="farm_id", referencedColumnName="id")
+     * })
+     *
+     * @Groups({
+     *     "farmmetadata:collection:get",
+     *     "farmmetadata:collection:post",
+     *     "farmmetadata:item:get",
+     *     "farmmetadata:item:put",
+     *     "farmmetadata:item:patch"
      * })
      */
     private $farm;

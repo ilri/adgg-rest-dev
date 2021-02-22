@@ -68,11 +68,11 @@ class Herd
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $id;
@@ -83,11 +83,11 @@ class Herd
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $name;
@@ -98,11 +98,11 @@ class Herd
      * @ORM\Column(name="uuid", type="string", length=128, nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $uuid;
@@ -120,11 +120,11 @@ class Herd
      * @ORM\Column(name="region_id", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $regionId;
@@ -135,11 +135,11 @@ class Herd
      * @ORM\Column(name="district_id", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $districtId;
@@ -150,11 +150,11 @@ class Herd
      * @ORM\Column(name="ward_id", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $wardId;
@@ -165,11 +165,11 @@ class Herd
      * @ORM\Column(name="village_id", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $villageId;
@@ -180,11 +180,11 @@ class Herd
      * @ORM\Column(name="org_id", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $orgId;
@@ -195,11 +195,11 @@ class Herd
      * @ORM\Column(name="client_id", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $clientId;
@@ -210,11 +210,11 @@ class Herd
      * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $latitude;
@@ -225,11 +225,11 @@ class Herd
      * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $longitude;
@@ -240,11 +240,11 @@ class Herd
      * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $mapAddress;
@@ -269,11 +269,11 @@ class Herd
      * @ORM\Column(name="project", type="string", length=128, nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $project;
@@ -284,11 +284,11 @@ class Herd
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $additionalAttributes;
@@ -300,11 +300,11 @@ class Herd
      * @ORM\Version
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $createdAt;
@@ -315,11 +315,11 @@ class Herd
      * @ORM\Column(name="created_by", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $createdBy;
@@ -330,11 +330,11 @@ class Herd
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $updatedAt;
@@ -345,11 +345,11 @@ class Herd
      * @ORM\Column(name="updated_by", type="integer", nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $updatedBy;
@@ -360,11 +360,11 @@ class Herd
      * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $migrationId;
@@ -375,11 +375,11 @@ class Herd
      * @ORM\Column(name="odk_form_uuid", type="string", length=128, nullable=true)
      *
      *  @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "herd:collection:get",
+     *     "herd:collection:post",
+     *     "herd:item:get",
+     *     "herd:item:put",
+     *     "herd:item:patch"
      * })
      */
     private $odkFormUuid;

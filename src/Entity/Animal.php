@@ -55,7 +55,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *         }
  *     }
  * )
- * @ORM\Table(name="core_animal", indexes={@ORM\Index(name= * "animal_type", columns={ * "animal_type"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="dam_id", columns={"dam_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="reg_date", columns={"reg_date"}), @ORM\Index(name="sire_id", columns={"sire_id"}), @ORM\Index(name="tag_id", columns={"tag_id"})})
+ * @ORM\Table(name="core_animal", indexes={@ORM\Index(name= *     "animal_type", columns={ *     "animal_type"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="dam_id", columns={"dam_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="reg_date", columns={"reg_date"}), @ORM\Index(name="sire_id", columns={"sire_id"}), @ORM\Index(name="tag_id", columns={"tag_id"})})
  * @ORM\Entity
  */
 class Animal
@@ -68,11 +68,11 @@ class Animal
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $id;
@@ -83,11 +83,11 @@ class Animal
      * @ORM\Column(name="name", type="string", length=128, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $name;
@@ -98,11 +98,11 @@ class Animal
      * @ORM\Column(name="tag_id", type="string", length=128, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $tagId;
@@ -113,11 +113,11 @@ class Animal
      * @ORM\Column(name="herd_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $herdId;
@@ -128,11 +128,11 @@ class Animal
      * @ORM\Column(name="country_id", type="integer", nullable=false)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $countryId;
@@ -143,11 +143,11 @@ class Animal
      * @ORM\Column(name="region_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $regionId;
@@ -158,11 +158,11 @@ class Animal
      * @ORM\Column(name="district_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $districtId;
@@ -173,11 +173,11 @@ class Animal
      * @ORM\Column(name="ward_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $wardId;
@@ -188,11 +188,11 @@ class Animal
      * @ORM\Column(name="village_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $villageId;
@@ -203,11 +203,11 @@ class Animal
      * @ORM\Column(name="org_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $orgId;
@@ -218,11 +218,11 @@ class Animal
      * @ORM\Column(name="client_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $clientId;
@@ -230,14 +230,14 @@ class Animal
     /**
      * @var int|null
      *
-     * @ORM\Column(name= * "animal_type", type="integer", nullable=true)
+     * @ORM\Column(name= *     "animal_type", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $animalType;
@@ -248,11 +248,11 @@ class Animal
      * @ORM\Column(name="sex", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $sex;
@@ -263,11 +263,11 @@ class Animal
      * @ORM\Column(name="birthdate", type="date", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $birthdate;
@@ -278,11 +278,11 @@ class Animal
      * @ORM\Column(name="sire_type", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $sireType;
@@ -293,11 +293,11 @@ class Animal
      * @ORM\Column(name="sire_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $sireId;
@@ -308,11 +308,11 @@ class Animal
      * @ORM\Column(name="sire_tag_id", type="string", length=128, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $sireTagId;
@@ -323,11 +323,11 @@ class Animal
      * @ORM\Column(name="dam_id", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $damId;
@@ -338,11 +338,11 @@ class Animal
      * @ORM\Column(name="dam_tag_id", type="string", length=128, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $damTagId;
@@ -353,11 +353,11 @@ class Animal
      * @ORM\Column(name="main_breed", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $mainBreed;
@@ -368,11 +368,11 @@ class Animal
      * @ORM\Column(name="breed_composition", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $breedComposition;
@@ -380,14 +380,14 @@ class Animal
     /**
      * @var string|null
      *
-     * @ORM\Column(name= * "animal_photo", type="string", length=255, nullable=true)
+     * @ORM\Column(name= *     "animal_photo", type="string", length=255, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $animalPhoto;
@@ -398,11 +398,11 @@ class Animal
      * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $latitude;
@@ -413,11 +413,11 @@ class Animal
      * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $longitude;
@@ -428,11 +428,11 @@ class Animal
      * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $mapAddress;
@@ -450,11 +450,11 @@ class Animal
      * @ORM\Column(name="uuid", type="string", length=255, nullable=false)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $uuid;
@@ -465,11 +465,11 @@ class Animal
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $additionalAttributes;
@@ -480,11 +480,11 @@ class Animal
      * @ORM\Column(name="reg_date", type="date", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $regDate;
@@ -495,11 +495,11 @@ class Animal
      * @ORM\Column(name="hair_sample_id", type="string", length=128, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $hairSampleId;
@@ -511,11 +511,11 @@ class Animal
      * @ORM\Version
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $createdAt;
@@ -526,11 +526,11 @@ class Animal
      * @ORM\Column(name="created_by", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $createdBy;
@@ -541,11 +541,11 @@ class Animal
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $updatedAt;
@@ -556,11 +556,11 @@ class Animal
      * @ORM\Column(name="updated_by", type="integer", nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $updatedBy;
@@ -571,11 +571,11 @@ class Animal
      * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $migrationId;
@@ -586,11 +586,11 @@ class Animal
      * @ORM\Column(name="odk_form_uuid", type="string", length=128, nullable=true)
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $odkFormUuid;
@@ -598,14 +598,14 @@ class Animal
     /**
      * @var string|null
      *
-     * @ORM\Column(name="odk_animal_code", type="string", length=30, nullable=true, options={"comment"= * "animal code from Harrison db for odk form versions 1.5 and below "})
+     * @ORM\Column(name="odk_animal_code", type="string", length=30, nullable=true, options={"comment"= *     "animal code from Harrison db for odk form versions 1.5 and below "})
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $odkAnimalCode;
@@ -619,11 +619,11 @@ class Animal
      * })
      *
      * @Groups({
-     * "animal:collection:get",
-     * "animal:collection:post",
-     * "animal:item:get",
-     * "animal:item:put",
-     * "animal:item:patch"
+     *     "animal:collection:get",
+     *     "animal:collection:post",
+     *     "animal:item:get",
+     *     "animal:item:put",
+     *     "animal:item:patch"
      * })
      */
     private $farm;

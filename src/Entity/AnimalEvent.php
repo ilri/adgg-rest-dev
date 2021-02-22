@@ -436,6 +436,14 @@ class AnimalEvent
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({
+     *     "animalevent:collection:get",
+     *     "animalevent:collection:post",
+     *     "animalevent:item:get",
+     *     "animalevent:item:put",
+     *     "animalevent:item:patch"
+     * })
      */
     private $animal;
 

@@ -37,8 +37,6 @@ class HerdTest extends AuthApiTestCase
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
-        $this->assertArrayHasKey('countryId', $json);
-        $this->assertArrayHasKey('uuid', $json);
         $this->assertStringStartsWith(sprintf('%s-', $this->user->getUsername()), $json['uuid']);
         $this->assertArrayHasKey('createdBy', $json);
         $this->assertEquals($this->user->getId(), $json['createdBy']);
@@ -53,9 +51,6 @@ class HerdTest extends AuthApiTestCase
         $response = $this->client->request('GET', '/api/herds/1', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
-        $json = $response->toArray();
-        $this->assertArrayHasKey('countryId', $json);
-        $this->assertArrayHasKey('uuid', $json);
     }
 
     public function testPutItem()

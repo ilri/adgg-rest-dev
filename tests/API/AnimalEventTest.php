@@ -44,9 +44,6 @@ class AnimalEventTest extends AuthApiTestCase
         );
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
-        $json = $response->toArray();
-        $this->assertArrayHasKey('uuid', $json);
-        $this->assertStringStartsWith(sprintf('%s-', $this->user->getUsername()), $json['uuid']);
     }
 
     public function testGetItem()
@@ -61,7 +58,6 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertArrayHasKey('animal', $json);
         $this->assertArrayHasKey('eventType', $json);
         $this->assertArrayHasKey('countryId', $json);
-        $this->assertArrayHasKey('uuid', $json);
     }
 
     public function testPutItem()

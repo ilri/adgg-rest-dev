@@ -380,7 +380,7 @@ class Animal
     /**
      * @var string|null
      *
-     * @ORM\Column(name= *     "animal_photo", type="string", length=255, nullable=true)
+     * @ORM\Column(name="animal_photo", type="string", length=255, nullable=true)
      *
      * @Groups({
      *     "animal:collection:get",

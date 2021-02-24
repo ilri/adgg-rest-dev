@@ -3,11 +3,6 @@
 namespace App\EventSubscriber;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
-use App\Entity\Animal;
-use App\Entity\AnimalEvent;
-use App\Entity\Farm;
-use App\Entity\FarmMetadata;
-use App\Entity\Herd;
 use App\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,10 +38,9 @@ final class AuthCheckSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();
-        $entities = [Animal::class, AnimalEvent::class, Farm::class, Herd::class, FarmMetadata::class];
         $methods = [Request::METHOD_POST, Request::METHOD_PUT, Request::METHOD_PATCH];
 
-        if (!in_array(get_class($entity), $entities) || !in_array($method, $methods)) {
+        if (!is_subclass_of($entity, 'ADGGResource') || !in_array($method, $methods)) {
             return;
         }
 
@@ -60,17 +54,12 @@ final class AuthCheckSubscriber implements EventSubscriberInterface
             return;
         }
 
-        if (get_class($entity) != FarmMetadata::class) {
-            $entity->setUuid(uniqid(sprintf('%s-', $user->getUsername())));
-        }
+        $entity->setUuid(uniqid(sprintf('%s-', $user->getUsername())));
 
         if ($method == Request::METHOD_POST) {
             $entity->setCreatedBy($user->getId());
         } else {
-            if (get_class($entity) != FarmMetadata::class) {
-                $entity->setUpdatedBy($user->getId());
-                $entity->setUpdatedAt(new \DateTime());
-            }
+            $entity->setUpdatedBy($user->getId());
         }
     }
 }

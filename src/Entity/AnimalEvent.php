@@ -58,7 +58,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
  * @ORM\Entity
  */
-class AnimalEvent
+class AnimalEvent extends ADGGResource
 {
     const EVENT_TYPE_CALVING = 1;
     const EVENT_TYPE_MILKING = 2;
@@ -289,13 +289,6 @@ class AnimalEvent
     private $latlng;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="uuid", type="string", length=255, nullable=false)
-     */
-    private $uuid;
-
-    /**
      * @var int|null
      *
      * @ORM\Column(name="field_agent_id", type="integer", nullable=true)
@@ -332,82 +325,6 @@ class AnimalEvent
     private $testdayNo;
 
     /**
-     * @var array|null
-     *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
-     */
-    private $additionalAttributes;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false)
-     * @ORM\Version
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
-     */
-    private $createdAt;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="created_by", type="integer", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
-     */
-    private $createdBy;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
-     */
-    private $updatedAt;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="updated_by", type="integer", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
-     */
-    private $updatedBy;
-
-    /**
      * @var string|null
      *
      * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
@@ -423,14 +340,7 @@ class AnimalEvent
     private $migrationId;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="odk_form_uuid", type="string", length=128, nullable=true)
-     */
-    private $odkFormUuid;
-
-    /**
-     * @var \CoreAnimal
+     * @var Animal
      *
      * @ORM\ManyToOne(targetEntity="Animal")
      * @ORM\JoinColumns({
@@ -620,18 +530,6 @@ class AnimalEvent
         return $this;
     }
 
-    public function getUuid(): ?string
-    {
-        return $this->uuid;
-    }
-
-    public function setUuid(string $uuid): self
-    {
-        $this->uuid = $uuid;
-
-        return $this;
-    }
-
     public function getFieldAgentId(): ?int
     {
         return $this->fieldAgentId;
@@ -680,66 +578,6 @@ class AnimalEvent
         return $this;
     }
 
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): self
-    {
-        $this->additionalAttributes = $additionalAttributes;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getCreatedBy(): ?int
-    {
-        return $this->createdBy;
-    }
-
-    public function setCreatedBy(?int $createdBy): self
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function getUpdatedBy(): ?int
-    {
-        return $this->updatedBy;
-    }
-
-    public function setUpdatedBy(?int $updatedBy): self
-    {
-        $this->updatedBy = $updatedBy;
-
-        return $this;
-    }
-
     public function getMigrationId(): ?string
     {
         return $this->migrationId;
@@ -748,18 +586,6 @@ class AnimalEvent
     public function setMigrationId(?string $migrationId): self
     {
         $this->migrationId = $migrationId;
-
-        return $this;
-    }
-
-    public function getOdkFormUuid(): ?string
-    {
-        return $this->odkFormUuid;
-    }
-
-    public function setOdkFormUuid(?string $odkFormUuid): self
-    {
-        $this->odkFormUuid = $odkFormUuid;
 
         return $this;
     }

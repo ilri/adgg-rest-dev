@@ -37,9 +37,7 @@ class HerdTest extends AuthApiTestCase
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
-        $this->assertStringStartsWith(sprintf('%s-', $this->user->getUsername()), $json['uuid']);
-        $this->assertArrayHasKey('createdBy', $json);
-        $this->assertEquals($this->user->getId(), $json['createdBy']);
+        $this->assertArrayHasKey('countryId', $json);
     }
 
 
@@ -75,9 +73,6 @@ class HerdTest extends AuthApiTestCase
         $json = $response->toArray();
         $this->assertArrayHasKey('name', $json);
         $this->assertEquals('herd 1', $json['name']);
-        $this->assertArrayHasKey('updatedBy', $json);
-        $this->assertEquals($this->user->getId(), $json['updatedBy']);
-        $this->assertArrayHasKey('updatedAt', $json);
     }
 
     public function testDeleteItem()
@@ -112,8 +107,5 @@ class HerdTest extends AuthApiTestCase
         $json = $response->toArray();
         $this->assertArrayHasKey('name', $json);
         $this->assertEquals('herd 2', $json['name']);
-        $this->assertArrayHasKey('updatedBy', $json);
-        $this->assertEquals($this->user->getId(), $json['updatedBy']);
-        $this->assertArrayHasKey('updatedAt', $json);
     }
 }

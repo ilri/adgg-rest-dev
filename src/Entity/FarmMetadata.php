@@ -137,6 +137,4 @@ class FarmMetadata
 
         return $this;
     }
-
-
 }

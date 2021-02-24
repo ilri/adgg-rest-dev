@@ -2,8 +2,8 @@ App\Entity\FarmMetadata:
   attributes:
     id:
       groups: [
-        "farmmetadata:collection:get",
-        "farmmetadata:item:get"
+          "farmmetadata:collection:get",
+          "farmmetadata:item:get"
       ]
     type:
       groups: [

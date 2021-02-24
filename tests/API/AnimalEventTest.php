@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Tests\API;
 
 use App\Tests\AuthApiTestCase;

@@ -89,14 +89,6 @@ class AnimalEvent extends ADGGResource
      * @var int
      *
      * @ORM\Column(name="event_type", type="integer", nullable=false)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $eventType;
 
@@ -104,14 +96,6 @@ class AnimalEvent extends ADGGResource
      * @var int
      *
      * @ORM\Column(name="country_id", type="integer", nullable=false)
-     *
-     * @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $countryId;
 
@@ -119,14 +103,6 @@ class AnimalEvent extends ADGGResource
      * @var int|null
      *
      * @ORM\Column(name="region_id", type="integer", nullable=true)
-     *
-     * @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $regionId;
 
@@ -134,14 +110,6 @@ class AnimalEvent extends ADGGResource
      * @var int|null
      *
      * @ORM\Column(name="district_id", type="integer", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $districtId;
 
@@ -149,14 +117,6 @@ class AnimalEvent extends ADGGResource
      * @var int|null
      *
      * @ORM\Column(name="ward_id", type="integer", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $wardId;
 
@@ -164,14 +124,6 @@ class AnimalEvent extends ADGGResource
      * @var int|null
      *
      * @ORM\Column(name="village_id", type="integer", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $villageId;
 
@@ -179,14 +131,6 @@ class AnimalEvent extends ADGGResource
      * @var int|null
      *
      * @ORM\Column(name="org_id", type="integer", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $orgId;
 
@@ -194,14 +138,6 @@ class AnimalEvent extends ADGGResource
      * @var int|null
      *
      * @ORM\Column(name="client_id", type="integer", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $clientId;
 
@@ -209,14 +145,6 @@ class AnimalEvent extends ADGGResource
      * @var \DateTime|null
      *
      * @ORM\Column(name="event_date", type="date", nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $eventDate;
 
@@ -224,15 +152,6 @@ class AnimalEvent extends ADGGResource
      * @var \DateTime|null
      *
      * @ORM\Column(name="data_collection_date", type="date", nullable=true)
-     *
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $dataCollectionDate;
 
@@ -240,14 +159,6 @@ class AnimalEvent extends ADGGResource
      * @var string|null
      *
      * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $latitude;
 
@@ -255,14 +166,6 @@ class AnimalEvent extends ADGGResource
      * @var string|null
      *
      * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $longitude;
 
@@ -270,14 +173,6 @@ class AnimalEvent extends ADGGResource
      * @var string|null
      *
      * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $mapAddress;
 
@@ -313,14 +208,6 @@ class AnimalEvent extends ADGGResource
      * @var int|null
      *
      * @ORM\Column(name="testday_no", type="integer", nullable=true, options={"comment"="Test day number for milk record"})
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $testdayNo;
 
@@ -328,14 +215,6 @@ class AnimalEvent extends ADGGResource
      * @var string|null
      *
      * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
-     *
-     *  @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
-     * })
      */
     private $migrationId;
 
@@ -345,14 +224,6 @@ class AnimalEvent extends ADGGResource
      * @ORM\ManyToOne(targetEntity="Animal")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
-     * })
-     *
-     * @Groups({
-     *     "animalevent:collection:get",
-     *     "animalevent:collection:post",
-     *     "animalevent:item:get",
-     *     "animalevent:item:put",
-     *     "animalevent:item:patch"
      * })
      */
     private $animal;
@@ -601,6 +472,4 @@ class AnimalEvent extends ADGGResource
 
         return $this;
     }
-
-
 }

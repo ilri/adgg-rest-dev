@@ -62,7 +62,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="core_farm_metadata", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="type", columns={"type"})})
  * @ORM\Entity
  */
-class FarmMetadata
+class FarmMetadata extends ADGGResource
 {
     /**
      * @var int
@@ -81,13 +81,6 @@ class FarmMetadata
     private $type;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="country_id", type="integer", nullable=true)
-     */
-    private $countryId;
-
-    /**
      * @var Farm
      *
      * @ORM\ManyToOne(targetEntity="Farm")
@@ -96,6 +89,25 @@ class FarmMetadata
      * })
      */
     private $farm;
+
+    public function __construct()
+    {
+        $parent = new ADGGResource();
+        unset($parent->regionId);
+        unset($parent->districtId);
+        unset($parent->wardId);
+        unset($parent->villageId);
+        unset($parent->orgId);
+        unset($parent->clientId);
+    }
+
+    public function __set($name, $value)
+    {
+        $deleted = ['regionId', 'districtId', 'wardId', 'villageId', 'orgId', 'clientId'];
+        if (in_array($name, $deleted)) {
+            dump($value);
+        }
+    }
 
     public function getId(): ?int
     {
@@ -110,18 +122,6 @@ class FarmMetadata
     public function setType(int $type): self
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    public function getCountryId(): ?int
-    {
-        return $this->countryId;
-    }
-
-    public function setCountryId(?int $countryId): self
-    {
-        $this->countryId = $countryId;
 
         return $this;
     }

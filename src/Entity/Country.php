@@ -6,12 +6,25 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreCountry
+ * Country
+ *
+ * @ApiResource(
+ *     collectionOperations={
+ *         "get"={
+ *             "method"="GET",
+ *         }
+ *     },
+ *     itemOperations={
+ *         "get"={
+ *             "method"="GET",
+ *         }
+ *     }
+ * )
  *
  * @ORM\Table(name="core_country")
  * @ORM\Entity
  */
-class CoreCountry
+class Country
 {
     /**
      * @var int

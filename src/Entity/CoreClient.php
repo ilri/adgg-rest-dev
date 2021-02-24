@@ -88,7 +88,7 @@ class CoreClient
     /**
      * @var \CoreCountry
      *
-     * @ORM\ManyToOne(targetEntity="CoreCountry")
+     * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
@@ -208,12 +208,12 @@ class CoreClient
         return $this;
     }
 
-    public function getCountry(): ?CoreCountry
+    public function getCountry(): ?Country
     {
         return $this->country;
     }
 
-    public function setCountry(?CoreCountry $country): self
+    public function setCountry(?Country $country): self
     {
         $this->country = $country;
 

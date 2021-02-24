@@ -30,7 +30,8 @@ class FarmMetadataTest extends AuthApiTestCase
                 'auth_bearer' => $this->token,
                 'json' => [
                     'type' => 1,
-                    'farm' => '/api/farms/1'
+                    'farm' => '/api/farms/1',
+                    'countryId' => 1
                 ]
             ]
         );
@@ -65,8 +66,9 @@ class FarmMetadataTest extends AuthApiTestCase
             [
                 'auth_bearer' => $this->token,
                 'json' => [
-                    'type' => 1,
-                    'farm' => '/api/farms/1'
+                    'type' => 2,
+                    'farm' => '/api/farms/1',
+                    'countryId' => 1
                 ]
             ]
         );
@@ -74,7 +76,7 @@ class FarmMetadataTest extends AuthApiTestCase
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
         $this->assertArrayHasKey('type', $json);
-        $this->assertEquals(1, $json['type']);
+        $this->assertEquals(2, $json['type']);
     }
 
     public function testDeleteItem()

@@ -76,55 +76,6 @@ class Herd extends ADGGResource
     private $name;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="country_id", type="integer", nullable=false)
-     */
-    private $countryId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="region_id", type="integer", nullable=true)
-     */
-    private $regionId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="district_id", type="integer", nullable=true)
-     */
-    private $districtId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="ward_id", type="integer", nullable=true)
-     */
-    private $wardId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="village_id", type="integer", nullable=true)
-     */
-    private $villageId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="org_id", type="integer", nullable=true)
-     */
-    private $orgId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="client_id", type="integer", nullable=true)
-     */
-    private $clientId;
-
-    /**
      * @var string|null
      *
      * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
@@ -196,90 +147,6 @@ class Herd extends ADGGResource
     public function setName(?string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getCountryId(): ?int
-    {
-        return $this->countryId;
-    }
-
-    public function setCountryId(int $countryId): self
-    {
-        $this->countryId = $countryId;
-
-        return $this;
-    }
-
-    public function getRegionId(): ?int
-    {
-        return $this->regionId;
-    }
-
-    public function setRegionId(?int $regionId): self
-    {
-        $this->regionId = $regionId;
-
-        return $this;
-    }
-
-    public function getDistrictId(): ?int
-    {
-        return $this->districtId;
-    }
-
-    public function setDistrictId(?int $districtId): self
-    {
-        $this->districtId = $districtId;
-
-        return $this;
-    }
-
-    public function getWardId(): ?int
-    {
-        return $this->wardId;
-    }
-
-    public function setWardId(?int $wardId): self
-    {
-        $this->wardId = $wardId;
-
-        return $this;
-    }
-
-    public function getVillageId(): ?int
-    {
-        return $this->villageId;
-    }
-
-    public function setVillageId(?int $villageId): self
-    {
-        $this->villageId = $villageId;
-
-        return $this;
-    }
-
-    public function getOrgId(): ?int
-    {
-        return $this->orgId;
-    }
-
-    public function setOrgId(?int $orgId): self
-    {
-        $this->orgId = $orgId;
-
-        return $this;
-    }
-
-    public function getClientId(): ?int
-    {
-        return $this->clientId;
-    }
-
-    public function setClientId(?int $clientId): self
-    {
-        $this->clientId = $clientId;
 
         return $this;
     }
@@ -379,6 +246,4 @@ class Herd extends ADGGResource
 
         return $this;
     }
-
-
 }

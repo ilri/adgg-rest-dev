@@ -32,7 +32,8 @@ class FarmTest extends AuthApiTestCase
                     'name' => 'My little farm',
                     'farmerIsHhHead' => true,
                     'isActive' => true,
-                    'isDeleted' => false
+                    'isDeleted' => false,
+                    'country' => '/api/countries/1'
                 ]
             ]
         );
@@ -68,7 +69,8 @@ class FarmTest extends AuthApiTestCase
                     'name' => 'My big farm',
                     'farmerIsHhHead' => true,
                     'isActive' => true,
-                    'isDeleted' => false
+                    'isDeleted' => false,
+                    'country' => '/api/countries/1'
                 ]
             ]
         );

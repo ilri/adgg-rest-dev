@@ -84,54 +84,6 @@ class Farm extends ADGGResource
     private $name;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="region_id", type="integer", nullable=true)
-     *
-     */
-    private $regionId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="district_id", type="integer", nullable=true)
-     *
-     */
-    private $districtId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="ward_id", type="integer", nullable=true)
-     *
-     */
-    private $wardId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="village_id", type="integer", nullable=true)
-     *
-     */
-    private $villageId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="org_id", type="integer", nullable=true)
-     *
-     */
-    private $orgId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="client_id", type="integer", nullable=true)
-     *
-     */
-    private $clientId;
-
-    /**
      * @var \DateTime|null
      *
      * @ORM\Column(name="reg_date", type="date", nullable=true)
@@ -261,7 +213,12 @@ class Farm extends ADGGResource
      */
     private $odkFarmCode;
 
-
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_deleted", type="boolean", nullable=false)
+     */
+    private $isDeleted;
 
     /**
      * @var \DateTime|null
@@ -269,7 +226,21 @@ class Farm extends ADGGResource
      * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
      *
      */
+    private $deletedAt;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="deleted_by", type="integer", nullable=true)
+     * })
+     */
+    private $deletedBy;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
+     */
     private $migrationId;
 
 
@@ -282,14 +253,20 @@ class Farm extends ADGGResource
     private $uniqueIdOdk;
 
     /**
-     * @var \CoreCountry
+     * @var Country
      *
-     * @ORM\ManyToOne(targetEntity="CoreCountry")
+     * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
      */
     private $country;
+
+    public function __construct()
+    {
+        $parent = new ADGGResource();
+        unset($parent->countryId);
+    }
 
     public function getId(): ?int
     {
@@ -316,78 +293,6 @@ class Farm extends ADGGResource
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getRegionId(): ?int
-    {
-        return $this->regionId;
-    }
-
-    public function setRegionId(?int $regionId): self
-    {
-        $this->regionId = $regionId;
-
-        return $this;
-    }
-
-    public function getDistrictId(): ?int
-    {
-        return $this->districtId;
-    }
-
-    public function setDistrictId(?int $districtId): self
-    {
-        $this->districtId = $districtId;
-
-        return $this;
-    }
-
-    public function getWardId(): ?int
-    {
-        return $this->wardId;
-    }
-
-    public function setWardId(?int $wardId): self
-    {
-        $this->wardId = $wardId;
-
-        return $this;
-    }
-
-    public function getVillageId(): ?int
-    {
-        return $this->villageId;
-    }
-
-    public function setVillageId(?int $villageId): self
-    {
-        $this->villageId = $villageId;
-
-        return $this;
-    }
-
-    public function getOrgId(): ?int
-    {
-        return $this->orgId;
-    }
-
-    public function setOrgId(?int $orgId): self
-    {
-        $this->orgId = $orgId;
-
-        return $this;
-    }
-
-    public function getClientId(): ?int
-    {
-        return $this->clientId;
-    }
-
-    public function setClientId(?int $clientId): self
-    {
-        $this->clientId = $clientId;
 
         return $this;
     }
@@ -591,20 +496,6 @@ class Farm extends ADGGResource
         return $this;
     }
 
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): self
-    {
-        $this->additionalAttributes = $additionalAttributes;
-
-        return $this;
-    }
-
-
-
     public function getIsDeleted(): ?bool
     {
         return $this->isDeleted;
@@ -653,18 +544,6 @@ class Farm extends ADGGResource
         return $this;
     }
 
-    public function getOdkFormUuid(): ?string
-    {
-        return $this->odkFormUuid;
-    }
-
-    public function setOdkFormUuid(?string $odkFormUuid): self
-    {
-        $this->odkFormUuid = $odkFormUuid;
-
-        return $this;
-    }
-
     public function getUniqueIdOdk(): ?string
     {
         return $this->uniqueIdOdk;
@@ -677,17 +556,15 @@ class Farm extends ADGGResource
         return $this;
     }
 
-    public function getCountry(): ?CoreCountry
+    public function getCountry(): ?Country
     {
         return $this->country;
     }
 
-    public function setCountry(?CoreCountry $country): self
+    public function setCountry(?Country $country): self
     {
         $this->country = $country;
 
         return $this;
     }
-
-
 }

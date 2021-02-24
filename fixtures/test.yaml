@@ -1,3 +1,16 @@
+App\Entity\Country:
+    country:
+        code: 2
+        name: 'Tanzania'
+        country: 'TZ'
+        isActive: true,
+        uuid: <uniqid()>
+        unit1Name: 'Region'
+        unit2Name: 'District'
+        unit3Name: 'Ward'
+        unit4Name: 'Village'
+        createdAt: <date_create()>
+
 App\Entity\Animal:
     animal_{1..10}:
         countryId: 1
@@ -17,6 +30,7 @@ App\Entity\Farm:
         isActive: true
         uuid: <uniqid()>
         isDeleted: false
+        country: '@country'
 
 App\Entity\Herd:
     herd_{1..10}:
@@ -28,3 +42,4 @@ App\Entity\FarmMetadata:
     farm_metadata_{1..10}:
         type: <numberBetween(1, 22)>
         farm: '@farm_<current()>'
+        countryId: 1

@@ -39,8 +39,6 @@ class FarmMetadataTest extends AuthApiTestCase
         $json = $response->toArray();
         $this->assertArrayHasKey('type', $json);
         $this->assertArrayHasKey('farm', $json);
-        $this->assertArrayHasKey('createdBy', $json);
-        $this->assertEquals($this->user->getId(), $json['createdBy']);
     }
 
     public function testGetItem()

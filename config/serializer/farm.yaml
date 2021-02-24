@@ -1,0 +1,199 @@
+App\Entity\Farm:
+  attributes:
+    id:
+      groups: [
+          "farm:collection:get",
+          "farm:item:get"
+      ]
+    code:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    name:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    regionId:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+
+    districtId:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    wardId:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    villageId:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    orgId:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    clientId:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    regDate:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    farmername:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    phone:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    email:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    fieldAgentId:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    project:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    farmType:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    genderCode:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    farmerIsHhHead:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    isActive:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    latitude:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    longitude:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+    additionalAttributes:
+      groups: [
+          "farm:collection:get",
+          "farm:collection:post",
+          "farm:item:get",
+          "farm:item:put",
+          "farm:item:patch"
+      ]
+      createdAt:
+        groups: [
+            "farm:collection:get",
+            "farm:item:get"
+        ]
+      createdBy:
+        groups: [
+            "farm:collection:get",
+            "farm:item:get"
+        ]
+      updatedAt:
+        groups: [
+            "farm:collection:get",
+            "farm:item:get"
+        ]
+      updatedBy:
+        groups: [
+            "farm:collection:get",
+            "farm:item:get"
+        ]
+
+
+

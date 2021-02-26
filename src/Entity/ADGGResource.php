@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-class ADGGResource
+trait ADGGResource
 {
     /**
      * @var string

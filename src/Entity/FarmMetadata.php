@@ -62,8 +62,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="core_farm_metadata", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="type", columns={"type"})})
  * @ORM\Entity
  */
-class FarmMetadata extends ADGGResource
+class FarmMetadata
 {
+    use ADGGResource;
     /**
      * @var int
      *
@@ -92,13 +93,12 @@ class FarmMetadata extends ADGGResource
 
     public function __construct()
     {
-        $parent = new ADGGResource();
-        unset($parent->regionId);
-        unset($parent->districtId);
-        unset($parent->wardId);
-        unset($parent->villageId);
-        unset($parent->orgId);
-        unset($parent->clientId);
+        unset($this->regionId);
+        unset($this->districtId);
+        unset($this->wardId);
+        unset($this->villageId);
+        unset($this->orgId);
+        unset($this->clientId);
     }
 
     public function __set($name, $value)

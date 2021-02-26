@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Entity\Traits\{
+    CountryTrait,
+    IdentifiableTrait
+};
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -64,7 +68,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FarmMetadata
 {
-    use ADGGResource;
+    use IdentifiableTrait;
+    use CountryTrait;
+
     /**
      * @var int
      *
@@ -90,24 +96,6 @@ class FarmMetadata
      * })
      */
     private $farm;
-
-    public function __construct()
-    {
-        unset($this->regionId);
-        unset($this->districtId);
-        unset($this->wardId);
-        unset($this->villageId);
-        unset($this->orgId);
-        unset($this->clientId);
-    }
-
-    public function __set($name, $value)
-    {
-        $deleted = ['regionId', 'districtId', 'wardId', 'villageId', 'orgId', 'clientId'];
-        if (in_array($name, $deleted)) {
-            dump($value);
-        }
-    }
 
     public function getId(): ?int
     {

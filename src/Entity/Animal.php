@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Entity\Traits\{
+    AdministativeDivisionsTrait,
+    CountryTrait,
+    IdentifiableTrait
+};
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -59,7 +64,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Animal
 {
-    use ADGGResource;
+    use IdentifiableTrait;
+    use CountryTrait;
+    use AdministativeDivisionsTrait;
+
     /**
      * @var int
      *

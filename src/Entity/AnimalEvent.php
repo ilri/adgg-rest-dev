@@ -3,8 +3,12 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Entity\Traits\{
+    AdministativeDivisionsTrait,
+    CountryTrait,
+    IdentifiableTrait
+};
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * AnimalEvent
@@ -60,7 +64,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class AnimalEvent
 {
-    use ADGGResource;
+    use IdentifiableTrait;
+    use CountryTrait;
+    use AdministativeDivisionsTrait;
+
     const EVENT_TYPE_CALVING = 1;
     const EVENT_TYPE_MILKING = 2;
     const EVENT_TYPE_AI = 3;

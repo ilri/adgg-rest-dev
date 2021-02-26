@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Entity\Traits\{
+    AdministativeDivisionsTrait,
+    IdentifiableTrait
+};
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -59,7 +63,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Farm
 {
-    use ADGGResource;
+    use IdentifiableTrait;
+    use AdministativeDivisionsTrait;
+
     /**
      * @var int
      *
@@ -196,8 +202,6 @@ class Farm
      */
     private $latlng;
 
-
-
     /**
      * @var string|null
      *
@@ -262,11 +266,6 @@ class Farm
      * })
      */
     private $country;
-
-    public function __construct()
-    {
-        unset($this->countryId);
-    }
 
     public function getId(): ?int
     {

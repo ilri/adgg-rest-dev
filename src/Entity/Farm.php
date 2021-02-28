@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\{
-    AdministativeDivisionsTrait,
+    AdministrativeDivisionsTrait,
     IdentifiableTrait
 };
 use Doctrine\ORM\Mapping as ORM;
@@ -64,7 +64,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Farm
 {
     use IdentifiableTrait;
-    use AdministativeDivisionsTrait;
+    use AdministrativeDivisionsTrait;
 
     /**
      * @var int

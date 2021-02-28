@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\{
-    AdministativeDivisionsTrait,
+    AdministrativeDivisionsTrait,
     CountryTrait,
     IdentifiableTrait
 };
@@ -66,7 +66,7 @@ class Animal
 {
     use IdentifiableTrait;
     use CountryTrait;
-    use AdministativeDivisionsTrait;
+    use AdministrativeDivisionsTrait;
 
     /**
      * @var int

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
@@ -59,6 +61,14 @@ use Doctrine\ORM\Mapping as ORM;
  *         }
  *     }
  * )
+ * @ApiFilter(
+ *     SearchFilter::class,
+ *     properties={
+ *         "countryId": "exact",
+ *         "tagId": "exact",
+ *         "animalType": "exact"
+ *     }
+ * )
  * @ORM\Table(name="core_animal", indexes={@ORM\Index(name= *     "animal_type", columns={ *     "animal_type"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="dam_id", columns={"dam_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="reg_date", columns={"reg_date"}), @ORM\Index(name="sire_id", columns={"sire_id"}), @ORM\Index(name="tag_id", columns={"tag_id"})})
  * @ORM\Entity
  */
@@ -69,8 +79,7 @@ class Animal
     use AdministrativeDivisionsTrait;
 
     /**
-     * @var int
-     *
+         *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")

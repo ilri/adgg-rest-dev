@@ -1,8 +1,20 @@
+App\Entity\Country:
+    country:
+        code: 2
+        name: 'Tanzania'
+        country: 'TZ'
+        isActive: true,
+        uuid: <uniqid()>
+        unit1Name: 'Region'
+        unit2Name: 'District'
+        unit3Name: 'Ward'
+        unit4Name: 'Village'
+        createdAt: <date_create()>
+
 App\Entity\Animal:
     animal_{1..10}:
-        countryId: 1
+        countryId: 2
         uuid: <uniqid()>
-        createdAt: <date_create()>
 
 App\Entity\AnimalEvent:
     animal_event_{1..10}:
@@ -17,18 +29,17 @@ App\Entity\Farm:
         farmerIsHhHead: true
         isActive: true
         uuid: <uniqid()>
-        createdAt: <date_create()>
         isDeleted: false
+        country: '@country'
 
 App\Entity\Herd:
     herd_{1..10}:
         countryId: 1
         uuid: <uniqid()>
-        createdAt: <date_create()>
         farm: '@farm_<current()>'
 
 App\Entity\FarmMetadata:
     farm_metadata_{1..10}:
         type: <numberBetween(1, 22)>
-        createdAt: <date_create()>
         farm: '@farm_<current()>'
+        countryId: 1

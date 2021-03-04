@@ -32,7 +32,8 @@ class FarmTest extends AuthApiTestCase
                     'name' => 'My little farm',
                     'farmerIsHhHead' => true,
                     'isActive' => true,
-                    'isDeleted' => false
+                    'isDeleted' => false,
+                    'country' => '/api/countries/1'
                 ]
             ]
         );
@@ -40,8 +41,6 @@ class FarmTest extends AuthApiTestCase
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
         $this->assertArrayHasKey('name', $json);
-        $this->assertArrayHasKey('createdBy', $json);
-        $this->assertEquals($this->user->getId(), $json['createdBy']);
     }
 
     public function testGetItem()
@@ -70,7 +69,8 @@ class FarmTest extends AuthApiTestCase
                     'name' => 'My big farm',
                     'farmerIsHhHead' => true,
                     'isActive' => true,
-                    'isDeleted' => false
+                    'isDeleted' => false,
+                    'country' => '/api/countries/1'
                 ]
             ]
         );
@@ -79,9 +79,6 @@ class FarmTest extends AuthApiTestCase
         $json = $response->toArray();
         $this->assertArrayHasKey('name', $json);
         $this->assertEquals('My big farm', $json['name']);
-        $this->assertArrayHasKey('updatedBy', $json);
-        $this->assertEquals($this->user->getId(), $json['updatedBy']);
-        $this->assertArrayHasKey('updatedAt', $json);
     }
 
     public function testDeleteItem()
@@ -116,8 +113,5 @@ class FarmTest extends AuthApiTestCase
         $json = $response->toArray();
         $this->assertArrayHasKey('farmerIsHhHead', $json);
         $this->assertEquals(false, $json['farmerIsHhHead']);
-        $this->assertArrayHasKey('updatedBy', $json);
-        $this->assertEquals($this->user->getId(), $json['updatedBy']);
-        $this->assertArrayHasKey('updatedAt', $json);
     }
 }

@@ -1,0 +1,155 @@
+App\Entity\AnimalEvent:
+  attributes:
+    id:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:item:get"
+      ]
+    eventType:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    countryId:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    regionId:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    districtId:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    wardId:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    villageId:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    orgId:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    clientId:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    eventDate:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    dataCollectionDate:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    latitude:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    longitude:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    mapAddress:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    testdayNo:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    animal:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    additionalAttributes:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:collection:post",
+          "animalevent:item:get",
+          "animalevent:item:put",
+          "animalevent:item:patch"
+      ]
+    createdAt:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:item:get"
+      ]
+    createdBy:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:item:get"
+      ]
+    updatedAt:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:item:get"
+      ]
+    updatedBy:
+      groups: [
+          "animalevent:collection:get",
+          "animalevent:item:get"
+      ]

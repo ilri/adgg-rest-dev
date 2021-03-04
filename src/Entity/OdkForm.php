@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreOdkForm
+ * OdkForm
  *
  * @ORM\Table(name="core_odk_form", indexes={@ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  */
-class CoreOdkForm
+class OdkForm
 {
     /**
      * @var int
@@ -41,7 +40,7 @@ class CoreOdkForm
      *
      * @ORM\Column(name="is_processed", type="boolean", nullable=false)
      */
-    private $isProcessed = '0';
+    private $isProcessed = false;
 
     /**
      * @var \DateTime|null
@@ -62,7 +61,7 @@ class CoreOdkForm
      *
      * @ORM\Column(name="has_errors", type="boolean", nullable=false)
      */
-    private $hasErrors = '0';
+    private $hasErrors = false;
 
     /**
      * @var string|null
@@ -330,6 +329,4 @@ class CoreOdkForm
 
         return $this;
     }
-
-
 }

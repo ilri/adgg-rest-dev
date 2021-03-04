@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use App\Controller\MilkYieldController;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
@@ -59,7 +60,20 @@ use Doctrine\ORM\Mapping as ORM;
  *                      "animalevent:item:patch"
  *                 }
  *             }
- *         }
+ *         },
+ *          "get",
+ *          "get_milkyield"={
+ *              "method"="GET",
+ *                  "path"="/animalevent/{id}/milkyieldupperlimit",
+ *                  "controller"=MilkYieldController::class,
+ *                  "normalization_context"={
+ *                      "groups"={
+ *                              "animalevent:item:get"
+ *                          }
+ *                      },
+ *                  }
+ *              }
+ *          ),
  *     }
  * )
  * @ApiFilter(

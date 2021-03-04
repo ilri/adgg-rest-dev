@@ -108,4 +108,20 @@ class AnimalTest extends AuthApiTestCase
         $this->assertArrayHasKey('name', $json);
         $this->assertEquals('Milka', $json['name']);
     }
+
+    public function testCountryIdFilter()
+    {
+        // no entries should be retrieved for countryId=1
+        $response = $this->client->request('GET', '/api/animals?countryId=1', ['auth_bearer' => $this->token]);
+        $this->assertResponseIsSuccessful();
+        $json = $response->toArray();
+        $this->assertEquals(0, $json['hydra:totalItems']);
+
+        // 10 entries should be retrieved for countryId=2
+        $response = $this->client->request('GET', '/api/animals?countryId=2', ['auth_bearer' => $this->token]);
+        $this->assertResponseIsSuccessful();
+        $json = $response->toArray();
+        // we have created 10 animal events in the fixtures
+        $this->assertEquals(10, $json['hydra:totalItems']);
+    }
 }

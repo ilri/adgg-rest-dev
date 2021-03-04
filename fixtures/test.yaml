@@ -13,7 +13,7 @@ App\Entity\Country:
 
 App\Entity\Animal:
     animal_{1..10}:
-        countryId: 1
+        countryId: 2
         uuid: <uniqid()>
 
 App\Entity\AnimalEvent:

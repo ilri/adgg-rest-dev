@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AnimalEventRepository;
 use App\Repository\AnimalRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,19 +44,10 @@ class MilkYieldController extends AbstractController
      * @Route("/dim", name="milk_yield")
      * @return Response
      */
-    public function actionDIMValues(AnimalRepository $animalRepository):  Response
+    public function actionDIMValues(AnimalEventRepository $animalEventRepository):  Response
     {
-        $dimValues = $animalRepository->calculateAllDIMValuesForAnimal(214644);
-
-        $milkingEvents = $animalRepository->findAllMilkingEventsForAnimal(214644);
-
-        $calvingEvents = $animalRepository->findAllCalvingEventsForAnimal(214644);
-
-        $emyValues = $animalRepository->calculateExpectedMilkYieldForAnimal(214644);
-        // dump($emyValues);
-
-        $milkRecords = $animalRepository->compareActualMilkRecordWithExpectedMilkYield(214644);
-        // dump($milkRecords);
+        $lactation = $animalEventRepository->findLactationForMilkingEvent(1);
+        dump($lactation);
 
         return new Response('get DIM values for animal 214644');
     }

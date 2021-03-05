@@ -64,7 +64,7 @@ use Doctrine\ORM\Mapping as ORM;
  *          "get",
  *          "get_milkyield"={
  *              "method"="GET",
- *                  "path"="/animalevent/{id}/milkyieldupperlimit",
+ *                  "path"="/animal_events/{id}/milkyield",
  *                  "controller"=MilkYieldController::class,
  *                  "normalization_context"={
  *                      "groups"={

@@ -17,6 +17,7 @@
         "doctrine/orm": "^2.8",
         "lexik/jwt-authentication-bundle": "^2.11",
         "nelmio/cors-bundle": "^2.1",
+        "nesbot/carbon": "^2.45",
         "phpdocumentor/reflection-docblock": "^5.2",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "5.2.*",

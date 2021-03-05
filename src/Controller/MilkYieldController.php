@@ -23,7 +23,7 @@ class MilkYieldController extends AbstractController
             $calving_date = $event_date;
         }
         if ($event_type = 2) {
-            $milking_date """"= $event_date;
+            $milking_date = $event_date;
         }
         $DIM = date_diff($milking_date, $calving_date);
 

@@ -5,11 +5,14 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Repository\AnimalRepository;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
     IdentifiableTrait
 };
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -70,7 +73,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     }
  * )
  * @ORM\Table(name="core_animal", indexes={@ORM\Index(name="animal_type", columns={"animal_type"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="dam_id", columns={"dam_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="reg_date", columns={"reg_date"}), @ORM\Index(name="sire_id", columns={"sire_id"}), @ORM\Index(name="tag_id", columns={"tag_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=AnimalRepository::class)
  */
 class Animal
 {
@@ -249,6 +252,18 @@ class Animal
      * })
      */
     private $farm;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AnimalEvent", mappedBy="animal")
+     */
+    private $animalEvents;
+
+    public function __construct()
+    {
+        $this->animalEvents = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -527,6 +542,37 @@ class Animal
     public function setFarm(?Farm $farm): self
     {
         $this->farm = $farm;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AnimalEvent[]
+     */
+    public function getAnimalEvents(): Collection
+    {
+        return $this->animalEvents;
+    }
+
+    public function addAnimalEvent(AnimalEvent $animalEvent): self
+    {
+        if (!$this->animalEvents->contains($animalEvent)) {
+            $this->animalEvents[] = $animalEvent;
+            $animalEvent->setAnimal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnimalEvent(AnimalEvent $animalEvent): self
+    {
+        if ($this->animalEvents->contains($animalEvent)) {
+            $this->animalEvents->removeElement($animalEvent);
+            // set the owning side to null (unless already changed)
+            if ($animalEvent->getAnimal() === $this) {
+                $animalEvent->setAnimal(null);
+            }
+        }
 
         return $this;
     }

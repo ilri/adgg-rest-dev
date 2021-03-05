@@ -133,4 +133,21 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertEquals('10', $json['additionalAttributes'][61]);
         $this->assertEquals('8', $json['additionalAttributes'][62]);
     }
+
+    public function testGetMilkYield()
+    {
+        $response = $this->client->request('GET', '/api/animal_events/1/milkyield');
+        $this->assertResponseStatusCodeSame(401);
+
+        $response = $this->client->request(
+            'GET',
+            '/api/animal_events/1/milkyield',
+            ['auth_bearer' => $this->token]
+        );
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseHeaderSame(
+            'content-type',
+            'application/ld+json; charset=utf-8'
+        );
+    }
 }

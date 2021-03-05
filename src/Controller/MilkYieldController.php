@@ -31,4 +31,9 @@ class MilkYieldController extends AbstractController
 
         return $milk_yield;
     }
+
+    public function __invoke($data)
+    {
+        return $data;
+    }
 }

@@ -151,6 +151,26 @@ class AnimalEventTest extends AuthApiTestCase
         );
         $json = $response->toArray();
         // we have created 10 milking events in the fixtures
-        $this->assertEquals(10, $json['hydra:totalItems']);
+        $this->assertGreaterThanOrEqual(10, $json['hydra:totalItems']);
+    }
+
+    public function testGetCalvingEvents()
+    {
+        $response = $this->client->request('GET', '/api/animal_events/calving_events');
+        $this->assertResponseStatusCodeSame(401);
+
+        $response = $this->client->request(
+            'GET',
+            '/api/animal_events/calving_events',
+            ['auth_bearer' => $this->token]
+        );
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseHeaderSame(
+            'content-type',
+            'application/ld+json; charset=utf-8'
+        );
+        $json = $response->toArray();
+        // we have created 10 calving events in the fixtures
+        $this->assertGreaterThanOrEqual(10, $json['hydra:totalItems']);
     }
 }

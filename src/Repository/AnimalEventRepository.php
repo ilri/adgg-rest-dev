@@ -2,14 +2,18 @@
 
 namespace App\Repository;
 
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Paginator;
 use App\Entity\AnimalEvent;
 use Carbon\Carbon;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 
 class AnimalEventRepository extends ServiceEntityRepository
 {
+    const ITEMS_PER_PAGE = 32;
+
     /**
      * AnimalEventRepository constructor.
      * @param ManagerRegistry $registry
@@ -44,29 +48,47 @@ class AnimalEventRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return AnimalEvent[]
+     * @param int $page
+     * @return Paginator
      */
-    public function findAllCalvingEvents(): array
+    public function findAllCalvingEvents(int $page = 1): Paginator
     {
+        $firstResult = ($page - 1) * self::ITEMS_PER_PAGE;
+
         $queryBuilder = $this->createQueryBuilder('a');
 
-        return $this->addCalvingEventQueryBuilder($queryBuilder)
+        $query = $this->addCalvingEventQueryBuilder($queryBuilder)
             ->getQuery()
-            ->getResult()
+            ->setFirstResult($firstResult)
+            ->setMaxResults(self::ITEMS_PER_PAGE)
         ;
+
+        $doctrinePaginator = new DoctrinePaginator($query);
+        $paginator = new Paginator($doctrinePaginator);
+
+        return $paginator;
     }
 
     /**
-     * @return AnimalEvent[]
+     * @param int $page
+     * @return Paginator
      */
-    public function findAllMilkingEvents(): array
+    public function findAllMilkingEvents(int $page = 1): Paginator
     {
+        $firstResult = ($page - 1) * self::ITEMS_PER_PAGE;
+
         $queryBuilder = $this->createQueryBuilder('a');
 
-        return $this->addMilkingEventQueryBuilder($queryBuilder)
+        $query = $this->addMilkingEventQueryBuilder($queryBuilder)
             ->getQuery()
-            ->getResult()
+            ->setFirstResult($firstResult)
+            ->setMaxResults(self::ITEMS_PER_PAGE)
         ;
+
+        $doctrinePaginator = new DoctrinePaginator($query);
+        $paginator = new Paginator($doctrinePaginator);
+
+        return $paginator;
     }
 
     /**

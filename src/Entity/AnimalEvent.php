@@ -6,12 +6,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
-use App\Controller\MilkYieldController;
+use App\Controller\MilkingEventController;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
     IdentifiableTrait
 };
+use App\Repository\AnimalEventRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,16 @@ use Doctrine\ORM\Mapping as ORM;
  *             "normalization_context"={
  *                 "groups"={
  *                      "animalevent:collection:get"
+ *                 }
+ *             }
+ *         },
+ *         "milking_events"={
+ *             "method"="GET",
+ *             "path"="/animal_events/milking_events",
+ *             "controller"=MilkingEventController::class,
+ *             "normalization_context"={
+ *                 "groups"={
+ *                     "animalevent:collection:get"
  *                 }
  *             }
  *         },
@@ -60,20 +71,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                      "animalevent:item:patch"
  *                 }
  *             }
- *         },
- *          "get",
- *          "get_milkyield"={
- *              "method"="GET",
- *                  "path"="/animal_events/{id}/milkyield",
- *                  "controller"=MilkYieldController::class,
- *                  "normalization_context"={
- *                      "groups"={
- *                              "animalevent:item:get"
- *                          }
- *                      },
- *                  }
- *              }
- *          ),
+ *         }
  *     }
  * )
  * @ApiFilter(
@@ -91,7 +89,7 @@ use Doctrine\ORM\Mapping as ORM;
  *    }
  * )
  * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
- * @ORM\Entity(repositoryClass=AnimalEvent::class)
+ * @ORM\Entity(repositoryClass=AnimalEventRepository::class)
  */
 class AnimalEvent
 {
@@ -209,9 +207,14 @@ class AnimalEvent
     private $migrationId;
 
     /**
+     * @var int|null
+     */
+    private $dim;
+
+    /**
      * @var Animal
      *
-     * @ORM\ManyToOne(targetEntity="Animal")
+     * @ORM\ManyToOne(targetEntity="Animal", inversedBy="animalEvents")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
      * })
@@ -375,6 +378,18 @@ class AnimalEvent
     public function setAnimal(?Animal $animal): self
     {
         $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getDim(): ?int
+    {
+        return $this->dim;
+    }
+
+    public function setDim(?int $dim): self
+    {
+        $this->dim = $dim;
 
         return $this;
     }

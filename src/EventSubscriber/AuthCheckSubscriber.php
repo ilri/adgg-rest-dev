@@ -40,8 +40,12 @@ final class AuthCheckSubscriber implements EventSubscriberInterface
         $method = $event->getRequest()->getMethod();
         $methods = [Request::METHOD_POST, Request::METHOD_PUT, Request::METHOD_PATCH];
 
+        if (!in_array($method, $methods)) {
+            return;
+        }
+
         $usedTraits = class_uses($entity);
-        if (!in_array('App\Entity\Traits\IdentifiableTrait', $usedTraits) || !in_array($method, $methods)) {
+        if (!in_array('App\Entity\Traits\IdentifiableTrait', $usedTraits)) {
             return;
         }
 

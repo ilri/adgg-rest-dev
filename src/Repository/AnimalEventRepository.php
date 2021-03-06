@@ -140,7 +140,7 @@ class AnimalEventRepository extends ServiceEntityRepository
         $emy = 8.11 * pow($dim, 0.068) * exp($exponent);
 
         return [
-            'emy' => $emy,
+            'EMY' => $emy,
             'TU' => $emy + 2.3,
             'TL' => $emy - 2.3
         ];

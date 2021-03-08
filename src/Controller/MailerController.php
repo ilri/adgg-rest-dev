@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\MilkYieldRecordDataRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,6 +11,13 @@ use Symfony\Component\Mime\Email;
 
 class MailerController extends AbstractController
 {
+    private $repository;
+
+    public function __construct(MilkYieldRecordDataRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * @Route("/email")
      * @param MailerInterface $mailer
@@ -18,6 +26,9 @@ class MailerController extends AbstractController
      */
     public function sendEmail(MailerInterface $mailer): Response
     {
+        $milkyield = $this->repository->getMilkYieldRecord(704911);
+        dump($milkyield);
+        exit();
         $email = (new Email())
             ->from('ADGGILRIsupport@cgiar.org')
             ->to('d.mogaka@cgiar.org')

@@ -53,15 +53,17 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         $milkingEvent = $this->animalEventRepository->findOneMilkingEventById($eventId);
         $dim = $this->getDIMForMilkingEvent($eventId);
         $emy = $this->getEMYForMilkingEvent($eventId);
-        $milkRecord = $this->getTotalMilkRecord($milkingEvent);
-        $feedback = $this->getFeedbackForFarmer($milkRecord, $emy);
+        $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
+        $feedback = $this->getFeedbackForFarmer($totalMilkRecord, $emy);
         $calvingDate = $this->animalEventRepository->findLactationForMilkingEvent($eventId)->getEventDate();
+        // TODO: try to use the setters and get rid of constructor
         return new MilkYieldRecord(
             $eventId,
             $milkingEvent->getAnimal()->getId(),
             $milkingEvent->getAnimal()->getFarm()->getId(),
             $milkingEvent->getLactationId(),
             $dim,
+            $totalMilkRecord,
             $emy['EMY'],
             $emy['TU'],
             $emy['TL'],
@@ -116,7 +118,7 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
         $morning = $additionalAttributes['59'];
         $evening = $additionalAttributes['61'];
-        $midday = $additionalAttributes['68'] ?: 0;
+        $midday = $additionalAttributes['68'] ?? 0;
 
         return $morning + $evening + $midday;
     }

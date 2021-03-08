@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\{
@@ -87,6 +89,7 @@ class MilkYieldRecord
         int $farmId,
         int $lactationId,
         int $daysInMilk,
+        float $totalMilkRecord,
         float $expectedMilkYield,
         float $upperLimit,
         float $lowerLimit,
@@ -96,16 +99,17 @@ class MilkYieldRecord
     )
     {
         $this->id = $id;
-        $this->id = $animalId;
-        $this->id = $farmId;
-        $this->id = $lactationId;
-        $this->id = $daysInMilk;
-        $this->id = $expectedMilkYield;
-        $this->id = $upperLimit;
-        $this->id = $lowerLimit;
-        $this->id = $feedback;
-        $this->id = $calvingDate;
-        $this->id = $milkingDate;
+        $this->animalId = $animalId;
+        $this->farmId = $farmId;
+        $this->lactationId = $lactationId;
+        $this->daysInMilk = $daysInMilk;
+        $this->totalMilkRecord = $totalMilkRecord;
+        $this->expectedMilkYield = $expectedMilkYield;
+        $this->upperLimit = $upperLimit;
+        $this->lowerLimit = $lowerLimit;
+        $this->feedback = $feedback;
+        $this->calvingDate = $calvingDate;
+        $this->milkingDate = $milkingDate;
     }
 
     public function getId(): ?int
@@ -144,14 +148,14 @@ class MilkYieldRecord
         return $this;
     }
 
-    public function getLactationIdd(): ?int
+    public function getLactationId(): ?int
     {
         return $this->lactationId;
     }
 
-    public function setLactationIdd(int $lactationIdd): self
+    public function setLactationIdd(int $lactationId): self
     {
-        $this->lactationId = $lactationIdd;
+        $this->lactationId = $lactationId;
 
         return $this;
     }

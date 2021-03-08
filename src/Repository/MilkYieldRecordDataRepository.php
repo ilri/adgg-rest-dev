@@ -56,21 +56,25 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
         $feedback = $this->getFeedbackForFarmer($totalMilkRecord, $emy);
         $calvingDate = $this->animalEventRepository->findLactationForMilkingEvent($eventId)->getEventDate();
-        // TODO: try to use the setters and get rid of constructor
-        return new MilkYieldRecord(
-            $eventId,
-            $milkingEvent->getAnimal(),
-            $milkingEvent->getAnimal()->getFarm()->getId(),
-            $milkingEvent->getLactationId(),
-            $dim,
-            $totalMilkRecord,
-            $emy['EMY'],
-            $emy['TU'],
-            $emy['TL'],
-            $feedback,
-            $calvingDate,
-            $milkingEvent->getEventDate()
+
+        $milkYieldRecord = new MilkYieldRecord();
+        $milkYieldRecord
+            ->setId($eventId)
+            ->setAnimalEvent($milkingEvent)
+            ->setAnimal($milkingEvent->getAnimal())
+            ->setFarm($milkingEvent->getAnimal()->getFarm())
+            ->setLactationId($milkingEvent->getLactationId())
+            ->setDaysInMilk($dim)
+            ->setTotalMilkRecord($totalMilkRecord)
+            ->setExpectedMilkYield($emy['EMY'])
+            ->setUpperLimit($emy['TU'])
+            ->setLowerLimit($emy['TL'])
+            ->setFeedback($feedback)
+            ->setCalvingDate($calvingDate)
+            ->setMilkingDate($milkingEvent->getEventDate()
         );
+
+        return $milkYieldRecord;
     }
 
     /**

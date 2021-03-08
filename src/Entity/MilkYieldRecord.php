@@ -29,11 +29,6 @@ class MilkYieldRecord
     /**
      * @var int
      */
-    private $eventId;
-
-    /**
-     * @var int
-     */
     private $animalId;
 
     /**
@@ -50,6 +45,11 @@ class MilkYieldRecord
      * @var int
      */
     private $daysInMilk;
+
+    /**
+     * @var float
+     */
+    private $totalMilkRecord;
 
     /**
      * @var float
@@ -83,7 +83,6 @@ class MilkYieldRecord
 
     public function __construct(
         int $id,
-        int $eventId,
         int $animalId,
         int $farmId,
         int $lactationId,
@@ -97,7 +96,6 @@ class MilkYieldRecord
     )
     {
         $this->id = $id;
-        $this->id = $eventId;
         $this->id = $animalId;
         $this->id = $farmId;
         $this->id = $lactationId;
@@ -118,18 +116,6 @@ class MilkYieldRecord
     public function setId(int $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getEventId(): ?int
-    {
-        return $this->eventId;
-    }
-
-    public function setEventId(int $eventId): self
-    {
-        $this->eventId = $eventId;
 
         return $this;
     }
@@ -178,6 +164,18 @@ class MilkYieldRecord
     public function setDaysInMilk(int $daysInMilk): self
     {
         $this->daysInMilk = $daysInMilk;
+
+        return $this;
+    }
+
+    public function getTotalMilkRecord(): ?float
+    {
+        return $this->totalMilkRecord;
+    }
+
+    public function setTotalMilkRecord(float $totalMilkRecord): self
+    {
+        $this->totalMilkRecord = $totalMilkRecord;
 
         return $this;
     }

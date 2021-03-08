@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Paginator;
 use App\Entity\AnimalEvent;
-use Carbon\Carbon;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -96,7 +95,7 @@ class AnimalEventRepository extends ServiceEntityRepository
      * @return null|AnimalEvent
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findOneByMilkingEvent(int $id): ?AnimalEvent
+    public function findOneMilkingEventById(int $id): ?AnimalEvent
     {
         $queryBuilder = $this->createQueryBuilder('a');
 
@@ -116,7 +115,7 @@ class AnimalEventRepository extends ServiceEntityRepository
      */
     public function findLactationForMilkingEvent(int $id): ?AnimalEvent
     {
-        $milkingEvent = $this->findOneByMilkingEvent($id);
+        $milkingEvent = $this->findOneMilkingEventById($id);
 
         if ($milkingEvent == null) {
             return null;
@@ -130,41 +129,5 @@ class AnimalEventRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleResult()
         ;
-    }
-
-    /**
-     * @param int $id
-     * @return int
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     */
-    public function findDIMForMilkingEvent(int $id): int
-    {
-        $milkingEvent = $this->findOneByMilkingEvent($id);
-        $calvingEvent = $this->findLactationForMilkingEvent($id);
-
-        $milkingEventDate = Carbon::parse($milkingEvent->getEventDate()->format('Y-m-d'));
-        $calvingEventDate = Carbon::parse($calvingEvent->getEventDate()->format('Y-m-d'));
-
-        return $milkingEventDate->diffInDays($calvingEventDate);
-    }
-
-    /**
-     * @param int $id
-     * @return array
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     */
-    public function findEMYForMilkingEvent(int $id): array
-    {
-        $dim = $this->findDIMForMilkingEvent($id);
-        $exponent = -0.0017 * $dim;
-        $emy = 8.11 * pow($dim, 0.068) * exp($exponent);
-
-        return [
-            'EMY' => $emy,
-            'TU' => $emy + 2.3,
-            'TL' => $emy - 2.3
-        ];
     }
 }

@@ -218,11 +218,6 @@ class AnimalEvent
     private $migrationId;
 
     /**
-     * @var int|null
-     */
-    private $dim;
-
-    /**
      * @var Animal
      *
      * @ORM\ManyToOne(targetEntity="Animal", inversedBy="animalEvents")
@@ -391,31 +386,5 @@ class AnimalEvent
         $this->animal = $animal;
 
         return $this;
-    }
-
-    public function getDim(): ?int
-    {
-        return $this->dim;
-    }
-
-    public function setDim(?int $dim): self
-    {
-        $this->dim = $dim;
-
-        return $this;
-    }
-
-    public function calculateTotalMilkRecord(): ?float
-    {
-        if ($this->eventType == self::EVENT_TYPE_MILKING) {
-
-            $morning = $this->additionalAttributes['59'];
-            $evening = $this->additionalAttributes['61'];
-            $midday = $this->additionalAttributes['68'] ?: 0;
-
-            return $morning + $evening + $midday;
-        }
-
-        return null;
     }
 }

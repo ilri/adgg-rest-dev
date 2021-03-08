@@ -19,6 +19,21 @@ App\Entity\Animal:
 App\Entity\AnimalEvent:
     animal_event_{1..10}:
         eventType: <numberBetween(1, 16)>
+        eventDate: <date_create()>
+        countryId: 1
+        uuid: <uniqid()>
+        animal: '@animal_<current()>'
+
+    calving_event_{1..10}:
+        eventType: 1
+        eventDate: <date_create()>
+        countryId: 1
+        uuid: <uniqid()>
+        animal: '@animal_<current()>'
+
+    milking_event_{1..10}:
+        eventType: 2
+        eventDate: <date_create()>
         countryId: 1
         uuid: <uniqid()>
         animal: '@animal_<current()>'

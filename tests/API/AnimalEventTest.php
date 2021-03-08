@@ -14,8 +14,8 @@ class AnimalEventTest extends AuthApiTestCase
         $response = $this->client->request('GET', '/api/animal_events', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
-        // we have created 10 animal events in the fixtures
-        $this->assertEquals(10, $json['hydra:totalItems']);
+        // we have created 30 animal events in the fixtures
+        $this->assertEquals(30, $json['hydra:totalItems']);
     }
 
     public function testPostCollection()
@@ -132,5 +132,45 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertEquals('8', $json['additionalAttributes'][59]);
         $this->assertEquals('10', $json['additionalAttributes'][61]);
         $this->assertEquals('8', $json['additionalAttributes'][62]);
+    }
+
+    public function testGetMilkingEvents()
+    {
+        $response = $this->client->request('GET', '/api/animal_events/milking_events');
+        $this->assertResponseStatusCodeSame(401);
+
+        $response = $this->client->request(
+            'GET',
+            '/api/animal_events/milking_events',
+            ['auth_bearer' => $this->token]
+        );
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseHeaderSame(
+            'content-type',
+            'application/ld+json; charset=utf-8'
+        );
+        $json = $response->toArray();
+        // we have created 10 milking events in the fixtures
+        $this->assertGreaterThanOrEqual(10, $json['hydra:totalItems']);
+    }
+
+    public function testGetCalvingEvents()
+    {
+        $response = $this->client->request('GET', '/api/animal_events/calving_events');
+        $this->assertResponseStatusCodeSame(401);
+
+        $response = $this->client->request(
+            'GET',
+            '/api/animal_events/calving_events',
+            ['auth_bearer' => $this->token]
+        );
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseHeaderSame(
+            'content-type',
+            'application/ld+json; charset=utf-8'
+        );
+        $json = $response->toArray();
+        // we have created 10 calving events in the fixtures
+        $this->assertGreaterThanOrEqual(10, $json['hydra:totalItems']);
     }
 }

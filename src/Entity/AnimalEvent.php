@@ -6,11 +6,14 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use App\Controller\MilkingEventController;
+use App\Controller\CalvingEventController;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
     IdentifiableTrait
 };
+use App\Repository\AnimalEventRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,6 +26,26 @@ use Doctrine\ORM\Mapping as ORM;
  *             "normalization_context"={
  *                 "groups"={
  *                      "animalevent:collection:get"
+ *                 }
+ *             }
+ *         },
+ *         "milking_events"={
+ *             "method"="GET",
+ *             "path"="/animal_events/milking_events",
+ *             "controller"=MilkingEventController::class,
+ *             "normalization_context"={
+ *                 "groups"={
+ *                     "animalevent:collection:get"
+ *                 }
+ *             }
+ *         },
+ *         "calving_events"={
+ *             "method"="GET",
+ *             "path"="/animal_events/calving_events",
+ *             "controller"=CalvingEventController::class,
+ *             "normalization_context"={
+ *                 "groups"={
+ *                     "animalevent:collection:get"
  *                 }
  *             }
  *         },
@@ -77,7 +100,7 @@ use Doctrine\ORM\Mapping as ORM;
  *    }
  * )
  * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=AnimalEventRepository::class)
  */
 class AnimalEvent
 {
@@ -197,7 +220,7 @@ class AnimalEvent
     /**
      * @var Animal
      *
-     * @ORM\ManyToOne(targetEntity="Animal")
+     * @ORM\ManyToOne(targetEntity="Animal", inversedBy="animalEvents")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
      * })

@@ -13,10 +13,28 @@ use ApiPlatform\Core\Annotation\{
  * @ApiResource(
  *     attributes={
  *         "pagination_enabled"=true,
- *         "pagination_items_per_page"=10
+ *         "pagination_items_per_page"=32
  *     },
- *     collectionOperations={"get"},
- *     itemOperations={"get"}
+ *     collectionOperations={
+ *         "get"={
+ *             "method"="GET",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "milkyieldrecord:collection:get"
+ *                 }
+ *             }
+ *         }
+ *     },
+ *     itemOperations={
+ *         "get"={
+ *             "method"="GET",
+ *             "normalization_context"={
+ *                 "groups"={
+ *                      "milkyieldrecord:item:get"
+ *                 }
+ *             }
+ *         }
+ *     }
  * )
  */
 class MilkYieldRecord
@@ -29,14 +47,19 @@ class MilkYieldRecord
     private $id;
 
     /**
-     * @var int
+     * @var AnimalEvent
      */
-    private $animalId;
+    private $animalEvent;
 
     /**
-     * @var int
+     * @var Animal
      */
-    private $farmId;
+    private $animal;
+
+    /**
+     * @var Farm
+     */
+    private $farm;
 
     /**
      * @var int
@@ -83,35 +106,6 @@ class MilkYieldRecord
      */
     private $milkingDate;
 
-    public function __construct(
-        int $id,
-        int $animalId,
-        int $farmId,
-        int $lactationId,
-        int $daysInMilk,
-        float $totalMilkRecord,
-        float $expectedMilkYield,
-        float $upperLimit,
-        float $lowerLimit,
-        string $feedback,
-        \DateTimeInterface $calvingDate,
-        \DateTimeInterface $milkingDate
-    )
-    {
-        $this->id = $id;
-        $this->animalId = $animalId;
-        $this->farmId = $farmId;
-        $this->lactationId = $lactationId;
-        $this->daysInMilk = $daysInMilk;
-        $this->totalMilkRecord = $totalMilkRecord;
-        $this->expectedMilkYield = $expectedMilkYield;
-        $this->upperLimit = $upperLimit;
-        $this->lowerLimit = $lowerLimit;
-        $this->feedback = $feedback;
-        $this->calvingDate = $calvingDate;
-        $this->milkingDate = $milkingDate;
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -124,26 +118,38 @@ class MilkYieldRecord
         return $this;
     }
 
-    public function getAnimalId(): ?int
+    public function getAnimalEvent(): ?AnimalEvent
     {
-        return $this->animalId;
+        return $this->animalEvent;
     }
 
-    public function setAnimalId(int $animalId): self
+    public function setAnimalEvent(AnimalEvent $animalEvent): self
     {
-        $this->animalId = $animalId;
+        $this->animalEvent = $animalEvent;
 
         return $this;
     }
 
-    public function getFarmId(): ?int
+    public function getAnimal(): ?Animal
     {
-        return $this->farmId;
+        return $this->animal;
     }
 
-    public function setFarmId(int $farmId): self
+    public function setAnimal(Animal $animal): self
     {
-        $this->farmId = $farmId;
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getFarm(): ?Farm
+    {
+        return $this->farm;
+    }
+
+    public function setFarm(Farm $farm): self
+    {
+        $this->farm = $farm;
 
         return $this;
     }
@@ -153,7 +159,7 @@ class MilkYieldRecord
         return $this->lactationId;
     }
 
-    public function setLactationIdd(int $lactationId): self
+    public function setLactationId(int $lactationId): self
     {
         $this->lactationId = $lactationId;
 

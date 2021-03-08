@@ -59,7 +59,7 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         // TODO: try to use the setters and get rid of constructor
         return new MilkYieldRecord(
             $eventId,
-            $milkingEvent->getAnimal()->getId(),
+            $milkingEvent->getAnimal(),
             $milkingEvent->getAnimal()->getFarm()->getId(),
             $milkingEvent->getLactationId(),
             $dim,

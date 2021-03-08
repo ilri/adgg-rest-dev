@@ -29,9 +29,9 @@ class MilkYieldRecord
     private $id;
 
     /**
-     * @var int
+     * @var Animal
      */
-    private $animalId;
+    private $animal;
 
     /**
      * @var int
@@ -85,7 +85,7 @@ class MilkYieldRecord
 
     public function __construct(
         int $id,
-        int $animalId,
+        Animal $animalId,
         int $farmId,
         int $lactationId,
         int $daysInMilk,
@@ -99,7 +99,7 @@ class MilkYieldRecord
     )
     {
         $this->id = $id;
-        $this->animalId = $animalId;
+        $this->animal = $animalId;
         $this->farmId = $farmId;
         $this->lactationId = $lactationId;
         $this->daysInMilk = $daysInMilk;
@@ -124,14 +124,14 @@ class MilkYieldRecord
         return $this;
     }
 
-    public function getAnimalId(): ?int
+    public function getAnimal(): ?Animal
     {
-        return $this->animalId;
+        return $this->animal;
     }
 
-    public function setAnimalId(int $animalId): self
+    public function setAnimal(Animal $animal): self
     {
-        $this->animalId = $animalId;
+        $this->animal = $animal;
 
         return $this;
     }

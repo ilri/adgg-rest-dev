@@ -3,6 +3,7 @@
 namespace App\DataProvider\Paginator;
 
 use ApiPlatform\Core\DataProvider\PaginatorInterface;
+use App\Repository\MilkYieldRecordCachedDataRepository;
 use App\Repository\MilkYieldRecordDataRepository;
 
 class MilkYieldRecordPaginator implements PaginatorInterface, \IteratorAggregate
@@ -11,6 +12,11 @@ class MilkYieldRecordPaginator implements PaginatorInterface, \IteratorAggregate
      * @var MilkYieldRecordDataRepository
      */
     private $repository;
+
+    /**
+     * @var MilkYieldRecordCachedDataRepository
+     */
+    private $cachedRepository;
 
     /**
      * @var int
@@ -25,12 +31,14 @@ class MilkYieldRecordPaginator implements PaginatorInterface, \IteratorAggregate
     /**
      * MilkYieldRecordPaginator constructor.
      * @param MilkYieldRecordDataRepository $repository
+     * @param MilkYieldRecordCachedDataRepository $cachedRepository
      * @param int $currentPage
      * @param int $maxResults
      */
-    public function __construct(MilkYieldRecordDataRepository $repository, int $currentPage, int $maxResults)
+    public function __construct(MilkYieldRecordDataRepository $repository, MilkYieldRecordCachedDataRepository $cachedRepository, int $currentPage, int $maxResults)
     {
         $this->repository = $repository;
+        $this->cachedRepository = $cachedRepository;
         $this->currentPage = $currentPage;
         $this->maxResults = $maxResults;
     }
@@ -80,6 +88,6 @@ class MilkYieldRecordPaginator implements PaginatorInterface, \IteratorAggregate
      */
     public function getIterator(): \Traversable
     {
-        return new \ArrayIterator($this->repository->getMilkYieldRecords($this->currentPage));
+        return new \ArrayIterator($this->cachedRepository->getMilkYieldRecords($this->currentPage));
     }
 }

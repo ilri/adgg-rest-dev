@@ -2,6 +2,7 @@
 
 namespace App\DataProvider;
 
+use App\Repository\MilkYieldRecordDataRepository;
 use ApiPlatform\Core\DataProvider\{ContextAwareCollectionDataProviderInterface,
     ItemDataProviderInterface,
     Pagination,
@@ -9,7 +10,7 @@ use ApiPlatform\Core\DataProvider\{ContextAwareCollectionDataProviderInterface,
 use ApiPlatform\Core\Exception\InvalidIdentifierException;
 use App\DataProvider\Paginator\MilkYieldRecordPaginator;
 use App\Entity\MilkYieldRecord;
-use App\Repository\MilkYieldRecordDataRepository;
+use App\Repository\MilkYieldRecordCachedDataRepository;
 
 final class MilkYieldRecordDataProvider implements ContextAwareCollectionDataProviderInterface, ItemDataProviderInterface, RestrictedDataProviderInterface
 {
@@ -19,6 +20,11 @@ final class MilkYieldRecordDataProvider implements ContextAwareCollectionDataPro
     private $repository;
 
     /**
+     * @var MilkYieldRecordCachedDataRepository
+     */
+    private $cachedRepository;
+
+    /**
      * @var Pagination
      */
     private $pagination;
@@ -26,11 +32,13 @@ final class MilkYieldRecordDataProvider implements ContextAwareCollectionDataPro
     /**
      * MilkYieldRecordCollectionDataProvider constructor.
      * @param MilkYieldRecordDataRepository $repository
+     * @param MilkYieldRecordCachedDataRepository $cachedDataRepository
      * @param Pagination $pagination
      */
-    public function __construct(MilkYieldRecordDataRepository $repository, Pagination $pagination)
+    public function __construct(MilkYieldRecordDataRepository $repository, MilkYieldRecordCachedDataRepository $cachedDataRepository, Pagination $pagination)
     {
         $this->repository = $repository;
+        $this->cachedRepository = $cachedDataRepository;
         $this->pagination = $pagination;
     }
 
@@ -73,6 +81,7 @@ final class MilkYieldRecordDataProvider implements ContextAwareCollectionDataPro
 
         return new MilkYieldRecordPaginator(
             $this->repository,
+            $this->cachedRepository,
             $page,
             $limit
         );

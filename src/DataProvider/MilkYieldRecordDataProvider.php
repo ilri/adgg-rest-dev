@@ -2,14 +2,12 @@
 
 namespace App\DataProvider;
 
-use App\DataProvider\Paginator\MilkYieldRecordPaginator;
-use ApiPlatform\Core\DataProvider\{
+use ApiPlatform\Core\DataProvider\{ContextAwareCollectionDataProviderInterface,
     ItemDataProviderInterface,
     Pagination,
-    RestrictedDataProviderInterface,
-    ContextAwareCollectionDataProviderInterface
-};
+    RestrictedDataProviderInterface};
 use ApiPlatform\Core\Exception\InvalidIdentifierException;
+use App\DataProvider\Paginator\MilkYieldRecordPaginator;
 use App\Entity\MilkYieldRecord;
 use App\Repository\MilkYieldRecordDataRepository;
 

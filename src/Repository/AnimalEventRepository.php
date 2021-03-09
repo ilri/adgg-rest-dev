@@ -90,6 +90,17 @@ class AnimalEventRepository extends ServiceEntityRepository
         return $paginator;
     }
 
+    public function countAllMilkingEvents(): int
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        return $this->addMilkingEventQueryBuilder($queryBuilder)
+            ->select('count(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
+
     /**
      * @param int $id
      * @return null|AnimalEvent

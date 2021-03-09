@@ -142,4 +142,12 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
             return '';
         }
     }
+
+    /**
+     * @return int
+     */
+    public function countAllMilkYieldRecords(): int
+    {
+        return $this->animalEventRepository->countAllMilkingEvents();
+    }
 }

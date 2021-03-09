@@ -2,6 +2,7 @@
 
 namespace App\DataProvider;
 
+use App\DataProvider\Extension\MilkYieldRecordPaginationExtension;
 use App\Entity\MilkYieldRecord;
 use App\Repository\MilkYieldRecordDataRepository;
 use ApiPlatform\Core\DataProvider\{
@@ -17,12 +18,19 @@ final class MilkYieldRecordCollectionDataProvider implements ContextAwareCollect
     private $repository;
 
     /**
+     * @var MilkYieldRecordPaginationExtension
+     */
+    private $paginationExtension;
+
+    /**
      * MilkYieldRecordCollectionDataProvider constructor.
      * @param MilkYieldRecordDataRepository $repository
+     * @param MilkYieldRecordPaginationExtension $paginationExtension
      */
-    public function __construct(MilkYieldRecordDataRepository $repository)
+    public function __construct(MilkYieldRecordDataRepository $repository, MilkYieldRecordPaginationExtension $paginationExtension)
     {
         $this->repository = $repository;
+        $this->paginationExtension = $paginationExtension;
     }
 
     /**
@@ -49,6 +57,10 @@ final class MilkYieldRecordCollectionDataProvider implements ContextAwareCollect
             throw new \RuntimeException(sprintf('Unable to retrieve top books from external source: %s', $e->getMessage()));
         }
 
-        return $collection;
+        if (!$this->paginationExtension->isEnabled($resourceClass, $operationName, $context)) {
+            return $collection;
+        }
+
+        return $this->paginationExtension->getResult($collection, $resourceClass, $operationName, $context);
     }
 }

@@ -11,10 +11,6 @@ use ApiPlatform\Core\Annotation\{
 
 /**
  * @ApiResource(
- *     attributes={
- *         "pagination_enabled"=true,
- *         "pagination_items_per_page"=32
- *     },
  *     collectionOperations={
  *         "get"={
  *             "method"="GET",

@@ -92,15 +92,6 @@ class MilkYieldRecord
      */
     private $feedback;
 
-    /**
-     * @var \DateTime
-     */
-    private $calvingDate;
-
-    /**
-     * @var \DateTime
-     */
-    private $milkingDate;
 
     public function getId(): ?int
     {
@@ -230,30 +221,6 @@ class MilkYieldRecord
     public function setFeedback(string $feedback): self
     {
         $this->feedback = $feedback;
-
-        return $this;
-    }
-
-    public function getCalvingDate(): ?\DateTimeInterface
-    {
-        return $this->calvingDate;
-    }
-
-    public function setCalvingDate(\DateTimeInterface $calvingDate): self
-    {
-        $this->calvingDate = $calvingDate;
-
-        return $this;
-    }
-
-    public function getMilkingDate(): ?\DateTimeInterface
-    {
-        return $this->milkingDate;
-    }
-
-    public function setMilkingDate(\DateTimeInterface $milkingDate): self
-    {
-        $this->milkingDate = $milkingDate;
 
         return $this;
     }

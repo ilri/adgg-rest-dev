@@ -32,7 +32,7 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "post"={
  *             "method"="POST",
- *             "normalization_context"={
+ *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:collection:post"
  *                 }
@@ -50,7 +50,7 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "put"={
  *             "method"="PUT",
- *             "normalization_context"={
+ *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:item:put"
  *                 }
@@ -58,7 +58,7 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "patch"={
  *             "method"="PATCH",
- *             "normalization_context"={
+ *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:item:patch"
  *                 }

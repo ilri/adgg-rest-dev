@@ -11,7 +11,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 
 class AnimalEventRepository extends ServiceEntityRepository
 {
-    const ITEMS_PER_PAGE = 32;
+    const ITEMS_PER_PAGE = 30;
 
     /**
      * AnimalEventRepository constructor.

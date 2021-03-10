@@ -41,4 +41,23 @@ final class MilkYieldRecordCachedDataRepository implements MilkYieldRecordDataIn
             return $this->repository->getMilkYieldRecords($page);
         });
     }
+
+    /**
+     * @param int $eventId
+     * @return MilkYieldRecord
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getMilkYieldRecord(int $eventId): MilkYieldRecord
+    {
+        return $this->repository->getMilkYieldRecord($eventId);
+    }
+
+    /**
+     * @return int
+     */
+    public function countAllMilkYieldRecords(): int
+    {
+        return $this->repository->countAllMilkYieldRecords();
+    }
 }

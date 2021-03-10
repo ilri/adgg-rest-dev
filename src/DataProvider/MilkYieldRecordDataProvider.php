@@ -2,7 +2,6 @@
 
 namespace App\DataProvider;
 
-use App\Repository\MilkYieldRecordDataRepository;
 use ApiPlatform\Core\DataProvider\{ContextAwareCollectionDataProviderInterface,
     ItemDataProviderInterface,
     Pagination,
@@ -15,14 +14,9 @@ use App\Repository\MilkYieldRecordCachedDataRepository;
 final class MilkYieldRecordDataProvider implements ContextAwareCollectionDataProviderInterface, ItemDataProviderInterface, RestrictedDataProviderInterface
 {
     /**
-     * @var MilkYieldRecordDataRepository
-     */
-    private $repository;
-
-    /**
      * @var MilkYieldRecordCachedDataRepository
      */
-    private $cachedRepository;
+    private $repository;
 
     /**
      * @var Pagination
@@ -31,14 +25,12 @@ final class MilkYieldRecordDataProvider implements ContextAwareCollectionDataPro
 
     /**
      * MilkYieldRecordCollectionDataProvider constructor.
-     * @param MilkYieldRecordDataRepository $repository
-     * @param MilkYieldRecordCachedDataRepository $cachedDataRepository
+     * @param MilkYieldRecordCachedDataRepository $repository
      * @param Pagination $pagination
      */
-    public function __construct(MilkYieldRecordDataRepository $repository, MilkYieldRecordCachedDataRepository $cachedDataRepository, Pagination $pagination)
+    public function __construct(MilkYieldRecordCachedDataRepository $repository, Pagination $pagination)
     {
         $this->repository = $repository;
-        $this->cachedRepository = $cachedDataRepository;
         $this->pagination = $pagination;
     }
 
@@ -81,7 +73,6 @@ final class MilkYieldRecordDataProvider implements ContextAwareCollectionDataPro
 
         return new MilkYieldRecordPaginator(
             $this->repository,
-            $this->cachedRepository,
             $page,
             $limit
         );

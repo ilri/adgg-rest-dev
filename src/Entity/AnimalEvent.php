@@ -8,6 +8,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use App\Controller\MilkingEventController;
 use App\Controller\CalvingEventController;
+use App\Controller\MilkYieldRecordController;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
@@ -46,6 +47,16 @@ use Doctrine\ORM\Mapping as ORM;
  *             "normalization_context"={
  *                 "groups"={
  *                     "animalevent:collection:get"
+ *                 }
+ *             }
+ *         },
+ *         "milk_yield_records"={
+ *             "method"="GET",
+ *             "path"="/animal_events/milking_events/milk_yield_records",
+ *             "controller"=MilkYieldRecordController::class,
+ *             "normalization_context"={
+ *                 "groups"={
+ *                     "milkyieldrecord:collection:get"
  *                 }
  *             }
  *         },

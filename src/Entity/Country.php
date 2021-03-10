@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Repository\CountryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  * )
  *
  * @ORM\Table(name="core_country")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=CountryRepository::class)
  */
 class Country
 {

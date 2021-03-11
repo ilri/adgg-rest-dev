@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
-use App\Controller\MilkingEventController;
-use App\Controller\CalvingEventController;
+use ApiPlatform\Core\Annotation\{
+    ApiResource,
+    ApiFilter
+};
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\{
+    DateFilter,
+    SearchFilter
+};
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
@@ -33,7 +35,6 @@ use Doctrine\ORM\Mapping as ORM;
  *         "milking_events"={
  *             "method"="GET",
  *             "path"="/animal_events/milking_events",
- *             "controller"=MilkingEventController::class,
  *             "normalization_context"={
  *                 "groups"={
  *                     "animalevent:collection:get"
@@ -43,7 +44,6 @@ use Doctrine\ORM\Mapping as ORM;
  *         "calving_events"={
  *             "method"="GET",
  *             "path"="/animal_events/calving_events",
- *             "controller"=CalvingEventController::class,
  *             "normalization_context"={
  *                 "groups"={
  *                     "animalevent:collection:get"
@@ -89,8 +89,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiFilter(
  *     SearchFilter::class,
  *     properties={
- *         "countryId": "exact",
- *         "eventType": "exact",
  *         "animal": "exact"
  *     }
  * )

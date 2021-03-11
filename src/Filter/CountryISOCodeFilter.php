@@ -14,10 +14,9 @@ use Doctrine\ORM\QueryBuilder;
 /**
  * Custom filter that retrieves the id from the table core_country (entity Country) for a given ISO 3166-1 alpha-2 letters code.
  * The retrieved id can be then used to filter other entities for their property countryId.
- * Please see:
- * https://api-platform.com/docs/core/filters/#creating-custom-filters
- * https://symfonycasts.com/screencast/api-platform-extending/entity-filter-logic
- * https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+ * @see https://api-platform.com/docs/core/filters/#creating-custom-filters
+ * @see https://symfonycasts.com/screencast/api-platform-extending/entity-filter-logic
+ * @see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
  */
 class CountryISOCodeFilter extends AbstractContextAwareFilter
 {

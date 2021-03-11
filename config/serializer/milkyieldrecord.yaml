@@ -2,8 +2,10 @@ App\Entity\MilkYieldRecord:
     attributes:
         id:
             groups: [
-              "milkyieldrecord:collection:get",
-              "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
             ]
         animalEvent:
             groups: [
@@ -57,11 +59,15 @@ App\Entity\MilkYieldRecord:
             ]
         calvingDate:
             groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
                 "milkyieldrecord:collection:get",
                 "milkyieldrecord:item:get"
             ]
         milkingDate:
             groups: [
+                "animalevent:collection:get"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MTU0Nzk0NzAsImV4cCI6MTYxNTQ4MzA3MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.mX8hRgSS19nexQa6mCH18yayj2n09K3nA7sGOjRDDENYcmj4VMGH4GGB_SU7L5XTh17cBAEBkKxx3WewjEmOYxDti0tMEctcJtxUcdcITPtsGQWu1Bd4JqxcwOcbKEtZ5zGYDov9aXLnbYIYgJdkjaVeais3iiIifp38kmK_dLIC-gw172qJrHRpA7h8f2xnSbmjtEJNctoS_AHSN82Gt55GcS_8EeOLiOAwf8UiFgrifqtInn8px6mwP1Z0W1kW002gfCA44ZJ6OLltzyr7GcaXOneAD8LdDuN3UhW75UVW2cgj2QBqRNu9TUtem3cjoAd0H2dho7gM2HZ_yTZKgp8nRNRclgoF-QGxNVFV1JhN-7jm3RbvNdBGF4BXCv2o8txinCHiWQ6Ti_abQZLQA5G2b5IQmFlcUo6C0FUYPZoZFMe2JY8T7kHYScqlRFpXJJParNWVmYqEowiMRQJ1q-u22thu1E_rbCejym1lrBz8W4JtEUdNDsimT9_ltHcGzAchyChFx319QOHt6LSfgDTlfyiljghuG30pkX3aKsbvwEUzRsn11WyBest6TZuD2mcELUKS1JlUMNiu9p7MinSlQD6_4i9Fz2wWrVpyRt5ZbrYWw0vkPTQ_mP7qSYgF_l1bch6pZtSAT_FLCnG16R5Q751OJZbmXeCqJXQcHyM,
+                "animalevent:item:get",
                 "milkyieldrecord:collection:get",
                 "milkyieldrecord:item:get"
             ]

@@ -11,4 +11,10 @@ interface MilkYieldRecordDataInterface
      * @return array<int, MilkYieldRecord>
      */
     public function getMilkYieldRecords(int $page = 1): array;
+
+    /**
+     * @param int $eventId
+     * @return MilkYieldRecord
+     */
+    public function getMilkYieldRecord(int $eventId): MilkYieldRecord;
 }

@@ -75,7 +75,9 @@ App\Entity\AnimalEvent:
                 "animalevent:collection:post",
                 "animalevent:item:get",
                 "animalevent:item:put",
-                "animalevent:item:patch"
+                "animalevent:item:patch",
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
             ]
         dataCollectionDate:
             groups: [

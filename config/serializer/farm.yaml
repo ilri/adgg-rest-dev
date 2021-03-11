@@ -19,7 +19,9 @@ App\Entity\Farm:
                 "farm:collection:post",
                 "farm:item:get",
                 "farm:item:put",
-                "farm:item:patch"
+                "farm:item:patch",
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
             ]
         regionId:
             groups: [
@@ -92,7 +94,9 @@ App\Entity\Farm:
                 "farm:collection:post",
                 "farm:item:get",
                 "farm:item:put",
-                "farm:item:patch"
+                "farm:item:patch",
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
             ]
         email:
             groups: [

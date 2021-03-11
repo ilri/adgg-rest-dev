@@ -55,7 +55,6 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         $emy = $this->getEMYForMilkingEvent($eventId);
         $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
         $feedback = $this->getFeedbackForFarmer($totalMilkRecord, $emy);
-        $calvingDate = $this->animalEventRepository->findLactationForMilkingEvent($eventId)->getEventDate();
 
         $milkYieldRecord = new MilkYieldRecord();
         $milkYieldRecord
@@ -70,9 +69,7 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
             ->setUpperLimit($emy['TU'])
             ->setLowerLimit($emy['TL'])
             ->setFeedback($feedback)
-            ->setCalvingDate($calvingDate)
-            ->setMilkingDate($milkingEvent->getEventDate()
-        );
+        ;
 
         return $milkYieldRecord;
     }
@@ -141,5 +138,13 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         } else {
             return '';
         }
+    }
+
+    /**
+     * @return int
+     */
+    public function countAllMilkYieldRecords(): int
+    {
+        return $this->animalEventRepository->countAllMilkingEvents();
     }
 }

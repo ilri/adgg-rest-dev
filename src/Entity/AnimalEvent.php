@@ -233,6 +233,11 @@ class AnimalEvent
      */
     private $animal;
 
+    /**
+     * @var MilkYieldRecord
+     */
+    private $milkYieldRecord;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -390,6 +395,18 @@ class AnimalEvent
     public function setAnimal(?Animal $animal): self
     {
         $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getMilkYieldRecord(): ?MilkYieldRecord
+    {
+        return $this->milkYieldRecord;
+    }
+
+    public function setMilkYieldRecord(?MilkYieldRecord $milkYieldRecord): self
+    {
+        $this->milkYieldRecord = $milkYieldRecord;
 
         return $this;
     }

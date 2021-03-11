@@ -13,6 +13,7 @@ use App\Entity\Traits\{
     CountryTrait,
     IdentifiableTrait
 };
+use App\Filter\CountryISOCodeFilter;
 use App\Repository\AnimalEventRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -94,10 +95,13 @@ use Doctrine\ORM\Mapping as ORM;
  *     }
  * )
  * @ApiFilter(
- *    DateFilter::class,
- *    properties={
+ *     DateFilter::class,
+ *     properties={
  *         "eventDate"
- *    }
+ *     }
+ * )
+ * @ApiFilter(
+ *     CountryISOCodeFilter::class
  * )
  * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
  * @ORM\Entity(repositoryClass=AnimalEventRepository::class)

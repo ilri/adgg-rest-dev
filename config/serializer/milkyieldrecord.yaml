@@ -5,63 +5,63 @@ App\Entity\MilkYieldRecord:
               "milkyieldrecord:collection:get",
               "milkyieldrecord:item:get"
             ]
-    animalEvent:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    animal:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    farm:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    lactationId:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    daysInMilk:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    totalMilkRecord:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    expectedMilkYield:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    upperLimit:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    lowerLimit:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    feedback:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    calvingDate:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
-    milkingDate:
-        groups: [
-            "milkyieldrecord:collection:get",
-            "milkyieldrecord:item:get"
-        ]
+        animalEvent:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        animal:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        farm:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        lactationId:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        daysInMilk:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        totalMilkRecord:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        expectedMilkYield:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        upperLimit:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        lowerLimit:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        feedback:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        calvingDate:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]
+        milkingDate:
+            groups: [
+                "milkyieldrecord:collection:get",
+                "milkyieldrecord:item:get"
+            ]

@@ -26,7 +26,7 @@ use Doctrine\ORM\Mapping as ORM;
  *         "post"={
  *             "method"="POST",
  *             "path"="/farm_metadata",
- *             "normalization_context"={
+ *             "denormalization_context"={
  *                 "groups"={
  *                      "farmmetadata:collection:post"
  *                 }
@@ -46,7 +46,7 @@ use Doctrine\ORM\Mapping as ORM;
  *         "put"={
  *             "method"="PUT",
  *             "path"="/farm_metadata/{id}",
- *             "normalization_context"={
+ *             "denormalization_context"={
  *                 "groups"={
  *                      "farmmetadata:item:put"
  *                 }
@@ -55,7 +55,7 @@ use Doctrine\ORM\Mapping as ORM;
  *         "patch"={
  *             "method"="PATCH",
  *             "path"="/farm_metadata/{id}",
- *             "normalization_context"={
+ *             "denormalization_context"={
  *                 "groups"={
  *                      "farmmetadata:item:patch"
  *                 }

@@ -16,8 +16,6 @@ class MilkingEventsExtension implements QueryCollectionExtensionInterface
             return;
         }
 
-        dump('The MilkingEventsExtension is fired.');
-
         $rootAlias = $queryBuilder->getRootAliases()[0];
         $queryBuilder
             ->andWhere(sprintf('%s.eventType = :eventType', $rootAlias))

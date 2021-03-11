@@ -20,12 +20,12 @@ class CountryISOCodeFilter extends AbstractContextAwareFilter
 
         $countryRepository = $this->managerRegistry->getRepository(Country::class);
         $country = $countryRepository->findOneBy(['country' => $value]);
-        $id = $country ? $country->getId() : 0;
+        $countryId = $country ? $country->getId() : 0;
 
         $alias = $queryBuilder->getRootAliases()[0];
-
-        $queryBuilder->andWhere(sprintf('%s.countryId = :countryId', $alias))
-            ->setParameter('countryId', $id)
+        $valueParameter = $queryNameGenerator->generateParameterName('countryId');
+        $queryBuilder->andWhere(sprintf('%s.countryId = :%s', $alias, $valueParameter))
+            ->setParameter($valueParameter, $countryId)
         ;
     }
 

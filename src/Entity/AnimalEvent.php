@@ -10,6 +10,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\{
     DateFilter,
     SearchFilter
 };
+use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
@@ -97,6 +98,9 @@ use Doctrine\ORM\Mapping as ORM;
  *     properties={
  *         "eventDate"
  *     }
+ * )
+ * @ApiFilter(
+ *     PropertyFilter::class
  * )
  * @ApiFilter(
  *     CountryISOCodeFilter::class

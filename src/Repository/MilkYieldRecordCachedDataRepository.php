@@ -49,8 +49,8 @@ final class MilkYieldRecordCachedDataRepository implements MilkYieldRecordDataIn
      */
     public function getMilkYieldRecord(int $eventId): MilkYieldRecord
     {
-        return $this->cache->get(sprintf('milk_yield_record_id_%s', $eventId), function() use ($eventId) {
-            $this->repository->getMilkYieldRecord($eventId);
+        return $this->cache->get(sprintf('milk_yield_record_id_%s', $eventId), function () use ($eventId) {
+            return $this->repository->getMilkYieldRecord($eventId);
         });
     }
 

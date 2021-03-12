@@ -2,11 +2,6 @@ App\Entity\MilkYieldRecord:
     attributes:
         id:
             groups: []
-        farm:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:item:get",
-            ]
         daysInMilk:
             groups: [
                 "animalevent:collection:get",

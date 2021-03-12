@@ -4,53 +4,12 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\{
-    ApiProperty,
-    ApiResource
-};
-
-/**
- * @ApiResource(
- *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "milkyieldrecord:collection:get"
- *                 }
- *             }
- *         }
- *     },
- *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "milkyieldrecord:item:get"
- *                 }
- *             }
- *         }
- *     }
- * )
- */
 class MilkYieldRecord
 {
     /**
      * @var int
-     *
-     * @ApiProperty(identifier=true)
      */
     private $id;
-
-    /**
-     * @var AnimalEvent
-     */
-    private $animalEvent;
-
-    /**
-     * @var Animal
-     */
-    private $animal;
 
     /**
      * @var Farm
@@ -58,9 +17,9 @@ class MilkYieldRecord
     private $farm;
 
     /**
-     * @var int
+     * @var \DateTimeInterface
      */
-    private $lactationId;
+    private $calvingDate;
 
     /**
      * @var int
@@ -105,30 +64,6 @@ class MilkYieldRecord
         return $this;
     }
 
-    public function getAnimalEvent(): ?AnimalEvent
-    {
-        return $this->animalEvent;
-    }
-
-    public function setAnimalEvent(AnimalEvent $animalEvent): self
-    {
-        $this->animalEvent = $animalEvent;
-
-        return $this;
-    }
-
-    public function getAnimal(): ?Animal
-    {
-        return $this->animal;
-    }
-
-    public function setAnimal(Animal $animal): self
-    {
-        $this->animal = $animal;
-
-        return $this;
-    }
-
     public function getFarm(): ?Farm
     {
         return $this->farm;
@@ -141,14 +76,14 @@ class MilkYieldRecord
         return $this;
     }
 
-    public function getLactationId(): ?int
+    public function getCalvingDate(): ?\DateTimeInterface
     {
-        return $this->lactationId;
+        return $this->calvingDate;
     }
 
-    public function setLactationId(int $lactationId): self
+    public function setCalvingDate(\DateTimeInterface $calvingDate): self
     {
-        $this->lactationId = $lactationId;
+        $this->calvingDate = $calvingDate;
 
         return $this;
     }

@@ -45,12 +45,13 @@ final class MilkYieldRecordCachedDataRepository implements MilkYieldRecordDataIn
     /**
      * @param int $eventId
      * @return MilkYieldRecord
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Psr\Cache\InvalidArgumentException
      */
     public function getMilkYieldRecord(int $eventId): MilkYieldRecord
     {
-        return $this->repository->getMilkYieldRecord($eventId);
+        return $this->cache->get(sprintf('milk_yield_record_id_%s', $eventId), function() use ($eventId) {
+            $this->repository->getMilkYieldRecord($eventId);
+        });
     }
 
     /**

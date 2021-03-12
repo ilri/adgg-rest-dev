@@ -55,14 +55,13 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         $emy = $this->getEMYForMilkingEvent($eventId);
         $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
         $feedback = $this->getFeedbackForFarmer($totalMilkRecord, $emy);
+        $calvingEvent = $this->animalEventRepository->findOneBy(['id' => $milkingEvent->getLactationId()]);
 
         $milkYieldRecord = new MilkYieldRecord();
         $milkYieldRecord
             ->setId($eventId)
-            ->setAnimalEvent($milkingEvent)
-            ->setAnimal($milkingEvent->getAnimal())
             ->setFarm($milkingEvent->getAnimal()->getFarm())
-            ->setLactationId($milkingEvent->getLactationId())
+            ->setCalvingDate($calvingEvent->getEventDate())
             ->setDaysInMilk($dim)
             ->setTotalMilkRecord($totalMilkRecord)
             ->setExpectedMilkYield($emy['EMY'])

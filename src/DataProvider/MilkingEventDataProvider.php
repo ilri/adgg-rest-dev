@@ -4,7 +4,7 @@
 namespace App\DataProvider;
 
 use App\Entity\AnimalEvent;
-use App\Entity\MilkYieldRecord;
+use App\Repository\MilkYieldRecordDataRepository;
 use ApiPlatform\Core\DataProvider\{
     CollectionDataProviderInterface,
     ContextAwareCollectionDataProviderInterface,
@@ -20,12 +20,19 @@ class MilkingEventDataProvider implements ContextAwareCollectionDataProviderInte
     private $collectionDataProvider;
 
     /**
+     * @var MilkYieldRecordDataRepository
+     */
+    private $repository;
+
+    /**
      * MilkingEventDataProvider constructor.
      * @param CollectionDataProviderInterface $collectionDataProvider
+     * @param MilkYieldRecordDataRepository $repository
      */
-    public function __construct(CollectionDataProviderInterface $collectionDataProvider)
+    public function __construct(CollectionDataProviderInterface $collectionDataProvider, MilkYieldRecordDataRepository $repository)
     {
         $this->collectionDataProvider = $collectionDataProvider;
+        $this->repository = $repository;
     }
 
     /**
@@ -37,9 +44,7 @@ class MilkingEventDataProvider implements ContextAwareCollectionDataProviderInte
         $milkingEvents = $this->collectionDataProvider->getCollection($resourceClass, $operationName, $context);
 
         foreach ($milkingEvents as $milkingEvent) {
-            $milkYieldRecord = new MilkYieldRecord();
-            $milkYieldRecord->setId($milkingEvent->getId());
-            $milkYieldRecord->setMilkingDate($milkingEvent->getEventDate());
+            $milkYieldRecord = $this->repository->getMilkYieldRecord($milkingEvent->getId());
             $milkingEvent->setMilkYieldRecord($milkYieldRecord);
         }
 

@@ -7,6 +7,13 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use App\Entity\AnimalEvent;
 use Doctrine\ORM\QueryBuilder;
 
+
+/**
+ * Class MilkingEventsExtension
+ * @package App\Extensions
+ * @see https://api-platform.com/docs/core/extensions/
+ * @see https://symfonycasts.com/screencast/api-platform-security/query-extension
+ */
 class MilkingEventsExtension implements QueryCollectionExtensionInterface
 {
 

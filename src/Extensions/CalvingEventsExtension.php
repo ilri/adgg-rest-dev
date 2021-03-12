@@ -7,6 +7,12 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use App\Entity\AnimalEvent;
 use Doctrine\ORM\QueryBuilder;
 
+/**
+ * Class CalvingEventsExtension
+ * @package App\Extensions
+ * @see https://api-platform.com/docs/core/extensions/
+ * @see https://symfonycasts.com/screencast/api-platform-security/query-extension
+ */
 class CalvingEventsExtension implements QueryCollectionExtensionInterface
 {
 

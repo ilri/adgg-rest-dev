@@ -60,7 +60,6 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         $milkYieldRecord = new MilkYieldRecord();
         $milkYieldRecord
             ->setId($eventId)
-            ->setFarm($milkingEvent->getAnimal()->getFarm())
             ->setCalvingDate($calvingEvent->getEventDate())
             ->setDaysInMilk($dim)
             ->setTotalMilkRecord($totalMilkRecord)

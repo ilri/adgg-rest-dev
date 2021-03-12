@@ -12,11 +12,6 @@ class MilkYieldRecord
     private $id;
 
     /**
-     * @var Farm
-     */
-    private $farm;
-
-    /**
      * @var \DateTimeInterface
      */
     private $calvingDate;
@@ -60,18 +55,6 @@ class MilkYieldRecord
     public function setId(int $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getFarm(): ?Farm
-    {
-        return $this->farm;
-    }
-
-    public function setFarm(Farm $farm): self
-    {
-        $this->farm = $farm;
 
         return $this;
     }

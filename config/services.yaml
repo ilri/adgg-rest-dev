@@ -34,3 +34,9 @@ services:
     App\OpenApi\JwtDecorator:
         decorates: 'api_platform.openapi.factory'
         autoconfigure: false
+
+    # This is needed to avoid circular reference
+    # see: https://symfonycasts.com/screencast/api-platform-extending/decorate-provider
+    App\DataProvider\MilkingEventDataProvider:
+        bind:
+            $collectionDataProvider: '@api_platform.doctrine.orm.default.collection_data_provider'

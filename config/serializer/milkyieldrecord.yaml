@@ -1,67 +1,39 @@
 App\Entity\MilkYieldRecord:
     attributes:
         id:
-            groups: [
-              "milkyieldrecord:collection:get",
-              "milkyieldrecord:item:get"
-            ]
-        animalEvent:
-            groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
-            ]
-        animal:
-            groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
-            ]
-        farm:
-            groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
-            ]
-        lactationId:
-            groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
-            ]
+            groups: []
         daysInMilk:
             groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
             ]
         totalMilkRecord:
             groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
             ]
         expectedMilkYield:
             groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
             ]
         upperLimit:
             groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
             ]
         lowerLimit:
             groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
             ]
         feedback:
             groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
             ]
         calvingDate:
             groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
-            ]
-        milkingDate:
-            groups: [
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "animalevent:collection:get",
+                "animalevent:item:get",
             ]

@@ -4,63 +4,17 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\{
-    ApiProperty,
-    ApiResource
-};
-
-/**
- * @ApiResource(
- *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "milkyieldrecord:collection:get"
- *                 }
- *             }
- *         }
- *     },
- *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "milkyieldrecord:item:get"
- *                 }
- *             }
- *         }
- *     }
- * )
- */
 class MilkYieldRecord
 {
     /**
      * @var int
-     *
-     * @ApiProperty(identifier=true)
      */
     private $id;
 
     /**
-     * @var AnimalEvent
+     * @var \DateTimeInterface
      */
-    private $animalEvent;
-
-    /**
-     * @var Animal
-     */
-    private $animal;
-
-    /**
-     * @var Farm
-     */
-    private $farm;
-
-    /**
-     * @var int
-     */
-    private $lactationId;
+    private $calvingDate;
 
     /**
      * @var int
@@ -105,50 +59,14 @@ class MilkYieldRecord
         return $this;
     }
 
-    public function getAnimalEvent(): ?AnimalEvent
+    public function getCalvingDate(): ?\DateTimeInterface
     {
-        return $this->animalEvent;
+        return $this->calvingDate;
     }
 
-    public function setAnimalEvent(AnimalEvent $animalEvent): self
+    public function setCalvingDate(\DateTimeInterface $calvingDate): self
     {
-        $this->animalEvent = $animalEvent;
-
-        return $this;
-    }
-
-    public function getAnimal(): ?Animal
-    {
-        return $this->animal;
-    }
-
-    public function setAnimal(Animal $animal): self
-    {
-        $this->animal = $animal;
-
-        return $this;
-    }
-
-    public function getFarm(): ?Farm
-    {
-        return $this->farm;
-    }
-
-    public function setFarm(Farm $farm): self
-    {
-        $this->farm = $farm;
-
-        return $this;
-    }
-
-    public function getLactationId(): ?int
-    {
-        return $this->lactationId;
-    }
-
-    public function setLactationId(int $lactationId): self
-    {
-        $this->lactationId = $lactationId;
+        $this->calvingDate = $calvingDate;
 
         return $this;
     }

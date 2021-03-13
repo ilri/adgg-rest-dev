@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
-use App\Controller\MilkingEventController;
-use App\Controller\CalvingEventController;
-use App\Controller\MilkYieldRecordController;
+use ApiPlatform\Core\Annotation\{
+    ApiResource,
+    ApiFilter
+};
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\{
+    DateFilter,
+    SearchFilter
+};
+use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
@@ -34,7 +36,6 @@ use Doctrine\ORM\Mapping as ORM;
  *         "milking_events"={
  *             "method"="GET",
  *             "path"="/animal_events/milking_events",
- *             "controller"=MilkingEventController::class,
  *             "normalization_context"={
  *                 "groups"={
  *                     "animalevent:collection:get"
@@ -44,20 +45,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         "calving_events"={
  *             "method"="GET",
  *             "path"="/animal_events/calving_events",
- *             "controller"=CalvingEventController::class,
  *             "normalization_context"={
  *                 "groups"={
  *                     "animalevent:collection:get"
- *                 }
- *             }
- *         },
- *         "milk_yield_records"={
- *             "method"="GET",
- *             "path"="/animal_events/milking_events/milk_yield_records",
- *             "controller"=MilkYieldRecordController::class,
- *             "normalization_context"={
- *                 "groups"={
- *                     "milkyieldrecord:collection:get"
  *                 }
  *             }
  *         },
@@ -100,8 +90,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiFilter(
  *     SearchFilter::class,
  *     properties={
- *         "countryId": "exact",
- *         "eventType": "exact",
  *         "animal": "exact"
  *     }
  * )
@@ -110,6 +98,9 @@ use Doctrine\ORM\Mapping as ORM;
  *     properties={
  *         "eventDate"
  *     }
+ * )
+ * @ApiFilter(
+ *     PropertyFilter::class
  * )
  * @ApiFilter(
  *     CountryISOCodeFilter::class
@@ -241,6 +232,11 @@ class AnimalEvent
      * })
      */
     private $animal;
+
+    /**
+     * @var MilkYieldRecord
+     */
+    private $milkYieldRecord;
 
     public function getId(): ?int
     {
@@ -399,6 +395,18 @@ class AnimalEvent
     public function setAnimal(?Animal $animal): self
     {
         $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getMilkYieldRecord(): ?MilkYieldRecord
+    {
+        return $this->milkYieldRecord;
+    }
+
+    public function setMilkYieldRecord(?MilkYieldRecord $milkYieldRecord): self
+    {
+        $this->milkYieldRecord = $milkYieldRecord;
 
         return $this;
     }

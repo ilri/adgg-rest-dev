@@ -25,24 +25,6 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
     }
 
     /**
-     * @param int $page
-     * @return array
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     */
-    public function getMilkYieldRecords(int $page = 1): array
-    {
-        $milkYieldRecords = [];
-        $milkingEvents = $this->animalEventRepository->findAllMilkingEvents($page);
-        foreach ($milkingEvents as $milkingEvent) {
-            $eventId = $milkingEvent->getId();
-            $milkYieldRecords[] = $this->getMilkYieldRecord($eventId);
-        }
-
-        return $milkYieldRecords;
-    }
-
-    /**
      * @param int $eventId
      * @return MilkYieldRecord
      * @throws \Doctrine\ORM\NoResultException
@@ -55,14 +37,12 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         $emy = $this->getEMYForMilkingEvent($eventId);
         $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
         $feedback = $this->getFeedbackForFarmer($totalMilkRecord, $emy);
+        $calvingEvent = $this->animalEventRepository->findLactationForMilkingEvent($eventId);
 
         $milkYieldRecord = new MilkYieldRecord();
         $milkYieldRecord
             ->setId($eventId)
-            ->setAnimalEvent($milkingEvent)
-            ->setAnimal($milkingEvent->getAnimal())
-            ->setFarm($milkingEvent->getAnimal()->getFarm())
-            ->setLactationId($milkingEvent->getLactationId())
+            ->setCalvingDate($calvingEvent->getEventDate())
             ->setDaysInMilk($dim)
             ->setTotalMilkRecord($totalMilkRecord)
             ->setExpectedMilkYield($emy['EMY'])
@@ -80,7 +60,7 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getDIMForMilkingEvent(int $id): int
+    private function getDIMForMilkingEvent(int $id): int
     {
         $milkingEvent = $this->animalEventRepository->findOneMilkingEventById($id);
         $calvingEvent = $this->animalEventRepository->findLactationForMilkingEvent($id);
@@ -97,7 +77,7 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getEMYForMilkingEvent(int $id): array
+    private function getEMYForMilkingEvent(int $id): array
     {
         $dim = $this->getDIMForMilkingEvent($id);
         $exponent = -0.0017 * $dim;
@@ -114,7 +94,7 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
      * @param AnimalEvent $milkingEvent
      * @return float|null
      */
-    public function getTotalMilkRecord(AnimalEvent $milkingEvent): ?float
+    private function getTotalMilkRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
         $morning = $additionalAttributes['59'];
@@ -129,7 +109,7 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
      * @param array $emy
      * @return string
      */
-    public function getFeedbackForFarmer(float $milkRecord, array $emy): string
+    private function getFeedbackForFarmer(float $milkRecord, array $emy): string
     {
         if ($milkRecord > $emy['TU']) {
             return 'NOTE';
@@ -138,13 +118,5 @@ class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
         } else {
             return '';
         }
-    }
-
-    /**
-     * @return int
-     */
-    public function countAllMilkYieldRecords(): int
-    {
-        return $this->animalEventRepository->countAllMilkingEvents();
     }
 }

@@ -155,3 +155,8 @@ App\Entity\AnimalEvent:
                 "animalevent:collection:get",
                 "animalevent:item:get"
             ]
+        milkYieldRecord:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get"
+            ]

@@ -11,7 +11,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 
 class AnimalEventRepository extends ServiceEntityRepository
 {
-    const ITEMS_PER_PAGE = 32;
+    const ITEMS_PER_PAGE = 30;
 
     /**
      * AnimalEventRepository constructor.
@@ -88,6 +88,17 @@ class AnimalEventRepository extends ServiceEntityRepository
         $paginator = new Paginator($doctrinePaginator);
 
         return $paginator;
+    }
+
+    public function countAllMilkingEvents(): int
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        return $this->addMilkingEventQueryBuilder($queryBuilder)
+            ->select('count(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
     }
 
     /**

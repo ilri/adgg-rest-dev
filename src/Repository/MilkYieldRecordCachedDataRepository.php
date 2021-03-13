@@ -31,18 +31,6 @@ final class MilkYieldRecordCachedDataRepository implements MilkYieldRecordDataIn
     }
 
     /**
-     * @param int $page
-     * @return array<int, MilkYieldRecord>
-     * @throws \Psr\Cache\InvalidArgumentException
-     */
-    public function getMilkYieldRecords(int $page = 1): array
-    {
-        return $this->cache->get(sprintf('milk_yield_records_%s', $page), function () use ($page) {
-            return $this->repository->getMilkYieldRecords($page);
-        });
-    }
-
-    /**
      * @param int $eventId
      * @return MilkYieldRecord
      * @throws \Psr\Cache\InvalidArgumentException
@@ -54,11 +42,4 @@ final class MilkYieldRecordCachedDataRepository implements MilkYieldRecordDataIn
         });
     }
 
-    /**
-     * @return int
-     */
-    public function countAllMilkYieldRecords(): int
-    {
-        return $this->repository->countAllMilkYieldRecords();
-    }
 }

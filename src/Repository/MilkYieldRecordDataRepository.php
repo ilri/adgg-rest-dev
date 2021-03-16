@@ -8,6 +8,10 @@ use App\Entity\{
 };
 use Carbon\Carbon;
 
+/**
+ * @see https://symfonycasts.com/screencast/symfony-doctrine/more-queries
+ * @see https://symfonycasts.com/screencast/symfony4-doctrine/repository
+ */
 class MilkYieldRecordDataRepository implements MilkYieldRecordDataInterface
 {
     /**

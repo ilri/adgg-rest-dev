@@ -9,6 +9,10 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 
+/**
+ * @see https://symfonycasts.com/screencast/symfony-doctrine/more-queries
+ * @see https://symfonycasts.com/screencast/symfony4-doctrine/repository
+ */
 class AnimalEventRepository extends ServiceEntityRepository
 {
     const ITEMS_PER_PAGE = 30;

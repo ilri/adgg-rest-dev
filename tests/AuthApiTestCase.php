@@ -4,6 +4,7 @@
 namespace App\Tests;
 
 use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
+use App\DataFixtures\CountryFixtures;
 use App\DataFixtures\TestFixtures;
 use App\DataFixtures\UserFixtures;
 use App\Entity\User;
@@ -49,6 +50,7 @@ class AuthApiTestCase extends ApiTestCase
         $this->fixtures = $this->loadFixtures([
             UserFixtures::class,
             TestFixtures::class,
+            CountryFixtures::class,
         ])->getReferenceRepository();
 
         $this->jwtManager = self::$container->get('lexik_jwt_authentication.jwt_manager');

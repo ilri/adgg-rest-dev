@@ -16,9 +16,15 @@ class AnimalFixtures extends Fixture implements FixtureGroupInterface
      */
     public function load(ObjectManager $manager)
     {
-        foreach (range(0, 10) as $value) {
+        foreach (range(1, 10) as $value) {
             $animal = new Animal();
-            $animal->setCountryId(rand(1, 3));
+            // the animals will be assigned to the following countries
+            // a1 -> c1; a2 -> c2; a3 -> c3; a4 -> c1; a5 -> c1;
+            // a6 -> c2; a7 -> c3; a8 -> c1; a9 -> c1; a10 -> c2;
+            // country 1 has 5 animals
+            // country 2 has 3 animals
+            // country 3 has 2 animals
+            $animal->setCountryId($value % 4 ?: 1);
             $animal->setUuid(uniqid());
             $manager->persist($animal);
             $this->addReference(sprintf('animal_%s', $value), $animal);

@@ -14,11 +14,11 @@ class HerdFixtures extends Fixture implements FixtureGroupInterface, DependentFi
 {
     public function load(ObjectManager $manager)
     {
-        foreach (range(0, 10) as $value) {
+        foreach (range(1, 10) as $value) {
             $herd = new Herd();
             $herd->setCountryId(rand(1, 3));
             $herd->setUuid(uniqid());
-            $herd->setFarm($this->getReference('farm_%s', $value));
+            $herd->setFarm($this->getReference(sprintf('farm_%s', $value)));
             $manager->persist($herd);
             $this->addReference(sprintf('herd_%s', $value), $herd);
         }

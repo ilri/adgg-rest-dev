@@ -14,7 +14,7 @@ class FarmMetadataFixtures extends Fixture implements FixtureGroupInterface, Dep
 {
     public function load(ObjectManager $manager)
     {
-        foreach (range(0, 10) as $value) {
+        foreach (range(1, 10) as $value) {
             $farmMetadata = new FarmMetadata();
             $farmMetadata->setType(rand(1, 22));
             $farmMetadata->setFarm($this->getReference(sprintf('farm_%s', $value)));

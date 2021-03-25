@@ -17,7 +17,7 @@ class FarmFixtures extends Fixture implements FixtureGroupInterface, DependentFi
      */
     public function load(ObjectManager $manager)
     {
-        foreach (range(0, 10) as $value) {
+        foreach (range(1, 10) as $value) {
             $farm = new Farm();
             $farm->setName(sprintf('farm_%s', $value));
             $farm->setFarmerIsHhHead(true);
@@ -25,7 +25,7 @@ class FarmFixtures extends Fixture implements FixtureGroupInterface, DependentFi
             $farm->setUuid(uniqid());
             $farm->setIsDeleted(false);
             $country = array_rand(CountryFixtures::COUNTRIES);
-            $farm->setCountry($this->getReference('country_%s', $country['name']));
+            $farm->setCountry($this->getReference(sprintf('country_%s', CountryFixtures::COUNTRIES[$country]['name'])));
             $manager->persist($farm);
             $this->addReference(sprintf('farm_%s', $value), $farm);
         }

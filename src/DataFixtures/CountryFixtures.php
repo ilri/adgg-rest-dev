@@ -41,8 +41,9 @@ class CountryFixtures extends Fixture implements FixtureGroupInterface
     {
         foreach (self::COUNTRIES as $value) {
             $country = new Country();
-            $country->setCode(array_search($value, self::COUNTRIES));
+            $country->setCode(array_search($value, self::COUNTRIES) + 1);
             $country->setName($value['name']);
+            $country->setCountry($value['code']);
             $country->setIsActive(true);
             $country->setUuid(uniqid());
             $country->setUnit1Name('Region');

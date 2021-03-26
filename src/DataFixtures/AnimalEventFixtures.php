@@ -32,7 +32,9 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
             $milkingEvent = new AnimalEvent();
             $milkingEvent->setEventType(2);
             $milkingEvent->setEventDate(new \DateTime());
-            $milkingEvent->setLactationId($value);
+            // the lactation id should be an id of a calving event
+            // the calving event ids increment in step of 3: 1, 4, 7, ...
+            $milkingEvent->setLactationId($value * 3 - 2);
             $milkingEvent->setCountryId(rand(1, 3));
             $milkingEvent->setUuid(uniqid());
             $milkingEvent->setAnimal($this->getReference(sprintf('animal_%s', $value)));

@@ -3,36 +3,40 @@
 namespace App\Tests;
 
 use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
+use App\DataFixtures\UserFixtures;
 use App\Entity\User;
-use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
+use Liip\TestFixturesBundle\Test\FixturesTrait;
 
 class AuthenticationTest extends ApiTestCase
 {
-    use ReloadDatabaseTrait;
+    use FixturesTrait;
+
+    /**
+     * @var User
+     */
+    private $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $fixtures = $this->loadFixtures([
+            UserFixtures::class,
+        ])->getReferenceRepository();
+
+        $this->user = $fixtures->getReference('test_user');
+    }
 
     public function testLogin(): void
     {
         $client = self::createClient();
 
-        $user = new User();
-        $user->setName('Test User');
-        $user->setUsername('test');
-        $user->setPasswordHash(
-            self::$container->get('security.password_encoder')->encodePassword($user, '$3CR3T')
-        );
-        $user->setCreatedAt(new \DateTime());
-        $user->setUuid('uuid');
-
-        $manager = self::$container->get('doctrine')->getManager();
-        $manager->persist($user);
-        $manager->flush();
-
         // retrieve a token
         $response = $client->request('POST', '/authentication_token', [
             'headers' => ['Content-Type' => 'application/json'],
             'json' => [
-                'username' => 'test',
-                'password' => '$3CR3T',
+                'username' => $this->user->getUsername(),
+                'password' => UserFixtures::PASSWORD,
             ],
         ]);
 

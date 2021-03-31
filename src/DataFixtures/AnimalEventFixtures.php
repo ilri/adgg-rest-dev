@@ -20,7 +20,7 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
         foreach (range(1, 10) as $value) {
             // create 10 calving events
             $calvingEvent = new AnimalEvent();
-            $calvingEvent->setEventType(1);
+            $calvingEvent->setEventType(AnimalEvent::EVENT_TYPE_CALVING);
             $calvingEvent->setEventDate(new \DateTime());
             $calvingEvent->setCountryId(rand(1, 3));
             $calvingEvent->setUuid(uniqid());
@@ -30,11 +30,11 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
 
             // create 10 milking events
             $milkingEvent = new AnimalEvent();
-            $milkingEvent->setEventType(2);
+            $milkingEvent->setEventType(AnimalEvent::EVENT_TYPE_MILKING);
             $milkingEvent->setEventDate(new \DateTime());
             // the lactation id should be an id of a calving event
-            // the calving event ids increment in step of 3: 1, 4, 7, ...
-            $milkingEvent->setLactationId($value * 3 - 2);
+            // the calving event ids increment in step of 4: 1, 5, 9, ...
+            $milkingEvent->setLactationId($value * 4 - 3);
             $milkingEvent->setCountryId(rand(1, 3));
             $milkingEvent->setUuid(uniqid());
             $milkingEvent->setAnimal($this->getReference(sprintf('animal_%s', $value)));
@@ -45,6 +45,16 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
             ]);
             $manager->persist($milkingEvent);
             $this->addReference(sprintf('milking_event_%s', $value), $milkingEvent);
+
+            // create 10 exits events
+            $exitsEvent = new AnimalEvent();
+            $exitsEvent->setEventType(AnimalEvent::EVENT_TYPE_EXITS);
+            $exitsEvent->setEventDate(new \DateTime());
+            $exitsEvent->setCountryId(rand(1, 3));
+            $exitsEvent->setUuid(uniqid());
+            $exitsEvent->setAnimal($this->getReference(sprintf('animal_%s', $value)));
+            $manager->persist($exitsEvent);
+            $this->addReference(sprintf('exits_event_%s', $value), $exitsEvent);
 
             // create 10 other animal events
             $animalEvent = new AnimalEvent();

@@ -110,22 +110,22 @@ class AnimalTest extends AuthApiTestCase
         $this->assertEquals('Milka', $json['name']);
     }
 
-    public function testCountryIdFilter()
+    public function testCountryCodeFilter()
     {
         // 5 entries should be retrieved for countryId=1
-        $response = $this->client->request('GET', '/api/animals?countryId=1', ['auth_bearer' => $this->token]);
+        $response = $this->client->request('GET', '/api/animals?countryCode=TZ', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
         $this->assertEquals(5, $json['hydra:totalItems']);
 
         // 3 entries should be retrieved for countryId=2
-        $response = $this->client->request('GET', '/api/animals?countryId=2', ['auth_bearer' => $this->token]);
+        $response = $this->client->request('GET', '/api/animals?countryCode=KE', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
         $this->assertEquals(3, $json['hydra:totalItems']);
 
         // 2 entries should be retrieved for countryId=2
-        $response = $this->client->request('GET', '/api/animals?countryId=3', ['auth_bearer' => $this->token]);
+        $response = $this->client->request('GET', '/api/animals?countryCode=ET', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
         $this->assertEquals(2, $json['hydra:totalItems']);

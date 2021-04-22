@@ -53,6 +53,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "post"={
  *             "method"="POST",
+ *             "openapi_context"={
+ *                  "description"="<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:</p>`eventType`<p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animalevent:collection:post"
@@ -71,6 +74,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "put"={
  *             "method"="PUT",
+ *             "openapi_context"={
+ *                  "description"="<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:</p>`eventType`",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animalevent:item:put"
@@ -79,6 +85,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "patch"={
  *             "method"="PATCH",
+ *             "openapi_context"={
+ *                  "description"="<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:</p>`eventType`",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animalevent:item:patch"

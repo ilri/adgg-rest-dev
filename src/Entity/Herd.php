@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
     IdentifiableTrait
 };
+use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -58,6 +60,9 @@ use Doctrine\ORM\Mapping as ORM;
  *             }
  *         }
  *     }
+ * )
+ * @ApiFilter(
+ *     CountryISOCodeFilter::class
  * )
  * @ORM\Table(name="core_animal_herd", indexes={@ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity

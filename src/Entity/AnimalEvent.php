@@ -51,9 +51,9 @@ use Doctrine\ORM\Mapping as ORM;
  *                 }
  *             }
  *         },
- *         "animal_exit_events"={
+ *         "exits_events"={
  *             "method"="GET",
- *             "path"="/animal_events/animal_exit_events",
+ *             "path"="/animal_events/exits_events",
  *             "normalization_context"={
  *                 "groups"={
  *                     "animalevent:collection:get"

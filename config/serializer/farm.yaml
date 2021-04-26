@@ -154,6 +154,14 @@ App\Entity\Farm:
                 "farm:item:put",
                 "farm:item:patch"
             ]
+        isDeleted:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
         latitude:
             groups: [
                 "farm:collection:get",
@@ -197,4 +205,12 @@ App\Entity\Farm:
             groups: [
                 "farm:collection:get",
                 "farm:item:get"
+            ]
+        country:
+            groups: [
+                    "farm:collection:get",
+                    "farm:collection:post",
+                    "farm:item:get",
+                    "farm:item:put",
+                    "farm:item:patch"
             ]

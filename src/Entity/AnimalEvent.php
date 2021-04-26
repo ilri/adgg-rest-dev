@@ -54,7 +54,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         "post"={
  *             "method"="POST",
  *             "openapi_context"={
- *                  "description"="<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:</p>`eventType`<p>All other properties are **optional**.</p>",
+ *                  "description"="<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
+                                   </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+                                   <p>All other properties are **optional**.</p>",
  *              },
  *             "denormalization_context"={
  *                 "groups"={
@@ -75,7 +77,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         "put"={
  *             "method"="PUT",
  *             "openapi_context"={
- *                  "description"="<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:</p>`eventType`",
+ *                  "description"="<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+                        <p>All other properties are **optional**.</p>",
  *              },
  *             "denormalization_context"={
  *                 "groups"={
@@ -86,7 +90,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         "patch"={
  *             "method"="PATCH",
  *             "openapi_context"={
- *                  "description"="<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:</p>`eventType`",
+ *                  "description"="<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+                        <p>All other properties are **optional**.</p>",
  *              },
  *             "denormalization_context"={
  *                 "groups"={

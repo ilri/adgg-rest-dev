@@ -31,6 +31,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "post"={
  *             "method"="POST",
+ *             "openapi_context"={
+ *                  "description"="<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`countryId`<p>`tagId`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:collection:post"
@@ -49,6 +54,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "put"={
  *             "method"="PUT",
+ *             "openapi_context"={
+ *                  "description"="<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`countryId`<p>`tagId`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:item:put"
@@ -57,6 +67,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "patch"={
  *             "method"="PATCH",
+ *             "openapi_context"={
+ *                  "description"="<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`countryId`<p>`tagId`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:item:patch"

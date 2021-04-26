@@ -24,6 +24,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "post"={
  *             "method"="POST",
+ *             "openapi_context"={
+ *                  "description"="<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "farm:collection:post"
@@ -42,6 +47,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "put"={
  *             "method"="PUT",
+ *             "openapi_context"={
+ *                  "description"="<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "farm:item:put"
@@ -50,6 +60,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "patch"={
  *             "method"="PATCH",
+ *             "openapi_context"={
+ *                  "description"="<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "farm:item:patch"

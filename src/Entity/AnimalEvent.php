@@ -45,25 +45,25 @@ use Doctrine\ORM\Mapping as ORM;
  *             "method"="GET",
  *             "path"="/animal_events/{event_type}",
  *             "openapi_context"={
- *                "summary"="Retrieves a sub-collection of AnimalEvent resources by event type.",
- *                "description"="Retrieves a sub-collection of AnimalEvent resources by event type.",
- *                   "parameters": {
- *                   {
- *                      "name" = "event_type",
- *                      "in" = "path",
- *                      "required" = true,
- *                      "schema"= {
- *                             "type" = "string",
- *                             "enum"= {
- *                                      "ai_events","calving_events","certification_events","exits_events",
- *                                      "hair_sampling_events","health_events","hoof_health_events","hoof_treatment_events",
- *                                      "injury_events","milking_events","parasite_infection_events",
- *                                      "pregnancy_diagnosis_events","synchronization_events","vaccination_events",
- *                                      "weights_events"
- *                                    },
- *                       },
- *                      "description"= "The event type that animal events are filtered by.",
- *                   },
+ *                 "summary"="Retrieves a sub-collection of AnimalEvent resources by event type.",
+ *                 "description"="Retrieves a sub-collection of AnimalEvent resources by event type.",
+ *                 "parameters": {
+ *                     {
+ *                         "name"="event_type",
+ *                         "in"="path",
+ *                         "required"=true,
+ *                         "schema"={
+ *                             "type"="string",
+ *                             "enum"={
+*                                      "ai_events", "calving_events", "certification_events", "exits_events",
+ *                                     "hair_sampling_events", "health_events", "hoof_health_events", "hoof_treatment_events",
+ *                                     "injury_events", "milking_events", "parasite_infection_events",
+ *                                     "pregnancy_diagnosis_events", "synchronization_events", "vaccination_events",
+ *                                     "weights_events"
+ *                             },
+ *                         },
+ *                         "description"= "The event type that animal events are filtered by.",
+ *                     },
  *                 }
  *             },
  *             "normalization_context"={

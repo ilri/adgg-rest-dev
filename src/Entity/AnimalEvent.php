@@ -44,6 +44,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         "custom_events"={
  *             "method"="GET",
  *             "path"="/animal_events/{event_type}",
+ *             "requirements"={
+ *                "event_type"="^\w+\_events$",
+ *             },
  *             "openapi_context"={
  *                "summary"="Retrieves a sub-collection of AnimalEvent resources by event type.",
  *                "description"="Retrieves a sub-collection of AnimalEvent resources by event type.",

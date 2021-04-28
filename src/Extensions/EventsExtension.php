@@ -2,10 +2,9 @@
 
 namespace App\Extensions;
 
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\QueryCollectionExtensionInterface;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\ContextAwareQueryCollectionExtensionInterface;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use Doctrine\ORM\QueryBuilder;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class NewEventsExtension
@@ -13,17 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
  * @see https://api-platform.com/docs/core/extensions/
  * @see https://symfonycasts.com/screencast/api-platform-security/query-extension
  */
-class EventsExtension implements QueryCollectionExtensionInterface
+class EventsExtension implements ContextAwareQueryCollectionExtensionInterface
 {
-
-    public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
+    public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null, array $context = [])
     {
         if ($operationName !== 'custom_events') {
             return;
         }
 
         //Retrieves the request path (e.g. /animal_events/calving_events)
-        $request_path = Request::createFromGlobals()->getPathInfo();
+        $request_path = $context['request_uri'];
         //Retrieves the event type's lookup value
         $event_type = $this->retrieveEventTypeConstantValue($request_path);
 

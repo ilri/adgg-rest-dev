@@ -5,7 +5,6 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-use App\Repository\AnimalRepository;
 use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
@@ -15,6 +14,7 @@ use Doctrine\Common\Collections\{
     ArrayCollection,
     Collection
 };
+use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +32,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "post"={
  *             "method"="POST",
+ *             "openapi_context"={
+ *                  "description"="<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`countryId`<p>`tagId`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:collection:post"
@@ -50,6 +55,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "put"={
  *             "method"="PUT",
+ *             "openapi_context"={
+ *                  "description"="<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`countryId`<p>`tagId`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:item:put"
@@ -58,6 +68,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "patch"={
  *             "method"="PATCH",
+ *             "openapi_context"={
+ *                  "description"="<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`countryId`<p>`tagId`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animal:item:patch"
@@ -69,13 +84,15 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiFilter(
  *     SearchFilter::class,
  *     properties={
- *         "countryId": "exact",
  *         "tagId": "exact",
  *         "animalType": "exact"
  *     }
  * )
+ * @ApiFilter(
+ *     CountryISOCodeFilter::class
+ * )
  * @ORM\Table(name="core_animal", indexes={@ORM\Index(name="animal_type", columns={"animal_type"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="dam_id", columns={"dam_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="reg_date", columns={"reg_date"}), @ORM\Index(name="sire_id", columns={"sire_id"}), @ORM\Index(name="tag_id", columns={"tag_id"})})
- * @ORM\Entity
+ * @ORM\Entity()
  */
 class Animal
 {
@@ -84,7 +101,7 @@ class Animal
     use AdministrativeDivisionsTrait;
 
     /**
-         *
+     *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")

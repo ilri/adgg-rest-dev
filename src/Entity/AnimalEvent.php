@@ -50,7 +50,7 @@ use Doctrine\ORM\Mapping as ORM;
  *             "method"="GET",
  *             "path"="/animal_events/{event_type}",
  *             "requirements"={
- *                "event_type"="^\w+\_events$",
+ *                "event_type"="^[A-z]+\_events$",
  *             },
  *             "openapi_context"={
  *                "summary"="Retrieves a sub-collection of AnimalEvent resources by event type.",
@@ -63,7 +63,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                      "schema"= {
  *                             "type" = "string",
  *                             "enum"= {
- *                                      "ai_events","calving_events","certification_events","exits_events",
+ *                                      "ai_events","calving_events","certification_events", "exits_events",
  *                                      "hair_sampling_events","health_events","hoof_health_events","hoof_treatment_events",
  *                                      "injury_events","milking_events","parasite_infection_events",
  *                                      "pregnancy_diagnosis_events","synchronization_events","vaccination_events",

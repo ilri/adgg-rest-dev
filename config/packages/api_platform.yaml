@@ -1,4 +1,5 @@
 api_platform:
+    title: 'ADGG REST API documentation'
     defaults:
         pagination_client_enabled: true
         collection:

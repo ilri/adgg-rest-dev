@@ -50,50 +50,6 @@ class AnimalEventRepository extends ServiceEntityRepository
         ;
     }
 
-    /**
-     * @param int $page
-     * @return Paginator
-     */
-    public function findAllCalvingEvents(int $page = 1): Paginator
-    {
-        $firstResult = ($page - 1) * self::ITEMS_PER_PAGE;
-
-        $queryBuilder = $this->createQueryBuilder('a');
-
-        $query = $this->addCalvingEventQueryBuilder($queryBuilder)
-            ->getQuery()
-            ->setFirstResult($firstResult)
-            ->setMaxResults(self::ITEMS_PER_PAGE)
-        ;
-
-        $doctrinePaginator = new DoctrinePaginator($query);
-        $paginator = new Paginator($doctrinePaginator);
-
-        return $paginator;
-    }
-
-    /**
-     * @param int $page
-     * @return Paginator
-     */
-    public function findAllMilkingEvents(int $page = 1): Paginator
-    {
-        $firstResult = ($page - 1) * self::ITEMS_PER_PAGE;
-
-        $queryBuilder = $this->createQueryBuilder('a');
-
-        $query = $this->addMilkingEventQueryBuilder($queryBuilder)
-            ->getQuery()
-            ->setFirstResult($firstResult)
-            ->setMaxResults(self::ITEMS_PER_PAGE)
-        ;
-
-        $doctrinePaginator = new DoctrinePaginator($query);
-        $paginator = new Paginator($doctrinePaginator);
-
-        return $paginator;
-    }
-
     public function countAllMilkingEvents(): int
     {
         $queryBuilder = $this->createQueryBuilder('a');

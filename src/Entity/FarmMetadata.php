@@ -5,8 +5,10 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Entity\Traits\{
+    AdditionalAttributesTrait,
     CountryTrait,
-    IdentifiableTrait
+    CreatedTrait,
+    ODKIdentifiableTrait
 };
 use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
@@ -88,8 +90,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FarmMetadata
 {
-    use IdentifiableTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
+    use CreatedTrait;
+    use ODKIdentifiableTrait;
 
     /**
      * @var int

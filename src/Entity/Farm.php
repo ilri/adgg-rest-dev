@@ -5,7 +5,16 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-use App\Entity\Traits\{AdministrativeDivisionsTrait, CountryTrait, IdentifiableTrait};
+use App\Entity\Traits\{
+    AdditionalAttributesTrait,
+    AdministrativeDivisionsTrait,
+    CountryTrait,
+    CreatedTrait,
+    IdentifiableTrait,
+    ODKIdentifiableTrait,
+    OrganisationTrait,
+    UpdatedTrait
+};
 use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -88,9 +97,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Farm
 {
-    use IdentifiableTrait;
-    use CountryTrait;
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
+    use CountryTrait;
+    use CreatedTrait;
+    use IdentifiableTrait;
+    use ODKIdentifiableTrait;
+    use OrganisationTrait;
+    use UpdatedTrait;
 
     /**
      * @var int

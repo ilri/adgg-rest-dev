@@ -12,9 +12,14 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\{
 };
 use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
 use App\Entity\Traits\{
+    AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
-    IdentifiableTrait
+    CreatedTrait,
+    IdentifiableTrait,
+    ODKIdentifiableTrait,
+    OrganisationTrait,
+    UpdatedTrait
 };
 use App\Filter\CountryISOCodeFilter;
 use App\Repository\AnimalEventRepository;
@@ -141,9 +146,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AnimalEvent
 {
-    use IdentifiableTrait;
-    use CountryTrait;
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
+    use CountryTrait;
+    use CreatedTrait;
+    use IdentifiableTrait;
+    use ODKIdentifiableTrait;
+    use OrganisationTrait;
+    use UpdatedTrait;
 
     const EVENT_TYPE_CALVING = 1;
     const EVENT_TYPE_MILKING = 2;

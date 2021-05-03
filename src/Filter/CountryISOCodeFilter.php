@@ -47,12 +47,11 @@ class CountryISOCodeFilter extends AbstractContextAwareFilter
     {
         return [
             'countryCode' => [
+                'name' => 'Country ISO 3166-1 alpha-2 code',
                 'property' => null,
                 'type' => 'string',
                 'required' => false,
-                'openapi' => [
-                    'description' => 'Provide the country ISO 3166-1 alpha-2 code'
-                ]
+                'description' => 'Provide the country ISO 3166-1 alpha-2 code',
             ]
         ];
     }

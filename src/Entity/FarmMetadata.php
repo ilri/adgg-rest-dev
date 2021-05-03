@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\{
+    AdditionalAttributesTrait,
     CountryTrait,
-    IdentifiableTrait
+    CreatedTrait,
+    ODKIdentifiableTrait
 };
 use Doctrine\ORM\Mapping as ORM;
 
@@ -83,8 +85,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FarmMetadata
 {
-    use IdentifiableTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
+    use CreatedTrait;
+    use ODKIdentifiableTrait;
 
     /**
      * @var int

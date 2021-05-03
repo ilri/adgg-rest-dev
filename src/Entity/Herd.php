@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\{
+    AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
-    IdentifiableTrait
+    CreatedTrait,
+    IdentifiableTrait,
+    ODKIdentifiableTrait,
+    OrganisationTrait,
+    UpdatedTrait
 };
 use Doctrine\ORM\Mapping as ORM;
 
@@ -64,9 +69,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Herd
 {
-    use IdentifiableTrait;
-    use CountryTrait;
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
+    use CountryTrait;
+    use CreatedTrait;
+    use IdentifiableTrait;
+    use ODKIdentifiableTrait;
+    use OrganisationTrait;
+    use UpdatedTrait;
 
     /**
      * @var int

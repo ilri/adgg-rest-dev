@@ -2,12 +2,14 @@
 
 namespace App\Repository;
 
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Paginator;
 use App\Entity\AnimalEvent;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\{
+    NonUniqueResultException,
+    NoResultException,
+    QueryBuilder
+};
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 
 /**
  * @see https://symfonycasts.com/screencast/symfony-doctrine/more-queries
@@ -63,8 +65,25 @@ class AnimalEventRepository extends ServiceEntityRepository
 
     /**
      * @param int $id
+     * @return AnimalEvent|null
+     * @throws NonUniqueResultException
+     */
+    public function findOneCalvingEventById(int $id): ?AnimalEvent
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        return $this->addCalvingEventQueryBuilder($queryBuilder)
+            ->andWhere('a.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    /**
+     * @param int $id
      * @return null|AnimalEvent
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function findOneMilkingEventById(int $id): ?AnimalEvent
     {
@@ -81,8 +100,8 @@ class AnimalEventRepository extends ServiceEntityRepository
     /**
      * @param int $id
      * @return AnimalEvent|null
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NoResultException
+     * @throws NonUniqueResultException
      */
     public function findLactationForMilkingEvent(int $id): ?AnimalEvent
     {

@@ -3,6 +3,7 @@
 
 namespace App\Tests\API;
 
+use App\DataFixtures\AnimalFixtures;
 use App\Tests\AuthApiTestCase;
 
 class AnimalTest extends AuthApiTestCase
@@ -109,19 +110,24 @@ class AnimalTest extends AuthApiTestCase
         $this->assertEquals('Milka', $json['name']);
     }
 
-    public function testCountryIdFilter()
+    public function testCountryCodeFilter()
     {
-        // no entries should be retrieved for countryId=1
-        $response = $this->client->request('GET', '/api/animals?countryId=1', ['auth_bearer' => $this->token]);
+        // 5 entries should be retrieved for countryId=1
+        $response = $this->client->request('GET', '/api/animals?countryCode=TZ', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
-        $this->assertEquals(0, $json['hydra:totalItems']);
+        $this->assertEquals(5, $json['hydra:totalItems']);
 
-        // 10 entries should be retrieved for countryId=2
-        $response = $this->client->request('GET', '/api/animals?countryId=2', ['auth_bearer' => $this->token]);
+        // 3 entries should be retrieved for countryId=2
+        $response = $this->client->request('GET', '/api/animals?countryCode=KE', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
-        // we have created 10 animal events in the fixtures
-        $this->assertEquals(10, $json['hydra:totalItems']);
+        $this->assertEquals(3, $json['hydra:totalItems']);
+
+        // 2 entries should be retrieved for countryId=2
+        $response = $this->client->request('GET', '/api/animals?countryCode=ET', ['auth_bearer' => $this->token]);
+        $this->assertResponseIsSuccessful();
+        $json = $response->toArray();
+        $this->assertEquals(2, $json['hydra:totalItems']);
     }
 }

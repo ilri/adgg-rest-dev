@@ -6,7 +6,13 @@
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/adgg_test</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - adgg@ec2-18-222-108-130.us-east-2.compute.amazonaws.com" uuid="50f24a1a-fae3-4132-b572-332cefb3c51c">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>development server</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://ec2-18-222-108-130.us-east-2.compute.amazonaws.com:3306/adgg</jdbc-url>
     </data-source>
   </component>
 </project>

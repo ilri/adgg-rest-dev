@@ -11,7 +11,7 @@ class FarmMetadataTest extends AuthApiTestCase
         $response = $this->client->request('GET', '/api/farm_metadata');
         $this->assertResponseStatusCodeSame(401);
 
-        $response = $this->client->request('GET', '/api/farms', ['auth_bearer' => $this->token]);
+        $response = $this->client->request('GET', '/api/farm_metadata', ['auth_bearer' => $this->token]);
         $this->assertResponseIsSuccessful();
         $json = $response->toArray();
         // we have created 10 farm metadata entries in the fixtures

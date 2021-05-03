@@ -53,6 +53,6 @@ class MilkingEventDataProvider implements ContextAwareCollectionDataProviderInte
 
     public function supports(string $resourceClass, string $operationName = null, array $context = []): bool
     {
-        return AnimalEvent::class == $resourceClass && 'milking_events' == $operationName;
+        return AnimalEvent::class == $resourceClass && 'custom_events' == $operationName && str_contains($context['request_uri'], 'milking_events');
     }
 }

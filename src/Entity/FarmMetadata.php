@@ -27,6 +27,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "post"={
  *             "method"="POST",
+ *             "openapi_context"={
+ *                  "description"="<h3>Creates a FarmMetadata resource</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`farm`<p>`type`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "path"="/farm_metadata",
  *             "denormalization_context"={
  *                 "groups"={
@@ -48,6 +53,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         "put"={
  *             "method"="PUT",
  *             "path"="/farm_metadata/{id}",
+ *             "openapi_context"={
+ *                  "description"="<h3>Replaces the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`farm`<p>`type`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "farmmetadata:item:put"
@@ -57,6 +67,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         "patch"={
  *             "method"="PATCH",
  *             "path"="/farm_metadata/{id}",
+ *             "openapi_context"={
+ *                  "description"="<h3>Updates the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`farm`<p>`type`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "farmmetadata:item:patch"

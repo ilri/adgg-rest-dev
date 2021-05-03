@@ -33,29 +33,50 @@ use Doctrine\ORM\Mapping as ORM;
  *                 }
  *             }
  *         },
- *         "milking_events"={
- *             "method"="GET",
- *             "path"="/animal_events/milking_events",
- *             "normalization_context"={
- *                 "groups"={
- *                     "animalevent:collection:get"
- *                 }
- *             }
- *         },
- *         "calving_events"={
- *             "method"="GET",
- *             "path"="/animal_events/calving_events",
- *             "normalization_context"={
- *                 "groups"={
- *                     "animalevent:collection:get"
- *                 }
- *             }
- *         },
  *         "post"={
  *             "method"="POST",
+ *             "openapi_context"={
+ *                  "description"="<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animalevent:collection:post"
+ *                 }
+ *             }
+ *         },
+ *         "custom_events"={
+ *             "method"="GET",
+ *             "path"="/animal_events/{event_type}",
+ *             "requirements"={
+ *                "event_type"="^[A-z]+\_events$",
+ *             },
+ *             "openapi_context"={
+ *                 "summary"="Retrieves a sub-collection of AnimalEvent resources by event type.",
+ *                 "description"="Retrieves a sub-collection of AnimalEvent resources by event type.",
+ *                 "parameters": {
+ *                     {
+ *                         "name"="event_type",
+ *                         "in"="path",
+ *                         "required"=true,
+ *                         "schema"={
+ *                             "type"="string",
+ *                             "enum"={
+*                                      "ai_events", "calving_events", "certification_events", "exits_events",
+ *                                     "hair_sampling_events", "health_events", "hoof_health_events", "hoof_treatment_events",
+ *                                     "injury_events", "milking_events", "parasite_infection_events",
+ *                                     "pregnancy_diagnosis_events", "synchronization_events", "vaccination_events",
+ *                                     "weights_events"
+ *                             },
+ *                         },
+ *                         "description"= "The event type that animal events are filtered by.",
+ *                     },
+ *                 }
+ *             },
+ *             "normalization_context"={
+ *                 "groups"={
+ *                     "animalevent:collection:get"
  *                 }
  *             }
  *         },
@@ -71,6 +92,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "put"={
  *             "method"="PUT",
+ *             "openapi_context"={
+ *                  "description"="<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animalevent:item:put"
@@ -79,6 +105,11 @@ use Doctrine\ORM\Mapping as ORM;
  *         },
  *         "patch"={
  *             "method"="PATCH",
+ *             "openapi_context"={
+ *                  "description"="<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+                        <p>All other properties are **optional**.</p>",
+ *              },
  *             "denormalization_context"={
  *                 "groups"={
  *                      "animalevent:item:patch"

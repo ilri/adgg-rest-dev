@@ -120,4 +120,24 @@ class AnimalEventRepository extends ServiceEntityRepository
             ->getSingleResult()
         ;
     }
+
+    /**
+     * @param int $animalId
+     * @return AnimalEvent|null
+     * @throws NoResultException
+     * @throws NonUniqueResultException
+     */
+    public function findLastCalvingEventForAnimal(int $animalId): ?AnimalEvent
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        return $this->addCalvingEventQueryBuilder($queryBuilder)
+            ->andWhere('a.animal = :animalId')
+            ->setParameter('animalId', $animalId)
+            ->orderBy('a.eventDate', 'DESC')
+            ->getQuery()
+            ->setMaxResults(1)
+            ->getSingleResult()
+        ;
+    }
 }

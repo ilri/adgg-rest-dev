@@ -20,7 +20,6 @@ use Doctrine\Common\Collections\{
     ArrayCollection,
     Collection
 };
-use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

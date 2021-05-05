@@ -631,4 +631,23 @@ class Animal
         }
         return null;
     }
+
+    /**
+     * @return Collection
+     */
+    public function getMilkingEvents(): Collection
+    {
+        return $this->getAnimalEvents()->filter(function(AnimalEvent $element) {
+            return $element->getEventType() == AnimalEvent::EVENT_TYPE_MILKING;
+        });
+    }
+
+    /**
+     * @return AnimalEvent|null
+     */
+    public function getLastMilkingEvent(): ?AnimalEvent
+    {
+        $events = $this->getMilkingEvents();
+        return $events->first() ?: null;
+    }
 }

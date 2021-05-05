@@ -284,6 +284,16 @@ App\Entity\Animal:
             ]
         daysSinceLastCalving:
             groups: [
-                    "animal:collection:get",
-                    "animal:item:get"
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        milkingEvents:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        lastMilkingEvent:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
             ]

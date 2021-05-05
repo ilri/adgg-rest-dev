@@ -37,10 +37,6 @@ services:
 
     # This is needed to avoid circular reference
     # see: https://symfonycasts.com/screencast/api-platform-extending/decorate-provider
-    App\DataProvider\AnimalVirtualFieldsDataProvider:
-        bind:
-            $collectionDataProvider: '@api_platform.doctrine.orm.default.collection_data_provider'
-
     App\DataProvider\MilkingEventDataProvider:
         bind:
             $collectionDataProvider: '@api_platform.doctrine.orm.default.collection_data_provider'

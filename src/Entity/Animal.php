@@ -21,6 +21,7 @@ use Doctrine\Common\Collections\{
     ArrayCollection,
     Collection
 };
+use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -143,7 +144,7 @@ class Animal
     /**
      * @var int|null
      *
-     * @ORM\Column(name= *     "animal_type", type="integer", nullable=true)
+     * @ORM\Column(name="animal_type", type="integer", nullable=true)
      */
     private $animalType;
 
@@ -287,13 +288,9 @@ class Animal
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="AnimalEvent", mappedBy="animal")
+     * @ORM\OrderBy({"eventDate" = "DESC"})
      */
     private $animalEvents;
-
-    /**
-     * @var $daysSinceLastCalvingEvent
-     */
-    private $daysSinceLastCalvingEvent;
 
     public function __construct()
     {
@@ -612,16 +609,26 @@ class Animal
         return $this;
     }
 
-    public function getDaysSinceLastCalvingEvent(): ?int
+    /**
+     * @return AnimalEvent|null
+     */
+    public function getLastCalving(): ?AnimalEvent
     {
-        return $this->daysSinceLastCalvingEvent;
+        $events = $this->getAnimalEvents()->filter(function(AnimalEvent $element) {
+            return $element->getEventType() == AnimalEvent::EVENT_TYPE_CALVING;
+        });
+        return $events->first() ?: null;
     }
 
-    public function setDaysSinceLastCalvingEvent($daysSinceLastCalvingEvent): self
+    /**
+     * @return int|null
+     */
+    public function getDaysSinceLastCalving(): ?int
     {
-        $this->daysSinceLastCalvingEvent = $daysSinceLastCalvingEvent;
-
-        return $this;
+        $lastCalving = $this->getLastCalving();
+        if ($lastCalving !== null) {
+            return Carbon::now()->diff($this->getLastCalving()->getEventDate())->days;
+        }
+        return null;
     }
-
 }

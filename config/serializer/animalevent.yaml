@@ -3,7 +3,9 @@ App\Entity\AnimalEvent:
         id:
             groups: [
                 "animalevent:collection:get",
-                "animalevent:item:get"
+                "animalevent:item:get",
+                "animal:collection:get",
+                "animal:item:get"
             ]
         eventType:
             groups: [
@@ -11,7 +13,9 @@ App\Entity\AnimalEvent:
                 "animalevent:collection:post",
                 "animalevent:item:get",
                 "animalevent:item:put",
-                "animalevent:item:patch"
+                "animalevent:item:patch",
+                "animal:collection:get",
+                "animal:item:get"
             ]
         countryId:
             groups: [
@@ -77,7 +81,9 @@ App\Entity\AnimalEvent:
                 "animalevent:item:put",
                 "animalevent:item:patch",
                 "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "milkyieldrecord:item:get",
+                "animal:collection:get",
+                "animal:item:get"
             ]
         dataCollectionDate:
             groups: [

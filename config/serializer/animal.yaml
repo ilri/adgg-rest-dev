@@ -277,8 +277,13 @@ App\Entity\Animal:
                 "animal:collection:get",
                 "animal:item:get"
             ]
-        daysSinceLastCalvingEvent:
+        lastCalving:
             groups: [
                 "animal:collection:get",
                 "animal:item:get"
+            ]
+        daysSinceLastCalving:
+            groups: [
+                    "animal:collection:get",
+                    "animal:item:get"
             ]

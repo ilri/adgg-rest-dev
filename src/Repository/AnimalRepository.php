@@ -8,7 +8,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\{
     NonUniqueResultException,
     NoResultException,
-    QueryBuilder
 };
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -43,12 +42,12 @@ class AnimalRepository extends ServiceEntityRepository
      * @throws NoResultException
      * @throws NonUniqueResultException
      */
-    public function getDaysSinceLastCalving(int $animalId): ?int
+    public function getDaysSinceLastCalvingEvent(int $animalId): ?int
     {
-        $lastCalving = $this->animalEventRepository->findLastCalvingEventForAnimal($animalId);
+        $lastCalvingEvent = $this->animalEventRepository->findLastCalvingEventForAnimal($animalId);
 
-        if ($lastCalving) {
-            return Carbon::now()->diff($lastCalving->getEventDate())->days;
+        if ($lastCalvingEvent) {
+            return Carbon::now()->diff($lastCalvingEvent->getEventDate())->days;
         }
 
         return null;
@@ -62,11 +61,7 @@ class AnimalRepository extends ServiceEntityRepository
      */
     public function getCalvingInterval(int $animalId): bool
     {
-        $daysSinceLastCalving = $this->getDaysSinceLastCalving($animalId);
-        if ($daysSinceLastCalving && $daysSinceLastCalving > self::MAX_CALVING_INTERVAL) {
-            return true;
-        }
-        return false;
+        return $this->getDaysSinceLastCalvingEvent($animalId) > self::MAX_CALVING_INTERVAL;
     }
 
     /**
@@ -77,10 +72,6 @@ class AnimalRepository extends ServiceEntityRepository
      */
     public function getLactationLength(int $animalId): bool
     {
-        $daysSinceLastCalving = $this->getDaysSinceLastCalving($animalId);
-        if ($daysSinceLastCalving && $daysSinceLastCalving > self::MAX_LACTATION_LENGTH) {
-            return true;
-        }
-        return false;
+        return $this->getDaysSinceLastCalvingEvent($animalId) > self::MAX_LACTATION_LENGTH;
     }
 }

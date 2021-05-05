@@ -290,6 +290,11 @@ class Animal
      */
     private $animalEvents;
 
+    /**
+     * @var $daysSinceLastCalvingEvent
+     */
+    private $daysSinceLastCalvingEvent;
+
     public function __construct()
     {
         $this->animalEvents = new ArrayCollection();
@@ -606,4 +611,17 @@ class Animal
 
         return $this;
     }
+
+    public function getDaysSinceLastCalvingEvent(): ?int
+    {
+        return $this->daysSinceLastCalvingEvent;
+    }
+
+    public function setDaysSinceLastCalvingEvent($daysSinceLastCalvingEvent): self
+    {
+        $this->daysSinceLastCalvingEvent = $daysSinceLastCalvingEvent;
+
+        return $this;
+    }
+
 }

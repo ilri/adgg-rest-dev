@@ -124,7 +124,6 @@ class AnimalEventRepository extends ServiceEntityRepository
     /**
      * @param int $animalId
      * @return AnimalEvent|null
-     * @throws NoResultException
      * @throws NonUniqueResultException
      */
     public function findLastCalvingEventForAnimal(int $animalId): ?AnimalEvent
@@ -137,7 +136,7 @@ class AnimalEventRepository extends ServiceEntityRepository
             ->orderBy('a.eventDate', 'DESC')
             ->getQuery()
             ->setMaxResults(1)
-            ->getSingleResult()
+            ->getOneOrNullResult()
         ;
     }
 }

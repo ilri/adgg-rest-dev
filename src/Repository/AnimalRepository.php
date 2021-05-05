@@ -5,10 +5,7 @@ namespace App\Repository;
 use App\Entity\Animal;
 use Carbon\Carbon;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\{
-    NonUniqueResultException,
-    NoResultException,
-};
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -39,7 +36,6 @@ class AnimalRepository extends ServiceEntityRepository
     /**
      * @param int $animalId
      * @return int|null
-     * @throws NoResultException
      * @throws NonUniqueResultException
      */
     public function getDaysSinceLastCalvingEvent(int $animalId): ?int
@@ -56,7 +52,6 @@ class AnimalRepository extends ServiceEntityRepository
     /**
      * @param int $animalId
      * @return bool
-     * @throws NoResultException
      * @throws NonUniqueResultException
      */
     public function getCalvingInterval(int $animalId): bool
@@ -67,7 +62,6 @@ class AnimalRepository extends ServiceEntityRepository
     /**
      * @param int $animalId
      * @return bool
-     * @throws NoResultException
      * @throws NonUniqueResultException
      */
     public function getLactationLength(int $animalId): bool

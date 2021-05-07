@@ -297,3 +297,8 @@ App\Entity\Animal:
                 "animal:collection:get",
                 "animal:item:get"
             ]
+        averageMilkYield:
+            groups: [
+                    "animal:collection:get",
+                    "animal:item:get"
+            ]

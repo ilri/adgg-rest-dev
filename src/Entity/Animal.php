@@ -650,4 +650,20 @@ class Animal
         $events = $this->getMilkingEvents();
         return $events->first() ?: null;
     }
+
+    /**
+     * @return float|null
+     */
+    public function getAverageMilkYield(): ?float
+    {
+        $milkingEvents = $this->getMilkingEvents();
+        $func = function($event) {
+            return $event->getMilkYieldRecord()->getTotalMilkRecord();
+        };
+        $milkYieldRecords = array_map($func, $milkingEvents->toArray());
+        if (count($milkingEvents)) {
+            return array_sum($milkYieldRecords) / count($milkingEvents);
+        }
+        return null;
+    }
 }

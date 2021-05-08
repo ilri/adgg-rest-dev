@@ -302,3 +302,8 @@ App\Entity\Animal:
                     "animal:collection:get",
                     "animal:item:get"
             ]
+        calvingInterval:
+            groups: [
+                    "animal:collection:get",
+                    "animal:item:get"
+            ]

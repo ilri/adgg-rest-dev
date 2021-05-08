@@ -621,15 +621,24 @@ class Animal
     }
 
     /**
-     * @return int|null
+     * @return array
      */
-    public function getDaysSinceLastCalving(): ?int
+    public function getCalvingInterval(): array
     {
         $lastCalving = $this->getLastCalving();
-        if ($lastCalving !== null) {
-            return Carbon::now()->diff($this->getLastCalving()->getEventDate())->days;
+        $days = null;
+        $alarm = null;
+        if ($lastCalving) {
+            $days = Carbon::now()->diff($this->getLastCalving()->getEventDate())->days;
         }
-        return null;
+        if ($days) {
+            $alarm = $days > 365;
+        }
+
+        return [
+            'days_since_last_calving' => $days,
+            'alarm' => $alarm,
+        ];
     }
 
     /**

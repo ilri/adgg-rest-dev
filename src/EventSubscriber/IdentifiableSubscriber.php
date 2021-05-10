@@ -24,7 +24,7 @@ final class IdentifiableSubscriber implements EventSubscriberInterface
     /**
      * @inheritDoc
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::VIEW => ['getTokenUser', EventPriorities::PRE_WRITE],

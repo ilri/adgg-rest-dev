@@ -9,7 +9,7 @@ trait CreatedTrait
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      * @ORM\Version
      */
     protected $createdAt;
@@ -36,5 +36,13 @@ trait CreatedTrait
         $this->createdBy = $createdBy;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function setCreatedAtValue(): void
+    {
+        $this->createdAt = new \DateTimeImmutable();
     }
 }

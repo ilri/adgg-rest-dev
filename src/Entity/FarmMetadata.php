@@ -87,6 +87,7 @@ use Doctrine\ORM\Mapping as ORM;
  * )
  * @ORM\Table(name="core_farm_metadata", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="type", columns={"type"})})
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class FarmMetadata
 {

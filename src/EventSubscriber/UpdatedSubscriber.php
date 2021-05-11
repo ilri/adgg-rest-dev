@@ -1,6 +1,8 @@
 <?php
 
+
 namespace App\EventSubscriber;
+
 
 use ApiPlatform\Core\EventListener\EventPriorities;
 use App\Entity\User;
@@ -10,8 +12,7 @@ use Symfony\Component\HttpKernel\Event\ViewEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-
-class AuthCheckSubscriber implements EventSubscriberInterface
+class UpdatedSubscriber implements EventSubscriberInterface
 {
     /**
      * @var TokenStorageInterface
@@ -37,14 +38,13 @@ class AuthCheckSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();
-        $methods = [Request::METHOD_POST, Request::METHOD_PUT, Request::METHOD_PATCH];
 
-        if (!in_array($method, $methods)) {
+        if ($method !== Request::METHOD_PUT || $method !== Request::METHOD_PATCH) {
             return;
         }
 
         $usedTraits = class_uses($entity);
-        if (!in_array('App\Entity\Traits\IdentifiableTrait', $usedTraits)) {
+        if (!in_array('App\Entity\Traits\UpdatedTrait', $usedTraits)) {
             return;
         }
 
@@ -58,12 +58,6 @@ class AuthCheckSubscriber implements EventSubscriberInterface
             return;
         }
 
-        $entity->setUuid(uniqid(sprintf('%s-', $user->getUsername())));
-
-        if ($method == Request::METHOD_POST) {
-            $entity->setCreatedBy($user->getId());
-        } else {
-            $entity->setUpdatedBy($user->getId());
-        }
+        $entity->setUpdatedBy($user->getId());
     }
 }

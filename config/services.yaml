@@ -41,3 +41,8 @@ services:
             event: 'postLoad'
             entity: 'App\Entity\AnimalEvent'
 
+    App\EventListener\AttributesListener:
+        tags:
+            name: 'doctrine.orm.entity_listener'
+            event: 'postLoad'
+

@@ -10,6 +10,7 @@ use App\Entity\Traits\{
     CreatedTrait,
     ODKIdentifiableTrait
 };
+use App\EventListener\AttributesListener;
 use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -86,6 +87,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     CountryISOCodeFilter::class
  * )
  * @ORM\Table(name="core_farm_metadata", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="type", columns={"type"})})
+ * @ORM\EntityListeners({AttributesListener::class})
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
  */

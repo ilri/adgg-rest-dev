@@ -668,7 +668,9 @@ class Animal
     {
         $milkingEvents = $this->getMilkingEvents();
         $func = function($event) {
-            return $event->getMilkYieldRecord()->getTotalMilkRecord();
+            if ($event->getMilkYieldRecord()) {
+                return $event->getMilkYieldRecord()->getTotalMilkRecord();
+            }
         };
         $milkYieldRecords = array_map($func, $milkingEvents->toArray());
         if (count($milkingEvents)) {

@@ -299,11 +299,15 @@ App\Entity\Animal:
             ]
         averageMilkYield:
             groups: [
-                    "animal:collection:get",
-                    "animal:item:get"
+                "animal:collection:get",
+                "animal:item:get",
+                "animalevent:collection:get",
+                "animalevent:item:get"
             ]
         calvingInterval:
             groups: [
-                    "animal:collection:get",
-                    "animal:item:get"
+                "animal:collection:get",
+                "animal:item:get",
+                "animalevent:collection:get",
+                "animalevent:item:get"
             ]

@@ -26,8 +26,10 @@ class AttributesListener
      */
     public function postLoad($entity, LifecycleEventArgs $event)
     {
+        if(!$entity->getAdditionalAttributes()){
+            return;
+        }
         $modifiedAdditionalAttributes = array();
-
         foreach ($entity->getAdditionalAttributes() as $key => $value) {
             if (!empty($value) && $value!==[""]) {
                 $label = $this->retrieveAttributeLabel($key);

@@ -59,7 +59,6 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
-        dump($json);
         $this->assertArrayHasKey('animal', $json);
         $this->assertArrayHasKey('eventType', $json);
         $this->assertArrayHasKey('countryId', $json);
@@ -70,7 +69,6 @@ class AnimalEventTest extends AuthApiTestCase
         $response = $this->client->request('PUT', '/api/animal_events/1');
         $this->assertResponseStatusCodeSame(401);
 
-        dump('put request');
         $response = $this->client->request(
             'PUT',
             '/api/animal_events/2',

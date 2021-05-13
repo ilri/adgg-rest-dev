@@ -93,7 +93,7 @@ class CoreMasterList
     private $deletedBy;
 
     /**
-     * @var \CoreMasterListType
+     * @var CoreMasterListType
      *
      * @ORM\ManyToOne(targetEntity="CoreMasterListType")
      * @ORM\JoinColumns({

@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * User
  *
  * @ORM\Table(name="auth_users", uniqueConstraints={@ORM\UniqueConstraint(name="username", columns={"username"})}, indexes={@ORM\Index(name="branch_id", columns={"branch_id"}), @ORM\Index(name="org_id", columns={"country_id"}), @ORM\Index(name="phone", columns={"phone"}), @ORM\Index(name="role_id", columns={"role_id"}), @ORM\Index(name="user_level", columns={"level_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface
 {
@@ -255,7 +255,7 @@ class User implements UserInterface
     private $odkFormUuid;
 
     /**
-     * @var \AuthUserLevels
+     * @var AuthUserLevels
      *
      * @ORM\ManyToOne(targetEntity="AuthUserLevels")
      * @ORM\JoinColumns({
@@ -265,7 +265,7 @@ class User implements UserInterface
     private $level;
 
     /**
-     * @var \AuthRoles
+     * @var AuthRoles
      *
      * @ORM\ManyToOne(targetEntity="AuthRoles")
      * @ORM\JoinColumns({
@@ -275,7 +275,7 @@ class User implements UserInterface
     private $role;
 
     /**
-     * @var \CoreCountry
+     * @var Country
      *
      * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({

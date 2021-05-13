@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
+use App\Repository\CoreMasterListTypeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CoreMasterListType
  *
  * @ORM\Table(name="core_master_list_type")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=CoreMasterListTypeRepository::class)
  */
 class CoreMasterListType
 {

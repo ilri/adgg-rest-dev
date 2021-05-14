@@ -2,9 +2,12 @@
 
 namespace App\Command;
 
-use App\Entity\MasterList;
-use App\Entity\MasterListType;
-use App\Entity\User;
+use App\Entity\{
+    MasterList,
+    MasterListType,
+    TableAttribute,
+    User
+};
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,6 +16,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class StaffRightsCommand extends Command
 {
     const ACTIVITY_TYPE_ID = '728';
+    const STAFF_HASRIGHT_ID = '730';
 
     /**
      * @var EntityManagerInterface
@@ -91,6 +95,9 @@ class StaffRightsCommand extends Command
         ;
     }
 
+    /**
+     * @return array
+     */
     private function getUsersWithActivities(): array
     {
         $users = $this->getUsers();
@@ -100,13 +107,24 @@ class StaffRightsCommand extends Command
         });
     }
 
-    private function getAllMasterList(): array
+    /**
+     * @return MasterListType
+     */
+    private function getActivityType(): MasterListType
     {
-        $listType = $this->getListType();
+        $tableAttribute = $this->em->getRepository(TableAttribute::class)
+            ->findOneBy(['id' => self::ACTIVITY_TYPE_ID]);
+
+        return $tableAttribute->getListType();
+    }
+
+    private function getAllMasterListEntriesForActivityType(): array
+    {
+        $activityType = $this->getActivityType();
 
         return $this->em->getRepository(MasterList::class)->findBy(
             [
-                'listType' => $listType,
+                'listType' => $activityType,
             ]
         );
     }
@@ -115,22 +133,13 @@ class StaffRightsCommand extends Command
      * @param string $key
      * @return MasterList
      */
-    private function getMasterList(string $key): MasterList
+    private function getSingleMasterListEntry(string $key): MasterList
     {
-        $masterList = $this->getAllMasterList();
+        $masterListEntries = $this->getAllMasterListEntriesForActivityType();
 
-        return current(array_filter($masterList, function($item) use ($key) {
+        return current(array_filter($masterListEntries, function($item) use ($key) {
             return $item->getValue() == $key;
         }));
-    }
-
-    /**
-     * @return MasterListType
-     */
-    private function getListType(): MasterListType
-    {
-        return $this->em->getRepository(MasterListType::class)
-            ->findOneBy(['id' => 20004]);
     }
 
     /**
@@ -139,7 +148,7 @@ class StaffRightsCommand extends Command
      */
     private function getActivityOrder(MasterList $item): int
     {
-        $masterList = $this->getAllMasterList();
+        $masterList = $this->getAllMasterListEntriesForActivityType();
 
         return array_search($item, $masterList) + 1;
     }
@@ -156,12 +165,12 @@ class StaffRightsCommand extends Command
             foreach ($user->getAdditionalAttributes()[self::ACTIVITY_TYPE_ID] as $key) {
                 $entry = [];
                 $entry[] = $user->getId();
-                $masterList = $this->getMasterList($key);
-                $order = $this->getActivityOrder($masterList);
-                $entry[] = $masterList->getValue();
-                $entry[] = $masterList->getLabel();
+                $masterListEntry = $this->getSingleMasterListEntry($key);
+                $order = $this->getActivityOrder($masterListEntry);
+                $entry[] = $masterListEntry->getValue();
+                $entry[] = $masterListEntry->getLabel();
                 $entry[] = $order;
-                $entry[] = $user->getAdditionalAttributes()['730'];
+                $entry[] = $user->getAdditionalAttributes()[self::STAFF_HASRIGHT_ID];
                 $result[] = $entry;
             }
         }
@@ -174,7 +183,7 @@ class StaffRightsCommand extends Command
      */
     private function generateOutput(array $result): void
     {
-        $column_headers = [
+        $columnHeaders = [
             'staff_code',
             'activity_code',
             'activity_name',
@@ -182,7 +191,7 @@ class StaffRightsCommand extends Command
             'staff_hasright',
         ];
         $fp = fopen('staff_rights.csv', 'w');
-        fputcsv($fp, $column_headers);
+        fputcsv($fp, $columnHeaders);
 
         foreach ($result as $fields) {
             fputcsv($fp, $fields);

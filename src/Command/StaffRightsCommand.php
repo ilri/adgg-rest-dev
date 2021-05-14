@@ -6,7 +6,6 @@ use App\Entity\CoreMasterList;
 use App\Entity\CoreMasterListType;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -56,21 +55,8 @@ class StaffRightsCommand extends Command
             ''
         ]);
 
-        $users = $this->getUsersWithActivities();
-
-        foreach ($users as $user) {
-            $output->writeln(json_encode($user->getAdditionalAttributes()['728']));
-
-            foreach ($user->getAdditionalAttributes()['728'] as $key) {
-                $output->writeln($user->getId());
-                $result = $this->getMasterList($key);
-                $order = $this->getActivityOrder($result);
-                $output->writeln($result->getValue());
-                $output->writeln($result->getLabel());
-                $output->writeln($order);
-                $output->writeln($user->getAdditionalAttributes()['730']);
-            }
-        }
+        $result = $this->generateResult();
+        $this->generateOutput($result);
 
 //        $io = new SymfonyStyle($input, $output);
 //        $arg1 = $input->getArgument('arg1');
@@ -154,5 +140,52 @@ class StaffRightsCommand extends Command
         $masterList = $this->getAllMasterList();
 
         return array_search($item, $masterList) + 1;
+    }
+
+    /**
+     * @return array
+     */
+    private function generateResult(): array
+    {
+        $users = $this->getUsersWithActivities();
+        $result = [];
+
+        foreach ($users as $user) {
+            foreach ($user->getAdditionalAttributes()['728'] as $key) {
+                $entry = [];
+                $entry[] = $user->getId();
+                $masterList = $this->getMasterList($key);
+                $order = $this->getActivityOrder($masterList);
+                $entry[] = $masterList->getValue();
+                $entry[] = $masterList->getLabel();
+                $entry[] = $order;
+                $entry[] = $user->getAdditionalAttributes()['730'];
+                $result[] = $entry;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array $result
+     */
+    private function generateOutput(array $result): void
+    {
+        $column_headers = [
+            'staff_code',
+            'activity_code',
+            'activity_name',
+            'activity_order',
+            'staff_hasright',
+        ];
+        $fp = fopen('staff_rights.csv', 'w');
+        fputcsv($fp, $column_headers);
+
+        foreach ($result as $fields) {
+            fputcsv($fp, $fields);
+        }
+
+        fclose($fp);
     }
 }

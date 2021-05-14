@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\CoreMasterListTypeRepository;
+use App\Repository\MasterListTypeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreMasterListType
+ * MasterListType
  *
  * @ORM\Table(name="core_master_list_type")
- * @ORM\Entity(repositoryClass=CoreMasterListTypeRepository::class)
+ * @ORM\Entity(repositoryClass=MasterListTypeRepository::class)
  */
-class CoreMasterListType
+class MasterListType
 {
     /**
      * @var int

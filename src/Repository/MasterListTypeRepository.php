@@ -2,11 +2,11 @@
 
 namespace App\Repository;
 
-use App\Entity\CoreMasterListType;
+use App\Entity\MasterListType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class CoreMasterListTypeRepository extends ServiceEntityRepository
+class MasterListTypeRepository extends ServiceEntityRepository
 {
     /**
      * UserRepository constructor.
@@ -14,6 +14,6 @@ class CoreMasterListTypeRepository extends ServiceEntityRepository
      */
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CoreMasterListType::class);
+        parent::__construct($registry, MasterListType::class);
     }
 }

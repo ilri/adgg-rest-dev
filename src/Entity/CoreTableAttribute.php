@@ -121,9 +121,9 @@ class CoreTableAttribute
     private $createdBy;
 
     /**
-     * @var \CoreMasterListType
+     * @var MasterListType
      *
-     * @ORM\ManyToOne(targetEntity="CoreMasterListType")
+     * @ORM\ManyToOne(targetEntity="MasterListType")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="list_type_id", referencedColumnName="id")
      * })
@@ -303,17 +303,15 @@ class CoreTableAttribute
         return $this;
     }
 
-    public function getListType(): ?CoreMasterListType
+    public function getListType(): ?MasterListType
     {
         return $this->listType;
     }
 
-    public function setListType(?CoreMasterListType $listType): self
+    public function setListType(?MasterListType $listType): self
     {
         $this->listType = $listType;
 
         return $this;
     }
-
-
 }

@@ -2,8 +2,8 @@
 
 namespace App\Command;
 
-use App\Entity\CoreMasterList;
-use App\Entity\CoreMasterListType;
+use App\Entity\MasterList;
+use App\Entity\MasterListType;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -12,6 +12,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class StaffRightsCommand extends Command
 {
+    const ACTIVITY_TYPE_ID = '728';
+
     /**
      * @var EntityManagerInterface
      */
@@ -94,7 +96,7 @@ class StaffRightsCommand extends Command
         $users = $this->getUsers();
 
         return array_filter($users, function (User $user) {
-            return array_key_exists('728', $user->getAdditionalAttributes());
+            return array_key_exists(self::ACTIVITY_TYPE_ID, $user->getAdditionalAttributes());
         });
     }
 
@@ -102,7 +104,7 @@ class StaffRightsCommand extends Command
     {
         $listType = $this->getListType();
 
-        return $this->em->getRepository(CoreMasterList::class)->findBy(
+        return $this->em->getRepository(MasterList::class)->findBy(
             [
                 'listType' => $listType,
             ]
@@ -111,9 +113,9 @@ class StaffRightsCommand extends Command
 
     /**
      * @param string $key
-     * @return CoreMasterList
+     * @return MasterList
      */
-    private function getMasterList(string $key): CoreMasterList
+    private function getMasterList(string $key): MasterList
     {
         $masterList = $this->getAllMasterList();
 
@@ -123,19 +125,19 @@ class StaffRightsCommand extends Command
     }
 
     /**
-     * @return CoreMasterListType
+     * @return MasterListType
      */
-    private function getListType(): CoreMasterListType
+    private function getListType(): MasterListType
     {
-        return $this->em->getRepository(CoreMasterListType::class)
+        return $this->em->getRepository(MasterListType::class)
             ->findOneBy(['id' => 20004]);
     }
 
     /**
-     * @param CoreMasterList $item
+     * @param MasterList $item
      * @return int
      */
-    private function getActivityOrder(CoreMasterList $item): int
+    private function getActivityOrder(MasterList $item): int
     {
         $masterList = $this->getAllMasterList();
 
@@ -151,7 +153,7 @@ class StaffRightsCommand extends Command
         $result = [];
 
         foreach ($users as $user) {
-            foreach ($user->getAdditionalAttributes()['728'] as $key) {
+            foreach ($user->getAdditionalAttributes()[self::ACTIVITY_TYPE_ID] as $key) {
                 $entry = [];
                 $entry[] = $user->getId();
                 $masterList = $this->getMasterList($key);

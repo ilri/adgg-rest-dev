@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class StaffRightsCommand extends Command
 {
@@ -26,12 +27,12 @@ class StaffRightsCommand extends Command
     /**
      * @var string
      */
-    protected static $defaultName = 'adgg:staffrights';
+    protected static $defaultName = 'adgg:get-staff-rights';
 
     /**
      * @var string
      */
-    protected static $defaultDescription = 'Get staff rights';
+    protected static $defaultDescription = 'Generate a CSV file with staff rights';
 
     /**
      * StaffRightsCommand constructor.
@@ -55,26 +56,17 @@ class StaffRightsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $io = new SymfonyStyle($input, $output);
+
         $output->writeln([
-            'Retrieves staff rights from the database',
-            '========================================',
+            'Generate a CSV file with staff rights',
+            '=====================================',
             ''
         ]);
-
+        $io->writeln('Retrieving data from the database');
         $result = $this->generateResult();
         $this->generateOutput($result);
 
-//        $io = new SymfonyStyle($input, $output);
-//        $arg1 = $input->getArgument('arg1');
-//
-//        if ($arg1) {
-//            $io->note(sprintf('You passed an argument: %s', $arg1));
-//        }
-//
-//        if ($input->getOption('option1')) {
-//            // ...
-//        }
-//
 //        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
 
         return Command::SUCCESS;

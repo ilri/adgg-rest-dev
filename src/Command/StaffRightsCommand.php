@@ -54,6 +54,11 @@ class StaffRightsCommand extends Command
         ;
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -117,6 +122,9 @@ class StaffRightsCommand extends Command
         return $tableAttribute->getListType();
     }
 
+    /**
+     * @return MasterList[]
+     */
     private function getAllMasterListEntriesForActivityType(): array
     {
         $activityType = $this->getActivityType();
@@ -129,13 +137,12 @@ class StaffRightsCommand extends Command
     }
 
     /**
+     * @param MasterList[] $masterListEntries
      * @param string $key
      * @return MasterList
      */
     private function getSingleMasterListEntry(array $masterListEntries, string $key): MasterList
     {
-        //$masterListEntries = $this->getAllMasterListEntriesForActivityType();
-
         return current(array_filter($masterListEntries, function($item) use ($key) {
             return $item->getValue() == $key;
         }));

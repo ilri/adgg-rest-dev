@@ -65,6 +65,11 @@ class StaffRightsCommand extends Command
         ]);
         $io->writeln('Retrieving data from the database');
         $result = $this->generateResult();
+        $io->progressStart(count($result));
+        foreach ($result as $fields) {
+            $io->progressAdvance();
+        }
+        $io->progressFinish();
         $this->generateOutput($result);
 
 //        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
@@ -92,7 +97,8 @@ class StaffRightsCommand extends Command
      */
     private function getUsersWithActivities(): array
     {
-        $users = $this->getUsers();
+        $users = $this->em->getRepository(User::class)->findAllUsersWithAdditionalAttributes();
+        dump(count($users));
 
         return array_filter($users, function (User $user) {
             return array_key_exists(self::ACTIVITY_TYPE_ID, $user->getAdditionalAttributes());

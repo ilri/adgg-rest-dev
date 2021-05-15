@@ -16,4 +16,17 @@ class UserRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, User::class);
     }
+
+    /**
+     * @return User[]
+     */
+    public function findAllUsersWithAdditionalAttributes(): array
+    {
+        return $this
+            ->createQueryBuilder('u')
+            ->where('u.additionalAttributes IS NOT NULL')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

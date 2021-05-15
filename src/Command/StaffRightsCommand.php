@@ -58,21 +58,20 @@ class StaffRightsCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $output->writeln([
+        $io->writeln([
             'Generate a CSV file with staff rights',
             '=====================================',
             ''
         ]);
-        $io->writeln('Retrieving data from the database');
-        $result = $this->generateResult();
-        $io->progressStart(count($result));
-        foreach ($result as $fields) {
-            $io->progressAdvance();
-        }
-        $io->progressFinish();
+        $io->writeln([
+            'Fetching data from the database',
+            '',
+        ]);
+
+        $result = $this->generateResult($io);
         $this->generateOutput($result);
 
-//        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+        $io->success('A CSV file with staff rights has been created.');
 
         return Command::SUCCESS;
     }
@@ -97,8 +96,7 @@ class StaffRightsCommand extends Command
      */
     private function getUsersWithActivities(): array
     {
-        $users = $this->em->getRepository(User::class)->findAllUsersWithAdditionalAttributeKey();
-        dump($users);
+        $users = $this->getUsers();
 
         return array_filter($users, function (User $user) {
             return array_key_exists(self::ACTIVITY_TYPE_ID, $user->getAdditionalAttributes());
@@ -152,14 +150,20 @@ class StaffRightsCommand extends Command
     }
 
     /**
+     * @param SymfonyStyle $io
      * @return array
      */
-    private function generateResult(): array
+    private function generateResult(SymfonyStyle $io): array
     {
-        $users = $this->getUsersWithActivities();
+        $users = $this->em->getRepository(User::class)
+            ->findAllUsersWithAdditionalAttributeKey(self::ACTIVITY_TYPE_ID)
+        ;
         $result = [];
 
+        $io->writeln(sprintf('Calculating staff rights for %s users', count($users)));
+        $io->progressStart(count($users));
         foreach ($users as $user) {
+            $io->progressAdvance();
             foreach ($user->getAdditionalAttributes()[self::ACTIVITY_TYPE_ID] as $key) {
                 $entry = [];
                 $entry[] = $user->getId();
@@ -172,6 +176,7 @@ class StaffRightsCommand extends Command
                 $result[] = $entry;
             }
         }
+        $io->progressFinish();
 
         return $result;
     }

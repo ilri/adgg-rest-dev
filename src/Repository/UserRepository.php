@@ -30,15 +30,19 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findAllUsersWithAdditionalAttributeKey(): array
+    /**
+     * @param $key
+     * @return User[]
+     */
+    public function findAllUsersWithAdditionalAttributeKey($key): array
     {
-        $conn = $this->getEntityManager()->getConnection();
-        $sql = '
-            SELECT u.id, u.additional_attributes FROM auth_users AS u
-            WHERE JSON_EXTRACT(u.additional_attributes, \'$."728"\') IS NOT NULL
-        ';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAllKeyValue();
+        $rsm = $this->createResultSetMappingBuilder('u');
+        $rsm->addRootEntityFromClassMetadata(User::class, 'u');
+        $sql = sprintf('
+            SELECT %s FROM auth_users AS u
+            WHERE JSON_EXTRACT(u.additional_attributes, \'$."%s"\') IS NOT NULL
+        ', $rsm->generateSelectClause(), $key);
+        $query = $this->getEntityManager()->createNativeQuery($sql, $rsm);
+        return $query->getResult();
     }
 }

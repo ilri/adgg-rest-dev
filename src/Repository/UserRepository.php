@@ -29,4 +29,16 @@ class UserRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findAllUsersWithAdditionalAttributeKey(): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = '
+            SELECT u.id, u.additional_attributes FROM auth_users AS u
+            WHERE JSON_EXTRACT(u.additional_attributes, \'$."728"\') IS NOT NULL
+        ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAllKeyValue();
+    }
 }

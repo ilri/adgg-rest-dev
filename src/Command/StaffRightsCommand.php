@@ -97,8 +97,8 @@ class StaffRightsCommand extends Command
      */
     private function getUsersWithActivities(): array
     {
-        $users = $this->em->getRepository(User::class)->findAllUsersWithAdditionalAttributes();
-        dump(count($users));
+        $users = $this->em->getRepository(User::class)->findAllUsersWithAdditionalAttributeKey();
+        dump($users);
 
         return array_filter($users, function (User $user) {
             return array_key_exists(self::ACTIVITY_TYPE_ID, $user->getAdditionalAttributes());

@@ -68,7 +68,10 @@ class StaffRightsCommand extends Command
             '',
         ]);
 
+        $start = microtime(true);
         $result = $this->generateResult($io);
+        dump(microtime(true) - $start);
+
         $this->generateOutput($result);
 
         $io->success('A CSV file with staff rights has been created.');
@@ -129,9 +132,9 @@ class StaffRightsCommand extends Command
      * @param string $key
      * @return MasterList
      */
-    private function getSingleMasterListEntry(string $key): MasterList
+    private function getSingleMasterListEntry(array $masterListEntries, string $key): MasterList
     {
-        $masterListEntries = $this->getAllMasterListEntriesForActivityType();
+        //$masterListEntries = $this->getAllMasterListEntriesForActivityType();
 
         return current(array_filter($masterListEntries, function($item) use ($key) {
             return $item->getValue() == $key;
@@ -158,23 +161,27 @@ class StaffRightsCommand extends Command
         $users = $this->em->getRepository(User::class)
             ->findAllUsersWithAdditionalAttributeKey(self::ACTIVITY_TYPE_ID)
         ;
+        $masterListEntries = $this->getAllMasterListEntriesForActivityType();
         $result = [];
 
         $io->writeln(sprintf('Calculating staff rights for %s users', count($users)));
         $io->progressStart(count($users));
         foreach ($users as $user) {
-            $io->progressAdvance();
-            foreach ($user->getAdditionalAttributes()[self::ACTIVITY_TYPE_ID] as $key) {
+            $additionalAttributes = $user->getAdditionalAttributes();
+            $activityTypeKeys = $additionalAttributes[self::ACTIVITY_TYPE_ID];
+            $staffHasRight = $additionalAttributes[self::STAFF_HASRIGHT_ID];
+            foreach ($activityTypeKeys as $key) {
                 $entry = [];
                 $entry[] = $user->getId();
-                $masterListEntry = $this->getSingleMasterListEntry($key);
+                $masterListEntry = $this->getSingleMasterListEntry($masterListEntries, $key);
                 $order = $this->getActivityOrder($masterListEntry);
                 $entry[] = $masterListEntry->getValue();
                 $entry[] = $masterListEntry->getLabel();
                 $entry[] = $order;
-                $entry[] = $user->getAdditionalAttributes()[self::STAFF_HASRIGHT_ID];
+                $entry[] = $staffHasRight;
                 $result[] = $entry;
             }
+            $io->progressAdvance();
         }
         $io->progressFinish();
 

@@ -179,14 +179,15 @@ class StaffRightsCommand extends Command
     }
 
     /**
-     * @param MasterList $item
-     * @return int
+     * @param string $key
+     * @param array $activitiesList
+     * @return string|null
      */
-    private function getActivityOrder(MasterList $item): int
+    private function getActivityOrder(string $key, array $activitiesList): ?string
     {
-        $masterList = $this->getAllMasterListEntriesForActivityType();
-
-        return array_search($item, $masterList) + 1;
+        $index = array_search($key,array_column($activitiesList, 'activity_code'));
+        $record = $activitiesList[$index + 1];
+        return $record['activity_order'];
     }
 
     /**
@@ -222,8 +223,7 @@ class StaffRightsCommand extends Command
                 $entry[] = $masterListEntry->getValue(); // activity_code
                 $entry[] = $masterListEntry->getLabel(); // activity_name
                 $entry[] = $this->getActivityType($key, $activitiesList); // activity_type
-                $order = $this->getActivityOrder($masterListEntry);
-                $entry[] = $order; // activity_order
+                $entry[] = $this->getActivityOrder($key, $activitiesList); // activity_order
                 $entry[] = $staffHasRight; // staff_hasright
                 $result[] = $entry;
             }

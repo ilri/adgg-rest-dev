@@ -207,7 +207,7 @@ class StaffRightsCommand extends Command
             'activity_order',
             'staff_hasright',
         ];
-        $fp = fopen('staff_rights.csv', 'w');
+        $fp = fopen('public/bundles/app/output/staff_rights.csv', 'w');
         fputcsv($fp, $columnHeaders);
 
         foreach ($result as $fields) {

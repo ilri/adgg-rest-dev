@@ -9,10 +9,7 @@ use App\Entity\{
     User
 };
 use Doctrine\ORM\EntityManagerInterface;
-use League\Csv\{
-    Exception as CsvException,
-    Reader
-};
+use League\Csv\{CannotInsertRecord, Exception as CsvException, Reader, Writer};
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -23,6 +20,7 @@ class StaffRightsCommand extends Command
     const ACTIVITY_TYPE_ID = '728';
     const STAFF_HASRIGHT_ID = '730';
     const DATA_SOURCE = '/src/Data/activities_list.csv';
+    const OUTPUT_DIR = '/public/bundles/app/output/';
 
     /**
      * @var EntityManagerInterface
@@ -85,9 +83,18 @@ class StaffRightsCommand extends Command
         $result = $this->generateResult($io);
         dump(microtime(true) - $start);
 
-        $this->generateOutput($result);
 
-        $io->success('A CSV file with staff rights has been created.');
+        $filename = 'staff_rights.csv';
+
+        try {
+            $this->generateOutput($result, $filename);
+        } catch (CannotInsertRecord $e) {
+            $io->error($e);
+            $io->error('The CSV file could not be written.');
+            die;
+        }
+
+        $io->success(sprintf('A CSV file %s has been created.', $filename));
 
         return Command::SUCCESS;
     }
@@ -229,10 +236,12 @@ class StaffRightsCommand extends Command
 
     /**
      * @param array $result
+     * @param string $filename
+     * @throws CannotInsertRecord
      */
-    private function generateOutput(array $result): void
+    private function generateOutput(array $result, string $filename): void
     {
-        $columnHeaders = [
+        $header = [
             'staff_code',
             'activity_code',
             'activity_name',
@@ -240,13 +249,8 @@ class StaffRightsCommand extends Command
             'activity_order',
             'staff_hasright',
         ];
-        $fp = fopen('public/bundles/app/output/staff_rights.csv', 'w');
-        fputcsv($fp, $columnHeaders);
-
-        foreach ($result as $fields) {
-            fputcsv($fp, $fields);
-        }
-
-        fclose($fp);
+        $writer = Writer::createFromPath($this->projectDir.self::OUTPUT_DIR.$filename, 'w');
+        $writer->insertOne($header);
+        $writer->insertAll($result);
     }
 }

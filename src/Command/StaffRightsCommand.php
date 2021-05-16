@@ -169,25 +169,16 @@ class StaffRightsCommand extends Command
     /**
      * @param string $key
      * @param array $activitiesList
-     * @return string|null
+     * @return array
      */
-    private function getActivityType(string $key, array $activitiesList): ?string
+    private function getActivityValuesFromInputData(string $key, array $activitiesList): array
     {
         $index = array_search($key,array_column($activitiesList, 'activity_code'));
         $record = $activitiesList[$index + 1];
-        return $record['activity_type'];
-    }
-
-    /**
-     * @param string $key
-     * @param array $activitiesList
-     * @return string|null
-     */
-    private function getActivityOrder(string $key, array $activitiesList): ?string
-    {
-        $index = array_search($key,array_column($activitiesList, 'activity_code'));
-        $record = $activitiesList[$index + 1];
-        return $record['activity_order'];
+        return [
+            'activity_type' => $record['activity_type'],
+            'activity_order' => $record['activity_order'],
+        ];
     }
 
     /**
@@ -222,8 +213,9 @@ class StaffRightsCommand extends Command
                 $masterListEntry = $this->getSingleMasterListEntry($masterListEntries, $key);
                 $entry[] = $masterListEntry->getValue(); // activity_code
                 $entry[] = $masterListEntry->getLabel(); // activity_name
-                $entry[] = $this->getActivityType($key, $activitiesList); // activity_type
-                $entry[] = $this->getActivityOrder($key, $activitiesList); // activity_order
+                $activityValues = $this->getActivityValuesFromInputData($key, $activitiesList);
+                $entry[] = $activityValues['activity_type']; // activity_type
+                $entry[] = $activityValues['activity_order']; // activity_order
                 $entry[] = $staffHasRight; // staff_hasright
                 $result[] = $entry;
             }

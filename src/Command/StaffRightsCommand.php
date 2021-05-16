@@ -94,11 +94,9 @@ class StaffRightsCommand extends Command
             '',
         ]);
 
-        $start = microtime(true);
-        $result = $this->generateResult($io);
-        dump(microtime(true) - $start);
-
         $filename = $input->getOption('output');
+
+        $result = $this->generateResult($io);
 
         try {
             $this->generateOutput($result, $filename);

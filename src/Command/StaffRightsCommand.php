@@ -17,8 +17,8 @@ use League\Csv\{
 };
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\{
-    InputArgument,
-    InputInterface
+    InputInterface,
+    InputOption
 };
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -68,10 +68,12 @@ class StaffRightsCommand extends Command
     {
         $this
             ->setDescription(self::$defaultDescription)
-            ->addArgument(
-                'output_file',
-                InputArgument::OPTIONAL,
-                'The name of the output CSV file'
+            ->addOption(
+                'output',
+                'o',
+                InputOption::VALUE_REQUIRED,
+                'The name of the output CSV file',
+                self::OUTPUT_FILE
             )
             //->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
@@ -96,7 +98,7 @@ class StaffRightsCommand extends Command
         $result = $this->generateResult($io);
         dump(microtime(true) - $start);
 
-        $filename = $input->getArgument('output_file') ?? self::OUTPUT_FILE;
+        $filename = $input->getOption('output');
 
         try {
             $this->generateOutput($result, $filename);

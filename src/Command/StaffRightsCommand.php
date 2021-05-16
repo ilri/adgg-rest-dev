@@ -9,9 +9,17 @@ use App\Entity\{
     User
 };
 use Doctrine\ORM\EntityManagerInterface;
-use League\Csv\{CannotInsertRecord, Exception as CsvException, Reader, Writer};
+use League\Csv\{
+    CannotInsertRecord,
+    Exception as CsvException,
+    Reader,
+    Writer
+};
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\{
+    InputArgument,
+    InputInterface
+};
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -21,6 +29,7 @@ class StaffRightsCommand extends Command
     const STAFF_HASRIGHT_ID = '730';
     const DATA_SOURCE = '/src/Data/activities_list.csv';
     const OUTPUT_DIR = '/public/bundles/app/output/';
+    const OUTPUT_FILE = 'staff_rights.csv';
 
     /**
      * @var EntityManagerInterface
@@ -59,7 +68,11 @@ class StaffRightsCommand extends Command
     {
         $this
             ->setDescription(self::$defaultDescription)
-            //->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
+            ->addArgument(
+                'output_file',
+                InputArgument::OPTIONAL,
+                'The name of the output CSV file'
+            )
             //->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
     }
@@ -83,13 +96,12 @@ class StaffRightsCommand extends Command
         $result = $this->generateResult($io);
         dump(microtime(true) - $start);
 
-
-        $filename = 'staff_rights.csv';
+        $filename = $input->getArgument('output_file') ?? self::OUTPUT_FILE;
 
         try {
             $this->generateOutput($result, $filename);
         } catch (CannotInsertRecord $e) {
-            $io->error($e);
+            $io->error($e->getRecord());
             $io->error('The CSV file could not be written.');
             die;
         }

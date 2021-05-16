@@ -2,9 +2,6 @@
 
 namespace App\Command;
 
-use League\Csv\Exception;
-use League\Csv\Exception as CsvException;
-use League\Csv\Reader;
 use App\Entity\{
     MasterList,
     MasterListType,
@@ -12,6 +9,10 @@ use App\Entity\{
     User
 };
 use Doctrine\ORM\EntityManagerInterface;
+use League\Csv\{
+    Exception as CsvException,
+    Reader
+};
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -193,7 +194,7 @@ class StaffRightsCommand extends Command
         $masterListEntries = $this->getAllMasterListEntriesForActivityType();
         try {
             $activitiesList = $this->getActivitiesList();
-        } catch (Exception $e) {
+        } catch (CsvException $e) {
             $io->error($e);
             $io->error('The data input file for activities list could not be read.');
             die;

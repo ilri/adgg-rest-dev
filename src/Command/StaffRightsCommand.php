@@ -2,6 +2,8 @@
 
 namespace App\Command;
 
+use League\Csv\Exception as CsvException;
+use League\Csv\Reader;
 use App\Entity\{
     MasterList,
     MasterListType,
@@ -18,11 +20,17 @@ class StaffRightsCommand extends Command
 {
     const ACTIVITY_TYPE_ID = '728';
     const STAFF_HASRIGHT_ID = '730';
+    const DATA_SOURCE = '/src/Data/activities_list.csv';
 
     /**
      * @var EntityManagerInterface
      */
     private $em;
+
+    /**
+     * @var string
+     */
+    private $projectDir;
 
     /**
      * @var string
@@ -37,11 +45,13 @@ class StaffRightsCommand extends Command
     /**
      * StaffRightsCommand constructor.
      * @param EntityManagerInterface $em
+     * @param string $projectDir
      * @param string|null $name
      */
-    public function __construct(EntityManagerInterface $em, string $name = null)
+    public function __construct(EntityManagerInterface $em, string $projectDir, string $name = null)
     {
         $this->em = $em;
+        $this->projectDir = $projectDir;
         parent::__construct($name);
     }
 
@@ -157,6 +167,17 @@ class StaffRightsCommand extends Command
         $masterList = $this->getAllMasterListEntriesForActivityType();
 
         return array_search($item, $masterList) + 1;
+    }
+
+    /**
+     * @throws CsvException
+     */
+    private function getActivitiesList(): array
+    {
+        $reader = Reader::createFromPath($this->projectDir.self::DATA_SOURCE);
+        $reader->setHeaderOffset(0);
+        $records = $reader->getRecords();
+        return iterator_to_array($records);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use League\Csv\Exception;
 use League\Csv\Exception as CsvException;
 use League\Csv\Reader;
 use App\Entity\{
@@ -73,11 +74,7 @@ class StaffRightsCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $io->writeln([
-            'Generate a CSV file with staff rights',
-            '=====================================',
-            ''
-        ]);
+        $io->title('Generate a CSV file with staff rights');
         $io->writeln([
             'Fetching data from the database',
             '',
@@ -124,7 +121,7 @@ class StaffRightsCommand extends Command
     /**
      * @return MasterListType
      */
-    private function getActivityType(): MasterListType
+    private function getMasterListType(): MasterListType
     {
         $tableAttribute = $this->em->getRepository(TableAttribute::class)
             ->findOneBy(['id' => self::ACTIVITY_TYPE_ID]);
@@ -137,7 +134,7 @@ class StaffRightsCommand extends Command
      */
     private function getAllMasterListEntriesForActivityType(): array
     {
-        $activityType = $this->getActivityType();
+        $activityType = $this->getMasterListType();
 
         return $this->em->getRepository(MasterList::class)->findBy(
             [
@@ -159,17 +156,6 @@ class StaffRightsCommand extends Command
     }
 
     /**
-     * @param MasterList $item
-     * @return int
-     */
-    private function getActivityOrder(MasterList $item): int
-    {
-        $masterList = $this->getAllMasterListEntriesForActivityType();
-
-        return array_search($item, $masterList) + 1;
-    }
-
-    /**
      * @throws CsvException
      */
     private function getActivitiesList(): array
@@ -178,6 +164,29 @@ class StaffRightsCommand extends Command
         $reader->setHeaderOffset(0);
         $records = $reader->getRecords();
         return iterator_to_array($records);
+    }
+
+    /**
+     * @param string $key
+     * @param array $activitiesList
+     * @return string|null
+     */
+    private function getActivityType(string $key, array $activitiesList): ?string
+    {
+        $index = array_search($key,array_column($activitiesList, 'activity_code'));
+        $record = $activitiesList[$index + 1];
+        return $record['activity_type'];
+    }
+
+    /**
+     * @param MasterList $item
+     * @return int
+     */
+    private function getActivityOrder(MasterList $item): int
+    {
+        $masterList = $this->getAllMasterListEntriesForActivityType();
+
+        return array_search($item, $masterList) + 1;
     }
 
     /**
@@ -190,6 +199,14 @@ class StaffRightsCommand extends Command
             ->findAllUsersWithAdditionalAttributeKey(self::ACTIVITY_TYPE_ID)
         ;
         $masterListEntries = $this->getAllMasterListEntriesForActivityType();
+        try {
+            $activitiesList = $this->getActivitiesList();
+        } catch (Exception $e) {
+            $io->error($e);
+            $io->error('The data input file for activities list could not be read.');
+            die;
+        }
+
         $result = [];
 
         $io->writeln(sprintf('Calculating staff rights for %s users', count($users)));
@@ -200,13 +217,14 @@ class StaffRightsCommand extends Command
             $staffHasRight = $additionalAttributes[self::STAFF_HASRIGHT_ID];
             foreach ($activityTypeKeys as $key) {
                 $entry = [];
-                $entry[] = $user->getId();
+                $entry[] = $user->getId(); // staff_code
                 $masterListEntry = $this->getSingleMasterListEntry($masterListEntries, $key);
+                $entry[] = $masterListEntry->getValue(); // activity_code
+                $entry[] = $masterListEntry->getLabel(); // activity_name
+                $entry[] = $this->getActivityType($key, $activitiesList); // activity_type
                 $order = $this->getActivityOrder($masterListEntry);
-                $entry[] = $masterListEntry->getValue();
-                $entry[] = $masterListEntry->getLabel();
-                $entry[] = $order;
-                $entry[] = $staffHasRight;
+                $entry[] = $order; // activity_order
+                $entry[] = $staffHasRight; // staff_hasright
                 $result[] = $entry;
             }
             $io->progressAdvance();
@@ -225,6 +243,7 @@ class StaffRightsCommand extends Command
             'staff_code',
             'activity_code',
             'activity_name',
+            'activity_type',
             'activity_order',
             'staff_hasright',
         ];

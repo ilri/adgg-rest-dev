@@ -284,6 +284,14 @@ class User implements UserInterface
      */
     private $country;
 
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return sprintf('%s (%s)', $this->getName(), $this->getUsername());
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -221,7 +221,8 @@ class StaffRightsCommand extends Command
 
         $result = [];
 
-        $io->writeln(sprintf('Calculating staff rights for %s users', count($users)));
+        $io->writeln(sprintf('Calculating staff rights for %s users:', count($users)));
+        $io->listing($users);
         $io->progressStart(count($users));
         foreach ($users as $user) {
             $additionalAttributes = $user->getAdditionalAttributes();

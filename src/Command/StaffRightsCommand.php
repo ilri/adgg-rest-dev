@@ -112,33 +112,6 @@ class StaffRightsCommand extends Command
     }
 
     /**
-     * @return array
-     */
-    private function getUsers(): array
-    {
-        $repo = $this->em->getRepository(User::class);
-
-        return $repo
-            ->createQueryBuilder('u')
-            ->where('u.additionalAttributes IS NOT NULL')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-
-    /**
-     * @return array
-     */
-    private function getUsersWithActivities(): array
-    {
-        $users = $this->getUsers();
-
-        return array_filter($users, function (User $user) {
-            return array_key_exists(self::ACTIVITY_TYPE_ID, $user->getAdditionalAttributes());
-        });
-    }
-
-    /**
      * @return MasterListType
      */
     private function getMasterListType(): MasterListType

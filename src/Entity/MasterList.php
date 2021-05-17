@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Repository\MasterListRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * MasterList
  *
  * @ORM\Table(name="core_master_list", indexes={@ORM\Index(name="list_type_id", columns={"list_type_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=MasterListRepository::class)
  */
 class MasterList
 {

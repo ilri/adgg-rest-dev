@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use Doctrine\Persistence\ObjectRepository;
 use App\Entity\{
     MasterList,
     MasterListType,
@@ -75,7 +76,6 @@ class StaffRightsCommand extends Command
                 'The name of the output CSV file',
                 self::OUTPUT_FILE
             )
-            //->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
     }
 
@@ -112,9 +112,12 @@ class StaffRightsCommand extends Command
     }
 
     /**
+     * Get item from table core_master_list_type where id is ACTIVITY_TYPE_ID
+     * SELECT * FROM core_table_attribute WHERE id = ACTIVITY_TYPE_ID
+     *
      * @return MasterListType
      */
-    private function getMasterListType(): MasterListType
+    private function getMasterListTypeItemForActivityType(): MasterListType
     {
         $tableAttribute = $this->em->getRepository(TableAttribute::class)
             ->findOneBy(['id' => self::ACTIVITY_TYPE_ID]);
@@ -123,11 +126,16 @@ class StaffRightsCommand extends Command
     }
 
     /**
+     * Get all items from the table core_master_list where list_type_id is
+     * the MasterListType retrieved from the method getMasterListType
+     *
+     * SELECT * FROM core_master_list WHERE list_type_id = {master_list_type}
+     *
      * @return MasterList[]
      */
-    private function getAllMasterListEntriesForActivityType(): array
+    private function getMasterListItemsForActivityType(): array
     {
-        $activityType = $this->getMasterListType();
+        $activityType = $this->getMasterListTypeItemForActivityType();
 
         return $this->em->getRepository(MasterList::class)->findBy(
             [
@@ -183,7 +191,7 @@ class StaffRightsCommand extends Command
         $users = $this->em->getRepository(User::class)
             ->findAllUsersWithAdditionalAttributeKey(self::ACTIVITY_TYPE_ID)
         ;
-        $masterListEntries = $this->getAllMasterListEntriesForActivityType();
+        $masterListItems = $this->getMasterListItemsForActivityType();
         try {
             $activitiesList = $this->getActivitiesList();
         } catch (CsvException $e) {
@@ -194,7 +202,7 @@ class StaffRightsCommand extends Command
 
         $result = [];
 
-        $io->writeln(sprintf('Calculating staff rights for %s users:', count($users)));
+        $io->writeln(sprintf('Calculating staff rights for <info>%s</info> users:', count($users)));
         $io->listing($users);
         $io->progressStart(count($users));
         foreach ($users as $user) {
@@ -204,9 +212,9 @@ class StaffRightsCommand extends Command
             foreach ($activityTypeKeys as $key) {
                 $entry = [];
                 $entry[] = $user->getId(); // staff_code
-                $masterListEntry = $this->getSingleMasterListEntry($masterListEntries, $key);
-                $entry[] = $masterListEntry->getValue(); // activity_code
-                $entry[] = $masterListEntry->getLabel(); // activity_name
+                $masterListItem = $this->getSingleMasterListEntry($masterListItems, $key);
+                $entry[] = $masterListItem->getValue(); // activity_code
+                $entry[] = $masterListItem->getLabel(); // activity_name
                 $activityValues = $this->getActivityValuesFromInputData($key, $activitiesList);
                 $entry[] = $activityValues['activity_type']; // activity_type
                 $entry[] = $activityValues['activity_order']; // activity_order

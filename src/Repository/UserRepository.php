@@ -31,6 +31,14 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
+     * Get all records from the table auth_users where the column
+     * additional_attributes has a key "728" which is not NULL or
+     * not an array containing an empty string.
+     *
+     * These are excluded:
+     * {"728": NULL}
+     * {"728": [""]}
+     *
      * @param $key
      * @return User[]
      */
@@ -40,8 +48,10 @@ class UserRepository extends ServiceEntityRepository
         $rsm->addRootEntityFromClassMetadata(User::class, 'u');
         $sql = sprintf('
             SELECT %s FROM auth_users AS u
-            WHERE JSON_EXTRACT(u.additional_attributes, \'$."%s"\') IS NOT NULL
-        ', $rsm->generateSelectClause(), $key);
+            WHERE
+                JSON_EXTRACT(u.additional_attributes, \'$."%s"\') IS NOT NULL
+            AND JSON_EXTRACT(u.additional_attributes, \'$."%s"[0]\') != ""
+        ', $rsm->generateSelectClause(), $key, $key);
         $query = $this->getEntityManager()->createNativeQuery($sql, $rsm);
         return $query->getResult();
     }

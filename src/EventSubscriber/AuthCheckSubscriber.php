@@ -32,6 +32,11 @@ class AuthCheckSubscriber implements EventSubscriberInterface
         ];
     }
 
+    public function getTokenUser(ViewEvent $event)
+    {
+        throw new \LogicException('Child class must implement this method.');
+    }
+
     /**
      * @param $entity
      * @param string $trait

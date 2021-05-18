@@ -6,7 +6,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 
-class UpdatedSubscriber extends AuthCheckSubscriber implements EventSubscriberInterface, AuthCheckSubscriberInterface
+final class UpdatedSubscriber extends AuthCheckSubscriber implements EventSubscriberInterface
 {
     public function getTokenUser(ViewEvent $event): void
     {

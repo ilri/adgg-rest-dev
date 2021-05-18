@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 
-class AuthCheckSubscriber implements EventSubscriberInterface
+abstract class AuthCheckSubscriber implements EventSubscriberInterface
 {
     /**
      * @var TokenStorageInterface
@@ -34,7 +34,7 @@ class AuthCheckSubscriber implements EventSubscriberInterface
 
     public function getTokenUser(ViewEvent $event)
     {
-        throw new \LogicException('Child class must implement this method.');
+        throw new \LogicException(sprintf('Child class must implement method %s.', 'getTokenUser'));
     }
 
     /**

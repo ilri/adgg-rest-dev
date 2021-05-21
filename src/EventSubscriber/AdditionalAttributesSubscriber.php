@@ -3,6 +3,7 @@
 namespace App\EventSubscriber;
 
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Paginator;
+use App\Entity\CoreTableAttribute;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,9 +29,9 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @return array|string[]
+     * @inheritDoc
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             RequestEvent::class => 'onRequestEvent',
@@ -43,7 +44,7 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
      *
      * @param RequestEvent $event
      */
-    public function onRequestEvent(RequestEvent $event)
+    public function onRequestEvent(RequestEvent $event): void
     {
         $method = $event->getRequest()->getMethod();
         $entity = $event->getRequest()->attributes->get('_api_resource_class');
@@ -71,10 +72,11 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
      * Returns a modified additionalAttributes array, without null values
      * and with keys translated into human-readable labels.
      *
-     * @param $resource
+     * @param object $resource
      */
-    private function updateAdditionalAttributes($resource)
+    private function updateAdditionalAttributes(object $resource): void
     {
+        var_dump($resource);
         $modifiedAdditionalAttributes = [];
 
         foreach ($resource->getAdditionalAttributes() as $key => $value) {
@@ -94,18 +96,14 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
      * and returns the attributeLabel property value.
      *
      * @param $id
-     * @return mixed
+     * @return string|null
      */
-    private function retrieveAttributeLabel($id)
+    private function retrieveAttributeLabel($id): ?string
     {
-        $repository = $this->entityManager->getRepository("App:CoreTableAttribute");
-        $attrObject = $repository->find($id);
+        $repository = $this->entityManager->getRepository(CoreTableAttribute::class);
+        $attr = $repository->find($id);
 
-        if (!$attrObject) {
-            return null;
-        }
-
-        return $attrObject->getAttributeLabel();
+        return $attr ? $attr->getAttributeLabel(): null;
     }
 }
 

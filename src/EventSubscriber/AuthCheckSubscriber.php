@@ -41,7 +41,7 @@ abstract class AuthCheckSubscriber implements EventSubscriberInterface
      */
     public function setValue(ViewEvent $event)
     {
-        throw new \LogicException(sprintf('Child class must implement method %s.', 'setValue'));
+        throw new \LogicException(sprintf('Child class must implement method %s.', __FUNCTION__));
     }
 
     /**

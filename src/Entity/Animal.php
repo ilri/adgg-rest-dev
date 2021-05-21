@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Entity\Traits\{
     AdditionalAttributesTrait,
@@ -17,12 +17,13 @@ use App\Entity\Traits\{
 };
 use App\Filter\CountryISOCodeFilter;
 use App\Repository\AnimalRepository;
+use Carbon\Carbon;
 use Doctrine\Common\Collections\{
     ArrayCollection,
     Collection
 };
-use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * Animal
@@ -41,8 +42,8 @@ use Doctrine\ORM\Mapping as ORM;
  *             "method"="POST",
  *             "openapi_context"={
  *                  "description"="<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`countryId`<p>`tagId`</p>
-                        <p>All other properties are **optional**.</p>",
+</p>`countryId`<p>`tagId`</p>
+<p>All other properties are **optional**.</p>",
  *              },
  *             "denormalization_context"={
  *                 "groups"={
@@ -64,8 +65,8 @@ use Doctrine\ORM\Mapping as ORM;
  *             "method"="PUT",
  *             "openapi_context"={
  *                  "description"="<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`countryId`<p>`tagId`</p>
-                        <p>All other properties are **optional**.</p>",
+</p>`countryId`<p>`tagId`</p>
+<p>All other properties are **optional**.</p>",
  *              },
  *             "denormalization_context"={
  *                 "groups"={
@@ -77,8 +78,8 @@ use Doctrine\ORM\Mapping as ORM;
  *             "method"="PATCH",
  *             "openapi_context"={
  *                  "description"="<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`countryId`<p>`tagId`</p>
-                        <p>All other properties are **optional**.</p>",
+</p>`countryId`<p>`tagId`</p>
+<p>All other properties are **optional**.</p>",
  *              },
  *             "denormalization_context"={
  *                 "groups"={
@@ -615,7 +616,7 @@ class Animal
      */
     public function getLastCalving(): ?AnimalEvent
     {
-        $events = $this->getAnimalEvents()->filter(function(AnimalEvent $element) {
+        $events = $this->getAnimalEvents()->filter(function (AnimalEvent $element) {
             return $element->getEventType() == AnimalEvent::EVENT_TYPE_CALVING;
         });
         return $events->first() ?: null;
@@ -647,7 +648,7 @@ class Animal
      */
     public function getMilkingEvents(): Collection
     {
-        return $this->getAnimalEvents()->filter(function(AnimalEvent $element) {
+        return $this->getAnimalEvents()->filter(function (AnimalEvent $element) {
             return $element->getEventType() == AnimalEvent::EVENT_TYPE_MILKING;
         });
     }
@@ -667,7 +668,7 @@ class Animal
     public function getAverageMilkYield(): ?float
     {
         $milkingEvents = $this->getMilkingEvents();
-        $func = function($event) {
+        $func = function ($event) {
             return $event->getMilkYieldRecord()->getTotalMilkRecord();
         };
         $milkYieldRecords = array_map($func, $milkingEvents->toArray());

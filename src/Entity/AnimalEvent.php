@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\{
-    ApiResource,
-    ApiFilter
+    ApiFilter,
+    ApiResource
 };
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\{
     DateFilter,

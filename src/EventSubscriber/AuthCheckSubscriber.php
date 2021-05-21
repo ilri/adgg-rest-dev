@@ -28,13 +28,13 @@ abstract class AuthCheckSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::VIEW => ['getTokenUser', EventPriorities::PRE_WRITE],
+            KernelEvents::VIEW => ['setValue', EventPriorities::PRE_WRITE],
         ];
     }
 
-    public function getTokenUser(ViewEvent $event)
+    public function setValue(ViewEvent $event)
     {
-        throw new \LogicException(sprintf('Child class must implement method %s.', 'getTokenUser'));
+        throw new \LogicException(sprintf('Child class must implement method %s.', 'setValue'));
     }
 
     /**

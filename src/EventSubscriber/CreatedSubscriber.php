@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 final class CreatedSubscriber extends AuthCheckSubscriber implements EventSubscriberInterface
 {
-    public function getTokenUser(ViewEvent $event): void
+    public function setValue(ViewEvent $event): void
     {
         $entity = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();

@@ -13,13 +13,23 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
  */
 class AdditionalAttributesSubscriber implements EventSubscriberInterface
 {
-    protected $entityManager;
+    /**
+     * @var EntityManagerInterface
+     */
+    private EntityManagerInterface $entityManager;
 
+    /**
+     * AdditionalAttributesSubscriber constructor.
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
 
+    /**
+     * @return array|string[]
+     */
     public static function getSubscribedEvents()
     {
         return [
@@ -65,7 +75,7 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
      */
     private function updateAdditionalAttributes($resource)
     {
-        $modifiedAdditionalAttributes = array();
+        $modifiedAdditionalAttributes = [];
 
         foreach ($resource->getAdditionalAttributes() as $key => $value) {
             if (!empty($value) && $value !== [""]) {
@@ -98,3 +108,4 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
         return $attrObject->getAttributeLabel();
     }
 }
+

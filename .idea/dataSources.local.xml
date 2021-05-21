@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="PS-211.7142.44">
-    <data-source name="adgg_test@localhost" uuid="d39f7665-2e3b-44db-b892-2fcf2ee2334d">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
-      <schema-mapping />
-    </data-source>
-    <data-source name="MySQL - adgg@ec2-18-222-108-130.us-east-2.compute.amazonaws.com" uuid="50f24a1a-fae3-4132-b572-332cefb3c51c">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
-      <schema-mapping />
-    </data-source>
-  </component>
+  <component name="dataSourceStorageLocal" created-in="PS-211.7142.44" />
 </project>

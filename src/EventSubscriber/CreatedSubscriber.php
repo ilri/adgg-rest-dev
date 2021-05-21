@@ -6,7 +6,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 
-final class CreatedSubscriber extends AuthCheckSubscriber implements EventSubscriberInterface
+final class CreatedSubscriber extends AuthCheckSubscriber
 {
     public function setValue(ViewEvent $event): void
     {

@@ -76,6 +76,10 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
      */
     private function updateAdditionalAttributes(object $resource): void
     {
+        if (null === $resource->getAdditionalAttributes()) {
+            return;
+        }
+
         $modifiedAdditionalAttributes = [];
 
         foreach ($resource->getAdditionalAttributes() as $key => $value) {

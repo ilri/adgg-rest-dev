@@ -17,6 +17,10 @@ abstract class AuthCheckSubscriber implements EventSubscriberInterface
      */
     protected $tokenStorage;
 
+    /**
+     * AuthCheckSubscriber constructor.
+     * @param TokenStorageInterface $tokenStorage
+     */
     public function __construct(TokenStorageInterface $tokenStorage)
     {
         $this->tokenStorage = $tokenStorage;
@@ -32,6 +36,9 @@ abstract class AuthCheckSubscriber implements EventSubscriberInterface
         ];
     }
 
+    /**
+     * @param ViewEvent $event
+     */
     public function setValue(ViewEvent $event)
     {
         throw new \LogicException(sprintf('Child class must implement method %s.', 'setValue'));

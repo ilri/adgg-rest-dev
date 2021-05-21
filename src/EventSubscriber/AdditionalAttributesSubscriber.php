@@ -3,7 +3,7 @@
 namespace App\EventSubscriber;
 
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Paginator;
-use App\Entity\CoreTableAttribute;
+use App\Entity\TableAttribute;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -76,7 +76,6 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
      */
     private function updateAdditionalAttributes(object $resource): void
     {
-        var_dump($resource);
         $modifiedAdditionalAttributes = [];
 
         foreach ($resource->getAdditionalAttributes() as $key => $value) {
@@ -100,7 +99,7 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
      */
     private function retrieveAttributeLabel($id): ?string
     {
-        $repository = $this->entityManager->getRepository(CoreTableAttribute::class);
+        $repository = $this->entityManager->getRepository(TableAttribute::class);
         $attr = $repository->find($id);
 
         return $attr ? $attr->getAttributeLabel(): null;

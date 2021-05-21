@@ -668,8 +668,10 @@ class Animal
     public function getAverageMilkYield(): ?float
     {
         $milkingEvents = $this->getMilkingEvents();
-        $func = function ($event) {
-            return $event->getMilkYieldRecord()->getTotalMilkRecord();
+        $func = function($event) {
+            if ($event->getMilkYieldRecord()) {
+                return $event->getMilkYieldRecord()->getTotalMilkRecord();
+            }
         };
         $milkYieldRecords = array_map($func, $milkingEvents->toArray());
         if (count($milkingEvents)) {

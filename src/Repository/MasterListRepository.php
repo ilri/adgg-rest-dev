@@ -2,18 +2,18 @@
 
 namespace App\Repository;
 
-use App\Entity\Country;
+use App\Entity\MasterList;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class CountryRepository extends ServiceEntityRepository
+class MasterListRepository extends ServiceEntityRepository
 {
     /**
-     * CountryRepository constructor.
+     * MasterListRepository constructor.
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Country::class);
+        parent::__construct($registry, MasterList::class);
     }
 }

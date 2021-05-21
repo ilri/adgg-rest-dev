@@ -40,13 +40,16 @@ class MilkingEventListener
             $milkingEvent->setMilkYieldRecord(null);
             return;
         }
+        if ($milkingEvent->getLactationId() == null) {
+            return;
+        }
 
         $eventId = $milkingEvent->getId();
+        $calvingEvent = $this->animalEventRepository->findOneCalvingEventById($milkingEvent->getLactationId());
         $dim = $this->getDIMForMilkingEvent($eventId);
         $emy = $this->getEMYForMilkingEvent($eventId);
         $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
         $feedback = $this->getFeedbackForFarmer($totalMilkRecord, $emy);
-        $calvingEvent = $this->animalEventRepository->findOneCalvingEventById($milkingEvent->getLactationId());
         $milkYieldRecord = new MilkYieldRecord();
         $milkYieldRecord
             ->setId($eventId)
@@ -68,10 +71,10 @@ class MilkingEventListener
      * @throws NoResultException
      * @throws NonUniqueResultException
      */
-    private function getDIMForMilkingEvent(int $id): int
+    private function getDIMForMilkingEvent(int $id): ?int
     {
         $milkingEvent = $this->animalEventRepository->findOneMilkingEventById($id);
-        $calvingEvent = $this->animalEventRepository->findLactationForMilkingEvent($id);
+        $calvingEvent = $this->animalEventRepository->findOneCalvingEventById($milkingEvent->getLactationId());
 
         $milkingEventDate = Carbon::parse($milkingEvent->getEventDate()->format('Y-m-d'));
         $calvingEventDate = Carbon::parse($calvingEvent->getEventDate()->format('Y-m-d'));

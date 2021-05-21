@@ -6,12 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreTableAttribute
+ * TableAttribute
  *
  * @ORM\Table(name="core_table_attribute", indexes={@ORM\Index(name="farm_metadata_type", columns={"farm_metadata_type"}), @ORM\Index(name="group_id", columns={"group_id"}), @ORM\Index(name="list_type_id", columns={"list_type_id"}), @ORM\Index(name="table_id", columns={"table_id"})})
  * @ORM\Entity
  */
-class CoreTableAttribute
+class TableAttribute
 {
     /**
      * @var int
@@ -121,9 +121,9 @@ class CoreTableAttribute
     private $createdBy;
 
     /**
-     * @var \CoreMasterListType
+     * @var MasterListType
      *
-     * @ORM\ManyToOne(targetEntity="CoreMasterListType")
+     * @ORM\ManyToOne(targetEntity="MasterListType")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="list_type_id", referencedColumnName="id")
      * })
@@ -303,17 +303,15 @@ class CoreTableAttribute
         return $this;
     }
 
-    public function getListType(): ?CoreMasterListType
+    public function getListType(): ?MasterListType
     {
         return $this->listType;
     }
 
-    public function setListType(?CoreMasterListType $listType): self
+    public function setListType(?MasterListType $listType): self
     {
         $this->listType = $listType;
 
         return $this;
     }
-
-
 }

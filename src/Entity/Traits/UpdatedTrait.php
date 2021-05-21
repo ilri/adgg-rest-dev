@@ -10,7 +10,6 @@ trait UpdatedTrait
      * @var \DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-     * @ORM\Version
      */
     protected $updatedAt;
 

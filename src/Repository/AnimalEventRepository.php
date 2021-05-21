@@ -17,8 +17,6 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class AnimalEventRepository extends ServiceEntityRepository
 {
-    const ITEMS_PER_PAGE = 30;
-
     /**
      * AnimalEventRepository constructor.
      * @param ManagerRegistry $registry
@@ -52,6 +50,11 @@ class AnimalEventRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return int
+     * @throws NoResultException
+     * @throws NonUniqueResultException
+     */
     public function countAllMilkingEvents(): int
     {
         $queryBuilder = $this->createQueryBuilder('a');
@@ -118,25 +121,6 @@ class AnimalEventRepository extends ServiceEntityRepository
             ->setParameter('id', $milkingEvent->getLactationId())
             ->getQuery()
             ->getSingleResult()
-        ;
-    }
-
-    /**
-     * @param int $animalId
-     * @return AnimalEvent|null
-     * @throws NonUniqueResultException
-     */
-    public function findLastCalvingEventForAnimal(int $animalId): ?AnimalEvent
-    {
-        $queryBuilder = $this->createQueryBuilder('a');
-
-        return $this->addCalvingEventQueryBuilder($queryBuilder)
-            ->andWhere('a.animal = :animalId')
-            ->setParameter('animalId', $animalId)
-            ->orderBy('a.eventDate', 'DESC')
-            ->getQuery()
-            ->setMaxResults(1)
-            ->getOneOrNullResult()
         ;
     }
 }

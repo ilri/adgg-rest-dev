@@ -10,7 +10,6 @@ trait CreatedTrait
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
-     * @ORM\Version
      */
     protected $createdAt;
 

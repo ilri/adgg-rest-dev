@@ -71,13 +71,13 @@ class AnimalEventTest extends AuthApiTestCase
 
         $response = $this->client->request(
             'PUT',
-            '/api/animal_events/1',
+            '/api/animal_events/2',
             [
                 'auth_bearer' => $this->token,
                 'json' => [
                     'animal' => '/api/animals/1',
                     'eventType' => 2, // milking
-                    'countryId' => 1,
+                    'countryId' => 2,
                     'eventDate' => '2020-02-03',
                     'additionalAttributes' => [
                         59 => '5',
@@ -111,7 +111,7 @@ class AnimalEventTest extends AuthApiTestCase
 
         $response = $this->client->request(
             'PATCH',
-            '/api/animal_events/1',
+            '/api/animal_events/11',
             [
                 'auth_bearer' => $this->token,
                 'headers' => [

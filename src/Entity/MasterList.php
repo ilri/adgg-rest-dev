@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
+use App\Repository\MasterListRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreMasterList
+ * MasterList
  *
  * @ORM\Table(name="core_master_list", indexes={@ORM\Index(name="list_type_id", columns={"list_type_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=MasterListRepository::class)
  */
-class CoreMasterList
+class MasterList
 {
     /**
      * @var int
@@ -93,9 +93,9 @@ class CoreMasterList
     private $deletedBy;
 
     /**
-     * @var \CoreMasterListType
+     * @var MasterListType
      *
-     * @ORM\ManyToOne(targetEntity="CoreMasterListType")
+     * @ORM\ManyToOne(targetEntity="MasterListType")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="list_type_id", referencedColumnName="id")
      * })
@@ -227,12 +227,12 @@ class CoreMasterList
         return $this;
     }
 
-    public function getListType(): ?CoreMasterListType
+    public function getListType(): ?MasterListType
     {
         return $this->listType;
     }
 
-    public function setListType(?CoreMasterListType $listType): self
+    public function setListType(?MasterListType $listType): self
     {
         $this->listType = $listType;
 

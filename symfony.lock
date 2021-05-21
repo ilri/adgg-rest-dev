@@ -134,6 +134,9 @@
     "lcobucci/jwt": {
         "version": "4.1.0"
     },
+    "league/csv": {
+        "version": "9.7.1"
+    },
     "lexik/jwt-authentication-bundle": {
         "version": "2.5",
         "recipe": {

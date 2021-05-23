@@ -34,96 +34,176 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ApiResource(
  *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
+ *         "get": {
+ *             "method": "GET",
+ *             "normalization_context": {
+ *                 "groups": {
  *                      "animalevent:collection:get"
  *                 }
- *             }
- *         },
- *         "post"={
- *             "method"="POST",
- *             "openapi_context"={
- *                  "description"="<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animalevent:collection:post"
- *                 }
- *             }
- *         },
- *         "custom_events"={
- *             "method"="GET",
- *             "path"="/animal_events/{event_type}",
- *             "requirements"={
- *                "event_type"="^[A-z]+\_events$",
  *             },
- *             "openapi_context"={
- *                 "summary"="Retrieves a sub-collection of AnimalEvent resources by event type.",
- *                 "description"="Retrieves a sub-collection of AnimalEvent resources by event type.",
+ *             "openapi_context": {
  *                 "parameters": {
  *                     {
- *                         "name"="event_type",
- *                         "in"="path",
- *                         "required"=true,
- *                         "schema"={
- *                             "type"="string",
- *                             "enum"={
-*                                      "ai_events", "calving_events", "certification_events", "exits_events",
- *                                     "hair_sampling_events", "health_events", "hoof_health_events", "hoof_treatment_events",
- *                                     "injury_events", "milking_events", "parasite_infection_events",
- *                                     "pregnancy_diagnosis_events", "synchronization_events", "vaccination_events",
- *                                     "weights_events"
+ *                         "name": "animal",
+ *                         "in": "query",
+ *                         "description": "The API path to a given animal resource<br><br> *For example: /api/animals/104359*",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                            "type": "string",
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "animal[]",
+ *                         "in": "query",
+ *                         "description": "The API paths to animal resources",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "array",
+ *                             "items": {
+ *                                 "type": "string"
+ *                             }
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "eventDate[before]",
+ *                         "in": "query",
+ *                         "description": "Returns the animal event resoures occuring **before** or **on** a given event date<br><br>*For example: 2020-01-01*",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "string"
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "eventDate[strictly_before]",
+ *                         "in": "query",
+ *                         "description": "Returns the animal event resoures occuring strictly **before** (not including) a given event date",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "string"
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "eventDate[after]",
+ *                         "in": "query",
+ *                         "description": "Returns the animal event resoures occuring **after** or **on** a given event date",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "string"
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "eventDate[strictly_after]",
+ *                         "in": "query",
+ *                         "description": "Returns the animal event resoures occuring strictly **after** (not including) a given event date",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "string"
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "properties[]",
+ *                         "in": "query",
+ *                         "description": "Returns only selected properties of animal event resources<br><br>*For example: eventType*",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "array",
+ *                             "items": {
+ *                                 "type": "string"
+ *                             }
+ *                         },
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         "post": {
+ *             "method": "POST",
+ *             "denormalization_context": {
+ *                 "groups": {
+ *                     "animalevent:collection:post"
+ *                 }
+ *             },
+ *             "openapi_context": {
+ *                 "description": "<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
+</p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+<p>All other properties are **optional**.</p>",
+ *             },
+ *         },
+ *         "custom_events": {
+ *             "method": "GET",
+ *             "path": "/animal_events/{event_type}",
+ *             "requirements": {
+ *                 "event_type": "^[A-z]+\_events$",
+ *             },
+ *             "normalization_context": {
+ *                 "groups": {
+ *                     "animalevent:collection:get"
+ *                 }
+ *             },
+ *             "openapi_context": {
+ *                 "summary": "Retrieves a sub-collection of AnimalEvent resources by event type.",
+ *                 "description": "Retrieves a sub-collection of AnimalEvent resources by event type.",
+ *                 "parameters": {
+ *                     {
+ *                         "name": "event_type",
+ *                         "in": "path",
+ *                         "description": "The event type that animal events are filtered by.",
+ *                         "required": true,
+ *                         "schema": {
+ *                             "type": "string",
+ *                             "enum": {
+ *                                 "ai_events", "calving_events", "certification_events", "exits_events",
+ *                                 "hair_sampling_events", "health_events", "hoof_health_events", "hoof_treatment_events",
+ *                                 "injury_events", "milking_events", "parasite_infection_events",
+ *                                 "pregnancy_diagnosis_events", "synchronization_events", "vaccination_events",
+ *                                 "weights_events"
  *                             },
  *                         },
- *                         "description"= "The event type that animal events are filtered by.",
  *                     },
  *                 }
  *             },
- *             "normalization_context"={
- *                 "groups"={
- *                     "animalevent:collection:get"
- *                 }
- *             }
  *         },
  *     },
- *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "animalevent:item:get"
+ *     itemOperations= {
+ *         "get": {
+ *             "method": "GET",
+ *             "normalization_context": {
+ *                 "groups": {
+ *                     "animalevent:item:get"
  *                 }
  *             }
  *         },
- *         "put"={
- *             "method"="PUT",
- *             "openapi_context"={
- *                  "description"="<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animalevent:item:put"
+ *         "put": {
+ *             "method": "PUT",
+ *             "denormalization_context": {
+ *                 "groups": {
+ *                     "animalevent:item:put"
  *                 }
- *             }
+ *             },
+ *             "openapi_context": {
+ *                 "description": "<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+</p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+<p>All other properties are **optional**.</p>",
+ *              },
  *         },
- *         "patch"={
- *             "method"="PATCH",
- *             "openapi_context"={
- *                  "description"="<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animalevent:item:patch"
+ *         "patch": {
+ *             "method": "PATCH",
+ *             "denormalization_context": {
+ *                 "groups": {
+ *                     "animalevent:item:patch"
  *                 }
- *             }
+ *             },
+ *             "openapi_context": {
+ *                 "description": "<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+</p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+<p>All other properties are **optional**.</p>",
+ *             },
  *         }
  *     }
  * )

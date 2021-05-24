@@ -109,4 +109,3 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
         return $attr ? $attr->getAttributeLabel(): null;
     }
 }
-

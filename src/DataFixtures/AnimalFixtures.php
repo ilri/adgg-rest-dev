@@ -14,7 +14,7 @@ class AnimalFixtures extends Fixture implements FixtureGroupInterface
     /**
      * @inheritDoc
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         foreach (range(1, 10) as $value) {
             $animal = new Animal();
@@ -26,6 +26,9 @@ class AnimalFixtures extends Fixture implements FixtureGroupInterface
             // country 3 has 2 animals
             $animal->setCountryId($value % 4 ?: 1);
             $animal->setUuid(uniqid());
+            $animal->setAdditionalAttributes([
+               '1' => 'test value',
+            ]);
             $manager->persist($animal);
             $this->addReference(sprintf('animal_%s', $value), $animal);
         }

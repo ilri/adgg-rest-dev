@@ -51,6 +51,12 @@ class AnimalTest extends AuthApiTestCase
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
         $this->assertArrayHasKey('countryId', $json);
+        $this->assertSame(
+            [
+                'Test' => 'test value',
+            ],
+            $json['additionalAttributes']
+        );
     }
 
     public function testPutItem()

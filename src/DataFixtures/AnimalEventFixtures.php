@@ -15,7 +15,7 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
     /**
      * @inheritDoc
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         foreach (range(1, 10) as $value) {
             // create 10 calving events
@@ -73,7 +73,7 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
     /**
      * @inheritDoc
      */
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [
             AnimalFixtures::class,

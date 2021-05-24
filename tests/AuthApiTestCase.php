@@ -11,7 +11,8 @@ use App\DataFixtures\{
     FarmFixtures,
     FarmMetadataFixtures,
     HerdFixtures,
-    UserFixtures,
+    TableAttributeFixtures,
+    UserFixtures
 };
 use App\Entity\User;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTManager;
@@ -61,6 +62,7 @@ class AuthApiTestCase extends ApiTestCase
             AnimalFixtures::class,
             AnimalEventFixtures::class,
             HerdFixtures::class,
+            TableAttributeFixtures::class,
         ])->getReferenceRepository();
 
         $this->jwtManager = self::$container->get('lexik_jwt_authentication.jwt_manager');

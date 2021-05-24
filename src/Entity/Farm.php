@@ -23,59 +23,113 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ApiResource(
  *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
+ *         "get": {
+ *             "method": "GET",
+ *             "normalization_context": {
+ *                 "groups": {
  *                      "farm:collection:get"
  *                 }
+ *             },
+ *             "openapi_context": {
+ *                 "parameters": {
+ *                     {
+ *                         "name": "phone",
+ *                         "in": "query",
+ *                         "description": "Provide a farmer's exact phone number",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "string"
+ *                         },
+ *                         "explode": false,
+ *                     },
+ *                     {
+ *                         "name": "phone[]",
+ *                         "in": "query",
+ *                         "description": "Provide several exact phone numbers",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "array",
+ *                             "items": {
+ *                                 "type": "string"
+ *                             }
+ *                         },
+ *                         "explode": true,
+ *                     },
+ *                     {
+ *                         "name": "id",
+ *                         "in": "query",
+ *                         "description": "The farm ID<br><br>*For example: 1*",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "integer"
+ *                         },
+ *                         "explode": false,
+ *                     },
+ *                     {
+ *                         "name": "id[]",
+ *                         "in": "query",
+ *                         "description": "Provide multiple farm IDs",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "array",
+ *                             "items": {
+ *                                 "type": "integer"
+ *                             }
+ *                         },
+ *                         "explode": true,
+ *                     },
+ *                 },
  *             }
  *         },
- *         "post"={
- *             "method"="POST",
- *             "openapi_context"={
- *                  "description"="<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
+ *         "post": {
+ *             "method": "POST",
+ *             "openapi_context": {
+ *                  "description": "<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
                         </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
                         <p>All other properties are **optional**.</p>",
  *              },
- *             "denormalization_context"={
- *                 "groups"={
+ *             "denormalization_context": {
+ *                 "groups": {
  *                      "farm:collection:post"
  *                 }
  *             }
  *         },
  *     },
  *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
+ *         "get": {
+ *             "method": "GET",
+ *             "normalization_context": {
+ *                 "groups": {
  *                      "farm:item:get"
  *                 }
  *             }
  *         },
- *         "put"={
- *             "method"="PUT",
- *             "openapi_context"={
- *                  "description"="<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+ *         "put": {
+ *             "method": "PUT",
+ *             "openapi_context": {
+ *                  "description": "<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
                         </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
                         <p>All other properties are **optional**.</p>",
  *              },
- *             "denormalization_context"={
- *                 "groups"={
+ *             "denormalization_context": {
+ *                 "groups": {
  *                      "farm:item:put"
  *                 }
  *             }
  *         },
- *         "patch"={
- *             "method"="PATCH",
- *             "openapi_context"={
- *                  "description"="<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+ *         "patch": {
+ *             "method": "PATCH",
+ *             "openapi_context": {
+ *                  "description": "<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
                         </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
                         <p>All other properties are **optional**.</p>",
  *              },
- *             "denormalization_context"={
- *                 "groups"={
+ *             "denormalization_context": {
+ *                 "groups": {
  *                      "farm:item:patch"
  *                 }
  *             }

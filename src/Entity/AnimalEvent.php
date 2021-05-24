@@ -46,7 +46,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                     {
  *                         "name": "animal",
  *                         "in": "query",
- *                         "description": "The API path to a given animal resource<br><br> *For example: /api/animals/104359*",
+ *                         "description": "The path to a given animal resource<br><br> *For example: /api/animals/104359*",
  *                         "required": false,
  *                         "allowEmptyValue": true,
  *                         "schema": {
@@ -56,7 +56,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                     {
  *                         "name": "animal[]",
  *                         "in": "query",
- *                         "description": "The API paths to animal resources",
+ *                         "description": "Select multiple animal resource paths",
  *                         "required": false,
  *                         "allowEmptyValue": true,
  *                         "schema": {
@@ -65,6 +65,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                                 "type": "string"
  *                             }
  *                         },
+ *                         "explode": true,
  *                     },
  *                     {
  *                         "name": "eventDate[before]",
@@ -118,6 +119,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                                 "type": "string"
  *                             }
  *                         },
+ *                         "explode": true,
  *                     },
  *                 },
  *             },
@@ -188,6 +190,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                                 "type": "string"
  *                             }
  *                         },
+ *                         "explode": true,
  *                     },
  *                     {
  *                         "name": "eventDate[before]",
@@ -241,6 +244,7 @@ use Doctrine\ORM\Mapping as ORM;
  *                                 "type": "string"
  *                             }
  *                         },
+ *                         "explode": true,
  *                     },
  *                 }
  *             },

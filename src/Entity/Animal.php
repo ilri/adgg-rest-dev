@@ -30,62 +30,114 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ApiResource(
  *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "animal:collection:get"
+ *         "get": {
+ *             "method": "GET",
+ *             "normalization_context": {
+ *                 "groups": {
+ *                     "animal:collection:get"
  *                 }
- *             }
+ *             },
+ *             "openapi_context": {
+ *                 "parameters": {
+ *                     {
+ *                         "name": "tagId",
+ *                         "in": "query",
+ *                         "description": "The animal's tag ID<br><br>*For example: T19000001*",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "string"
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "tagId[]",
+ *                         "in": "query",
+ *                         "description": "Select multiple tag IDs",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "array",
+ *                             "items": {
+ *                                 "type": "string"
+ *                             }
+ *                         },
+ *                         "explode": true,
+ *                     },
+ *                     {
+ *                         "name": "animalType",
+ *                         "in": "query",
+ *                         "description": "The type of a given animal<br><br>*For example: 1*",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "integer"
+ *                         },
+ *                     },
+ *                     {
+ *                         "name": "animalType[]",
+ *                         "in": "query",
+ *                         "description": "Select multiple animal types",
+ *                         "required": false,
+ *                         "allowEmptyValue": true,
+ *                         "schema": {
+ *                             "type": "array",
+ *                             "items": {
+ *                                 "type": "integer"
+ *                             }
+ *                         },
+ *                         "explode": true,
+ *                     },
+ *                 },
+ *             },
  *         },
- *         "post"={
- *             "method"="POST",
- *             "openapi_context"={
- *                  "description"="<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
+ *         "post": {
+ *             "method": "POST",
+ *             "denormalization_context": {
+ *                 "groups": {
+ *                     "animal:collection:post"
+ *                 }
+ *             },
+ *             "openapi_context": {
+ *                 "description": "<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
 </p>`countryId`<p>`tagId`</p>
 <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animal:collection:post"
- *                 }
- *             }
+ *             },
  *         },
  *     },
  *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "animal:item:get"
+ *         "get": {
+ *             "method": "GET",
+ *             "normalization_context": {
+ *                 "groups": {
+ *                     "animal:item:get"
  *                 }
  *             }
  *         },
- *         "put"={
- *             "method"="PUT",
- *             "openapi_context"={
- *                  "description"="<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+ *         "put": {
+ *             "method": "PUT",
+ *             "denormalization_context": {
+ *                 "groups": {
+ *                     "animal:item:put"
+ *                 }
+ *             },
+ *             "openapi_context": {
+ *                 "description": "<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
 </p>`countryId`<p>`tagId`</p>
 <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animal:item:put"
- *                 }
- *             }
+ *             },
  *         },
- *         "patch"={
- *             "method"="PATCH",
- *             "openapi_context"={
- *                  "description"="<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+ *         "patch": {
+ *             "method": "PATCH",
+ *             "denormalization_context": {
+ *                 "groups": {
+ *                     "animal:item:patch"
+ *                 }
+ *             },
+ *             "openapi_context": {
+ *                 "description": "<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
 </p>`countryId`<p>`tagId`</p>
 <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animal:item:patch"
- *                 }
- *             }
+ *             },
  *         }
  *     }
  * )

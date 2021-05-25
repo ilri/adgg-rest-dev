@@ -37,6 +37,10 @@ services:
         decorates: 'api_platform.openapi.factory'
         autoconfigure: false
 
+    App\OpenApi\ParameterDecorator:
+        decorates: 'api_platform.openapi.factory'
+        autoconfigure: false
+
     App\EventListener\MilkingEventListener:
         tags:
             name: 'doctrine.orm.entity_listener'

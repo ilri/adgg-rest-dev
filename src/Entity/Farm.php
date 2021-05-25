@@ -37,7 +37,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Provide a farmer's exact phone number",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "string"
  *                         },
@@ -48,7 +47,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Provide several exact phone numbers",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "array",
  *                             "items": {
@@ -62,7 +60,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "The farm ID<br><br>*For example: 1*",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "integer"
  *                         },
@@ -73,7 +70,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Provide multiple farm IDs",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "array",
  *                             "items": {

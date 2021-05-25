@@ -42,9 +42,8 @@ use Doctrine\ORM\Mapping as ORM;
  *                     {
  *                         "name": "tagId",
  *                         "in": "query",
- *                         "description": "The animal's tag ID<br><br>*For example: T19000001*",
+ *                         "description": "The animal's tag ID<br><br>*Example value: T19000001*",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "string"
  *                         },
@@ -54,7 +53,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Select multiple tag IDs",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "array",
  *                             "items": {
@@ -66,9 +64,8 @@ use Doctrine\ORM\Mapping as ORM;
  *                     {
  *                         "name": "animalType",
  *                         "in": "query",
- *                         "description": "The type of a given animal<br><br>*For example: 1*",
+ *                         "description": "The type of a given animal<br><br>*Example value: 1*",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "integer"
  *                         },
@@ -78,7 +75,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Select multiple animal types",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "array",
  *                             "items": {

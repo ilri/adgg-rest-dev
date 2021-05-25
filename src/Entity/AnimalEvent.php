@@ -48,7 +48,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "The path to a given animal resource<br><br> *For example: /api/animals/104359*",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                            "type": "string",
  *                         },
@@ -58,7 +57,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Select multiple animal resource paths",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "array",
  *                             "items": {
@@ -72,7 +70,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Returns the animal event resoures occuring **before** or **on** a given event date<br><br>*For example: 2020-01-01*",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "string"
  *                         },
@@ -82,7 +79,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Returns the animal event resoures occuring strictly **before** (not including) a given event date",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "string"
  *                         },
@@ -92,7 +88,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Returns the animal event resoures occuring **after** or **on** a given event date",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "string"
  *                         },
@@ -102,7 +97,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                         "in": "query",
  *                         "description": "Returns the animal event resoures occuring strictly **after** (not including) a given event date",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "string"
  *                         },
@@ -110,9 +104,8 @@ use Doctrine\ORM\Mapping as ORM;
  *                     {
  *                         "name": "properties[]",
  *                         "in": "query",
- *                         "description": "Returns only selected properties of animal event resources<br><br>*For example: eventType*",
+ *                         "description": "Returns only selected fields of animal event resources<br><br>*For example: eventType*",
  *                         "required": false,
- *                         "allowEmptyValue": true,
  *                         "schema": {
  *                             "type": "array",
  *                             "items": {

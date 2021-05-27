@@ -2,11 +2,16 @@
 
 namespace App\EventListener;
 
-use App\Entity\AnimalEvent;
-use App\Entity\MilkYieldRecord;
+use App\Entity\{
+    AnimalEvent,
+    MilkYieldRecord
+};
 use App\Repository\AnimalEventRepository;
 use Carbon\Carbon;
-use Doctrine\ORM\{Mapping as ORM, NonUniqueResultException, NoResultException};
+use Doctrine\ORM\{
+    Mapping as ORM,
+    NonUniqueResultException
+};
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 
 class MilkingEventListener
@@ -31,11 +36,11 @@ class MilkingEventListener
      * @param AnimalEvent $milkingEvent
      * @param LifecycleEventArgs $event
      * @return void
-     * @throws NoResultException
      * @throws NonUniqueResultException
      */
     public function postLoad(AnimalEvent $milkingEvent, LifecycleEventArgs $event): void
     {
+        dump($event);
         if ($milkingEvent->getEventType() !== AnimalEvent::EVENT_TYPE_MILKING) {
             $milkingEvent->setMilkYieldRecord(null);
             return;
@@ -68,7 +73,6 @@ class MilkingEventListener
     /**
      * @param int $id
      * @return int
-     * @throws NoResultException
      * @throws NonUniqueResultException
      */
     private function getDIMForMilkingEvent(int $id): ?int
@@ -85,7 +89,6 @@ class MilkingEventListener
     /**
      * @param int $id
      * @return array
-     * @throws NoResultException
      * @throws NonUniqueResultException
      */
     private function getEMYForMilkingEvent(int $id): array

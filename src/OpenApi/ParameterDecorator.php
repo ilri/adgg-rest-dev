@@ -1,4 +1,5 @@
 <?php
+
 namespace App\OpenApi;
 
 use ApiPlatform\Core\OpenApi\Factory\OpenApiFactoryInterface;

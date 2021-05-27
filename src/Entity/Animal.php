@@ -95,8 +95,8 @@ use Doctrine\ORM\Mapping as ORM;
  *             },
  *             "openapi_context": {
  *                 "description": "<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
-</p>`countryId`<p>`tagId`</p>
-<p>All other properties are **optional**.</p>",
+                    </p>`countryId`<p>`tagId`</p>
+                    <p>All other properties are **optional**.</p>",
  *             },
  *         },
  *     },
@@ -118,8 +118,8 @@ use Doctrine\ORM\Mapping as ORM;
  *             },
  *             "openapi_context": {
  *                 "description": "<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-</p>`countryId`<p>`tagId`</p>
-<p>All other properties are **optional**.</p>",
+                    </p>`countryId`<p>`tagId`</p>
+                    <p>All other properties are **optional**.</p>",
  *             },
  *         },
  *         "patch": {
@@ -131,8 +131,8 @@ use Doctrine\ORM\Mapping as ORM;
  *             },
  *             "openapi_context": {
  *                 "description": "<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-</p>`countryId`<p>`tagId`</p>
-<p>All other properties are **optional**.</p>",
+                    </p>`countryId`<p>`tagId`</p>
+                    <p>All other properties are **optional**.</p>",
  *             },
  *         }
  *     }

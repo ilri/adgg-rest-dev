@@ -126,8 +126,8 @@ use Doctrine\ORM\Mapping as ORM;
  *             },
  *             "openapi_context": {
  *                 "description": "<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
-</p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-<p>All other properties are **optional**.</p>",
+                    </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+                    <p>All other properties are **optional**.</p>",
  *             },
  *         },
  *         "custom_events": {

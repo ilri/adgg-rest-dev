@@ -1,0 +1,3 @@
+.swagger-ui .parameters-col_description > input::placeholder {
+    opacity: 0;
+}

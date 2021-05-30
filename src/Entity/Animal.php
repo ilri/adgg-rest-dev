@@ -2,9 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Entity\Traits\{
     AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
@@ -15,7 +12,6 @@ use App\Entity\Traits\{
     OrganisationTrait,
     UpdatedTrait
 };
-use App\Filter\CountryISOCodeFilter;
 use App\Repository\AnimalRepository;
 use Carbon\Carbon;
 use Doctrine\Common\Collections\{
@@ -28,125 +24,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Animal
  *
- * @ApiResource(
- *     collectionOperations={
- *         "get": {
- *             "method": "GET",
- *             "normalization_context": {
- *                 "groups": {
- *                     "animal:collection:get"
- *                 }
- *             },
- *             "openapi_context": {
- *                 "parameters": {
- *                     {
- *                         "name": "tagId",
- *                         "in": "query",
- *                         "description": "The animal's tag ID<br><br>*Example value: T19000001*",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "string"
- *                         },
- *                     },
- *                     {
- *                         "name": "tagId[]",
- *                         "in": "query",
- *                         "description": "Select multiple tag IDs",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "array",
- *                             "items": {
- *                                 "type": "string"
- *                             }
- *                         },
- *                         "explode": true,
- *                     },
- *                     {
- *                         "name": "animalType",
- *                         "in": "query",
- *                         "description": "The type of a given animal<br><br>*Example value: 1*",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "integer"
- *                         },
- *                     },
- *                     {
- *                         "name": "animalType[]",
- *                         "in": "query",
- *                         "description": "Select multiple animal types",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "array",
- *                             "items": {
- *                                 "type": "integer"
- *                             }
- *                         },
- *                         "explode": true,
- *                     },
- *                 },
- *             },
- *         },
- *         "post": {
- *             "method": "POST",
- *             "denormalization_context": {
- *                 "groups": {
- *                     "animal:collection:post"
- *                 }
- *             },
- *             "openapi_context": {
- *                 "description": "<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
-                    </p>`countryId`<p>`tagId`</p>
-                    <p>All other properties are **optional**.</p>",
- *             },
- *         },
- *     },
- *     itemOperations={
- *         "get": {
- *             "method": "GET",
- *             "normalization_context": {
- *                 "groups": {
- *                     "animal:item:get"
- *                 }
- *             }
- *         },
- *         "put": {
- *             "method": "PUT",
- *             "denormalization_context": {
- *                 "groups": {
- *                     "animal:item:put"
- *                 }
- *             },
- *             "openapi_context": {
- *                 "description": "<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                    </p>`countryId`<p>`tagId`</p>
-                    <p>All other properties are **optional**.</p>",
- *             },
- *         },
- *         "patch": {
- *             "method": "PATCH",
- *             "denormalization_context": {
- *                 "groups": {
- *                     "animal:item:patch"
- *                 }
- *             },
- *             "openapi_context": {
- *                 "description": "<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                    </p>`countryId`<p>`tagId`</p>
-                    <p>All other properties are **optional**.</p>",
- *             },
- *         }
- *     }
- * )
- * @ApiFilter(
- *     SearchFilter::class,
- *     properties={
- *         "tagId": "exact",
- *         "animalType": "exact"
- *     }
- * )
- * @ApiFilter(
- *     CountryISOCodeFilter::class
- * )
  * @ORM\Table(name="core_animal", indexes={@ORM\Index(name="animal_type", columns={"animal_type"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="dam_id", columns={"dam_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="reg_date", columns={"reg_date"}), @ORM\Index(name="sire_id", columns={"sire_id"}), @ORM\Index(name="tag_id", columns={"tag_id"})})
  * @ORM\Entity(repositoryClass=AnimalRepository::class)
  * @ORM\HasLifecycleCallbacks()

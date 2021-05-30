@@ -1,0 +1,30 @@
+App\Entity\FarmMetadata:
+  collectionOperations:
+    get:
+      method: get
+      path: /farm_metadata
+    post:
+      method: post
+      path: /farm_metadata
+      openapi_context:
+        description:
+          '<h3>Creates a FarmMetadata resource</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`countryId`<p>`farm`</p>`type`<p>All other properties are **optional**.</p>'
+  itemOperations:
+    get:
+      method: get
+      path: /farm_metadata/{id}
+    put:
+      method: put
+      path: /farm_metadata/{id}
+      openapi_context:
+        description:
+          '<h3>Replaces the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`countryId`<p>`farm`</p>`type`<p>All other properties are **optional**.</p>'
+    patch:
+      method: patch
+      path: /farm_metadata/{id}
+      openapi_context:
+        description:
+          '<h3>Updates the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`type`<p>All other properties are **optional**.</p>'

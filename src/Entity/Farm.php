@@ -2,9 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Entity\Traits\{
     AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
@@ -15,133 +12,11 @@ use App\Entity\Traits\{
     OrganisationTrait,
     UpdatedTrait
 };
-use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Farm
  *
- * @ApiResource(
- *     collectionOperations={
- *         "get": {
- *             "method": "GET",
- *             "normalization_context": {
- *                 "groups": {
- *                      "farm:collection:get"
- *                 }
- *             },
- *             "openapi_context": {
- *                 "parameters": {
- *                     {
- *                         "name": "phone",
- *                         "in": "query",
- *                         "description": "Provide a farmer's exact phone number",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "string"
- *                         },
- *                         "explode": false,
- *                     },
- *                     {
- *                         "name": "phone[]",
- *                         "in": "query",
- *                         "description": "Provide several exact phone numbers",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "array",
- *                             "items": {
- *                                 "type": "string"
- *                             }
- *                         },
- *                         "explode": true,
- *                     },
- *                     {
- *                         "name": "id",
- *                         "in": "query",
- *                         "description": "The farm ID<br><br>*For example: 1*",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "integer"
- *                         },
- *                         "explode": false,
- *                     },
- *                     {
- *                         "name": "id[]",
- *                         "in": "query",
- *                         "description": "Provide multiple farm IDs",
- *                         "required": false,
- *                         "schema": {
- *                             "type": "array",
- *                             "items": {
- *                                 "type": "integer"
- *                             }
- *                         },
- *                         "explode": true,
- *                     },
- *                 },
- *             }
- *         },
- *         "post": {
- *             "method": "POST",
- *             "openapi_context": {
- *                  "description": "<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context": {
- *                 "groups": {
- *                      "farm:collection:post"
- *                 }
- *             }
- *         },
- *     },
- *     itemOperations={
- *         "get": {
- *             "method": "GET",
- *             "normalization_context": {
- *                 "groups": {
- *                      "farm:item:get"
- *                 }
- *             }
- *         },
- *         "put": {
- *             "method": "PUT",
- *             "openapi_context": {
- *                  "description": "<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context": {
- *                 "groups": {
- *                      "farm:item:put"
- *                 }
- *             }
- *         },
- *         "patch": {
- *             "method": "PATCH",
- *             "openapi_context": {
- *                  "description": "<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`country`<p>`farmerIsHhHead`</p>`name`<p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context": {
- *                 "groups": {
- *                      "farm:item:patch"
- *                 }
- *             }
- *         }
- *     }
- * )
- * @ApiFilter(
- *     SearchFilter::class,
- *     properties={
- *         "phone": "exact",
- *         "id": "exact"
- *     }
- * )
- * @ApiFilter(
- *     CountryISOCodeFilter::class
- * )
  * @ORM\Table(name="core_farm", indexes={@ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="farm_type", columns={"farm_type"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"}), @ORM\Index(name="IDX_6AF31370F92F3E70", columns={"country_id"})})
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()

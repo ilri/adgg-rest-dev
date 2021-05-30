@@ -1,0 +1,115 @@
+App\Entity\Farm:
+  collectionOperations:
+    get:
+      method: get
+      path: /farms
+      openapi_context:
+        parameters:
+          - name: phone
+            in: query
+            description: 'Provide a farmer''s exact phone number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'phone[]'
+            in: query
+            description: 'Provide several exact phone numbers'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: id
+            in: query
+            description: 'The farm ID<br><br>*For example: 1*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'id[]'
+            in: query
+            description: 'Provide multiple farm IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+          - name: page
+            in: query
+            description: 'The collection page number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+              default: 1
+            style: form
+            explode: false
+            allowReserved: false
+          - name: pagination
+            in: query
+            description: 'Enable or disable pagination'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: boolean
+            style: form
+            explode: false
+            allowReserved: false
+          - name: countryCode
+            in: query
+            description: 'Provide the country ISO 3166-1 alpha-2 code'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+    post:
+      method: post
+      path: /farms
+      openapi_context:
+        description:
+          '<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+  itemOperations:
+    get:
+      method: get
+      path: /farms/{id}
+    put:
+      method: put
+      path: /farms/{id}
+      openapi_context:
+        description:
+          '<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+    patch:
+      method: patch
+      path: /farms/{id}
+      openapi_context:
+        description:
+          '<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`farmerIsHhHead`<p>All other properties are **optional**.</p>'
+

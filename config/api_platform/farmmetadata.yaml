@@ -3,9 +3,13 @@ App\Entity\FarmMetadata:
     get:
       method: get
       path: /farm_metadata
+      normalization_context:
+        groups: [ 'farmmetadata:collection:get' ]
     post:
       method: post
       path: /farm_metadata
+      denormalization_context:
+        groups: [ 'farmmetadata:collection:post' ]
       openapi_context:
         description:
           '<h3>Creates a FarmMetadata resource</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -14,9 +18,13 @@ App\Entity\FarmMetadata:
     get:
       method: get
       path: /farm_metadata/{id}
+      normalization_context:
+        groups: [ 'farmmetadata:item:get' ]
     put:
       method: put
       path: /farm_metadata/{id}
+      denormalization_context:
+        groups: [ 'farmmetadata:item:put' ]
       openapi_context:
         description:
           '<h3>Replaces the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -24,6 +32,8 @@ App\Entity\FarmMetadata:
     patch:
       method: patch
       path: /farm_metadata/{id}
+      denormalization_context:
+        groups: [ 'farmmetadata:item:patch' ]
       openapi_context:
         description:
           '<h3>Updates the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:

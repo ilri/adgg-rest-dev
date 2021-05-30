@@ -3,6 +3,8 @@ App\Entity\Farm:
     get:
       method: get
       path: /farms
+      normalization_context:
+        groups: [ 'farm:collection:get' ]
       openapi_context:
         parameters:
           - name: phone
@@ -90,6 +92,8 @@ App\Entity\Farm:
     post:
       method: post
       path: /farms
+      denormalization_context:
+        groups: [ 'farm:collection:post' ]
       openapi_context:
         description:
           '<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -98,9 +102,13 @@ App\Entity\Farm:
     get:
       method: get
       path: /farms/{id}
+      normalization_context:
+        groups: [ 'farm:item:get' ]
     put:
       method: put
       path: /farms/{id}
+      denormalization_context:
+        groups: [ 'farm:item:put' ]
       openapi_context:
         description:
           '<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -108,6 +116,8 @@ App\Entity\Farm:
     patch:
       method: patch
       path: /farms/{id}
+      denormalization_context:
+        groups: [ 'farm:item:patch' ]
       openapi_context:
         description:
           '<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:

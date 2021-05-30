@@ -3,6 +3,8 @@ App\Entity\AnimalEvent:
     get:
       method: get
       path: /animal_events
+      normalization_context:
+        groups: [ 'animalevent:collection:get' ]
       openapi_context:
         parameters:
           - name: animal
@@ -123,6 +125,10 @@ App\Entity\AnimalEvent:
     custom_events:
       method: get
       path: /animal_events/{event_type}
+      normalization_context:
+        groups: [ 'animalevent:collection:get' ]
+      requirements:
+        event_type: '^[A-z]+\_events$'
       summary: 'Retrieves a sub-collection of AnimalEvent resources by event type.'
       description: 'Retrieves a sub-collection of AnimalEvent resources by event type.'
       openapi_context:
@@ -272,6 +278,8 @@ App\Entity\AnimalEvent:
     post:
       method: post
       path: /animal_events
+      denormalization_context:
+        groups: [ 'animalevent:collection:post' ]
       openapi_context:
         description:
           '<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -280,9 +288,13 @@ App\Entity\AnimalEvent:
     get:
       method: get
       path: /animal_events/{id}
+      normalization_context:
+        groups: [ 'animalevent:item:get' ]
     put:
       method: put
       path: /animal_events/{id}
+      denormalization_context:
+        groups: [ 'animalevent:item:put' ]
       openapi_context:
         description:
           '<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -291,6 +303,8 @@ App\Entity\AnimalEvent:
     patch:
       method: patch
       path: /animal_events/{id}
+      denormalization_context:
+        groups: [ 'animalevent:item:patch' ]
       openapi_context:
         description:
           '<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:

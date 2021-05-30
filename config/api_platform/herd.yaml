@@ -3,9 +3,13 @@ App\Entity\Herd:
     get:
       method: get
       path: /herds
+      normalization_context:
+        groups: [ 'herd:collection:get' ]
     post:
       method: post
       path: /herds
+      denormalization_context:
+        groups: [ 'herd:collection:post' ]
       openapi_context:
         description:
           '<h3>Creates a Herd resource</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -14,9 +18,13 @@ App\Entity\Herd:
     get:
       method: get
       path: /herds/{id}
+      normalization_context:
+        groups: [ 'herd:item:get' ]
     put:
       method: put
       path: /herds/{id}
+      denormalization_context:
+        groups: [ 'herd:item:put' ]
       openapi_context:
         description:
           '<h3>Replaces the Herd resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
@@ -24,6 +32,8 @@ App\Entity\Herd:
     patch:
       method: patch
       path: /herds/{id}
+      denormalization_context:
+        groups: [ 'herd:item:patch' ]
       openapi_context:
         description:
           '<h3>Updates the Herd resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:

@@ -40,7 +40,6 @@ class MilkingEventListener
      */
     public function postLoad(AnimalEvent $milkingEvent, LifecycleEventArgs $event): void
     {
-        dump($event);
         if ($milkingEvent->getEventType() !== AnimalEvent::EVENT_TYPE_MILKING) {
             $milkingEvent->setMilkYieldRecord(null);
             return;

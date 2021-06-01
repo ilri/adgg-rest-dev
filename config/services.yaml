@@ -52,3 +52,34 @@ services:
             name: 'doctrine.orm.entity_listener'
             event: 'prePersist'
             entity: 'App\Entity\AnimalEvent'
+
+    #API Platform Filters
+    animal.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'tagId': 'exact', 'animalType': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'animal.search_filter' } ]
+
+    animalevent.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'animal': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'animalevent.search_filter' } ]
+
+    farm.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'phone': 'exact', 'id': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'farm.search_filter' } ]
+
+    animalevent.date_filter:
+        parent: 'api_platform.doctrine.orm.date_filter'
+        arguments: [ { eventDate: ~ } ]
+        tags: [ { name: 'api_platform.filter', id: 'animalevent.date_filter' } ]
+
+    property_filter:
+        parent: 'api_platform.serializer.property_filter'
+        tags: [ { name: 'api_platform.filter', id: 'property_filter' } ]
+
+    country_isocode_filter:
+        class: 'App\Filter\CountryISOCodeFilter'
+        tags: [ { name: 'api_platform.filter', id: 'country_isocode_filter' } ]
+
+

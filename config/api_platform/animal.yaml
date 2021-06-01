@@ -3,6 +3,7 @@ App\Entity\Animal:
     get:
       method: get
       path: /animals
+      filters: ['animal.search_filter', 'country_isocode_filter', 'property_filter']
       normalization_context:
         groups: ['animal:collection:get']
       openapi_context:

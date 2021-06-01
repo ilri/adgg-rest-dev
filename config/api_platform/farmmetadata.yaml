@@ -3,6 +3,7 @@ App\Entity\FarmMetadata:
     get:
       method: get
       path: /farm_metadata
+      filters: [ 'country_isocode_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'farmmetadata:collection:get' ]
     post:

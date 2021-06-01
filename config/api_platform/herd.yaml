@@ -3,6 +3,7 @@ App\Entity\Herd:
     get:
       method: get
       path: /herds
+      filters: [ 'country_isocode_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'herd:collection:get' ]
     post:

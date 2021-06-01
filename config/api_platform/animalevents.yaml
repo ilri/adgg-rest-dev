@@ -3,6 +3,7 @@ App\Entity\AnimalEvent:
     get:
       method: get
       path: /animal_events
+      filters: ['animalevent.search_filter', 'animalevent.date_filter', 'country_isocode_filter', 'property_filter']
       normalization_context:
         groups: [ 'animalevent:collection:get' ]
       openapi_context:

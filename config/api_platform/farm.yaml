@@ -3,6 +3,7 @@ App\Entity\Farm:
     get:
       method: get
       path: /farms
+      filters: [ 'farm.search_filter', 'country_isocode_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'farm:collection:get' ]
       openapi_context:

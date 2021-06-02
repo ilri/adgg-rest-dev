@@ -2,7 +2,6 @@
 
 namespace App\Command;
 
-use Doctrine\Persistence\ObjectRepository;
 use App\Entity\{
     MasterList,
     MasterListType,

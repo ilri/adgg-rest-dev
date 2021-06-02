@@ -58,9 +58,9 @@ class AuthPermission
     private $canExecute = true;
 
     /**
-     * @var \AuthRoles
+     * @var UserRole
      *
-     * @ORM\ManyToOne(targetEntity="AuthRoles")
+     * @ORM\ManyToOne(targetEntity="UserRole")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="role_id", referencedColumnName="id")
      * })
@@ -142,12 +142,12 @@ class AuthPermission
         return $this;
     }
 
-    public function getRole(): ?AuthRoles
+    public function getRole(): ?UserRole
     {
         return $this->role;
     }
 
-    public function setRole(?AuthRoles $role): self
+    public function setRole(?UserRole $role): self
     {
         $this->role = $role;
 

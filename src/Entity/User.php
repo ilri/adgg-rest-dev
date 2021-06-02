@@ -265,9 +265,9 @@ class User implements UserInterface
     private $level;
 
     /**
-     * @var AuthRoles
+     * @var UserRole
      *
-     * @ORM\ManyToOne(targetEntity="AuthRoles")
+     * @ORM\ManyToOne(targetEntity="UserRole")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="role_id", referencedColumnName="id")
      * })
@@ -705,12 +705,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRole(): ?AuthRoles
+    public function getRole(): ?UserRole
     {
         return $this->role;
     }
 
-    public function setRole(?AuthRoles $role): self
+    public function setRole(?UserRole $role): self
     {
         $this->role = $role;
 
@@ -733,15 +733,24 @@ class User implements UserInterface
     /**
      * @inheritDoc
      */
-    public function getRoles()
+    public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        $apiRoles = ['Partners', 'DEVELOPER', 'SUPER'];
+
+        $roles = [];
+
+        if ($this->role !== null && in_array($this->role->getName(), $apiRoles)) {
+            $roles[] = 'ROLE_API_USER';
+        }
+        $roles[] = 'ROLE_USER';
+
+        return $roles;
     }
 
     /**
      * @inheritDoc
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->passwordHash;
     }

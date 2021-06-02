@@ -1,16 +1,15 @@
 <?php
 
-
 namespace App\DataFixtures;
-
 
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class UserFixtures extends Fixture implements FixtureGroupInterface
+class UserFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
 {
     const PASSWORD = '$3CR3T';
     private $encoder;
@@ -27,14 +26,6 @@ class UserFixtures extends Fixture implements FixtureGroupInterface
     /**
      * @inheritDoc
      */
-    public static function getGroups(): array
-    {
-        return ['test'];
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function load(ObjectManager $manager)
     {
         $user = new User();
@@ -45,10 +36,29 @@ class UserFixtures extends Fixture implements FixtureGroupInterface
         );
         $user->setCreatedAt(new \DateTime());
         $user->setUuid('uuid');
+        $user->setRole($this->getReference('user_role_developer'));
 
         $manager->persist($user);
         $manager->flush();
 
         $this->addReference('test_user', $user);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getDependencies(): array
+    {
+        return [
+            UserRoleFixtures::class,
+        ];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getGroups(): array
+    {
+        return ['test'];
     }
 }

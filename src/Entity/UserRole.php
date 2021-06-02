@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * AuthRoles
+ * UserRole
  *
  * @ORM\Table(name="auth_roles", indexes={@ORM\Index(name="level_id", columns={"level_id"})})
  * @ORM\Entity
  */
-class AuthRoles
+class UserRole
 {
     /**
      * @var int
@@ -72,7 +71,7 @@ class AuthRoles
     private $createdBy;
 
     /**
-     * @var \AuthUserLevels
+     * @var AuthUserLevels
      *
      * @ORM\ManyToOne(targetEntity="AuthUserLevels")
      * @ORM\JoinColumns({

@@ -208,6 +208,7 @@ class StaffRightsCommand extends Command
         foreach ($users as $user) {
             $additionalAttributes = $user->getAdditionalAttributes();
             $activityTypeKeys = $additionalAttributes[self::ACTIVITY_TYPE_ID];
+            $activityTypeKeys = is_string($activityTypeKeys) ? json_decode($activityTypeKeys) : $activityTypeKeys;
             $staffHasRight = $additionalAttributes[self::STAFF_HASRIGHT_ID];
             foreach ($activityTypeKeys as $key) {
                 $entry = [];

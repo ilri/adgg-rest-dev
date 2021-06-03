@@ -9,19 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Country
  *
- * @ApiResource(
- *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *         }
- *     },
- *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *         }
- *     }
- * )
- *
  * @ORM\Table(name="core_country")
  * @ORM\Entity(repositoryClass=CountryRepository::class)
  */

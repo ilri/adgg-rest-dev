@@ -193,4 +193,34 @@ class AnimalEventTest extends AuthApiTestCase
         // we have created 10 exits events in the fixtures
         $this->assertGreaterThanOrEqual(10, $json['hydra:totalItems']);
     }
+
+    public function testPropertyFilter()
+    {
+        //Specifying a property (e.g. eventType) with the PropertyFilter should successfully omit all other properties
+        $response = $this->client->request('GET', '/api/animal_events?properties[]=eventType', ['auth_bearer' => $this->token]);
+        $this->assertResponseIsSuccessful();
+
+        $json = $response->toArray();
+        $this->assertArrayHasKey('eventType', $json['hydra:member'][0]);
+        $this->assertArrayNotHasKey('eventDate', $json['hydra:member'][0]);
+    }
+
+    public function testSearchFilter()
+    {
+        $response = $this->client->request('GET', '/api/animal_events?animal=/api/animals/1', ['auth_bearer' => $this->token]);
+        $this->assertResponseIsSuccessful();
+
+        $json = $response->toArray();
+        $this->assertEquals(4, $json['hydra:totalItems']);
+    }
+
+    public function testDateFilter()
+    {
+        $response = $this->client->request('GET', '/api/animal_events?eventDate[strictly_before]=2021-01-01', ['auth_bearer' => $this->token]);
+        $this->assertResponseIsSuccessful();
+
+        $json = $response->toArray();
+        $this->assertEquals(0, $json['hydra:totalItems']);
+    }
+
 }

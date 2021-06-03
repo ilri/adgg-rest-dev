@@ -11,7 +11,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class CountryFixtures extends Fixture implements FixtureGroupInterface
 {
-    const COUNTRIES = [
+    private const COUNTRIES = [
         [
             'name' => 'Tanzania',
             'code' => 'TZ',

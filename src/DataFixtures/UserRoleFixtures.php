@@ -3,8 +3,10 @@
 namespace App\DataFixtures;
 
 use App\Entity\UserRole;
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
+use Doctrine\Bundle\FixturesBundle\{
+    Fixture,
+    FixtureGroupInterface,
+};
 use Doctrine\Persistence\ObjectManager;
 
 class UserRoleFixtures extends Fixture implements FixtureGroupInterface

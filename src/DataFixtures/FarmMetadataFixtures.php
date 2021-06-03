@@ -29,7 +29,7 @@ class FarmMetadataFixtures extends Fixture implements FixtureGroupInterface, Dep
     /**
      * @inheritDoc
      */
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [
             FarmFixtures::class,

@@ -36,7 +36,7 @@ class FarmFixtures extends Fixture implements FixtureGroupInterface, DependentFi
     /**
      * @inheritDoc
      */
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [
             CountryFixtures::class,

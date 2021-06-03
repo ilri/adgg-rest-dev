@@ -5,7 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\AnimalEvent;
 use Doctrine\Bundle\FixturesBundle\{
     Fixture,
-    FixtureGroupInterface
+    FixtureGroupInterface,
 };
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;

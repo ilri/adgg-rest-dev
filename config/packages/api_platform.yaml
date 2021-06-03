@@ -6,7 +6,7 @@ api_platform:
             pagination:
                 enabled_parameter_name: pagination # optional
     mapping:
-        paths: ['%kernel.project_dir%/src/Entity']
+        paths: ['%kernel.project_dir%/config/api_platform']
     patch_formats:
         json: ['application/merge-patch+json']
     swagger:

@@ -2,15 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\{
-    ApiFilter,
-    ApiResource
-};
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\{
-    DateFilter,
-    SearchFilter
-};
-use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
 use App\Entity\Traits\{
     AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
@@ -25,126 +16,12 @@ use App\EventListener\{
     LactationListener,
     MilkingEventListener
 };
-use App\Filter\CountryISOCodeFilter;
 use App\Repository\AnimalEventRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * AnimalEvent
  *
- * @ApiResource(
- *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "animalevent:collection:get"
- *                 }
- *             }
- *         },
- *         "post"={
- *             "method"="POST",
- *             "openapi_context"={
- *                  "description"="<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animalevent:collection:post"
- *                 }
- *             }
- *         },
- *         "custom_events"={
- *             "method"="GET",
- *             "path"="/animal_events/{event_type}",
- *             "requirements"={
- *                "event_type"="^[A-z]+\_events$",
- *             },
- *             "openapi_context"={
- *                 "summary"="Retrieves a sub-collection of AnimalEvent resources by event type.",
- *                 "description"="Retrieves a sub-collection of AnimalEvent resources by event type.",
- *                 "parameters": {
- *                     {
- *                         "name"="event_type",
- *                         "in"="path",
- *                         "required"=true,
- *                         "schema"={
- *                             "type"="string",
- *                             "enum"={
-*                                      "ai_events", "calving_events", "certification_events", "exits_events",
- *                                     "hair_sampling_events", "health_events", "hoof_health_events", "hoof_treatment_events",
- *                                     "injury_events", "milking_events", "parasite_infection_events",
- *                                     "pregnancy_diagnosis_events", "synchronization_events", "vaccination_events",
- *                                     "weights_events"
- *                             },
- *                         },
- *                         "description"= "The event type that animal events are filtered by.",
- *                     },
- *                 }
- *             },
- *             "normalization_context"={
- *                 "groups"={
- *                     "animalevent:collection:get"
- *                 }
- *             }
- *         },
- *     },
- *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "animalevent:item:get"
- *                 }
- *             }
- *         },
- *         "put"={
- *             "method"="PUT",
- *             "openapi_context"={
- *                  "description"="<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animalevent:item:put"
- *                 }
- *             }
- *         },
- *         "patch"={
- *             "method"="PATCH",
- *             "openapi_context"={
- *                  "description"="<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "animalevent:item:patch"
- *                 }
- *             }
- *         }
- *     }
- * )
- * @ApiFilter(
- *     SearchFilter::class,
- *     properties={
- *         "animal": "exact"
- *     }
- * )
- * @ApiFilter(
- *     DateFilter::class,
- *     properties={
- *         "eventDate"
- *     }
- * )
- * @ApiFilter(
- *     PropertyFilter::class
- * )
- * @ApiFilter(
- *     CountryISOCodeFilter::class
- * )
  * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
  * @ORM\EntityListeners({LactationListener::class, MilkingEventListener::class})
  * @ORM\Entity(repositoryClass=AnimalEventRepository::class)

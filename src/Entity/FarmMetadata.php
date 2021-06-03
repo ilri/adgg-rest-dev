@@ -2,89 +2,17 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Entity\Traits\{
     AdditionalAttributesTrait,
     CountryTrait,
     CreatedTrait,
     ODKIdentifiableTrait
 };
-use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * FarmMetadata
  *
- * @ApiResource(
- *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "path"="/farm_metadata",
- *             "normalization_context"={
- *                 "groups"={
- *                      "farmmetadata:collection:get"
- *                 }
- *             }
- *         },
- *         "post"={
- *             "method"="POST",
- *             "openapi_context"={
- *                  "description"="<h3>Creates a FarmMetadata resource</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`farm`<p>`type`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "path"="/farm_metadata",
- *             "denormalization_context"={
- *                 "groups"={
- *                      "farmmetadata:collection:post"
- *                 }
- *             }
- *         },
- *     },
- *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "path"="/farm_metadata/{id}",
- *             "normalization_context"={
- *                 "groups"={
- *                      "farmmetadata:item:get"
- *                 }
- *             }
- *         },
- *         "put"={
- *             "method"="PUT",
- *             "path"="/farm_metadata/{id}",
- *             "openapi_context"={
- *                  "description"="<h3>Replaces the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`farm`<p>`type`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "farmmetadata:item:put"
- *                 }
- *             }
- *         },
- *         "patch"={
- *             "method"="PATCH",
- *             "path"="/farm_metadata/{id}",
- *             "openapi_context"={
- *                  "description"="<h3>Updates the FarmMetadata resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-                        </p>`farm`<p>`type`</p>
-                        <p>All other properties are **optional**.</p>",
- *              },
- *             "denormalization_context"={
- *                 "groups"={
- *                      "farmmetadata:item:patch"
- *                 }
- *             }
- *         }
- *     }
- * )
- * @ApiFilter(
- *     CountryISOCodeFilter::class
- * )
  * @ORM\Table(name="core_farm_metadata", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="type", columns={"type"})})
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()

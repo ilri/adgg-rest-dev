@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Entity\Traits\{
     AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
@@ -14,61 +12,11 @@ use App\Entity\Traits\{
     OrganisationTrait,
     UpdatedTrait
 };
-use App\Filter\CountryISOCodeFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Herd
  *
- * @ApiResource(
- *     collectionOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "herd:collection:get"
- *                 }
- *             }
- *         },
- *         "post"={
- *             "method"="POST",
- *             "denormalization_context"={
- *                 "groups"={
- *                      "herd:collection:post"
- *                 }
- *             }
- *         },
- *     },
- *     itemOperations={
- *         "get"={
- *             "method"="GET",
- *             "normalization_context"={
- *                 "groups"={
- *                      "herd:item:get"
- *                 }
- *             }
- *         },
- *         "put"={
- *             "method"="PUT",
- *             "denormalization_context"={
- *                 "groups"={
- *                      "herd:item:put"
- *                 }
- *             }
- *         },
- *         "patch"={
- *             "method"="PATCH",
- *             "denormalization_context"={
- *                 "groups"={
- *                      "herd:item:patch"
- *                 }
- *             }
- *         }
- *     }
- * )
- * @ApiFilter(
- *     CountryISOCodeFilter::class
- * )
  * @ORM\Table(name="core_animal_herd", indexes={@ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"country_id"})})
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()

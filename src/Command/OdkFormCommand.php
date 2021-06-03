@@ -8,7 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class OdkFormCommand extends Command
+final class OdkFormCommand extends Command
 {
     /**
      * @var EntityManagerInterface
@@ -47,7 +47,7 @@ class OdkFormCommand extends Command
      * @param OutputInterface $output
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln([
             'Retrieves ODK forms from the database',

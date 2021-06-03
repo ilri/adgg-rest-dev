@@ -23,13 +23,13 @@ use Symfony\Component\Console\Input\{
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class StaffRightsCommand extends Command
+final class StaffRightsCommand extends Command
 {
-    const ACTIVITY_TYPE_ID = '728';
-    const STAFF_HASRIGHT_ID = '730';
-    const DATA_SOURCE = '/src/Data/activities_list.csv';
-    const OUTPUT_DIR = '/public/bundles/app/output/';
-    const OUTPUT_FILE = 'staff_rights.csv';
+    private const ACTIVITY_TYPE_ID = '728';
+    private const STAFF_HASRIGHT_ID = '730';
+    private const DATA_SOURCE = '/src/Data/activities_list.csv';
+    private const OUTPUT_DIR = '/public/bundles/app/output/';
+    private const OUTPUT_FILE = 'staff_rights.csv';
 
     /**
      * @var EntityManagerInterface

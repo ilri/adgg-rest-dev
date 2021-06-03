@@ -24,7 +24,6 @@ use Doctrine\Common\Collections\{
 };
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * Animal
  *

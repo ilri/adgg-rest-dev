@@ -17,6 +17,7 @@ class FarmMetadataFixtures extends Fixture implements FixtureGroupInterface, Dep
         foreach (range(1, 10) as $value) {
             $farmMetadata = new FarmMetadata();
             $farmMetadata->setType(rand(1, 22));
+            /** @noinspection PhpParamsInspection */
             $farmMetadata->setFarm($this->getReference(sprintf('farm_%s', $value)));
             $farmMetadata->setCountryId(rand(1, 3));
             $manager->persist($farmMetadata);

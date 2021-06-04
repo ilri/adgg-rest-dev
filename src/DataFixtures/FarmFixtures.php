@@ -25,6 +25,7 @@ class FarmFixtures extends Fixture implements FixtureGroupInterface, DependentFi
             $farm->setUuid(uniqid());
             $farm->setIsDeleted(false);
             $country = array_rand(CountryFixtures::COUNTRIES);
+            /** @noinspection PhpParamsInspection */
             $farm->setCountry($this->getReference(sprintf('country_%s', CountryFixtures::COUNTRIES[$country]['name'])));
             $manager->persist($farm);
             $this->addReference(sprintf('farm_%s', $value), $farm);

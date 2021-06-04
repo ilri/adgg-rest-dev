@@ -29,14 +29,6 @@ class CountryFixtures extends Fixture implements FixtureGroupInterface
     /**
      * @inheritDoc
      */
-    public static function getGroups(): array
-    {
-        return ['test'];
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function load(ObjectManager $manager)
     {
         foreach (self::COUNTRIES as $value) {
@@ -56,5 +48,13 @@ class CountryFixtures extends Fixture implements FixtureGroupInterface
         }
 
         $manager->flush();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getGroups(): array
+    {
+        return ['test'];
     }
 }

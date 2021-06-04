@@ -3,8 +3,10 @@
 namespace App\DataFixtures;
 
 use App\Entity\TableAttribute;
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
+use Doctrine\Bundle\FixturesBundle\{
+    Fixture,
+    FixtureGroupInterface,
+};
 use Doctrine\Persistence\ObjectManager;
 
 class TableAttributeFixtures extends Fixture implements FixtureGroupInterface

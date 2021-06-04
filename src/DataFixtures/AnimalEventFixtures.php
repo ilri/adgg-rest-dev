@@ -24,6 +24,7 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
             $calvingEvent->setEventDate(new \DateTime());
             $calvingEvent->setCountryId(rand(1, 3));
             $calvingEvent->setUuid(uniqid());
+            /** @noinspection PhpParamsInspection */
             $calvingEvent->setAnimal($this->getReference(sprintf('animal_%s', $value)));
             $manager->persist($calvingEvent);
             $this->addReference(sprintf('calving_event_%s', $value), $calvingEvent);
@@ -37,6 +38,7 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
             $milkingEvent->setLactationId($value * 4 - 3);
             $milkingEvent->setCountryId(rand(1, 3));
             $milkingEvent->setUuid(uniqid());
+            /** @noinspection PhpParamsInspection */
             $milkingEvent->setAnimal($this->getReference(sprintf('animal_%s', $value)));
             $milkingEvent->setAdditionalAttributes([
                 '59' => rand(3, 6),
@@ -52,6 +54,7 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
             $exitsEvent->setEventDate(new \DateTime());
             $exitsEvent->setCountryId(rand(1, 3));
             $exitsEvent->setUuid(uniqid());
+            /** @noinspection PhpParamsInspection */
             $exitsEvent->setAnimal($this->getReference(sprintf('animal_%s', $value)));
             $manager->persist($exitsEvent);
             $this->addReference(sprintf('exits_event_%s', $value), $exitsEvent);
@@ -62,6 +65,7 @@ class AnimalEventFixtures extends Fixture implements FixtureGroupInterface, Depe
             $animalEvent->setEventDate(new \DateTime());
             $animalEvent->setCountryId(rand(1, 3));
             $animalEvent->setUuid(uniqid());
+            /** @noinspection PhpParamsInspection */
             $animalEvent->setAnimal($this->getReference(sprintf('animal_%s', $value)));
             $manager->persist($animalEvent);
             $this->addReference(sprintf('animal_event_%s', $value), $animalEvent);

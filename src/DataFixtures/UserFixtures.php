@@ -38,6 +38,7 @@ class UserFixtures extends Fixture implements FixtureGroupInterface, DependentFi
         );
         $user->setCreatedAt(new \DateTime());
         $user->setUuid('uuid');
+        /** @noinspection PhpParamsInspection */
         $user->setRole($this->getReference('user_role_developer'));
 
         $manager->persist($user);

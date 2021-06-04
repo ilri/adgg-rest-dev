@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -102,7 +101,7 @@ class SysQueue
         return $this;
     }
 
-    public function getJob()
+    public function getJob(): ?string
     {
         return $this->job;
     }
@@ -197,6 +196,4 @@ class SysQueue
 
         return $this;
     }
-
-
 }

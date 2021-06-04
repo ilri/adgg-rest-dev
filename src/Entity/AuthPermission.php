@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -68,7 +67,7 @@ class AuthPermission
     private $role;
 
     /**
-     * @var \AuthResources
+     * @var AuthResources
      *
      * @ORM\ManyToOne(targetEntity="AuthResources")
      * @ORM\JoinColumns({

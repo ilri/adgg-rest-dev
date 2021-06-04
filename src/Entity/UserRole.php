@@ -180,6 +180,4 @@ class UserRole
 
         return $this;
     }
-
-
 }

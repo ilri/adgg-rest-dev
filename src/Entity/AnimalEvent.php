@@ -38,21 +38,21 @@ class AnimalEvent
     use OrganisationTrait;
     use UpdatedTrait;
 
-    const EVENT_TYPE_CALVING = 1;
-    const EVENT_TYPE_MILKING = 2;
-    const EVENT_TYPE_AI = 3;
-    const EVENT_TYPE_PREGNANCY_DIAGNOSIS = 4;
-    const EVENT_TYPE_SYNCHRONIZATION = 5;
-    const EVENT_TYPE_WEIGHTS = 6;
-    const EVENT_TYPE_HEALTH = 7;
-    const EVENT_TYPE_EXITS = 9;
-    const EVENT_TYPE_HAIR_SAMPLING = 10;
-    const EVENT_TYPE_CERTIFICATION = 11;
-    const EVENT_TYPE_VACCINATION = 12;
-    const EVENT_TYPE_PARASITE_INFECTION = 13;
-    const EVENT_TYPE_INJURY = 14;
-    const EVENT_TYPE_HOOF_HEALTH = 15;
-    const EVENT_TYPE_HOOF_TREATMENT = 16;
+    public const EVENT_TYPE_CALVING = 1;
+    public const EVENT_TYPE_MILKING = 2;
+    public const EVENT_TYPE_AI = 3;
+    public const EVENT_TYPE_PREGNANCY_DIAGNOSIS = 4;
+    public const EVENT_TYPE_SYNCHRONIZATION = 5;
+    public const EVENT_TYPE_WEIGHTS = 6;
+    public const EVENT_TYPE_HEALTH = 7;
+    public const EVENT_TYPE_EXITS = 9;
+    public const EVENT_TYPE_HAIR_SAMPLING = 10;
+    public const EVENT_TYPE_CERTIFICATION = 11;
+    public const EVENT_TYPE_VACCINATION = 12;
+    public const EVENT_TYPE_PARASITE_INFECTION = 13;
+    public const EVENT_TYPE_INJURY = 14;
+    public const EVENT_TYPE_HOOF_HEALTH = 15;
+    public const EVENT_TYPE_HOOF_TREATMENT = 16;
 
     /**
      * @var int

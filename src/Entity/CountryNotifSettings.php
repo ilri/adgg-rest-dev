@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -86,7 +85,7 @@ class CountryNotifSettings
     private $createdBy;
 
     /**
-     * @var \CoreCountry
+     * @var Country
      *
      * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
@@ -96,7 +95,7 @@ class CountryNotifSettings
     private $country;
 
     /**
-     * @var \ConfNotifTypes
+     * @var ConfNotifTypes
      *
      * @ORM\ManyToOne(targetEntity="ConfNotifTypes")
      * @ORM\JoinColumns({

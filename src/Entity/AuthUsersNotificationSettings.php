@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -72,7 +71,7 @@ class AuthUsersNotificationSettings
     private $updatedBy;
 
     /**
-     * @var \AuthUsers
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
@@ -82,7 +81,7 @@ class AuthUsersNotificationSettings
     private $user;
 
     /**
-     * @var \ConfNotifTypes
+     * @var ConfNotifTypes
      *
      * @ORM\ManyToOne(targetEntity="ConfNotifTypes")
      * @ORM\JoinColumns({

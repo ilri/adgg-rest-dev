@@ -178,6 +178,4 @@ class MasterListType
 
         return $this;
     }
-
-
 }

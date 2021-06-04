@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -79,7 +78,7 @@ class HelpSections
     private $isActive = true;
 
     /**
-     * @var \HelpModules
+     * @var HelpModules
      *
      * @ORM\ManyToOne(targetEntity="HelpModules")
      * @ORM\JoinColumns({

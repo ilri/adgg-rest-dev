@@ -596,6 +596,7 @@ class Animal
             if ($event->getMilkYieldRecord()) {
                 return $event->getMilkYieldRecord()->getTotalMilkRecord();
             }
+            return null;
         };
         $milkYieldRecords = array_map($func, $milkingEvents->toArray());
         if (count($milkingEvents)) {

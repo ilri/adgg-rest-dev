@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -58,7 +57,7 @@ class ConfNotif
     private $createdAt;
 
     /**
-     * @var \ConfNotifTypes
+     * @var ConfNotifTypes
      *
      * @ORM\ManyToOne(targetEntity="ConfNotifTypes")
      * @ORM\JoinColumns({

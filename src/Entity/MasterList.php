@@ -238,6 +238,4 @@ class MasterList
 
         return $this;
     }
-
-
 }

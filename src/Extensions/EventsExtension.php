@@ -36,7 +36,9 @@ class EventsExtension implements ContextAwareQueryCollectionExtensionInterface
         if (!$this->retrieveConstantValue($pathParameter)) {
             throw new NotFoundHttpException(
                 sprintf(
-                    'Resources for parameter value \'%s\' have not been found. See the API documentation for a full list of available parameters.',
+                    'Resources for parameter value \'%s\' have not been found. '.
+                    'See the API documentation for a full list'.
+                    'of available parameters.',
                     $pathParameter
                 )
             );

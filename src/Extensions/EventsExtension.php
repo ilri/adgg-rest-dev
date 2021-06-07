@@ -36,9 +36,7 @@ class EventsExtension implements ContextAwareQueryCollectionExtensionInterface
         if (!$this->retrieveConstantValue($pathParameter)) {
             throw new NotFoundHttpException(
                 sprintf(
-                    'Resources for parameter value \'%s\' have not been found. 
-                    See the API documentation for a full list of 
-                    available parameters.',
+                    'Resources for parameter value \'%s\' have not been found. See the API documentation for a full list of available parameters.',
                     $pathParameter
                 )
             );
@@ -55,9 +53,9 @@ class EventsExtension implements ContextAwareQueryCollectionExtensionInterface
      * Retrieves the {event_type} path parameter of a given request URI.
      *
      * @param $requestUri
-     * @return mixed
+     * @return string
      */
-    private function retrievePathParameter($requestUri): ?string
+    private function retrievePathParameter($requestUri): string
     {
         preg_match('/animal_events\/(.*?_events)/', $requestUri, $matches);
 
@@ -69,15 +67,15 @@ class EventsExtension implements ContextAwareQueryCollectionExtensionInterface
      * path parameter (e.g. calving_events) and returns its value (e.g. 1).
      *
      * @param $pathParameter
-     * @return mixed
+     * @return string|null
      */
     private function retrieveConstantValue($pathParameter): ?string
     {
         $eventType = preg_replace('/_events/', '', $pathParameter);
         $eventTypeConstant = strtoupper('EVENT_TYPE_'.$eventType);
 
-        if (defined('\App\Entity\AnimalEvent::'.$eventTypeConstant)) {
-            return constant('\App\Entity\AnimalEvent::'.$eventTypeConstant);
-        }
+        return (defined('\App\Entity\AnimalEvent::'.$eventTypeConstant))
+            ? constant('\App\Entity\AnimalEvent::'.$eventTypeConstant)
+            : null;
     }
 }

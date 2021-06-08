@@ -48,6 +48,26 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertArrayHasKey('countryId', $json);
         $this->assertArrayHasKey('eventDate', $json);
         $this->assertArrayHasKey('additionalAttributes', $json);
+        // the same payload should not create a new entry
+        $response = $this->client->request(
+            'POST',
+            '/api/animal_events',
+            [
+                'auth_bearer' => $this->token,
+                'json' => [
+                    'animal' => '/api/animals/1',
+                    'eventType' => 2, // milking
+                    'countryId' => 1,
+                    'eventDate' => '2020-02-03',
+                    'additionalAttributes' => [
+                        59 => '10',
+                        61 => '12',
+                        62 => '10',
+                    ],
+                ]
+            ]
+        );
+        $this->assertResponseStatusCodeSame(422);
     }
 
     public function testGetItem()

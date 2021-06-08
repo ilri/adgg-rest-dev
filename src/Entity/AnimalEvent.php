@@ -18,6 +18,7 @@ use App\EventListener\{
 };
 use App\Repository\AnimalEventRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * AnimalEvent
@@ -26,6 +27,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\EntityListeners({LactationListener::class, MilkingEventListener::class})
  * @ORM\Entity(repositoryClass=AnimalEventRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"eventType", "eventDate", "animal"},
+ *     message="An animal event of this type already exists for the animal on this date."
+ * )
  */
 class AnimalEvent
 {

@@ -11,6 +11,9 @@ use Doctrine\Persistence\ObjectManager;
 
 class UserRoleFixtures extends Fixture implements FixtureGroupInterface
 {
+    /**
+     * @inheritDoc
+     */
     public function load(ObjectManager $manager)
     {
         $userRole = new UserRole();

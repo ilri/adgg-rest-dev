@@ -34,9 +34,9 @@ class AnimalEventTest extends AuthApiTestCase
                     'countryId' => 1,
                     'eventDate' => '2020-02-03',
                     'additionalAttributes' => [
-                        59 => '10',
-                        61 => '12',
-                        62 => '10',
+                        '59' => '10',
+                        '61' => '12',
+                        '68' => '10',
                     ],
                 ]
             ]
@@ -60,9 +60,9 @@ class AnimalEventTest extends AuthApiTestCase
                     'countryId' => 1,
                     'eventDate' => '2020-02-03',
                     'additionalAttributes' => [
-                        59 => '10',
-                        61 => '12',
-                        62 => '10',
+                        '59' => '10',
+                        '61' => '12',
+                        '68' => '10',
                     ],
                 ]
             ]
@@ -100,9 +100,9 @@ class AnimalEventTest extends AuthApiTestCase
                     'countryId' => 2,
                     'eventDate' => '2020-02-03',
                     'additionalAttributes' => [
-                        59 => '5',
-                        61 => '6',
-                        62 => '5',
+                        '59' => '5',
+                        '61' => '6',
+                        '68' => '5',
                     ],
                 ]
             ]
@@ -139,9 +139,9 @@ class AnimalEventTest extends AuthApiTestCase
                 ],
                 'json' => [
                     'additionalAttributes' => [
-                        59 => '8',
-                        61 => '10',
-                        62 => '8',
+                        '59' => '8',
+                        '61' => '10',
+                        '68' => '8',
                     ],
                 ]
             ]

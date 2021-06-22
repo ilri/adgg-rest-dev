@@ -110,9 +110,9 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
-        $this->assertEquals('5', $json['additionalAttributes'][59]);
-        $this->assertEquals('6', $json['additionalAttributes'][61]);
-        $this->assertEquals('5', $json['additionalAttributes'][62]);
+        $this->assertEquals('5', $json['additionalAttributes']['59']);
+        $this->assertEquals('6', $json['additionalAttributes']['61']);
+        $this->assertEquals('5', $json['additionalAttributes']['68']);
     }
 
     public function testDeleteItem()
@@ -149,9 +149,9 @@ class AnimalEventTest extends AuthApiTestCase
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         $json = $response->toArray();
-        $this->assertEquals('8', $json['additionalAttributes'][59]);
-        $this->assertEquals('10', $json['additionalAttributes'][61]);
-        $this->assertEquals('8', $json['additionalAttributes'][62]);
+        $this->assertEquals('8', $json['additionalAttributes']['59']);
+        $this->assertEquals('10', $json['additionalAttributes']['61']);
+        $this->assertEquals('8', $json['additionalAttributes']['68']);
     }
 
     public function testGetCalvingEvents()

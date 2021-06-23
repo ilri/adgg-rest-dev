@@ -83,10 +83,12 @@ class AdditionalAttributesSubscriber implements EventSubscriberInterface
         $modifiedAdditionalAttributes = [];
 
         foreach ($resource->getAdditionalAttributes() as $key => $value) {
-            if (!empty($value) && $value !== [""]) {
+            if (!empty($value) && $value !== ['']) {
                 $label = $this->retrieveAttributeLabel($key);
                 if ($label) {
                     $modifiedAdditionalAttributes[$label] = $value;
+                } else {
+                    $modifiedAdditionalAttributes[$key] = $value;
                 }
             }
         }

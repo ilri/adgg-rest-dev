@@ -4,22 +4,37 @@ namespace App\Serializer\Normalizer;
 
 use App\Entity\TableAttribute;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface;
-use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Normalizer\{
+    AbstractObjectNormalizer,
+    CacheableSupportsMethodInterface,
+    DenormalizerInterface,
+    NormalizerInterface,
+    ObjectNormalizer
+};
 
-class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSupportsMethodInterface, DenormalizerInterface
+class AdditionalAttributesNormalizer implements NormalizerInterface, DenormalizerInterface, CacheableSupportsMethodInterface
 {
     private const TRAIT = 'App\Entity\Traits\AdditionalAttributesTrait';
 
+    /**
+     * @var ObjectNormalizer
+     */
     private $normalizer;
-    private $attributeRepository;
 
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
+    /**
+     * AdditionalAttributesNormalizer constructor.
+     * @param ObjectNormalizer $normalizer
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(ObjectNormalizer $normalizer, EntityManagerInterface $entityManager)
     {
         $this->normalizer = $normalizer;
-        $this->attributeRepository = $entityManager->getRepository(TableAttribute::class);
+        $this->em = $entityManager;
     }
 
     /**
@@ -27,16 +42,20 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSu
      */
     public function normalize($object, $format = null, array $context = []): array
     {
+        $context[AbstractObjectNormalizer::CIRCULAR_REFERENCE_HANDLER] = function ($object, $format, $context) {
+            return [$object->getId()];
+        };
         $data = $this->normalizer->normalize($object, $format, $context);
 
         //Checks whether object contains additional attributes
         $additionalAttributes = $data['additionalAttributes'] ?? null;
 
         //Updates the additional attributes array
-        if ($additionalAttributes){
-            $modifiedAttributes = $this->updateAdditionalAttributesArray($additionalAttributes, 'normalize');
+        if ($additionalAttributes) {
+            $modifiedAttributes = $this->updateAdditionalAttributes($additionalAttributes, 'normalize');
             $data['additionalAttributes'] = $modifiedAttributes;
         }
+
         return $data;
     }
 
@@ -50,10 +69,11 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSu
 
         //Updates the additional attributes array
         if ($additionalAttributes){
-            $modifiedAttributes = $this->updateAdditionalAttributesArray($additionalAttributes, 'denormalize');
+            $modifiedAttributes = $this->updateAdditionalAttributes($additionalAttributes, 'denormalize');
             $data['additionalAttributes'] = $modifiedAttributes;
         }
-        return $data;
+
+        return $this->normalizer->denormalize($data, $type, $format, $context);
     }
 
     /**
@@ -61,6 +81,7 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSu
      */
     public function supportsNormalization($data, $format = null): bool
     {
+        return false;
         return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
     }
 
@@ -69,6 +90,7 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSu
      */
     public function supportsDenormalization($data, string $type, string $format = null): bool
     {
+        return false;
         return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
     }
 
@@ -89,7 +111,7 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSu
      * @param $serializationType
      * @return array
      */
-    public function updateAdditionalAttributesArray($additionalAttributes, $serializationType): array
+    public function updateAdditionalAttributes($additionalAttributes, $serializationType): array
     {
         //Initialized to replace original additional attribute array
         $modifiedAdditionalAttributes = [];
@@ -119,7 +141,7 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSu
      */
     private function retrieveAttributeLabel($identifier): ?string
     {
-        $attr = $this->attributeRepository->find($identifier);
+        $attr = $this->em->getRepository(TableAttribute::class)->find($identifier);
 
         return $attr ? $attr->getAttributeLabel(): null;
     }
@@ -133,7 +155,9 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, CacheableSu
      */
     private function retrieveAttributeId($label): ?int
     {
-        $attr = $this->attributeRepository->findOneBy(['attributeLabel' => trim($label)]);
+        $attr = $this->em->getRepository(TableAttribute::class)
+            ->findOneBy(['attributeLabel' => trim($label)])
+        ;
 
         return $attr ? $attr->getId() : null;
     }

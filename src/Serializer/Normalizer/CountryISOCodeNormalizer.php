@@ -3,6 +3,7 @@
 namespace App\Serializer\Normalizer;
 
 use App\Entity\Country;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Normalizer\{
     AbstractObjectNormalizer,
     CacheableSupportsMethodInterface,
@@ -10,17 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{
     NormalizerInterface,
     ObjectNormalizer
 };
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Serializer\{
-    SerializerAwareInterface,
-    SerializerAwareTrait,
-    SerializerInterface
-};
 
-class CountryISOCodeNormalizer implements NormalizerInterface, DenormalizerInterface, CacheableSupportsMethodInterface, SerializerAwareInterface
+class CountryISOCodeNormalizer implements NormalizerInterface, DenormalizerInterface, CacheableSupportsMethodInterface
 {
-    use SerializerAwareTrait;
-
     private const TRAIT = 'App\Entity\Traits\CountryTrait';
 
     /**
@@ -101,16 +94,5 @@ class CountryISOCodeNormalizer implements NormalizerInterface, DenormalizerInter
     public function supportsDenormalization($data, string $type, string $format = null): bool
     {
         return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setSerializer(SerializerInterface $serializer)
-    {
-        // TODO: Implement setSerializer() method.
-        if ($this->normalizer instanceof SerializerAwareInterface) {
-            $this->normalizer->setSerializer($serializer);
-        }
     }
 }

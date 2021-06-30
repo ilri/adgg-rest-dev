@@ -13,12 +13,12 @@ final class LactationFinderCommand extends Command
     /**
      * @var string
      */
-    protected static $defaultName = 'adgg:find-lactation';
+    protected static $defaultName = 'adgg:assign-lactation-to-milking-event';
 
     /**
      * @var string
      */
-    protected static $defaultDescription = 'Assigns orphaned milking events to their calving event';
+    protected static $defaultDescription = 'Finds and assigns a lactation to orphaned milking events';
 
     /**
      * @var EntityManagerInterface

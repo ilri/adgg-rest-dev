@@ -13,7 +13,7 @@ class AssignCalvingEventsCommand extends Command
     /**
      * @var string
      */
-    protected static $defaultName = 'app:assign-calving-events';
+    protected static $defaultName = 'adgg:assign-calving-events';
 
     /**
      * @var string

@@ -8,12 +8,12 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class AssignCalvingEventsCommand extends Command
+final class LactationFinderCommand extends Command
 {
     /**
      * @var string
      */
-    protected static $defaultName = 'adgg:assign-calving-events';
+    protected static $defaultName = 'adgg:find-lactation';
 
     /**
      * @var string

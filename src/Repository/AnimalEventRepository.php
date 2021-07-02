@@ -127,14 +127,14 @@ class AnimalEventRepository extends ServiceEntityRepository
     /**
      * @return mixed
      */
-    public function findOrphanedMilkingEvents()
+    public function findOrphanedMilkingEvents($offset = 0, $pageSize = 100)
     {
         $queryBuilder = $this->createQueryBuilder('a');
 
         return $this->addMilkingEventQueryBuilder($queryBuilder)
             ->andWhere('a.lactationId IS NULL')
-            ->setFirstResult(0)
-            ->setMaxResults(100)
+            ->setFirstResult($offset)
+            ->setMaxResults($pageSize)
         ;
     }
 }

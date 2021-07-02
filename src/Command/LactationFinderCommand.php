@@ -12,6 +12,8 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class LactationFinderCommand extends Command
 {
+    private const PAGE_SIZE = 100;
+
     /**
      * @var string
      */
@@ -55,43 +57,46 @@ final class LactationFinderCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->title('Find and assign a lactation to orphaned milking events');
 
-//        $orphanedMilkingEvents = $this
-//            ->em
-//            ->getRepository(AnimalEvent::class)
-//            ->findOrphanedMilkingEvents()
-//        ;
-//        $io->writeln(count($orphanedMilkingEvents));
-//        exit();
         $paginator = new Paginator(
             $this->em->getRepository(AnimalEvent::class)->findOrphanedMilkingEvents(),
-            $fetchJoinCollection = false
+            false
         );
 
+        $offset = 0;
+        while ($offset < $paginator->count()) {
+            $page = $this->em
+                ->getRepository(AnimalEvent::class)
+                ->findOrphanedMilkingEvents($offset, self::PAGE_SIZE)
+                ->getQuery()
+                ->getResult()
+            ;
+            foreach ($page as $record) {
 
-        foreach ($paginator as $record){
+                $milkingEventId = $record->getId();
+                $animal = $record->getAnimal();
+                $lastCalvingEvent = $animal->getLastCalving();
 
-            $milkingEventId = $record->getId();
-            $animal = $record->getAnimal();
-            $lastCalvingEvent = $animal->getLastCalving();
+                if (!$lastCalvingEvent) {
+                    $output->writeln([
+                        sprintf('No calving event associated with milking event: %s',
+                            $milkingEventId,
+                        )
+                    ]);
+                } else {
+                    //Sets the lactation ID for previously orphaned milking event record
+                    $record->setLactationId($lastCalvingEvent->getId());
 
-            if(!$lastCalvingEvent){
-                $output->writeln([
-                    sprintf('No calving event associated with milking event: %s',
-                        $milkingEventId,
-                    )
-                ]);
-            } else {
-                //Sets the lactation ID for previously orphaned milking event record
-                $record->setLactationId($lastCalvingEvent->getId());
-
-                $output->writeln([
-                    sprintf('Calving event: %s assigned to milking event: %s',
-                        $lastCalvingEvent->getId(),
-                        $milkingEventId,
-                    )
-                ]);
+                    $output->writeln([
+                        sprintf('Calving event: %s assigned to milking event: %s',
+                            $lastCalvingEvent->getId(),
+                            $milkingEventId,
+                        )
+                    ]);
+                }
             }
+            $offset += 100;
         }
+
         return Command::SUCCESS;
     }
 }

@@ -4,15 +4,16 @@ namespace App\Command;
 
 use App\Entity\AnimalEvent;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use League\Csv\Writer;
 
 final class LactationFinderCommand extends Command
 {
     private const PAGE_SIZE = 100;
+    private const OUTPUT_FILE = 'lactation_log.csv';
 
     /**
      * @var string
@@ -48,6 +49,9 @@ final class LactationFinderCommand extends Command
     }
 
     /**
+     * Retrieves and processes all orphaned milking events
+     * iteratively, limited by the page size constant.
+     *
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return int
@@ -57,46 +61,59 @@ final class LactationFinderCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->title('Find and assign a lactation to orphaned milking events');
 
-        $paginator = new Paginator(
-            $this->em->getRepository(AnimalEvent::class)->findOrphanedMilkingEvents(),
-            false
-        );
+        $animalEventRepository = $this->em->getRepository(AnimalEvent::class);
+        $eventCount = $animalEventRepository->countOrphanedMilkingEvents();
 
         $offset = 0;
-        while ($offset < $paginator->count()) {
-            $page = $this->em
-                ->getRepository(AnimalEvent::class)
+
+        while ($offset < $eventCount) {
+            $page = $animalEventRepository
                 ->findOrphanedMilkingEvents($offset, self::PAGE_SIZE)
                 ->getQuery()
                 ->getResult()
             ;
             foreach ($page as $record) {
-
-                $milkingEventId = $record->getId();
-                $animal = $record->getAnimal();
-                $lastCalvingEvent = $animal->getLastCalving();
-
-                if (!$lastCalvingEvent) {
-                    $output->writeln([
-                        sprintf('No calving event associated with milking event: %s',
-                            $milkingEventId,
-                        )
-                    ]);
-                } else {
-                    //Sets the lactation ID for previously orphaned milking event record
-                    $record->setLactationId($lastCalvingEvent->getId());
-
-                    $output->writeln([
-                        sprintf('Calving event: %s assigned to milking event: %s',
-                            $lastCalvingEvent->getId(),
-                            $milkingEventId,
-                        )
-                    ]);
-                }
+                $this->processRecord($record);
             }
             $offset += 100;
         }
 
         return Command::SUCCESS;
+    }
+
+    /**
+     * Sets the lactation ID on an orphaned milking event record,
+     * if a corresponding calving event exists.
+     *
+     * Logs the milking event ID, lactation ID and whether the assignment
+     * has been successful.
+     *
+     * @param $record
+     */
+    private function processRecord ($record): void {
+        $milkingEventId = $record->getId();
+        $lastCalvingEvent = $record->getAnimal()->getLastCalving();
+        $lactationId = $lastCalvingEvent ? $lastCalvingEvent->getId() : null;
+        $assigned = true;
+
+        $lactationId ? $record->setLactationId($lactationId) : $assigned = false;
+
+        $this->logOutput([$milkingEventId, $lactationId, $assigned]);
+    }
+
+    /**
+     * @param $output
+     */
+    private function logOutput($output): void {
+
+        $header = [
+            'milking_event_id',
+            'last_calving_event_id',
+            'assigned',
+        ];
+
+        $writer = Writer::createFromPath(self::OUTPUT_FILE, "w");
+        $writer->insertOne($header);
+        $writer->insertAll($output);
     }
 }

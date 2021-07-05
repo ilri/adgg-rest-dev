@@ -137,4 +137,18 @@ class AnimalEventRepository extends ServiceEntityRepository
             ->setMaxResults($pageSize)
         ;
     }
+
+    /**
+     * @throws NonUniqueResultException
+     * @throws NoResultException
+     */
+    public function countOrphanedMilkingEvents(){
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        return $this->addMilkingEventQueryBuilder($queryBuilder)
+            ->andWhere('a.lactationId IS NULL')
+            ->select('COUNT(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

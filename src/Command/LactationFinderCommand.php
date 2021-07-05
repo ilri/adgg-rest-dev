@@ -90,7 +90,8 @@ final class LactationFinderCommand extends Command
      *
      * @param $record
      */
-    private function processRecord ($record): void {
+    private function processRecord ($record): void
+    {
         $milkingEventId = $record->getId();
         $lastCalvingEvent = $record->getAnimal()->getLastCalving();
         $lactationId = $lastCalvingEvent ? $lastCalvingEvent->getId() : null;
@@ -103,8 +104,10 @@ final class LactationFinderCommand extends Command
 
     /**
      * @param $output
+     * @throws \League\Csv\CannotInsertRecord
      */
-    private function logOutput($output): void {
+    private function logOutput($output): void
+    {
 
         $header = [
             'milking_event_id',

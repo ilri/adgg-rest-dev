@@ -95,6 +95,7 @@ final class LactationFinderCommand extends Command
                 $this->processRecord($record);
                 $io->progressAdvance();
             }
+            $this->em->flush();
             $offset += self::PAGE_SIZE;
         }
         $io->progressFinish();
@@ -128,8 +129,13 @@ final class LactationFinderCommand extends Command
     {
         $lastCalvingEvent = $record->getAnimal()->getLastCalving();
         $lactationId = $lastCalvingEvent ? $lastCalvingEvent->getId() : null;
-        $assigned = 'Y';
-        $lactationId ? $record->setLactationId($lactationId) : $assigned = 'N';
+        $assigned = 'N';
+
+        if ($lactationId){
+            $record = $record->setLactationId($lactationId);
+            $this->em->persist($record);
+            $assigned = 'Y';
+        }
 
         $this->insertIntoOutput([$record->getId(), $lactationId ?? 'Not found', $assigned]);
     }

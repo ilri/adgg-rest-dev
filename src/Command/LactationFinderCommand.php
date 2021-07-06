@@ -4,6 +4,7 @@ namespace App\Command;
 
 use App\Entity\AnimalEvent;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -62,20 +63,23 @@ final class LactationFinderCommand extends Command
         $io->title('Find and assign a lactation to orphaned milking events');
 
         $animalEventRepository = $this->em->getRepository(AnimalEvent::class);
-        $eventCount = $animalEventRepository->countOrphanedMilkingEvents();
+        //$eventCount = $animalEventRepository->countOrphanedMilkingEvents();
+        $paginator = new Paginator($animalEventRepository->findOrphanedMilkingEvents(), false);
 
         $offset = 0;
 
-        while ($offset < $eventCount) {
-            $page = $animalEventRepository
-                ->findOrphanedMilkingEvents($offset, self::PAGE_SIZE)
-                ->getQuery()
-                ->getResult()
-            ;
+        while ($offset < $paginator->count()) {
+            $page = new Paginator(
+                $animalEventRepository->findOrphanedMilkingEvents(
+                    $offset,
+                    self::PAGE_SIZE
+                ),
+                false
+            );
             foreach ($page as $record) {
                 $this->processRecord($record);
             }
-            $offset += 100;
+            $offset += self::PAGE_SIZE;
         }
 
         return Command::SUCCESS;

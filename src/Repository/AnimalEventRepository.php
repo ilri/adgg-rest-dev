@@ -125,7 +125,7 @@ class AnimalEventRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return mixed
+     * @return QueryBuilder
      */
     public function findOrphanedMilkingEvents($offset = 0, $pageSize = 100)
     {

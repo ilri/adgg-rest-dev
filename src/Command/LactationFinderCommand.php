@@ -131,7 +131,7 @@ final class LactationFinderCommand extends Command
         $assigned = true;
         $lactationId ? $record->setLactationId($lactationId) : $assigned = false;
 
-        $this->insertIntoOutput([$record->getId(), $lactationId, boolval($assigned)]);
+        $this->insertIntoOutput([$record->getId(), $lactationId, $assigned]);
     }
 
     /**

@@ -16,7 +16,7 @@ final class LactationFinderCommand extends Command
 {
     private const PAGE_SIZE = 100;
     private const OUTPUT_DIR = '/output/lactation_finder/';
-    private const OUTPUT_FILE = 'lactation_log.csv';
+    private const OUTPUT_FILE = 'lactation_log_%s.csv';
 
     /**
      * @var string
@@ -144,8 +144,12 @@ final class LactationFinderCommand extends Command
             'last_calving_event_id',
             'assigned',
         ];
+        $now = new \DateTime();
 
-        $writer = Writer::createFromPath($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, 'w');
+        $writer = Writer::createFromPath(
+            sprintf($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, $now->getTimestamp()),
+            'w'
+        );
         $writer->insertOne($header);
         $writer->insertAll($this->output);
     }

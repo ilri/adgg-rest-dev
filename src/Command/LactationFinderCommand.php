@@ -128,10 +128,10 @@ final class LactationFinderCommand extends Command
     {
         $lastCalvingEvent = $record->getAnimal()->getLastCalving();
         $lactationId = $lastCalvingEvent ? $lastCalvingEvent->getId() : null;
-        $assigned = true;
-        $lactationId ? $record->setLactationId($lactationId) : $assigned = false;
+        $assigned = 'Y';
+        $lactationId ? $record->setLactationId($lactationId) : $assigned = 'N';
 
-        $this->insertIntoOutput([$record->getId(), $lactationId, $assigned]);
+        $this->insertIntoOutput([$record->getId(), $lactationId ?? 'Not found', $assigned]);
     }
 
     /**

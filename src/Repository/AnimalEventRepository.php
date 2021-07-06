@@ -125,9 +125,11 @@ class AnimalEventRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param int $offset
+     * @param int $pageSize
      * @return QueryBuilder
      */
-    public function findOrphanedMilkingEvents($offset = 0, $pageSize = 100)
+    public function findOrphanedMilkingEvents(int $offset = 0, int $pageSize = 100): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('a');
 

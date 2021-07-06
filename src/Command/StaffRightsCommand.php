@@ -28,7 +28,7 @@ final class StaffRightsCommand extends Command
     private const ACTIVITY_TYPE_ID = '728';
     private const STAFF_HASRIGHT_ID = '730';
     private const DATA_SOURCE = '/src/Data/activities_list.csv';
-    private const OUTPUT_DIR = '/public/bundles/app/output/';
+    private const OUTPUT_DIR = '/output/staff_rights/';
     private const OUTPUT_FILE = 'staff_rights.csv';
 
     /**

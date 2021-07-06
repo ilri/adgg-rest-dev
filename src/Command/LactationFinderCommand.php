@@ -14,6 +14,7 @@ use League\Csv\Writer;
 final class LactationFinderCommand extends Command
 {
     private const PAGE_SIZE = 100;
+    private const OUTPUT_DIR = '/output/lactation_finder/';
     private const OUTPUT_FILE = 'lactation_log.csv';
 
     /**
@@ -32,13 +33,20 @@ final class LactationFinderCommand extends Command
     private EntityManagerInterface $em;
 
     /**
+     * @var string
+     */
+    private $projectDir;
+
+    /**
      * LactationFinderCommand constructor.
      * @param EntityManagerInterface $em
+     * @param string $projectDir
      * @param string|null $name
      */
-    public function __construct(EntityManagerInterface $em, string $name = null)
+    public function __construct(EntityManagerInterface $em, string $projectDir, string $name = null)
     {
         $this->em = $em;
+        $this->projectDir = $projectDir;
         parent::__construct($name);
     }
 
@@ -95,9 +103,10 @@ final class LactationFinderCommand extends Command
      * Logs the milking event ID, lactation ID and whether the assignment
      * has been successful.
      *
-     * @param $record
+     * @param AnimalEvent $record
+     * @throws \League\Csv\CannotInsertRecord
      */
-    private function processRecord ($record): void
+    private function processRecord (AnimalEvent $record): void
     {
         $milkingEventId = $record->getId();
         $lastCalvingEvent = $record->getAnimal()->getLastCalving();
@@ -105,24 +114,22 @@ final class LactationFinderCommand extends Command
         $assigned = true;
 
         $lactationId ? $record->setLactationId($lactationId) : $assigned = false;
-
-        $this->logOutput([$milkingEventId, $lactationId, $assigned]);
+        $this->logOutput([$milkingEventId, $lactationId, boolval($assigned)]);
     }
 
     /**
-     * @param $output
+     * @param array $output
      * @throws \League\Csv\CannotInsertRecord
      */
-    private function logOutput($output): void
+    private function logOutput(array $output): void
     {
-
         $header = [
             'milking_event_id',
             'last_calving_event_id',
             'assigned',
         ];
 
-        $writer = Writer::createFromPath(self::OUTPUT_FILE, "w");
+        $writer = Writer::createFromPath($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, 'w');
         $writer->insertOne($header);
         $writer->insertAll($output);
     }

@@ -5,6 +5,7 @@ namespace App\Command;
 use App\Entity\AnimalEvent;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use League\Csv\CannotInsertRecord;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -38,6 +39,11 @@ final class LactationFinderCommand extends Command
     private $projectDir;
 
     /**
+     * @var array
+     */
+    private $output;
+
+    /**
      * LactationFinderCommand constructor.
      * @param EntityManagerInterface $em
      * @param string $projectDir
@@ -47,6 +53,7 @@ final class LactationFinderCommand extends Command
     {
         $this->em = $em;
         $this->projectDir = $projectDir;
+        $this->output = [];
         parent::__construct($name);
     }
 
@@ -71,7 +78,6 @@ final class LactationFinderCommand extends Command
         $io->title('Find and assign a lactation to orphaned milking events');
 
         $animalEventRepository = $this->em->getRepository(AnimalEvent::class);
-        //$eventCount = $animalEventRepository->countOrphanedMilkingEvents();
         $paginator = new Paginator($animalEventRepository->findOrphanedMilkingEvents(), false);
 
         $offset = 0;
@@ -93,7 +99,20 @@ final class LactationFinderCommand extends Command
         }
         $io->progressFinish();
 
+        try {
+            $this->logOutput();
+        } catch (CannotInsertRecord $e) {
+            $io->error($e->getRecord());
+            $io->error('The CSV file could not be written.');
+            die;
+        }
+
         return Command::SUCCESS;
+    }
+
+    private function insertIntoOutput(array $item): void
+    {
+        $this->output[] = $item;
     }
 
     /**
@@ -104,24 +123,21 @@ final class LactationFinderCommand extends Command
      * has been successful.
      *
      * @param AnimalEvent $record
-     * @throws \League\Csv\CannotInsertRecord
      */
     private function processRecord (AnimalEvent $record): void
     {
-        $milkingEventId = $record->getId();
         $lastCalvingEvent = $record->getAnimal()->getLastCalving();
         $lactationId = $lastCalvingEvent ? $lastCalvingEvent->getId() : null;
         $assigned = true;
-
         $lactationId ? $record->setLactationId($lactationId) : $assigned = false;
-        $this->logOutput([$milkingEventId, $lactationId, boolval($assigned)]);
+
+        $this->insertIntoOutput([$record->getId(), $lactationId, boolval($assigned)]);
     }
 
     /**
-     * @param array $output
-     * @throws \League\Csv\CannotInsertRecord
+     * @throws CannotInsertRecord
      */
-    private function logOutput(array $output): void
+    private function logOutput(): void
     {
         $header = [
             'milking_event_id',
@@ -131,6 +147,6 @@ final class LactationFinderCommand extends Command
 
         $writer = Writer::createFromPath($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, 'w');
         $writer->insertOne($header);
-        $writer->insertAll($output);
+        $writer->insertAll($this->output);
     }
 }

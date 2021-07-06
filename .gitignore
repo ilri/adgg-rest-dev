@@ -26,3 +26,7 @@
 .DS_Store
 ###< Others ###
 
+###> ADGG ###
+/output/
+###< ADGG ###
+

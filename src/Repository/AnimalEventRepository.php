@@ -123,4 +123,34 @@ class AnimalEventRepository extends ServiceEntityRepository
             ->getSingleResult()
         ;
     }
+
+    /**
+     * @param int $offset
+     * @param int $pageSize
+     * @return QueryBuilder
+     */
+    public function findOrphanedMilkingEvents(int $offset = 0, int $pageSize = 100): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        return $this->addMilkingEventQueryBuilder($queryBuilder)
+            ->andWhere('a.lactationId IS NULL')
+            ->setFirstResult($offset)
+            ->setMaxResults($pageSize)
+        ;
+    }
+
+    /**
+     * @throws NonUniqueResultException
+     * @throws NoResultException
+     */
+    public function countOrphanedMilkingEvents(){
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        return $this->addMilkingEventQueryBuilder($queryBuilder)
+            ->andWhere('a.lactationId IS NULL')
+            ->select('COUNT(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

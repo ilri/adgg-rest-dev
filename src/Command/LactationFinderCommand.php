@@ -68,6 +68,7 @@ final class LactationFinderCommand extends Command
 
         $offset = 0;
 
+        $io->progressStart($paginator->count());
         while ($offset < $paginator->count()) {
             $page = new Paginator(
                 $animalEventRepository->findOrphanedMilkingEvents(
@@ -78,9 +79,11 @@ final class LactationFinderCommand extends Command
             );
             foreach ($page as $record) {
                 $this->processRecord($record);
+                $io->progressAdvance();
             }
             $offset += self::PAGE_SIZE;
         }
+        $io->progressFinish();
 
         return Command::SUCCESS;
     }

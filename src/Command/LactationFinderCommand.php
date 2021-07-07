@@ -95,7 +95,7 @@ final class LactationFinderCommand extends Command
                 $this->processRecord($record);
                 $io->progressAdvance();
             }
-            $this->em->flush();
+            //$this->em->flush();
             $offset += self::PAGE_SIZE;
         }
         $io->progressFinish();
@@ -118,7 +118,7 @@ final class LactationFinderCommand extends Command
 
     /**
      * Sets the lactation ID on an orphaned milking event record,
-     * if a corresponding calving event exists.
+     * if a calving event for that milking event exists.
      *
      * Logs the milking event ID, lactation ID and whether the assignment
      * has been successful.
@@ -127,17 +127,44 @@ final class LactationFinderCommand extends Command
      */
     private function processRecord (AnimalEvent $record): void
     {
-        $lastCalvingEvent = $record->getAnimal()->getLastCalving();
-        $lactationId = $lastCalvingEvent ? $lastCalvingEvent->getId() : null;
+        $lactationId = $this->retrieveLactationId($record);
         $assigned = 'N';
 
         if ($lactationId){
             $record = $record->setLactationId($lactationId);
-            $this->em->persist($record);
+            //$this->em->persist($record);
             $assigned = 'Y';
         }
 
         $this->insertIntoOutput([$record->getId(), $lactationId ?? 'Not found', $assigned]);
+    }
+
+    /**
+     * Retrieves the most recent calving event for a given milking record
+     * and, if present, checks whether it occurred no more than 1000 days
+     * prior. Only returns a lactation Id if both these conditions are met.
+     *
+     *
+     * @param $record
+     * @return null
+     */
+    private function retrieveLactationId($record)
+    {
+        $lastCalvingEvent = $this
+            ->em
+            ->getRepository(AnimalEvent::class)
+            ->findLastCalvingEvent($record)
+        ;
+
+        if (!$lastCalvingEvent) {
+            return null;
+        }
+
+        $lastCalvingEventDate = $lastCalvingEvent->getEventDate();
+        $milkingEventDate = $record->getEventDate();
+        $interval = date_diff($lastCalvingEventDate, $milkingEventDate);
+
+        return $interval->days <= 1000 ? $lastCalvingEvent->getId() : null;
     }
 
     /**

@@ -141,12 +141,11 @@ class AnimalEventRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $record
-     * @return int|null
+     * @param AnimalEvent $record
+     * @return AnimalEvent|null
      * @throws NonUniqueResultException
-     * @throws NoResultException
      */
-    public function findLastCalvingEvent($record): ?AnimalEvent
+    public function findLastCalvingEvent(AnimalEvent $record): ?AnimalEvent
     {
         $queryBuilder = $this->createQueryBuilder('a');
         $eventDate = $record->getEventDate();

@@ -145,16 +145,17 @@ final class LactationFinderCommand extends Command
      * prior. Only returns a lactation Id if both these conditions are met.
      *
      *
-     * @param $record
-     * @return null
+     * @param AnimalEvent $record
+     * @return int|null
      */
-    private function retrieveLactationId($record)
+    private function retrieveLactationId(AnimalEvent $record): ?int
     {
-        $lastCalvingEvent = $this
-            ->em
-            ->getRepository(AnimalEvent::class)
-            ->findLastCalvingEvent($record)
-        ;
+//        $lastCalvingEvent = $this
+//            ->em
+//            ->getRepository(AnimalEvent::class)
+//            ->findLastCalvingEvent($record)
+//        ;
+        $lastCalvingEvent = $record->getAnimal()->getLastCalving();
 
         if (!$lastCalvingEvent) {
             return null;

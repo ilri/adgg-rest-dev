@@ -150,12 +150,11 @@ final class LactationFinderCommand extends Command
      */
     private function retrieveLactationId(AnimalEvent $record): ?int
     {
-//        $lastCalvingEvent = $this
-//            ->em
-//            ->getRepository(AnimalEvent::class)
-//            ->findLastCalvingEvent($record)
-//        ;
-        $lastCalvingEvent = $record->getAnimal()->getLastCalving();
+        $lastCalvingEvent = $this
+            ->em
+            ->getRepository(AnimalEvent::class)
+            ->findLastCalvingEvent($record)
+        ;
 
         if (!$lastCalvingEvent) {
             return null;

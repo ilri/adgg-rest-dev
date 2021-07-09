@@ -173,10 +173,10 @@ final class LactationFinderCommand extends Command
             'last_calving_event_id',
             'assigned',
         ];
-        $now = new \DateTime();
+        $now = new \DateTime;
 
         $writer = Writer::createFromPath(
-            sprintf($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, $now->getTimestamp()),
+            sprintf($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, $now->format('Y_m_d_H_i_s')),
             'w'
         );
         $writer->insertOne($header);

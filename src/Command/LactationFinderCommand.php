@@ -39,9 +39,9 @@ final class LactationFinderCommand extends Command
     private $projectDir;
 
     /**
-     * @var array
+     * @var $writer
      */
-    private $output;
+    private $writer;
 
     /**
      * LactationFinderCommand constructor.
@@ -53,7 +53,7 @@ final class LactationFinderCommand extends Command
     {
         $this->em = $em;
         $this->projectDir = $projectDir;
-        $this->output = [];
+        $this->writer = $this->createCSV();
         parent::__construct($name);
     }
 
@@ -111,11 +111,6 @@ final class LactationFinderCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function insertIntoOutput(array $item): void
-    {
-        $this->output[] = $item;
-    }
-
     /**
      * Sets the lactation ID on an orphaned milking event record,
      * if a calving event for that milking event exists.
@@ -124,6 +119,7 @@ final class LactationFinderCommand extends Command
      * has been successful.
      *
      * @param AnimalEvent $record
+     * @throws CannotInsertRecord
      */
     private function processRecord (AnimalEvent $record): void
     {
@@ -136,7 +132,7 @@ final class LactationFinderCommand extends Command
             $assigned = 'Y';
         }
 
-        $this->insertIntoOutput([$record->getId(), $lactationId ?? 'Not found', $assigned]);
+        $this->appendProcess([$record->getId(), $lactationId ?? 'Not found', $assigned]);
     }
 
     /**
@@ -170,7 +166,7 @@ final class LactationFinderCommand extends Command
     /**
      * @throws CannotInsertRecord
      */
-    private function logOutput(): void
+    private function createCSV(): Writer
     {
         $header = [
             'milking_event_id',
@@ -184,6 +180,16 @@ final class LactationFinderCommand extends Command
             'w'
         );
         $writer->insertOne($header);
-        $writer->insertAll($this->output);
+
+        return $writer;
+    }
+
+    /**
+     * @throws CannotInsertRecord
+     */
+    private function appendProcess(array $item) : void {
+
+        $writer = $this->writer;
+        $writer->insertOne($item);
     }
 }

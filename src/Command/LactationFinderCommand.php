@@ -132,6 +132,7 @@ final class LactationFinderCommand extends Command
                 $this->io->progressAdvance();
             }
             //$this->em->flush();
+            $this->em->clear();
             $offset += self::PAGE_SIZE;
         }
         $this->io->progressFinish();

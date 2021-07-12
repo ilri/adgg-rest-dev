@@ -117,8 +117,12 @@ final class LactationFinderCommand extends Command
 
         $offset = 0;
 
-        $this->io->info('Records are now being retrieved from the database.');
+        $this->io->info(sprintf(
+            "%d orphaned milking records have been retrieved from the database and will now be processed.",
+            $paginator->count()
+        ));
         $this->io->progressStart($paginator->count());
+
         while ($offset < $paginator->count()) {
             $page = new Paginator(
                 $animalEventRepository->findOrphanedMilkingEvents(

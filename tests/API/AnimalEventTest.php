@@ -3,6 +3,8 @@
 namespace App\Tests\API;
 
 use App\Tests\AuthApiTestCase;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Tester\CommandTester;
 
 class AnimalEventTest extends AuthApiTestCase
 {
@@ -212,5 +214,22 @@ class AnimalEventTest extends AuthApiTestCase
         $json = $response->toArray();
         // we have created 10 exits events in the fixtures
         $this->assertGreaterThanOrEqual(10, $json['hydra:totalItems']);
+    }
+
+    /**
+     * @see https://symfony.com/doc/current/console.html#testing-commands
+     */
+    public function testLactationCommand()
+    {
+        $kernel = $this->client->getKernel();
+        $application = new Application($kernel);
+
+        $command = $application->find('adgg:assign-lactation-to-milking-event');
+        $commandTester = new CommandTester($command);
+        $commandTester->execute([]);
+
+        $output = $commandTester->getDisplay();
+        //10 milking events without a lactation id have been created in the fixtures
+        $this->assertStringContainsString('The number of lactations assigned is: 10', $output);
     }
 }

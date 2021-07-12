@@ -12,6 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use League\Csv\Writer;
 
+
 final class LactationFinderCommand extends Command
 {
     private const PAGE_SIZE = 100;
@@ -36,18 +37,24 @@ final class LactationFinderCommand extends Command
     /**
      * @var string
      */
-    private $projectDir;
+    private string $projectDir;
 
     /**
-     * @var $writer
+     * @var Writer $writer
      */
-    private $writer;
+    private Writer $writer;
+
+    /**
+     * @var int
+     */
+    private int $assignedLactations;
 
     /**
      * LactationFinderCommand constructor.
      * @param EntityManagerInterface $em
      * @param string $projectDir
      * @param string|null $name
+     * @throws CannotInsertRecord
      */
     public function __construct(EntityManagerInterface $em, string $projectDir, string $name = null)
     {
@@ -71,6 +78,7 @@ final class LactationFinderCommand extends Command
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return int
+     * @throws CannotInsertRecord
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -82,6 +90,7 @@ final class LactationFinderCommand extends Command
 
         $offset = 0;
 
+        $io->info('Records are now being retrieved from the database.');
         $io->progressStart($paginator->count());
         while ($offset < $paginator->count()) {
             $page = new Paginator(
@@ -99,14 +108,8 @@ final class LactationFinderCommand extends Command
             $offset += self::PAGE_SIZE;
         }
         $io->progressFinish();
-
-        try {
-            $this->logOutput();
-        } catch (CannotInsertRecord $e) {
-            $io->error($e->getRecord());
-            $io->error('The CSV file could not be written.');
-            die;
-        }
+        $io->info('All orphaned milking events have now been processed.');
+        $io->info(sprintf('The number of lactations assigned is: %d', $this->assignedLactations));
 
         return Command::SUCCESS;
     }
@@ -130,9 +133,10 @@ final class LactationFinderCommand extends Command
             $record = $record->setLactationId($lactationId);
             //$this->em->persist($record);
             $assigned = 'Y';
+            $this->assignedLactations += 1;
         }
 
-        $this->appendProcess([$record->getId(), $lactationId ?? 'Not found', $assigned]);
+        $this->appendToCSV([$record->getId(), $lactationId ?? 'Not found', $assigned]);
     }
 
     /**
@@ -179,6 +183,7 @@ final class LactationFinderCommand extends Command
             sprintf($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, $now->format('Y_m_d_H_i_s')),
             'w'
         );
+
         $writer->insertOne($header);
 
         return $writer;
@@ -187,7 +192,7 @@ final class LactationFinderCommand extends Command
     /**
      * @throws CannotInsertRecord
      */
-    private function appendProcess(array $item) : void {
+    private function appendToCSV(array $item) : void {
 
         $writer = $this->writer;
         $writer->insertOne($item);

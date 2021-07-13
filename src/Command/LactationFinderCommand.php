@@ -5,8 +5,10 @@ namespace App\Command;
 use App\Entity\AnimalEvent;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use League\Csv\CannotInsertRecord;
-use League\Csv\Writer;
+use League\Csv\{
+    CannotInsertRecord,
+    Writer
+};
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -32,27 +34,22 @@ final class LactationFinderCommand extends Command
     /**
      * @var EntityManagerInterface
      */
-    private EntityManagerInterface $em;
+    private $em;
 
     /**
      * @var string
      */
-    private string $projectDir;
+    private $projectDir;
 
     /**
      * @var Writer $writer
      */
-    private Writer $writer;
+    private $writer;
 
     /**
      * @var int
      */
-    private int $assignedLactations;
-
-    /**
-     * @var
-     */
-    private $io;
+    private $assignedLactations;
 
     /**
      * LactationFinderCommand constructor.
@@ -61,7 +58,7 @@ final class LactationFinderCommand extends Command
      * @param string|null $name
      * @throws CannotInsertRecord
      */
-    public function __construct(EntityManagerInterface $em, string $projectDir, string $name = null, $assignedLactations = 0)
+    public function __construct(EntityManagerInterface $em, string $projectDir, string $name = null)
     {
         $this->em = $em;
         $this->projectDir = $projectDir;
@@ -71,7 +68,7 @@ final class LactationFinderCommand extends Command
     }
 
     /**
-     * Initialises the Csv file used for appending processing results.
+     * Initialises the CSV file used for appending processing results.
      * @throws CannotInsertRecord
      */
     private function createCsv(): Writer
@@ -81,7 +78,7 @@ final class LactationFinderCommand extends Command
             'last_calving_event_id',
             'assigned',
         ];
-        $now = new \DateTime;
+        $now = new \DateTime();
 
         $writer = Writer::createFromPath(
             sprintf($this->projectDir.self::OUTPUT_DIR.self::OUTPUT_FILE, $now->format('Y_m_d_H_i_s')),
@@ -95,8 +92,7 @@ final class LactationFinderCommand extends Command
 
     protected function configure()
     {
-        $this
-            ->setDescription(self::$defaultDescription);
+        $this->setDescription(self::$defaultDescription);
     }
 
     /**
@@ -109,19 +105,19 @@ final class LactationFinderCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->io = new SymfonyStyle($input, $output);
-        $this->io->title('Find and assign a lactation to orphaned milking events');
+        $io = new SymfonyStyle($input, $output);
+        $io->title('Find and assign a lactation to orphaned milking events');
 
         $animalEventRepository = $this->em->getRepository(AnimalEvent::class);
         $paginator = new Paginator($animalEventRepository->findOrphanedMilkingEvents(), false);
 
         $offset = 0;
 
-        $this->io->info(sprintf(
+        $io->info(sprintf(
             "%d orphaned milking records have been retrieved from the database and will now be processed.",
             $paginator->count()
         ));
-        $this->io->progressStart($paginator->count());
+        $io->progressStart($paginator->count());
 
         while ($offset < $paginator->count()) {
             $page = new Paginator(
@@ -132,16 +128,20 @@ final class LactationFinderCommand extends Command
                 false
             );
             foreach ($page as $record) {
-                $this->processRecord($record);
-                $this->io->progressAdvance();
+                try {
+                    $this->processRecord($record);
+                } catch (CannotInsertRecord $e) {
+                    $io->error('The record could not be appended to the CSV file.');
+                }
+                $io->progressAdvance();
             }
             //$this->em->flush();
             $this->em->clear();
             $offset += self::PAGE_SIZE;
         }
-        $this->io->progressFinish();
-        $this->io->info('All orphaned milking events have now been processed.');
-        $this->io->info(sprintf('The number of lactations assigned is: %d', $this->assignedLactations));
+        $io->progressFinish();
+        $io->info('All orphaned milking events have now been processed.');
+        $io->info(sprintf('The number of lactations assigned is: %d', $this->assignedLactations));
 
         return Command::SUCCESS;
     }
@@ -154,6 +154,7 @@ final class LactationFinderCommand extends Command
      * has been successful.
      *
      * @param AnimalEvent $record
+     * @throws CannotInsertRecord
      */
     private function processRecord(AnimalEvent $record): void
     {
@@ -167,7 +168,7 @@ final class LactationFinderCommand extends Command
             $this->assignedLactations += 1;
         }
 
-        $this->appendToCSV([$record->getId(), $lactationId ?? 'Not found', $assigned]);
+        $this->writer->insertOne([$record->getId(), $lactationId ?? 'Not found', $assigned]);
     }
 
     /**
@@ -196,19 +197,5 @@ final class LactationFinderCommand extends Command
         $interval = date_diff($lastCalvingEventDate, $milkingEventDate);
 
         return $interval->days <= 1000 ? $lastCalvingEvent->getId() : null;
-    }
-
-    /**
-     * Appends a record to an existing Csv file.
-     */
-    private function appendToCSV(array $item): void
-    {
-
-        $writer = $this->writer;
-        try {
-            $writer->insertOne($item);
-        } catch (CannotInsertRecord $e) {
-            $this->io->error('Record could not be appended to Csv file.');
-        }
     }
 }

@@ -3,8 +3,6 @@
 namespace App\Tests\API;
 
 use App\Tests\AuthApiTestCase;
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Component\Console\Tester\CommandTester;
 
 class AnimalEventTest extends AuthApiTestCase
 {

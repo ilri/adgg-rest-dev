@@ -3,11 +3,7 @@ App\Entity\Animal:
         id:
             groups: [
                 "animal:collection:get",
-                "animal:item:get",
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:get"
             ]
         name:
             groups: [
@@ -23,11 +19,7 @@ App\Entity\Animal:
                 "animal:collection:post",
                 "animal:item:get",
                 "animal:item:put",
-                "animal:item:patch",
-                "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:patch"
             ]
         herdId:
             groups: [
@@ -35,9 +27,7 @@ App\Entity\Animal:
                 "animal:collection:post",
                 "animal:item:get",
                 "animal:item:put",
-                "animal:item:patch",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:patch"
             ]
         countryId:
             groups: [
@@ -45,9 +35,7 @@ App\Entity\Animal:
                 "animal:collection:post",
                 "animal:item:get",
                 "animal:item:put",
-                "animal:item:patch",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:patch"
             ]
         regionId:
             groups: [
@@ -95,9 +83,7 @@ App\Entity\Animal:
                 "animal:collection:post",
                 "animal:item:get",
                 "animal:item:put",
-                "animal:item:patch",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:patch"
             ]
         sex:
             groups: [
@@ -105,9 +91,7 @@ App\Entity\Animal:
                 "animal:collection:post",
                 "animal:item:get",
                 "animal:item:put",
-                "animal:item:patch",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:patch"
             ]
         birthdate:
             groups: [
@@ -115,9 +99,7 @@ App\Entity\Animal:
                 "animal:collection:post",
                 "animal:item:get",
                 "animal:item:put",
-                "animal:item:patch",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:patch"
             ]
         sireType:
             groups: [
@@ -245,9 +227,7 @@ App\Entity\Animal:
                 "animal:collection:post",
                 "animal:item:get",
                 "animal:item:put",
-                "animal:item:patch",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:patch"
             ]
         additionalAttributes:
             groups: [
@@ -282,11 +262,6 @@ App\Entity\Animal:
                 "animal:collection:get",
                 "animal:item:get"
             ]
-        daysSinceLastCalving:
-            groups: [
-                "animal:collection:get",
-                "animal:item:get"
-            ]
         milkingEvents:
             groups: [
                 "animal:collection:get",
@@ -300,14 +275,10 @@ App\Entity\Animal:
         averageMilkYield:
             groups: [
                 "animal:collection:get",
-                "animal:item:get",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:get"
             ]
         calvingInterval:
             groups: [
                 "animal:collection:get",
-                "animal:item:get",
-                "animalevent:collection:get",
-                "animalevent:item:get"
+                "animal:item:get"
             ]

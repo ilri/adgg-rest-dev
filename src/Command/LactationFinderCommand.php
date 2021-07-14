@@ -61,6 +61,7 @@ final class LactationFinderCommand extends Command
     public function __construct(EntityManagerInterface $em, string $projectDir, string $name = null)
     {
         $this->em = $em;
+        $this->em->getConnection()->getConfiguration()->setSQLLogger(null);
         $this->projectDir = $projectDir;
         $this->writer = $this->createCsv();
         $this->assignedLactations = 0;
@@ -135,7 +136,7 @@ final class LactationFinderCommand extends Command
                 }
                 $io->progressAdvance();
             }
-            //$this->em->flush();
+            $this->em->flush();
             $this->em->clear();
             $offset += self::PAGE_SIZE;
         }
@@ -163,7 +164,7 @@ final class LactationFinderCommand extends Command
 
         if ($lactationId) {
             $record = $record->setLactationId($lactationId);
-            //$this->em->persist($record);
+            $this->em->persist($record);
             $assigned = 'Y';
             $this->assignedLactations += 1;
         }

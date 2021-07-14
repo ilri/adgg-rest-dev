@@ -40,7 +40,7 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
     /**
      * @inheritDoc
      */
-    public function normalize($object, $format = null, array $context = []): array
+    public function normalize($object, $format = null, array $context = [])
     {
         $context[AbstractObjectNormalizer::CIRCULAR_REFERENCE_HANDLER] = function ($object, $format, $context) {
             return [$object->getId()];
@@ -81,7 +81,6 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
      */
     public function supportsNormalization($data, $format = null): bool
     {
-        return false;
         return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
     }
 
@@ -90,7 +89,6 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
      */
     public function supportsDenormalization($data, string $type, string $format = null): bool
     {
-        return false;
         return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
     }
 
@@ -107,11 +105,11 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
      * and replace IDs with labels (during normalization)
      * or labels with IDs (during de-normalization).
      *
-     * @param $additionalAttributes
-     * @param $serializationType
+     * @param array $additionalAttributes
+     * @param string $serializationType
      * @return array
      */
-    public function updateAdditionalAttributes($additionalAttributes, $serializationType): array
+    private function updateAdditionalAttributes(array $additionalAttributes, string $serializationType): array
     {
         //Initialized to replace original additional attribute array
         $modifiedAdditionalAttributes = [];
@@ -136,7 +134,7 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
      * Retrieves a CoreTableAttribute object based on its ID
      * and returns the attributeLabel property value.
      *
-     * @param $id
+     * @param int|string $identifier
      * @return string|null
      */
     private function retrieveAttributeLabel($identifier): ?string
@@ -150,10 +148,10 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
      * Retrieves a CoreTableAttribute object based on its label
      * and returns its Id.
      *
-     * @param $label
+     * @param string $label
      * @return int|null
      */
-    private function retrieveAttributeId($label): ?int
+    private function retrieveAttributeId(string $label): ?int
     {
         $attr = $this->em->getRepository(TableAttribute::class)
             ->findOneBy(['attributeLabel' => trim($label)])

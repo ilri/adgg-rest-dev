@@ -6,6 +6,13 @@ use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
 use App\DataFixtures\UserFixtures;
 use App\Entity\User;
 use Liip\TestFixturesBundle\Test\FixturesTrait;
+use Symfony\Contracts\HttpClient\Exception\{
+    ClientExceptionInterface,
+    DecodingExceptionInterface,
+    RedirectionExceptionInterface,
+    ServerExceptionInterface,
+    TransportExceptionInterface
+};
 
 class AuthenticationTest extends ApiTestCase
 {
@@ -16,6 +23,9 @@ class AuthenticationTest extends ApiTestCase
      */
     private $user;
 
+    /**
+     * {@inheritDoc}
+     */
     public function setUp(): void
     {
         parent::setUp();
@@ -27,6 +37,13 @@ class AuthenticationTest extends ApiTestCase
         $this->user = $fixtures->getReference('test_user');
     }
 
+    /**
+     * @throws ClientExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws TransportExceptionInterface
+     */
     public function testLogin(): void
     {
         $client = self::createClient();

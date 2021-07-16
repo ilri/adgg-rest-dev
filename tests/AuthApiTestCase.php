@@ -1,9 +1,11 @@
 <?php
 
-
 namespace App\Tests;
 
-use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
+use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\{
+    ApiTestCase,
+    Client
+};
 use App\DataFixtures\{
     AnimalEventFixtures,
     AnimalFixtures,
@@ -15,21 +17,22 @@ use App\DataFixtures\{
     UserFixtures
 };
 use App\Entity\User;
+use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTManager;
 use Liip\TestFixturesBundle\Test\FixturesTrait;
 
 
-class AuthApiTestCase extends ApiTestCase
+abstract class AuthApiTestCase extends ApiTestCase
 {
     use FixturesTrait;
 
     /**
-     * @var \ApiPlatform\Core\Bridge\Symfony\Bundle\Test\Client
+     * @var Client
      */
     protected $client;
 
     /**
-     * @var \Doctrine\Common\DataFixtures\ReferenceRepository
+     * @var ReferenceRepository
      */
     protected $fixtures;
 
@@ -48,6 +51,9 @@ class AuthApiTestCase extends ApiTestCase
      */
     protected $token;
 
+    /**
+     * {@inheritDoc}
+     */
     public function setUp(): void
     {
         parent::setUp();

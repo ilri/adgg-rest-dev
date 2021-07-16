@@ -141,16 +141,25 @@ class AnimalEventRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param AnimalEvent $record
+     * @return AnimalEvent|null
      * @throws NonUniqueResultException
-     * @throws NoResultException
      */
-    public function countOrphanedMilkingEvents(){
+    public function findLastCalvingEvent(AnimalEvent $record): ?AnimalEvent
+    {
         $queryBuilder = $this->createQueryBuilder('a');
+        $eventDate = $record->getEventDate();
+        $animalId = $record->getAnimal()->getId();
 
-        return $this->addMilkingEventQueryBuilder($queryBuilder)
-            ->andWhere('a.lactationId IS NULL')
-            ->select('COUNT(a.id)')
+        return $this->addCalvingEventQueryBuilder($queryBuilder)
+            ->andWhere('a.animal = :animalId')
+            ->setParameter('animalId', $animalId)
+            ->andWhere('a.eventDate <= :eventDate')
+            ->setParameter('eventDate', $eventDate)
+            ->orderBy('a.eventDate', 'DESC')
             ->getQuery()
-            ->getSingleScalarResult();
+            ->setMaxResults(1)
+            ->getOneOrNullResult()
+        ;
     }
 }

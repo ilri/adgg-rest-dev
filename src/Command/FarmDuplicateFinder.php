@@ -180,7 +180,8 @@ class FarmDuplicateFinder extends Command
         $duplicatedFarmIds = array_map(fn($farm) => $farm->getId(), $duplicatedFarms);
         $reassignedAnimalIds = [];
 
-        foreach ($duplicatedFarmIds as $farmId) {
+        foreach ($duplicatedFarms as $farm) {
+            $farmId = $farm->getId();
             //Retrieves all animal records associated with a specific farm ID
             $farmAnimals = $this->em->getRepository(Animal::class)->findBy(['farm' => $farmId]);
 
@@ -191,6 +192,7 @@ class FarmDuplicateFinder extends Command
                     $animal->setFarm($primaryFarm);
                 }
             }
+            $this->em->remove($farm);
         }
         $this->writer->insertOne(
             array(

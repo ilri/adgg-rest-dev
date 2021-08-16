@@ -2,7 +2,10 @@
 
 namespace App\Command;
 
+use App\Entity\Animal;
+use App\Entity\Farm;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -56,7 +59,65 @@ class FarmDuplicateFinder extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $io->title(self::$defaultDescription);
+        $farmRepository = $this->em->getRepository(Farm::class);
 
+        $farmPaginator = new Paginator($farmRepository->findDuplicatedFarms(), false);
+
+        $io->progressStart($farmPaginator->count());
+        $offset = 0;
+
+        while ($offset < $farmPaginator->count()) {
+            $farmPaginator = new Paginator(
+                $farmRepository->findDuplicatedFarms($offset, self::PAGE_SIZE), false
+            );
+
+            foreach ($farmPaginator as $farmRecord) {
+                $farmDuplicates = $this->returnGroupOfDuplicates($farmRecord) ?? null;
+                $this->mergeFarmAnimals($farmDuplicates);
+                $io->progressAdvance();
+            }
+            $offset += self::PAGE_SIZE;
+        }
+        $io->progressFinish();
         return Command::SUCCESS;
+    }
+
+    /**
+     * Searches for a farm duplicates.
+     *
+     * @param Farm $farm
+     * @return array|null
+     */
+    private function returnGroupOfDuplicates(Farm $farm): ?array
+    {
+        $farmRepository = $this->em->getRepository(Farm::class);
+
+        return $farmRepository->findGroupOfDuplicates($farm);
+    }
+
+    /**
+     * Filters the array of grouped farm duplicates,
+     * and selects the record which has been created first.
+     *
+     * Subsequently iterates through all farm duplicates and
+     * re-assigns animal records to the primary farm.
+     *
+     * @param $farmDuplicates
+     */
+    private function mergeFarmAnimals($farmDuplicates): void
+    {
+        //Farm that was created first
+        $primaryFarm = $farmDuplicates[0];
+
+        foreach($farmDuplicates as $farmDuplicate){
+            $farmId = $farmDuplicate->getId();
+            $duplicatedAnimals = $this->em->getRepository(Animal::class)->findBy(['farm' => $farmId]);
+
+            if (!empty($duplicatedAnimals)) {
+                foreach($duplicatedAnimals as $duplicatedAnimal){
+                    $duplicatedAnimal->setFarm($primaryFarm);
+                }
+            }
+        }
     }
 }

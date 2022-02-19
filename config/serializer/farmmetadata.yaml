@@ -1,0 +1,31 @@
+App\Entity\FarmMetadata:
+    attributes:
+        id:
+            groups: [
+                "farmmetadata:collection:get",
+                "farmmetadata:item:get"
+            ]
+        type:
+            groups: [
+                "farmmetadata:collection:get",
+                "farmmetadata:collection:post",
+                "farmmetadata:item:get",
+                "farmmetadata:item:put",
+                "farmmetadata:item:patch"
+            ]
+        countryId:
+            groups: [
+                "farmmetadata:collection:get",
+                "farmmetadata:collection:post",
+                "farmmetadata:item:get",
+                "farmmetadata:item:put",
+                "farmmetadata:item:patch"
+            ]
+        farm:
+            groups: [
+                "farmmetadata:collection:get",
+                "farmmetadata:collection:post",
+                "farmmetadata:item:get",
+                "farmmetadata:item:put",
+                "farmmetadata:item:patch"
+            ]

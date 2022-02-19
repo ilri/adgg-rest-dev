@@ -1,0 +1,9 @@
+App\Entity\Country:
+    collectionOperations:
+        get:
+            method: get
+            path: /countries
+    itemOperations:
+        get:
+            method: get
+            path: /countries/{id}

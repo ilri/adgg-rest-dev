@@ -1,0 +1,17 @@
+api_platform:
+    title: 'ADGG REST API documentation'
+    defaults:
+        pagination_client_enabled: true
+        collection:
+            pagination:
+                enabled_parameter_name: pagination # optional
+    mapping:
+        paths: ['%kernel.project_dir%/config/api_platform']
+    patch_formats:
+        json: ['application/merge-patch+json']
+    swagger:
+        versions: [3]
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header

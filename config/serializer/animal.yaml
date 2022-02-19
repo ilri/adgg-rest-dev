@@ -1,0 +1,284 @@
+App\Entity\Animal:
+    attributes:
+        id:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        name:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        tagId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        herdId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        countryId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        regionId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        districtId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        wardId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        villageId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        orgId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        animalType:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        sex:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        birthdate:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        sireType:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        sireId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        sireTagId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        damId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        damTagId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        mainBreed:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        breedComposition:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        animalPhoto:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        latitude:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        longitude:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        mapAddress:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        regDate:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        hairSampleId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        migrationId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        odkAnimalCode:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        farm:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+#        additionalAttributes:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:collection:post",
+#                "animal:item:get",
+#                "animal:item:put",
+#                "animal:item:patch"
+#            ]
+        createdAt:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        createdBy:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        updatedAt:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        updatedBy:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+#        lastCalving:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        milkingEvents:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        lastMilkingEvent:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        averageMilkYield:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        calvingInterval:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]

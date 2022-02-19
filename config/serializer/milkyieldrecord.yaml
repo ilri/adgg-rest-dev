@@ -1,0 +1,39 @@
+App\Entity\MilkYieldRecord:
+    attributes:
+        id:
+            groups: []
+        daysInMilk:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
+            ]
+        totalMilkRecord:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
+            ]
+        expectedMilkYield:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
+            ]
+        upperLimit:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
+            ]
+        lowerLimit:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
+            ]
+        feedback:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
+            ]
+        calvingDate:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:item:get",
+            ]

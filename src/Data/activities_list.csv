@@ -1,0 +1,31 @@
+activity_code,activity_name,activity_type,activity_typedesc,activity_order
+1,Create Administrative Areas,1,Platform Administration,1
+2,Register Platform Users,1,Platform Administration,2
+28,Generate eVouchers,1,Platform Administration,3
+3,New Farmer Registration,2,Registration,4
+22,Household Members (No Demographics),2,Registration,5
+23,Household Members (Full Demographics),2,Registration,6
+4,Cattle Registration,2,Registration,7
+29,Farmer Technology Mobilisation,2,Registration,8
+10,Synchronization,4,Cattle Management / Monitoring,9
+11,Insemination,4,Cattle Management / Monitoring,10
+12,Pregnancy Diagnosis,4,Cattle Management / Monitoring,11
+20,Cow / Heifer Monitoring,4,Cattle Management / Monitoring,12
+8,Calf Monitoring,4,Cattle Management / Monitoring,13
+21,Still Birth / Abortion Registration,4,Cattle Management / Monitoring,14
+9,Cattle Exits From Herd,4,Cattle Management / Monitoring,15
+7,ECF Vaccination,4,Cattle Management / Monitoring,16
+27,Cattle Hair Sampling,4,Cattle Management / Monitoring,17
+26,Milk Utilization In Household,9,Farm Management / Monitoring,18
+30,Improved Fodder Adoption,9,Farm Management / Monitoring,19
+13,Feedback To Household,3,Farm General Information,20
+5,Land Ownership and Use,3,Farm General Information,21
+6,Water Sources and Usage,3,Farm General Information,22
+14,Current Household Livestock Details,3,Farm General Information,23
+19,Cooperative / Group Membership,3,Farm General Information,24
+15,Cattle Housing and Structures,3,Farm General Information,25
+16,Current Cattle Breeding Technologies,3,Farm General Information,26
+17,Current Cattle Health Services,3,Farm General Information,27
+18,Cattle Feeding Systems,3,Farm General Information,28
+24,Group Activity / Training,7,Group Activities,29
+25,Dairy Cooperative/Groups Profile,7,Group Activities,30

@@ -3,6 +3,7 @@
 namespace App\Serializer\Normalizer;
 
 use App\Entity\TableAttribute;
+use ContainerK46XZ1O\getDebug_Security_Voter_Security_Access_AuthenticatedVoterService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Normalizer\{
     AbstractObjectNormalizer,
@@ -89,7 +90,13 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
      */
     public function supportsDenormalization($data, string $type, string $format = null): bool
     {
-        return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
+//        return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
+       if ($type = 2)
+       {
+           return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
+       }
+       else
+           return 'object' === gettype($data) && in_array(self::TRAIT, class_uses($data));
     }
 
     /**

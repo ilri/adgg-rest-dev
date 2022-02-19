@@ -14,6 +14,8 @@ use App\Entity\Traits\{
 };
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FarmRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Farm
@@ -65,163 +67,164 @@ class Farm
      */
     private $regDate;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="farmer_name", type="string", length=128, nullable=true)
-     *
-     */
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="farmer_name", type="string", length=128, nullable=true)
+//     *
+//     */
     private $farmerName;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="phone", type="string", length=20, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="phone", type="string", length=20, nullable=true)
+//     *
+//     */
     private $phone;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="email", type="string", length=255, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+//     *
+//     */
     private $email;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="field_agent_id", type="integer", nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var int|null
+//     *
+//     * @ORM\Column(name="field_agent_id", type="integer", nullable=true)
+//     *
+//     */
     private $fieldAgentId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="project", type="string", length=128, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="project", type="string", length=128, nullable=true)
+//     *
+//     */
     private $project;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="farm_type", type="string", length=30, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="farm_type", type="string", length=30, nullable=true)
+//     *
+//     */
     private $farmType;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="gender_code", type="string", length=10, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="gender_code", type="string", length=10, nullable=true)
+//     *
+//     */
     private $genderCode;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="farmer_is_hh_head", type="boolean", nullable=false, options={"default"="1"})
-     *
-     */
+//
+//    /**
+//     * @var bool
+//     *
+//     * @ORM\Column(name="farmer_is_hh_head", type="boolean", nullable=false, options={"default"="1"})
+//     *
+//     */
     private $farmerIsHhHead = true;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default"="1"})
-     *
-     */
+//
+//    /**
+//     * @var bool
+//     *
+//     * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default"="1"})
+//     *
+//     */
     private $isActive = true;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
-     *
-     */
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
+//     *
+//     * @Groups ({"write"})
+//     */
     private $latitude;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
+//     *
+//     */
     private $longitude;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
+//     *
+//     */
     private $mapAddress;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="latlng", type="string", length=0, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="latlng", type="string", length=0, nullable=true)
+//     *
+//     */
     private $latlng;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="odk_code", type="string", length=255, nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="odk_code", type="string", length=255, nullable=true)
+//     *
+//     */
     private $odkCode;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="odk_farm_code", type="string", length=128, nullable=true, options={"comment"="Farm code from Harrison db for odk form versions 1.5 and below"})
-     *
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="odk_farm_code", type="string", length=128, nullable=true, options={"comment"="Farm code from Harrison db for odk form versions 1.5 and below"})
+//     *
+//     */
     private $odkFarmCode;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="is_deleted", type="boolean", nullable=false)
-     */
+//
+//    /**
+//     * @var bool
+//     *
+//     * @ORM\Column(name="is_deleted", type="boolean", nullable=false)
+//     */
     private $isDeleted;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
-     *
-     */
+//
+//    /**
+//     * @var \DateTime|null
+//     *
+//     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
+//     *
+//     */
     private $deletedAt;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="deleted_by", type="integer", nullable=true)
-     * })
-     */
+//
+//    /**
+//     * @var int|null
+//     *
+//     * @ORM\Column(name="deleted_by", type="integer", nullable=true)
+//     * })
+//     */
     private $deletedBy;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
-     */
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
+//     */
     private $migrationId;
-
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="unique_id_odk", type="string", length=45, nullable=true)
-     *
-     */
+//
+//
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="unique_id_odk", type="string", length=45, nullable=true)
+//     *
+//     */
     private $uniqueIdOdk;
 
     /**

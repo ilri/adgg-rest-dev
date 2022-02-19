@@ -57,22 +57,22 @@ App\Entity\AnimalEvent:
                 "animalevent:item:put",
                 "animalevent:item:patch"
             ]
-        orgId:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:collection:post",
-                "animalevent:item:get",
-                "animalevent:item:put",
-                "animalevent:item:patch"
-            ]
-        clientId:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:collection:post",
-                "animalevent:item:get",
-                "animalevent:item:put",
-                "animalevent:item:patch"
-            ]
+#        orgId:
+#            groups: [
+#                "animalevent:collection:get",
+#                "animalevent:collection:post",
+#                "animalevent:item:get",
+#                "animalevent:item:put",
+#                "animalevent:item:patch"
+#            ]
+#        clientId:
+#            groups: [
+#                "animalevent:collection:get",
+#                "animalevent:collection:post",
+#                "animalevent:item:get",
+#                "animalevent:item:put",
+#                "animalevent:item:patch"
+#            ]
         eventDate:
             groups: [
                 "animalevent:collection:get",
@@ -93,38 +93,38 @@ App\Entity\AnimalEvent:
                 "animalevent:item:put",
                 "animalevent:item:patch"
             ]
-        latitude:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:collection:post",
-                "animalevent:item:get",
-                "animalevent:item:put",
-                "animalevent:item:patch"
-            ]
-        longitude:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:collection:post",
-                "animalevent:item:get",
-                "animalevent:item:put",
-                "animalevent:item:patch"
-            ]
-        mapAddress:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:collection:post",
-                "animalevent:item:get",
-                "animalevent:item:put",
-                "animalevent:item:patch"
-            ]
-        testdayNo:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:collection:post",
-                "animalevent:item:get",
-                "animalevent:item:put",
-                "animalevent:item:patch"
-            ]
+#        latitude:
+#            groups: [
+#                "animalevent:collection:get",
+#                "animalevent:collection:post",
+#                "animalevent:item:get",
+#                "animalevent:item:put",
+#                "animalevent:item:patch"
+#            ]
+#        longitude:
+#            groups: [
+#                "animalevent:collection:get",
+#                "animalevent:collection:post",
+#                "animalevent:item:get",
+#                "animalevent:item:put",
+#                "animalevent:item:patch"
+#            ]
+#        mapAddress:
+#            groups: [
+#                "animalevent:collection:get",
+#                "animalevent:collection:post",
+#                "animalevent:item:get",
+#                "animalevent:item:put",
+#                "animalevent:item:patch"
+#            ]
+#        testdayNo:
+#            groups: [
+#                "animalevent:collection:get",
+#                "animalevent:collection:post",
+#                "animalevent:item:get",
+#                "animalevent:item:put",
+#                "animalevent:item:patch"
+#            ]
         animal:
             groups: [
                 "animalevent:collection:get",
@@ -161,8 +161,8 @@ App\Entity\AnimalEvent:
                 "animalevent:collection:get",
                 "animalevent:item:get"
             ]
-        milkYieldRecord:
-            groups: [
-                "animalevent:collection:get",
-                "animalevent:item:get"
-            ]
+#        milkYieldRecord:
+#            groups: [
+#                "animalevent:collection:get",
+#                "animalevent:item:get"
+#            ]

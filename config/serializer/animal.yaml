@@ -229,14 +229,14 @@ App\Entity\Animal:
                 "animal:item:put",
                 "animal:item:patch"
             ]
-        additionalAttributes:
-            groups: [
-                "animal:collection:get",
-                "animal:collection:post",
-                "animal:item:get",
-                "animal:item:put",
-                "animal:item:patch"
-            ]
+#        additionalAttributes:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:collection:post",
+#                "animal:item:get",
+#                "animal:item:put",
+#                "animal:item:patch"
+#            ]
         createdAt:
             groups: [
                 "animal:collection:get",
@@ -257,28 +257,28 @@ App\Entity\Animal:
                 "animal:collection:get",
                 "animal:item:get"
             ]
-        lastCalving:
-            groups: [
-                "animal:collection:get",
-                "animal:item:get"
-            ]
-        milkingEvents:
-            groups: [
-                "animal:collection:get",
-                "animal:item:get"
-            ]
-        lastMilkingEvent:
-            groups: [
-                "animal:collection:get",
-                "animal:item:get"
-            ]
-        averageMilkYield:
-            groups: [
-                "animal:collection:get",
-                "animal:item:get"
-            ]
-        calvingInterval:
-            groups: [
-                "animal:collection:get",
-                "animal:item:get"
-            ]
+#        lastCalving:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        milkingEvents:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        lastMilkingEvent:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        averageMilkYield:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]
+#        calvingInterval:
+#            groups: [
+#                "animal:collection:get",
+#                "animal:item:get"
+#            ]

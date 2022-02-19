@@ -6,36 +6,36 @@ App\Entity\Herd:
       filters: [ 'country_isocode_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'herd:collection:get' ]
-    post:
-      method: post
-      path: /herds
-      denormalization_context:
-        groups: [ 'herd:collection:post' ]
-      openapi_context:
-        description:
-          '<h3>Creates a Herd resource</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`countryId`<p>All other properties are **optional**.</p>'
+#    post:
+#      method: post
+#      path: /herds
+#      denormalization_context:
+#        groups: [ 'herd:collection:post' ]
+#      openapi_context:
+#        description:
+#          '<h3>Creates a Herd resource</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`countryId`<p>All other properties are **optional**.</p>'
   itemOperations:
     get:
       method: get
       path: /herds/{id}
       normalization_context:
         groups: [ 'herd:item:get' ]
-    put:
-      method: put
-      path: /herds/{id}
-      denormalization_context:
-        groups: [ 'herd:item:put' ]
-      openapi_context:
-        description:
-          '<h3>Replaces the Herd resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`isActive`<p>`isDeleted`</p><p>`name`</p><p>All other properties are **optional**.</p>'
-    patch:
-      method: patch
-      path: /herds/{id}
-      denormalization_context:
-        groups: [ 'herd:item:patch' ]
-      openapi_context:
-        description:
-          '<h3>Updates the Herd resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`name`<p>All other properties are **optional**.</p>'
+#    put:
+#      method: put
+#      path: /herds/{id}
+#      denormalization_context:
+#        groups: [ 'herd:item:put' ]
+#      openapi_context:
+#        description:
+#          '<h3>Replaces the Herd resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`isActive`<p>`isDeleted`</p><p>`name`</p><p>All other properties are **optional**.</p>'
+#    patch:
+#      method: patch
+#      path: /herds/{id}
+#      denormalization_context:
+#        groups: [ 'herd:item:patch' ]
+#      openapi_context:
+#        description:
+#          '<h3>Updates the Herd resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`name`<p>All other properties are **optional**.</p>'

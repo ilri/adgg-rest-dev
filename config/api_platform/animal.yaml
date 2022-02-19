@@ -90,36 +90,36 @@ App\Entity\Animal:
             style: form
             explode: false
             allowReserved: false
-    post:
-      method: post
-      path: /animals
-      denormalization_context:
-        groups: [ 'animal:collection:post' ]
-      openapi_context:
-        description:
-          '<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'
+#    post:
+#      method: post
+#      path: /animals
+#      denormalization_context:
+#        groups: [ 'animal:collection:post' ]
+#      openapi_context:
+#        description:
+#          '<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'
   itemOperations:
     get:
       method: get
       path: /animals/{id}
       normalization_context:
         groups: [ 'animal:item:get' ]
-    put:
-      method: put
-      path: /animals/{id}
-      denormalization_context:
-        groups: [ 'animal:item:put' ]
-      openapi_context:
-        description:
-          '<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'
-    patch:
-      method: patch
-      path: /animals/{id}
-      denormalization_context:
-        groups: [ 'animal:item:patch' ]
-      openapi_context:
-        description:
-          '<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'
+#    put:
+#      method: put
+#      path: /animals/{id}
+#      denormalization_context:
+#        groups: [ 'animal:item:put' ]
+#      openapi_context:
+#        description:
+#          '<h3>Replaces the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'
+#    patch:
+#      method: patch
+#      path: /animals/{id}
+#      denormalization_context:
+#        groups: [ 'animal:item:patch' ]
+#      openapi_context:
+#        description:
+#          '<h3>Updates the Animal resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'

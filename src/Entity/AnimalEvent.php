@@ -89,39 +89,39 @@ class AnimalEvent
      */
     private $dataCollectionDate;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
-     */
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
+//     */
     private $latitude;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
-     */
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
+//     */
     private $longitude;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
-     */
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
+//     */
     private $mapAddress;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="latlng", type="string", length=0, nullable=true)
-     */
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="latlng", type="string", length=0, nullable=true)
+//     */
     private $latlng;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="field_agent_id", type="integer", nullable=true)
-     */
+//    /**
+//     * @var int|null
+//     *
+//     * @ORM\Column(name="field_agent_id", type="integer", nullable=true)
+//     */
     private $fieldAgentId;
 
     /**
@@ -145,11 +145,11 @@ class AnimalEvent
      */
     private $testdayNo;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
-     */
+//    /**
+//     * @var string|null
+//     *
+//     * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
+//     */
     private $migrationId;
 
     /**

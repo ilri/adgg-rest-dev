@@ -2,16 +2,13 @@ App\Entity\MasterList:
   collectionOperations:
     get:
       method: get
-      path: /master_list
+      path: /master_lists
       normalization_context:
         groups: [ 'masterlist:collection:get' ]
-
-
 
   itemOperations:
     get:
       method: get
-      path: /master_list/{list_type_id}
+      path: /master_lists/{list_type_id}
       normalization_context:
         groups: [ 'masterlist:item:get' ]
-

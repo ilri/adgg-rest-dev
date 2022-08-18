@@ -5,4 +5,28 @@ App\Entity\MasterList:
         "masterlist:collection:get",
         "masterlist:item:get"
       ]
-
+    name:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]
+    value:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]
+    color:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]
+    description:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]
+    listtype:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]

@@ -14,13 +14,13 @@ App\Entity\MasterList:
 #            deprecated: false
 #            allowEmptyValue: false
 #            schema:
-#              type: string
+#              type: integer
 #            style: form
 #            explode: false
 #            allowReserved: false
   itemOperations:
     get:
       method: get
-      path: /master_lists/{list_type_id}
+      path: /master_lists/{id}
       normalization_context:
         groups: [ 'masterlist:item:get' ]

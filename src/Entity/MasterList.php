@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="core_master_list", indexes={@ORM\Index(name="list_type_id", columns={"list_type_id"})})
  * @ORM\Entity(repositoryClass=MasterListRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class MasterList
 {

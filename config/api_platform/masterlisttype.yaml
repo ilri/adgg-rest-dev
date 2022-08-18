@@ -1,4 +1,4 @@
-App\Entity\MasterList:
+App\Entity\MasterListType:
   collectionOperations:
     get:
       method: get

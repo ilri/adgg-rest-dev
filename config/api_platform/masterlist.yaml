@@ -5,19 +5,8 @@ App\Entity\MasterList:
       path: /master_list
       normalization_context:
         groups: [ 'masterlist:collection:get' ]
-#      openapi_context:
-#        parameters:
-#          - name: 'list_type_id'
-#              in: query
-#              description: 'Select master list types'
-#              required: false
-#              deprecated: false
-#              allowEmptyValue: false
-#              schema:
-#                type: integer
-#              style: form
-#              explode: true
-#              allowReserved: false
+
+
 
   itemOperations:
     get:

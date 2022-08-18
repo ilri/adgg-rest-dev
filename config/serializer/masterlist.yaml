@@ -1,0 +1,8 @@
+App\Entity\MasterList:
+  attributes:
+    id:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]
+

@@ -1,0 +1,37 @@
+App\Entity\MasterList:
+    attributes:
+        id:
+            groups: [
+                "masterlisttype:collection:get",
+                "masterlisttype:item:get"
+            ]
+        name:
+            groups: [
+                "masterlisttype:collection:get",
+                "masterlisttype:item:get"
+            ]
+        description:
+            groups: [
+                "masterlisttype:collection:get",
+                "masterlisttype:item:get"
+            ]
+        createdAt:
+            groups: [
+                "masterlisttype:collection:get",
+                "masterlisttype:item:get"
+            ]
+        createdBy:
+            groups: [
+               "masterlisttype:collection:get",
+               "masterlisttype:item:get"
+            ]
+        deletedAt:
+            groups: [
+                "masterlisttype:collection:get",
+                "masterlisttype:item:get"
+            ]
+        deletedBy:
+            groups: [
+                "masterlisttype:collection:get",
+                "masterlisttype:item:get"
+            ]

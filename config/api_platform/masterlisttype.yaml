@@ -1,0 +1,13 @@
+App\Entity\MasterList:
+  collectionOperations:
+    get:
+      method: get
+      path: /master_list_types
+      normalization_context:
+        groups: [ 'masterlisttype:collection:get' ]
+  itemOperations:
+    get:
+      method: get
+      path: /masterlist.yaml/{id}
+      normalization_context:
+        groups: [ 'masterlisttype:item:get' ]

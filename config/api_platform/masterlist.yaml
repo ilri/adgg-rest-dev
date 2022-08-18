@@ -3,10 +3,21 @@ App\Entity\MasterList:
     get:
       method: get
       path: /master_lists
-      filters: [ 'property_filter' ]
       normalization_context:
         groups: [ 'masterlist:collection:get' ]
-
+#      openapi_context:
+#        parameters:
+#          - name: listtypeid
+#            in: query
+#            description: 'Enter the list type id acquired from master list type'
+#            required: false
+#            deprecated: false
+#            allowEmptyValue: false
+#            schema:
+#              type: string
+#            style: form
+#            explode: false
+#            allowReserved: false
   itemOperations:
     get:
       method: get

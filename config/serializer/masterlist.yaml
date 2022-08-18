@@ -1,52 +1,52 @@
 App\Entity\MasterList:
-  attributes:
-    id:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    name:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    value:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    color:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    description:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    listtype:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    createdAt:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    createdBy:
-      groups: [
-       "masterlist:collection:get",
-       "masterlist:item:get"
-      ]
-    updatedAt:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
-    updatedBy:
-      groups: [
-        "masterlist:collection:get",
-        "masterlist:item:get"
-      ]
+    attributes:
+        id:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        name:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        value:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        color:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        description:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        listtype:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        createdAt:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        createdBy:
+            groups: [
+               "masterlist:collection:get",
+               "masterlist:item:get"
+            ]
+        updatedAt:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
+        updatedBy:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]

@@ -8,6 +8,6 @@ App\Entity\MasterListType:
   itemOperations:
     get:
       method: get
-      path: /masterlist.yaml/{id}
+      path: /master_list_type/{id}
       normalization_context:
         groups: [ 'masterlisttype:item:get' ]

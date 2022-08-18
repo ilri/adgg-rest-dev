@@ -7,7 +7,7 @@ App\Entity\MasterList:
         groups: [ 'masterlist:collection:get' ]
       openapi_context:
         parameters:
-          - name: listtypeid
+          - name: listType
             in: query
             description: 'Enter the list type id acquired from master list type'
             required: false

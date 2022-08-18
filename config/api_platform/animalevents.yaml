@@ -34,7 +34,7 @@ App\Entity\AnimalEvent:
             allowReserved: false
           - name: 'eventDate[before]'
             in: query
-            description: 'Returns the animal event resoures occuring **before** or **on** a given event date<br><br>*For example: 2020-01-01*'
+            description: 'Returns the animal event resources occurring **before** or **on** a given event date<br><br>*For example: 2020-01-01*'
             required: false
             deprecated: false
             allowEmptyValue: false

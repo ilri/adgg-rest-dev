@@ -3,14 +3,13 @@ App\Entity\MasterList:
     get:
       method: get
       path: /master_list
-      filters: [ 'country_isocode_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'MasterList:collection:get' ]
 
   itemOperations:
     get:
       method: get
-      path: /master_list/{id}
+      path: /master_list/{list_type_id}
       normalization_context:
         groups: [ 'MasterList:item:get' ]
 

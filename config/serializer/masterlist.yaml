@@ -30,3 +30,23 @@ App\Entity\MasterList:
         "masterlist:collection:get",
         "masterlist:item:get"
       ]
+    createdAt:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]
+    createdBy:
+      groups: [
+       "masterlist:collection:get",
+       "masterlist:item:get"
+      ]
+    updatedAt:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]
+    updatedBy:
+      groups: [
+        "masterlist:collection:get",
+        "masterlist:item:get"
+      ]

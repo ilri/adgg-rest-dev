@@ -3,6 +3,7 @@ App\Entity\MasterList:
     get:
       method: get
       path: /master_lists
+      filters: [ 'property_filter' ]
       normalization_context:
         groups: [ 'masterlist:collection:get' ]
 

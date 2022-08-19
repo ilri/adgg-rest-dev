@@ -8,7 +8,7 @@ class ListTypeFilter extends AbstractContextAwareFilter
 {
 
     protected function filterProperty(string $property, $value, QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null) {
-        if ($property !== 'listtype') {
+        if ($property !== 'listtypeid') {
             return;
         }
         $masterListRepository = $this->managerRegistry->getRepository(MasterList::class);

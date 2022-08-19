@@ -3,7 +3,7 @@ App\Entity\MasterList:
     get:
       method: get
       path: /master_lists
-      filters: [ 'masterlist.search_filter', 'list_type_id_filter', 'property_filter' ]
+      filters: [ 'masterlist.search_filter', 'list_type_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'masterlist:collection:get' ]
       openapi_context:

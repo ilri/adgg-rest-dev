@@ -25,14 +25,7 @@ class CountryISOCodeFilter extends AbstractContextAwareFilter
     /**
      * @inheritDoc
      */
-    protected function filterProperty(
-        string $property,
-        $value,
-        QueryBuilder $queryBuilder,
-        QueryNameGeneratorInterface $queryNameGenerator,
-        string $resourceClass,
-        string $operationName = null
-    ) {
+    protected function filterProperty( string $property, $value, QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null) {
         if ($property !== 'countryCode') {
             return;
         }

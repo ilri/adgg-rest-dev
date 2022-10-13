@@ -90,37 +90,37 @@ App\Entity\Farm:
             style: form
             explode: false
             allowReserved: false
-#    post:
-#      method: post
-#      path: /farms
-#      denormalization_context:
-#        groups: [ 'farm:collection:post' ]
-#      openapi_context:
-#        description:
-#          '<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
-#          </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+    post:
+      method: post
+      path: /farms
+      denormalization_context:
+        groups: [ 'farm:collection:post' ]
+      openapi_context:
+        description:
+          '<h3>Creates a Farm resource</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
   itemOperations:
     get:
       method: get
       path: /farms/{id}
       normalization_context:
         groups: [ 'farm:item:get' ]
-#    put:
-#      method: put
-#      path: /farms/{id}
-#      denormalization_context:
-#        groups: [ 'farm:item:put' ]
-#      openapi_context:
-#        description:
-#          '<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-#           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
-#    patch:
-#      method: patch
-#      path: /farms/{id}
-#      denormalization_context:
-#        groups: [ 'farm:item:patch' ]
-#      openapi_context:
-#        description:
-#          '<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-#          </p>`farmerIsHhHead`<p>All other properties are **optional**.</p>'
+    put:
+      method: put
+      path: /farms/{id}
+      denormalization_context:
+        groups: [ 'farm:item:put' ]
+      openapi_context:
+        description:
+          '<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+    patch:
+      method: patch
+      path: /farms/{id}
+      denormalization_context:
+        groups: [ 'farm:item:patch' ]
+      openapi_context:
+        description:
+          '<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`farmerIsHhHead`<p>All other properties are **optional**.</p>'
 

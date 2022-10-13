@@ -146,46 +146,46 @@ App\Entity\Farm:
                 "farm:item:put",
                 "farm:item:patch"
             ]
-#        isActive:
-#            groups: [
-#                "farm:collection:get",
-#                "farm:collection:post",
-#                "farm:item:get",
-#                "farm:item:put",
-#                "farm:item:patch"
-#            ]
-#        isDeleted:
-#            groups: [
-#                "farm:collection:get",
-#                "farm:collection:post",
-#                "farm:item:get",
-#                "farm:item:put",
-#                "farm:item:patch"
-#            ]
-#        latitude:
-#            groups: [
-#                "farm:collection:get",
-#                "farm:collection:post",
-#                "farm:item:get",
-#                "farm:item:put",
-#                "farm:item:patch"
-#            ]
-#        longitude:
-#            groups: [
-#                "farm:collection:get",
-#                "farm:collection:post",
-#                "farm:item:get",
-#                "farm:item:put",
-#                "farm:item:patch"
-#            ]
-#        additionalAttributes:
-#            groups: [
-#                "farm:collection:get",
-#                "farm:collection:post",
-#                "farm:item:get",
-#                "farm:item:put",
-#                "farm:item:patch"
-#            ]
+        isActive:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
+        isDeleted:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
+        latitude:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
+        longitude:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
+        additionalAttributes:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
         createdAt:
             groups: [
                 "farm:collection:get",

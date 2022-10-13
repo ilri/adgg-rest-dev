@@ -257,28 +257,28 @@ App\Entity\Animal:
                 "animal:collection:get",
                 "animal:item:get"
             ]
-#        lastCalving:
-#            groups: [
-#                "animal:collection:get",
-#                "animal:item:get"
-#            ]
-#        milkingEvents:
-#            groups: [
-#                "animal:collection:get",
-#                "animal:item:get"
-#            ]
-#        lastMilkingEvent:
-#            groups: [
-#                "animal:collection:get",
-#                "animal:item:get"
-#            ]
-#        averageMilkYield:
-#            groups: [
-#                "animal:collection:get",
-#                "animal:item:get"
-#            ]
-#        calvingInterval:
-#            groups: [
-#                "animal:collection:get",
-#                "animal:item:get"
-#            ]
+        lastCalving:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        milkingEvents:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        lastMilkingEvent:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        averageMilkYield:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        calvingInterval:
+            groups: [
+                "animal:collection:get",
+                "animal:item:get"
+            ]

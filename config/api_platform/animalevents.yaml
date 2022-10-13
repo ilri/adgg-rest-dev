@@ -143,21 +143,21 @@ App\Entity\AnimalEvent:
             schema:
               type: string
               enum:
-#                - ai_events
-#                - calving_events
-#                - certification_events
-#                - exits_events
-#                - hair_sampling_events
+                - ai_events
+                - calving_events
+                - certification_events
+                - exits_events
+                - hair_sampling_events
                 - health_events
                 - hoof_health_events
                 - hoof_treatment_events
                 - injury_events
                 - milking_events
                 - parasite_infection_events
-#                - pregnancy_diagnosis_events
+                - pregnancy_diagnosis_events
                 - synchronization_events
-#                - vaccination_events
-#                - weights_events
+                - vaccination_events
+                - weights_events
             style: simple
             explode: false
             allowReserved: false
@@ -276,38 +276,38 @@ App\Entity\AnimalEvent:
             style: form
             explode: false
             allowReserved: false
-#    post:
-#      method: post
-#      path: /animal_events
-#      denormalization_context:
-#        groups: [ 'animalevent:collection:post' ]
-#      openapi_context:
-#        description:
-#          '<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
-#          </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p><p>All other properties are **optional**.</p>'
+    post:
+      method: post
+      path: /animal_events
+      denormalization_context:
+        groups: [ 'animalevent:collection:post' ]
+      openapi_context:
+        description:
+          '<h3>Creates a AnimalEvent resource</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p><p>All other properties are **optional**.</p>'
   itemOperations:
     get:
       method: get
       path: /animal_events/{id}
       normalization_context:
         groups: [ 'animalevent:item:get' ]
-#    put:
-#      method: put
-#      path: /animal_events/{id}
-#      denormalization_context:
-#        groups: [ 'animalevent:item:put' ]
-#      openapi_context:
-#        description:
-#          '<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-#          </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-#          <p>All other properties are **optional**.</p>'
-#    patch:
-#      method: patch
-#      path: /animal_events/{id}
-#      denormalization_context:
-#        groups: [ 'animalevent:item:patch' ]
-#      openapi_context:
-#        description:
-#          '<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-#          </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
-#          <p>All other properties are **optional**.</p>'
+    put:
+      method: put
+      path: /animal_events/{id}
+      denormalization_context:
+        groups: [ 'animalevent:item:put' ]
+      openapi_context:
+        description:
+          '<h3>Replaces the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+          <p>All other properties are **optional**.</p>'
+    patch:
+      method: patch
+      path: /animal_events/{id}
+      denormalization_context:
+        groups: [ 'animalevent:item:patch' ]
+      openapi_context:
+        description:
+          '<h3>Updates the AnimalEvent resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`animal`<p>`countryId`</p>`eventDate`<p>`eventType`</p>
+          <p>All other properties are **optional**.</p>'

@@ -137,39 +137,39 @@ class Animal
      */
     private $breedComposition;
 
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="animal_photo", type="string", length=255, nullable=true)
-//     */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="animal_photo", type="string", length=255, nullable=true)
+     */
     private $animalPhoto;
-//
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
-//     */
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="latitude", type="decimal", precision=13, scale=8, nullable=true)
+     */
     private $latitude;
-//
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
-//     */
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="longitude", type="decimal", precision=13, scale=8, nullable=true)
+     */
     private $longitude;
-//
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
-//     */
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="map_address", type="string", length=255, nullable=true)
+     */
     private $mapAddress;
-//
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="latlng", type="string", length=0, nullable=true)
-//     */
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="latlng", type="string", length=0, nullable=true)
+     */
     private $latlng;
 
     /**
@@ -178,26 +178,26 @@ class Animal
      * @ORM\Column(name="reg_date", type="date", nullable=true)
      */
     private $regDate;
-//
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="hair_sample_id", type="string", length=128, nullable=true)
-//     */
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="hair_sample_id", type="string", length=128, nullable=true)
+     */
     private $hairSampleId;
-//
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
-//     */
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="migration_id", type="string", length=255, nullable=true, options={"comment"="This is the migrationSouce plus primary key from migration source table of the record e.g KLBA_001"})
+     */
     private $migrationId;
-//
-//    /**
-//     * @var string|null
-//     *
-//     * @ORM\Column(name="odk_animal_code", type="string", length=30, nullable=true, options={"comment"= *     "animal code from Harrison db for odk form versions 1.5 and below "})
-//     */
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="odk_animal_code", type="string", length=30, nullable=true, options={"comment"= *     "animal code from Harrison db for odk form versions 1.5 and below "})
+     */
     private $odkAnimalCode;
 
     /**

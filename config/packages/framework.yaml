@@ -14,8 +14,8 @@ framework:
     #esi: true
     #fragments: true
     php_errors:
-        log: true
+        log: false
     serializer:
-        enable_annotations: true
+        enable_annotations: fals
         mapping:
             paths: ['%kernel.project_dir%/config/serializer']

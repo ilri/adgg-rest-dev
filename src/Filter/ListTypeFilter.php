@@ -2,7 +2,10 @@
 
 namespace App\Filter;
 
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\AbstractContextAwareFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use App\Entity\MasterList;
+use Doctrine\ORM\QueryBuilder;
 
 class ListTypeFilter extends AbstractContextAwareFilter
 {

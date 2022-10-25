@@ -30,7 +30,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Animal
 {
     use AdministrativeDivisionsTrait;
-//    use AdditionalAttributesTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;

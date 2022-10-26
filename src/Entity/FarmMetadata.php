@@ -40,14 +40,14 @@ class FarmMetadata
      */
     private $type;
 
-//    /**
-//     * @var Farm
-//     *
-//     * @ORM\ManyToOne(targetEntity="Farm")
-//     * @ORM\JoinColumns({
-//     *   @ORM\JoinColumn(name="farm_id", referencedColumnName="id")
-//     * })
-//     */
+    /**
+     * @var Farm
+     *
+     * @ORM\ManyToOne(targetEntity="Farm")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="farm_id", referencedColumnName="id")
+     * })
+     */
     private $farm;
 
     public function getId(): ?int

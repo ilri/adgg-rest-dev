@@ -24,9 +24,9 @@ class MasterList
     private $id;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="value", type="int", length=128, nullable=false)
+     * @ORM\Column(name="value", type="string", length=128, nullable=false)
      */
     private $value;
 
@@ -113,7 +113,7 @@ class MasterList
         return $this->value;
     }
 
-    public function setValue(int $value): self
+    public function setValue(string $value): self
     {
         $this->value = $value;
 

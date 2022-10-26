@@ -10,6 +10,11 @@ App\Entity\MasterList:
                 "masterlist:collection:get",
                 "masterlist:item:get"
             ]
+        label:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
         value:
             groups: [
                 "masterlist:collection:get",

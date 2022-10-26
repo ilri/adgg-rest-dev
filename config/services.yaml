@@ -84,7 +84,7 @@ services:
 
     masterlist.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'listtype': 'exact' } ]
+        arguments: [ { 'listType': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'masterlist.search_filter' } ]
 
 

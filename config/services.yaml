@@ -82,4 +82,10 @@ services:
         class: 'App\Filter\CountryISOCodeFilter'
         tags: [ { name: 'api_platform.filter', id: 'country_isocode_filter' } ]
 
+    masterlist.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'listtype': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'masterlist.search_filter' } ]
+
+
 

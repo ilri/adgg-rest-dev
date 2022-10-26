@@ -20,11 +20,11 @@ App\Entity\MasterList:
                 "masterlist:collection:get",
                 "masterlist:item:get"
             ]
-        color:
-            groups: [
-                "masterlist:collection:get",
-                "masterlist:item:get"
-            ]
+#        color:
+#            groups: [
+#                "masterlist:collection:get",
+#                "masterlist:item:get"
+#            ]
         description:
             groups: [
                 "masterlist:collection:get",

@@ -108,7 +108,7 @@ class MasterList
         return $this->id;
     }
 
-    public function getValue(): ?int
+    public function getValue(): ?string
     {
         return $this->value;
     }

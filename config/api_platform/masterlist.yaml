@@ -8,7 +8,7 @@ App\Entity\MasterList:
         groups: [ 'masterlist:collection:get' ]
       openapi_context:
         parameters:
-          - name: listTypeid
+          - name: listtype
             in: query
             description:  'The path to a given master list type <br><br> *For example: /api/master_list_type/1*'
             required: false

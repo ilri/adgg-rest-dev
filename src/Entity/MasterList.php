@@ -40,14 +40,14 @@ class MasterList
     /**
      * @var string
      *
-     * @ORM\Column(name="color", type="string", length=128, nullable=true)
+     * @ORM\Column(name="color", type="string", length=128, nullable=false)
      */
     private $color;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
     private $description;
 

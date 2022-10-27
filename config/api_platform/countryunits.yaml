@@ -3,14 +3,14 @@ App\Entity\CountryUnits:
     get:
       method: get
       path: /level
-      filters: [ 'countryunits.search_filter','countryunits.country', 'property_filter' ]
+      filters: [ 'countryunits.search_filter','country_isocode_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'countryunits:collection:get' ]
       openapi_context:
         parameters:
-          - name: country
+          - name: countryCode
             in: query
-            description:  'The path to a given master list type <br><br> *For example: /api/countries/1*'
+            description: 'Provide the country ISO 3166-1 alpha-2 code'
             required: false
             deprecated: false
             allowEmptyValue: false

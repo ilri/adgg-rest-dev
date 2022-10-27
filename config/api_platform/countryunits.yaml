@@ -1,0 +1,27 @@
+App\Entity\CountryUnits:
+  collectionOperations:
+    get:
+      method: get
+      path: /level
+      filters: [ 'countryunits.search_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'countryunits:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: country
+            in: query
+            description:  'The path to a given master list type <br><br> *For example: /api/country/1*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+  itemOperations:
+    get:
+      method: get
+      path: /level/{id}
+      normalization_context:
+        groups: [ 'countryunits:item:get' ]

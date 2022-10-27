@@ -1,0 +1,27 @@
+App\Entity\CountryUnits:
+    attributes:
+        id:
+            groups: [
+                "countryunits:collection:get",
+                "countryunits:item:get"
+            ]
+        name:
+            groups: [
+                "countryunits:collection:get",
+                "countryunits:item:get"
+            ]
+        code:
+            groups: [
+                "countryunits:collection:get",
+                "countryunits:item:get"
+            ]
+        country:
+            groups: [
+                "countryunits:collection:get",
+                "countryunits:item:get"
+            ]
+        level:
+            groups: [
+                "countryunits:collection:get",
+                "countryunits:item:get"
+            ]

@@ -20,16 +20,16 @@ App\Entity\CountryUnits:
             explode: false
             allowReserved: false
           - name: level
-              in: query
-              description: 'Select the level of adminstration'
-              required: false
-              deprecated: false
-              allowEmptyValue: false
-              schema:
-                type: string
-              style: form
-              explode: false
-              allowReserved: false
+            in: query
+            description: 'Select the level of adminstration'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
   itemOperations:
     get:
       method: get

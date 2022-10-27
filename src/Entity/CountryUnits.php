@@ -36,9 +36,9 @@ class CountryUnits
     private $name;
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="level", type="int", nullable=false)
+     * @ORM\Column(name="level", type="integer", nullable=true)
      */
     private $level;
 

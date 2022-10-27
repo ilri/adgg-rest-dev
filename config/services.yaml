@@ -92,10 +92,10 @@ services:
         arguments: [ { 'level': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
 
-    countryunits.country_filter:
-        parent: 'api_platform.doctrine.orm.country_filter'
+    countryunits.country:
+        parent: 'api_platform.doctrine.orm.country'
         arguments: [ { 'country': 'exact' } ]
-        tags: [ { name: 'api_platform.filter', id: 'countryunits.country_filter' } ]
+        tags: [ { name: 'api_platform.filter', id: 'countryunits.country' } ]
 
 
 

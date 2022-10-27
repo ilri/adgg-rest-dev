@@ -10,7 +10,7 @@ App\Entity\CountryUnits:
         parameters:
           - name: country
             in: query
-            description:  'The path to a given master list type <br><br> *For example: /api/country/1*'
+            description:  'The path to a given master list type <br><br> *For example: /api/countries/1*'
             required: false
             deprecated: false
             allowEmptyValue: false

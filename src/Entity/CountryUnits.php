@@ -36,9 +36,9 @@ class CountryUnits
     private $name;
 
     /**
-     * @var bool
+     * @var int
      *
-     * @ORM\Column(name="level", type="boolean", nullable=false)
+     * @ORM\Column(name="level", type="int", nullable=false)
      */
     private $level;
 
@@ -151,12 +151,12 @@ class CountryUnits
         return $this;
     }
 
-    public function getLevel(): ?bool
+    public function getLevel(): ?int
     {
         return $this->level;
     }
 
-    public function setLevel(bool $level): self
+    public function setLevel(int $level): self
     {
         $this->level = $level;
 

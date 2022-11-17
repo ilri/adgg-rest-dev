@@ -85,6 +85,14 @@ App\Entity\Animal:
                 "animal:item:put",
                 "animal:item:patch"
             ]
+        species:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
         sex:
             groups: [
                 "animal:collection:get",

@@ -77,6 +77,13 @@ class Animal
     /**
      * @var int|null
      *
+     * @ORM\Column(name="species", type="integer", nullable=true)
+     */
+    private $species;
+
+    /**
+     * @var int|null
+     *
      * @ORM\Column(name="sex", type="integer", nullable=true)
      */
     private $sex;
@@ -269,9 +276,22 @@ class Animal
         return $this->animalType;
     }
 
+
     public function setAnimalType(?int $animalType): self
     {
         $this->animalType = $animalType;
+
+        return $this;
+    }
+
+    public function getSpecies(): ?int
+    {
+        return $this->species;
+    }
+
+    public function setSpecies(?int $species): self
+    {
+        $this->species = $species;
 
         return $this;
     }

@@ -92,9 +92,8 @@ services:
         arguments: [ { 'level': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
 
-    countryunits.parentid_filter:
-        parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'parentid': 'exact' } ]
+    parentid_filter:
+        class: 'App\Filter\ParentIdFilter'
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
 
 

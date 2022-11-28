@@ -22,9 +22,9 @@ class ParentIdFilter extends AbstractContextAwareFilter
         $regioncode = $country ? $country->getCode() : 0;
 
         $alias = $queryBuilder->getRootAliases()[0];
-        $valueParameter = $queryNameGenerator->generateParameterName('parentid');
+        $valueParameter = $queryNameGenerator->generateParameterName('parent_id');
         $queryBuilder
-            ->andWhere(sprintf('%s.parentid = :%s', $alias, $valueParameter))
+            ->andWhere(sprintf('%s.parent_id = :%s', $alias, $valueParameter))
             ->setParameter($valueParameter, $regioncode)
         ;
     }

@@ -37,7 +37,7 @@ App\Entity\CountryUnits:
             deprecated: false
             allowEmptyValue: false
             schema:
-              type: string
+              type: integer
             style: form
             explode: false
             allowReserved: false

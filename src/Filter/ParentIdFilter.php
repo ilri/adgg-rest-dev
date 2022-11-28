@@ -19,7 +19,7 @@ class ParentIdFilter extends AbstractContextAwareFilter
 
         $countryUnitRepository = $this->managerRegistry->getRepository(CountryUnits::class);
         $country = $countryUnitRepository->findOneBy(['countryunits' => $value]);
-        $regioncode = $country ? $country->getCode() : 0;
+        $regioncode = $country ? $country->getParentId() : 0;
 
         $alias = $queryBuilder->getRootAliases()[0];
         $valueParameter = $queryNameGenerator->generateParameterName('parentId');

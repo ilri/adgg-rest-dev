@@ -89,12 +89,9 @@ services:
 
     countryunits.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'level': 'exact' } ]
+        arguments: [ { 'level': 'exact' } ,{'parentId': 'exact'}]
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
 
-    parent_id_filter:
-        class: 'App\Filter\ParentIdFilter'
-        tags: [ { name: 'api_platform.filter', id: 'parent_id_filter' } ]
 
 
 

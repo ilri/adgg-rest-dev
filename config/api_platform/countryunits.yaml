@@ -3,7 +3,7 @@ App\Entity\CountryUnits:
     get:
       method: get
       path: /level
-      filters: [ 'countryunits.search_filter','country_isocode_filter','parentid_filter', 'property_filter' ]
+      filters: [ 'countryunits.search_filter','country_isocode_filter','parent_id_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'countryunits:collection:get' ]
       openapi_context:

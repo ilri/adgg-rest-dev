@@ -94,7 +94,7 @@ services:
 
     parentid_filter:
         class: 'App\Filter\ParentIdFilter'
-        tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
+        tags: [ { name: 'api_platform.filter', id: 'parent_id_filter' } ]
 
 
 

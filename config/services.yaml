@@ -92,6 +92,10 @@ services:
         arguments: [ { 'level': 'exact' ,'parentId': 'exact'}]
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
 
+    parent_id_filter:
+        class: 'App\Filter\ParentIdFilter'
+        tags: [ { name: 'api_platform.filter', id: 'masterlist.search_filter' } ]
+
 
 
 

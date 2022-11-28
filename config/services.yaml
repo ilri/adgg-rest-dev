@@ -92,7 +92,7 @@ services:
         arguments: [ { 'level': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
 
-    parentid_filter:
+    parent_id_filter:
         class: 'App\Filter\ParentIdFilter'
         tags: [ { name: 'api_platform.filter', id: 'parent_id_filter' } ]
 

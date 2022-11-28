@@ -3,7 +3,7 @@ App\Entity\CountryUnits:
     get:
       method: get
       path: /level
-      filters: [ 'countryunits.search_filter','country_isocode_filter', 'property_filter' ]
+      filters: [ 'countryunits.search_filter','country_isocode_filter','parentid_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'countryunits:collection:get' ]
       openapi_context:
@@ -30,6 +30,19 @@ App\Entity\CountryUnits:
             style: form
             explode: false
             allowReserved: false
+          - name: parentid
+            in: query
+            description: 'Select the parent id together with the level of adminstration'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+
+
   itemOperations:
     get:
       method: get

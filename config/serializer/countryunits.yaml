@@ -25,3 +25,8 @@ App\Entity\CountryUnits:
                 "countryunits:collection:get",
                 "countryunits:item:get"
             ]
+        parentid:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]

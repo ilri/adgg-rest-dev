@@ -32,12 +32,12 @@ App\Entity\CountryUnits:
             allowReserved: false
           - name: parentId
             in: query
-            description: 'Select the parent id alongside  the level of adminstration'
+            description: 'Select the parent id alongside the adminstrative level'
             required: false
             deprecated: false
             allowEmptyValue: false
             schema:
-              type: integer
+              type: string
             style: form
             explode: false
             allowReserved: false

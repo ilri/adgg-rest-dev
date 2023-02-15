@@ -5,3 +5,9 @@
 authentication_token:
   path: /authentication_token
   methods: ['POST']
+
+partner_docs:
+  path: /partner
+  methods: ['GET']
+  defaults:
+    _controller: 'App\Serializer\FarmPartnerNormalizer::docsAction'

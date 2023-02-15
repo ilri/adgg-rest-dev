@@ -21,7 +21,8 @@ App\Entity\Farm:
                 "farm:item:put",
                 "farm:item:patch",
                 "milkyieldrecord:collection:get",
-                "milkyieldrecord:item:get"
+                "milkyieldrecord:item:get",
+                "farm:partner:get"
             ]
         regionId:
             groups: [

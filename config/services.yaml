@@ -53,6 +53,10 @@ services:
             event: 'prePersist'
             entity: 'App\Entity\AnimalEvent'
 
+    App\Serializer\Normalizer\PartnerNormalizer:
+        tags:
+            - { name: serializer.normalizer }
+
     #API Platform Filters
     animal.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
@@ -91,6 +95,8 @@ services:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { 'level': 'exact', 'parentId': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
+
+
 
 
 

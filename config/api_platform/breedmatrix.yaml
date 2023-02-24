@@ -32,6 +32,54 @@ App\Entity\BreedMatrix:
             style: form
             explode: true
             allowReserved: false
+          - name: breedId
+            in: query
+            description: 'The breedmatrix ID<br><br>*For example: 1*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'breedId[]'
+            in: query
+            description: 'Select multiple breed IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+          - name: speciesId
+            in: query
+            description: 'The breedmatrix ID<br><br>*For example: 1*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'speciesId[]'
+            in: query
+            description: 'Select multiple breed IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
           - name: page
             in: query
             description: 'The collection page number'

@@ -15,50 +15,50 @@ class BreedMatrix
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      */
-    private $id;
+    private  $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="breed_id", type="integer", length=128, nullable=true)
      */
-    private $breed_id;
+    private $breedId;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="species_id", type="integer", length=128, nullable=true)
      */
-    private $species_id;
+    private $speciesId;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="country_id", type="integer", length=128, nullable=true)
      */
-    private $country_id;
+    private $countryId;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="is_active", type="integer", length=128, nullable=true)
      */
-    private $is_active;
+    private $isActive;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="created_by", type="integer", length=128, nullable=true)
      */
-    private $created_by;
+    private $createdBy;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
-    private $create_at;
+    private $createAt;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(name="updated_by", type="integer", length=128, nullable=true)
      */
-    private $updated_by;
+    private $updatedBy;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(name="updated_at", type="integer", length=128, nullable=true)
      */
-    private $updated_at;
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -67,96 +67,96 @@ class BreedMatrix
 
     public function getBreedId(): ?int
     {
-        return $this->breed_id;
+        return $this->breedId;
     }
 
-    public function setBreedId(int $breed_id): self
+    public function setBreedId(int $breedId): self
     {
-        $this->breed_id = $breed_id;
+        $this->breedId = $breedId;
 
         return $this;
     }
 
     public function getSpeciesId(): ?int
     {
-        return $this->species_id;
+        return $this->speciesId;
     }
 
-    public function setSpeciesId(int $species_id): self
+    public function setSpeciesId(int $speciesId): self
     {
-        $this->species_id = $species_id;
+        $this->speciesId = $speciesId;
 
         return $this;
     }
 
     public function getCountryId(): ?int
     {
-        return $this->country_id;
+        return $this->countryId;
     }
 
-    public function setCountryId(int $country_id): self
+    public function setCountryId(int $countryId): self
     {
-        $this->country_id = $country_id;
+        $this->countryId = $countryId;
 
         return $this;
     }
 
     public function getIsActive(): ?int
     {
-        return $this->is_active;
+        return $this->isActive;
     }
 
-    public function setIsActive(int $is_active): self
+    public function setIsActive(int $isActive): self
     {
-        $this->is_active = $is_active;
+        $this->isActive = $isActive;
 
         return $this;
     }
 
     public function getCreatedBy(): ?int
     {
-        return $this->created_by;
+        return $this->createdBy;
     }
 
-    public function setCreatedBy(int $created_by): self
+    public function setCreatedBy(int $createdBy): self
     {
-        $this->created_by = $created_by;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
 
     public function getCreateAt(): ?\DateTimeInterface
     {
-        return $this->create_at;
+        return $this->createAt;
     }
 
-    public function setCreateAt(\DateTimeInterface $create_at): self
+    public function setCreateAt(\DateTimeInterface $createAt): self
     {
-        $this->create_at = $create_at;
+        $this->createAt = $createAt;
 
         return $this;
     }
 
     public function getUpdatedBy(): ?int
     {
-        return $this->updated_by;
+        return $this->updatedBy;
     }
 
-    public function setUpdatedBy(?int $updated_by): self
+    public function setUpdatedBy(?int $updatedBy): self
     {
-        $this->updated_by = $updated_by;
+        $this->updatedBy = $updatedBy;
 
         return $this;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -5,7 +5,7 @@ App\Entity\BreedMatrix:
                 "breedmatrix:collection:get",
                 "breedmatrix:item:get"
             ]
-        breed_id:
+        breedId:
             groups: [
                 "breedmatrix:collection:get",
                 "breedmatrix:collection:post",
@@ -13,7 +13,7 @@ App\Entity\BreedMatrix:
                 "breedmatrix:item:put",
                 "breedmatrix:item:patch"
             ]
-        species_id:
+        speciesId:
             groups: [
                 "breedmatrix:collection:get",
                 "breedmatrix:collection:post",
@@ -29,7 +29,7 @@ App\Entity\BreedMatrix:
                 "breedmatrix:item:put",
                 "breedmatrix:item:patch"
             ]
-        country_id:
+        countryId:
             groups: [
                 "breedmatrix:collection:get",
                 "breedmatrix:collection:post",

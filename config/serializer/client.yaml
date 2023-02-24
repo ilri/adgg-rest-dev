@@ -1,0 +1,49 @@
+App\Entity\Client:
+    attributes:
+        id:
+            groups: [
+                "client:collection:get",
+                "client:item:get"
+            ]
+        name:
+            groups: [
+                "client:collection:get",
+                "client:collection:post",
+                "client:item:get",
+                "client:item:put",
+                "client:item:patch"
+            ]
+        description:
+            groups: [
+                "client:collection:get",
+                "client:collection:post",
+                "client:item:get",
+                "client:item:put",
+                "client:item:patch"
+            ]
+        isActive:
+            groups: [
+                "client:collection:get",
+                "client:collection:post",
+                "client:item:get",
+                "client:item:put",
+                "client:item:patch"
+            ]
+        orgId:
+            groups: [
+                "client:collection:get",
+                "client:collection:post",
+                "client:item:get",
+                "client:item:put",
+                "client:item:patch"
+            ]
+        createdAt:
+            groups: [
+                "client:collection:get",
+                "client:item:get"
+            ]
+        createdBy:
+            groups: [
+                "client:collection:get",
+                "client:item:get"
+            ]

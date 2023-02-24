@@ -1,0 +1,66 @@
+App\Entity\UserRole:
+    attributes:
+        id:
+            groups: [
+                "userrole:collection:get",
+                "userrole:item:get"
+            ]
+        name:
+            groups: [
+                "userrole:collection:get",
+                "userrole:collection:post",
+                "userrole:item:get",
+                "userrole:item:put",
+                "userrole:item:patch"
+            ]
+        description:
+            groups: [
+                "userrole:collection:get",
+                "userrole:collection:post",
+                "userrole:item:get",
+                "userrole:item:put",
+                "userrole:item:patch"
+            ]
+        readonly:
+            groups: [
+                "userrole:collection:get",
+                "userrole:collection:post",
+                "userrole:item:get",
+                "userrole:item:put",
+                "userrole:item:patch"
+            ]
+
+        isFieldAgent:
+            groups: [
+                "userrole:collection:get",
+                "userrole:collection:post",
+                "userrole:item:get",
+                "userrole:item:put",
+                "userrole:item:patch"
+            ]
+        isActive:
+            groups: [
+                "userrole:collection:get",
+                "userrole:collection:post",
+                "userrole:item:get",
+                "userrole:item:put",
+                "userrole:item:patch"
+            ]
+        createdAt:
+            groups: [
+                "userrole:collection:get",
+                "userrole:item:get"
+            ]
+        createdBy:
+            groups: [
+                "userrole:collection:get",
+                "userrole:item:get"
+            ]
+        level:
+            groups: [
+                    "userrole:collection:get",
+                    "userrole:collection:post",
+                    "userrole:item:get",
+                    "userrole:item:put",
+                    "userrole:item:patch"
+            ]

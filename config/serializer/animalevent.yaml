@@ -17,6 +17,14 @@ App\Entity\AnimalEvent:
                 "animal:collection:get",
                 "animal:item:get"
             ]
+        fieldAgentId:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:collection:post",
+                "animalevent:item:get",
+                "animalevent:item:put",
+                "animalevent:item:patch"
+            ]
         countryId:
             groups: [
                 "animalevent:collection:get",

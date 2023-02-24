@@ -5,12 +5,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CoreClient
+ * Client
  *
  * @ORM\Table(name="core_client", indexes={@ORM\Index(name="country_id", columns={"country_id"})})
  * @ORM\Entity
  */
-class CoreClient
+class Client
 {
     /**
      * @var int

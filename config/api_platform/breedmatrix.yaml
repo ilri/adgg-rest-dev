@@ -1,0 +1,91 @@
+App\Entity\BreedMatrix:
+  collectionOperations:
+    get:
+      method: get
+      path: /breedmatrix
+      filters: [ 'breedmatrix.search_filter', 'country_isocode_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'breedmatrix:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: id
+            in: query
+            description: 'The breedmatrix ID<br><br>*For example: 1*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'id[]'
+            in: query
+            description: 'Provide multiple farm IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+          - name: page
+            in: query
+            description: 'The collection page number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+              default: 1
+            style: form
+            explode: false
+            allowReserved: false
+          - name: pagination
+            in: query
+            description: 'Enable or disable pagination'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: boolean
+            style: form
+            explode: false
+            allowReserved: false
+    post:
+      method: post
+      path: /breedmatrix
+      denormalization_context:
+        groups: [ 'breedmatrix:collection:post' ]
+#      openapi_context:
+#        description:
+#          '<h3>Creates a breedmatrix resource</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+  itemOperations:
+    get:
+      method: get
+      path: /breedmatrix/{id}
+      normalization_context:
+        groups: [ 'breedmatrix:item:get' ]
+    put:
+      method: put
+      path: /breedmatrix/{id}
+      denormalization_context:
+        groups: [ 'breedmatrix:item:put' ]
+#      openapi_context:
+#        description:
+#          '<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+#           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+    patch:
+      method: patch
+      path: /breedmatrix/{id}
+      denormalization_context:
+        groups: [ 'breedmatrix:item:patch' ]
+#      openapi_context:
+#        description:
+#          '<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+#          </p>`farmerIsHhHead`<p>All other properties are **optional**.</p>'
+

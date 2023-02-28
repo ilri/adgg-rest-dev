@@ -15,46 +15,30 @@ App\Entity\BreedMatrix:
             ]
         speciesId:
             groups: [
-                "breedmatrix:collection:get",
-                "breedmatrix:collection:post",
-                "breedmatrix:item:get",
-                "breedmatrix:item:put",
-                "breedmatrix:item:patch"
+                "breedmatrix:collection:get"
             ]
         isActive:
             groups: [
-                "breedmatrix:collection:get",
-                "breedmatrix:collection:post",
-                "breedmatrix:item:get",
-                "breedmatrix:item:put",
-                "breedmatrix:item:patch"
+                "breedmatrix:collection:get"
             ]
         countryId:
             groups: [
-                "breedmatrix:collection:get",
-                "breedmatrix:collection:post",
-                "breedmatrix:item:get",
-                "breedmatrix:item:put",
-                "breedmatrix:item:patch"
+                "breedmatrix:collection:get"
             ]
         createdAt:
             groups: [
-                "breedmatrix:collection:get",
-                "breedmatrix:item:get"
+                "breedmatrix:collection:get"
             ]
         createdBy:
             groups: [
-                "breedmatrix:collection:get",
-                "breedmatrix:item:get"
+                "breedmatrix:collection:get"
             ]
         updatedAt:
             groups: [
-                "breedmatrix:collection:get",
-                "breedmatrix:item:get"
+                "breedmatrix:collection:get"
             ]
 
         updatedBy:
             groups: [
-                "breedmatrix:collection:get",
-                "breedmatrix:item:get"
+                "breedmatrix:collection:get"
             ]

@@ -99,12 +99,12 @@ App\Entity\BreedMatrix:
 #        description:
 #          '<h3>Creates a breedmatrix resource</h3><p>The following properties are **required** and need to be provided in the request body:
 #          </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
-#  itemOperations:
-#    get:
-#      method: get
-#      path: /breedmatrix/{id}
-#      normalization_context:
-#        groups: [ 'breedmatrix:item:get' ]
+  itemOperations:
+    get:
+      method: get
+      path: /breedmatrix/{id}
+      normalization_context:
+        groups: [ 'breedmatrix:item:get' ]
 #    put:
 #      method: put
 #      path: /breedmatrix/{id}

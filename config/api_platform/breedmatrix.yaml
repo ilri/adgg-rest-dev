@@ -8,33 +8,9 @@ App\Entity\BreedMatrix:
         groups: [ 'breedmatrix:collection:get' ]
       openapi_context:
         parameters:
-          - name: id
-            in: query
-            description: 'The breedmatrix ID<br><br>*For example: 1*'
-            required: false
-            deprecated: false
-            allowEmptyValue: false
-            schema:
-              type: integer
-            style: form
-            explode: false
-            allowReserved: false
-          - name: 'id[]'
-            in: query
-            description: 'Provide multiple farm IDs'
-            required: false
-            deprecated: false
-            allowEmptyValue: false
-            schema:
-              type: array
-              items:
-                type: integer
-            style: form
-            explode: true
-            allowReserved: false
           - name: breedId
             in: query
-            description: 'The breedmatrix ID<br><br>*For example: 1*'
+            description: 'The breed ID<br><br>*For example: 1*'
             required: false
             deprecated: false
             allowEmptyValue: false
@@ -58,7 +34,7 @@ App\Entity\BreedMatrix:
             allowReserved: false
           - name: speciesId
             in: query
-            description: 'The breedmatrix ID<br><br>*For example: 1*'
+            description: 'The species ID<br><br>*For example: 1*'
             required: false
             deprecated: false
             allowEmptyValue: false
@@ -69,7 +45,7 @@ App\Entity\BreedMatrix:
             allowReserved: false
           - name: 'speciesId[]'
             in: query
-            description: 'Select multiple breed IDs'
+            description: 'Select multiple species IDs'
             required: false
             deprecated: false
             allowEmptyValue: false
@@ -103,35 +79,46 @@ App\Entity\BreedMatrix:
             style: form
             explode: false
             allowReserved: false
-    post:
-      method: post
-      path: /breedmatrix
-      denormalization_context:
-        groups: [ 'breedmatrix:collection:post' ]
+          - name: countryCode
+            in: query
+            description: 'Provide the country ISO 3166-1 alpha-2 code'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+#    post:
+#      method: post
+#      path: /breedmatrix
+#      denormalization_context:
+#        groups: [ 'breedmatrix:collection:post' ]
 #      openapi_context:
 #        description:
 #          '<h3>Creates a breedmatrix resource</h3><p>The following properties are **required** and need to be provided in the request body:
 #          </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
-  itemOperations:
-    get:
-      method: get
-      path: /breedmatrix/{id}
-      normalization_context:
-        groups: [ 'breedmatrix:item:get' ]
-    put:
-      method: put
-      path: /breedmatrix/{id}
-      denormalization_context:
-        groups: [ 'breedmatrix:item:put' ]
+#  itemOperations:
+#    get:
+#      method: get
+#      path: /breedmatrix/{id}
+#      normalization_context:
+#        groups: [ 'breedmatrix:item:get' ]
+#    put:
+#      method: put
+#      path: /breedmatrix/{id}
+#      denormalization_context:
+#        groups: [ 'breedmatrix:item:put' ]
 #      openapi_context:
 #        description:
 #          '<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
 #           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
-    patch:
-      method: patch
-      path: /breedmatrix/{id}
-      denormalization_context:
-        groups: [ 'breedmatrix:item:patch' ]
+#    patch:
+#      method: patch
+#      path: /breedmatrix/{id}
+#      denormalization_context:
+#        groups: [ 'breedmatrix:item:patch' ]
 #      openapi_context:
 #        description:
 #          '<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:

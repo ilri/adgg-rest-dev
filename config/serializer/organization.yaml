@@ -1,0 +1,41 @@
+App\Entity\Organization:
+    attributes:
+        id:
+            groups: [
+                "organization:collection:get",
+                "organization:item:get"
+            ]
+        name:
+            groups: [
+                "organization:collection:get",
+                "organization:collection:post",
+                "organization:item:get",
+                "organization:item:put",
+                "organization:item:patch"
+            ]
+        isActive:
+            groups: [
+                "organization:collection:get",
+                "organization:collection:post",
+                "organization:item:get",
+                "organization:item:put",
+                "organization:item:patch"
+            ]
+        createdAt:
+            groups: [
+                "organization:collection:get",
+                "organization:item:get"
+            ]
+        createdBy:
+            groups: [
+                "organization:collection:get",
+                "organization:item:get"
+            ]
+        country:
+            groups: [
+                    "organization:collection:get",
+                    "organization:collection:post",
+                    "organization:item:get",
+                    "organization:item:put",
+                    "organization:item:patch"
+            ]

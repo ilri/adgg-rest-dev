@@ -1,0 +1,48 @@
+App\Entity\BreedMatrix:
+    attributes:
+        id:
+            groups: [
+                "breedmatrix:collection:get",
+                "breedmatrix:item:get"
+            ]
+        breedId:
+            groups: [
+                "breedmatrix:collection:get",
+                "breedmatrix:collection:post",
+                "breedmatrix:item:get",
+                "breedmatrix:item:put",
+                "breedmatrix:item:patch"
+            ]
+        speciesId:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
+        name:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
+        isActive:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
+        countryId:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
+        createdAt:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
+        createdBy:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
+        updatedAt:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
+
+        updatedBy:
+            groups: [
+                "breedmatrix:collection:get"
+            ]

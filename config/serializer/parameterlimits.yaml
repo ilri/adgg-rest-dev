@@ -1,0 +1,81 @@
+App\Entity\ParameterLimits:
+    attributes:
+        id:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:item:get"
+            ]
+        category:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]
+        description:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]
+        message:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]
+        name:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]
+        minValue:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]
+        maxValue:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]
+        isActive:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]
+        createdAt:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:item:get"
+            ]
+        createdBy:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:item:get"
+            ]
+        country:
+            groups: [
+                    "parameterlimits:collection:get",
+                    "parameterlimits:collection:post",
+                    "parameterlimits:item:get",
+                    "parameterlimits:item:put",
+                    "parameterlimits:item:patch"
+            ]

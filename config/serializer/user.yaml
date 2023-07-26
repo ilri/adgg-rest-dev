@@ -1,0 +1,109 @@
+App\Entity\User:
+    attributes:
+        id:
+            groups: [
+                "user:collection:get",
+                "user:item:get"
+            ]
+        name:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+        phone:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+        regionId:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+
+        districtId:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+        wardId:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+        villageId:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+        orgId:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+        clientId:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+        email:
+            groups: [
+                "user:collection:get",
+                "user:collection:post",
+                "user:item:get",
+                "user:item:put",
+                "user:item:patch"
+            ]
+
+        createdAt:
+            groups: [
+                "user:collection:get",
+                "user:item:get"
+            ]
+        createdBy:
+            groups: [
+                "user:collection:get",
+                "user:item:get"
+            ]
+        updatedAt:
+            groups: [
+                "user:collection:get",
+                "user:item:get"
+            ]
+        updatedBy:
+            groups: [
+                "user:collection:get",
+                "user:item:get"
+            ]
+        country:
+            groups: [
+                    "user:collection:get",
+                    "user:collection:post",
+                    "user:item:get",
+                    "user:item:put",
+                    "user:item:patch"
+            ]

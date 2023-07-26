@@ -60,6 +60,11 @@ class BreedMatrix
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -157,6 +162,18 @@ class BreedMatrix
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }

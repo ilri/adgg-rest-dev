@@ -17,6 +17,10 @@ App\Entity\BreedMatrix:
             groups: [
                 "breedmatrix:collection:get"
             ]
+        name:
+            groups: [
+                "breedmatrix:collection:get"
+            ]
         isActive:
             groups: [
                 "breedmatrix:collection:get"

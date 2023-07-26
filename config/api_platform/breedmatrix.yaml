@@ -56,6 +56,28 @@ App\Entity\BreedMatrix:
             style: form
             explode: true
             allowReserved: false
+          - name: name
+            in: query
+            description: 'The name <br><br>*For example: Tom*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: countryCode
+            in: query
+            description: 'Provide the country ISO 3166-1 alpha-2 code'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
           - name: page
             in: query
             description: 'The collection page number'
@@ -79,17 +101,7 @@ App\Entity\BreedMatrix:
             style: form
             explode: false
             allowReserved: false
-          - name: countryCode
-            in: query
-            description: 'Provide the country ISO 3166-1 alpha-2 code'
-            required: false
-            deprecated: false
-            allowEmptyValue: false
-            schema:
-              type: string
-            style: form
-            explode: false
-            allowReserved: false
+
 #    post:
 #      method: post
 #      path: /breedmatrix

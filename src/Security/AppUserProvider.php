@@ -42,9 +42,14 @@ class AppUserProvider implements UserProviderInterface
 
     public function refreshUser(UserInterface $user)
     {
-        // This method is used when you have a user object and want to fetch a fresh user
-        // For simplicity, we don't implement it here
-        throw new UnsupportedUserException('Refreshing user is not supported.');
+        // Fetch the user from the database based on its identifier
+        $refreshedUser = $this->em->getRepository(User::class)->find($user->getId());
+
+        if (!$refreshedUser) {
+            throw new UsernameNotFoundException(sprintf('User with ID "%s" not found.', $user->getId()));
+        }
+
+        return $refreshedUser;
     }
 
     public function supportsClass($class)

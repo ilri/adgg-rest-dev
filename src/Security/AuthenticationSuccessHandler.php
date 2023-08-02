@@ -29,7 +29,7 @@ class AuthenticationSuccessHandler implements AuthenticationSuccessHandlerInterf
             $token = $this->tokenManager->create($user, ['id' => $user->getId()]);
             return new JsonResponse(['id' => $user->getId(), 'token' => $token]);
         } catch (\Exception $e) {
-            $this->logger->error('AuthenticationSuccessHandler: Error during token generation.', ['exception' => $e]);
+            $this->logger->error('AuthenticationSuccessHandler: Error flagged during token generation.', ['exception' => $e]);
             throw $e;
         }
     }

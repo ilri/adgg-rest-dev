@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+use Psr\Log\LoggerInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -12,10 +13,12 @@ use App\Entity\User;
 class AuthenticationSuccessHandler implements AuthenticationSuccessHandlerInterface
 {
     private $tokenManager;
+    private $logger;
 
-    public function __construct(JWTTokenManagerInterface $tokenManager)
+    public function __construct(JWTTokenManagerInterface $tokenManager, LoggerInterface $logger)
     {
         $this->tokenManager = $tokenManager;
+        $this->logger = $logger;
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)

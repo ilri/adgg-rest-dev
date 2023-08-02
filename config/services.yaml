@@ -53,6 +53,12 @@ services:
             event: 'prePersist'
             entity: 'App\Entity\AnimalEvent'
 
+    App\Security\AuthenticationSuccessHandler:
+        arguments: [ '@lexik_jwt_authentication.jwt_manager' ]
+
+    App\Security\AppUserProvider:
+        arguments: [ '@doctrine.orm.default_entity_manager' ]
+
     #API Platform Filters
     animal.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'

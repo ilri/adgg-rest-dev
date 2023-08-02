@@ -1,6 +1,5 @@
 <?php
 
-// src/Security/AppUserProvider.php
 
 namespace App\Security;
 
@@ -22,13 +21,17 @@ class AppUserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
-        // Look for the user based on either the username or email
-        $user = $this->em->getRepository(User::class)->findOneBy(['username' => $username]);
+        $criteria = ['username' => $username];
 
-        if (!$user) {
-            // If the user is not found by username, try fetching by email
-            $user = $this->em->getRepository(User::class)->findOneBy(['email' => $username]);
+        // Check for the user based on email and phone as well
+        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            $criteria = ['email' => $username];
+        } elseif (preg_match('/^\+?[0-9]+/', $username)) {
+            $criteria = ['phone' => $username];
         }
+
+        // Look for the user based on the criteria
+        $user = $this->em->getRepository(User::class)->findOneBy($criteria);
 
         if (!$user) {
             throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));

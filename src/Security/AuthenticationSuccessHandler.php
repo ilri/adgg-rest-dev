@@ -20,13 +20,17 @@ class AuthenticationSuccessHandler implements AuthenticationSuccessHandlerInterf
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
-        $user = $token->getUser();
-        if (!$user instanceof User) {
-            throw new \RuntimeException('User must be an instance of App\Entity\User.');
+
+        try {
+            $user = $token->getUser();
+            if (!$user instanceof User) {
+                throw new \RuntimeException('User must be an instance of App\Entity\User.');
+            }
+            $token = $this->tokenManager->create($user, ['id' => $user->getId()]);
+            return new JsonResponse(['id' => $user->getId(), 'token' => $token]);
+        } catch (\Exception $e) {
+            $this->logger->error('AuthenticationSuccessHandler: Error during token generation.', ['exception' => $e]);
+            throw $e;
         }
-
-        $token = $this->tokenManager->create($user, ['id' => $user->getId()]);
-
-        return new JsonResponse(['id' => $user->getId(), 'token' => $token]);
     }
 }

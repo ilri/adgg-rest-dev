@@ -25,9 +25,13 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller/'
-        tags: ['controller.service_arguments']
+#    App\Controller\:
+#        resource: '../src/Controller/'
+#        tags: ['controller.service_arguments']
+    App\Controller\SyncController\:
+        resource: '../src/Controller/SyncController.php'
+        tags:
+            - { name: 'api_platform.resource', shortName: 'SyncUploadDownload' }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

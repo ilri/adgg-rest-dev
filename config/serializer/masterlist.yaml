@@ -30,6 +30,11 @@ App\Entity\MasterList:
                 "masterlist:collection:get",
                 "masterlist:item:get"
             ]
+        orderby:
+            groups: [
+                "masterlist:collection:get",
+                "masterlist:item:get"
+            ]
         listtype:
             groups: [
                 "masterlist:collection:get",

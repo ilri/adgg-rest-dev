@@ -94,6 +94,13 @@ class MasterList
     private $deletedBy;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="order_by", type="integer", nullable=true)
+     */
+    private $orderby;
+
+    /**
      * @var MasterListType
      *
      * @ORM\ManyToOne(targetEntity="MasterListType")
@@ -227,6 +234,19 @@ class MasterList
 
         return $this;
     }
+
+    public function getOrderby(): ?int
+    {
+        return $this->orderby;
+    }
+
+    public function setOrderby(?int $orderby): self
+    {
+        $this->orderby = $orderby;
+
+        return $this;
+    }
+
 
     public function getListType(): ?MasterListType
     {

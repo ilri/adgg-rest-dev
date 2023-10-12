@@ -98,7 +98,7 @@ class MasterList
      *
      * @ORM\Column(name="order_by", type="integer", nullable=true)
      */
-    private $orderby;
+    private $orderBy;
 
     /**
      * @var MasterListType
@@ -235,14 +235,14 @@ class MasterList
         return $this;
     }
 
-    public function getOrderby(): ?int
+    public function getOrderBy(): ?int
     {
-        return $this->orderby;
+        return $this->orderBy;
     }
 
-    public function setOrderby(?int $orderby): self
+    public function setOrderBy(?int $orderBy): self
     {
-        $this->orderby = $orderby;
+        $this->orderBy = $orderBy;
 
         return $this;
     }

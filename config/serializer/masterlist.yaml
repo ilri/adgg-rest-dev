@@ -30,7 +30,7 @@ App\Entity\MasterList:
                 "masterlist:collection:get",
                 "masterlist:item:get"
             ]
-        orderby:
+        orderBy:
             groups: [
                 "masterlist:collection:get",
                 "masterlist:item:get"

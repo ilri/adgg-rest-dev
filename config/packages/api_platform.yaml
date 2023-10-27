@@ -1,10 +1,8 @@
 api_platform:
     title: 'ADGG REST API documentation'
     defaults:
-        pagination_client_enabled: false
-        collection:
-            pagination:
-                enabled_parameter_name: pagination # optional
+#        changes for pagination
+        pagination_enabled: false
     mapping:
         paths: ['%kernel.project_dir%/config/api_platform']
     patch_formats:

@@ -1,8 +1,11 @@
 api_platform:
     title: 'ADGG REST API documentation'
-    defaults:
-#        changes for pagination
-        pagination_enabled: false
+    collection:
+        pagination:
+            items_per_page: 250
+#    defaults:
+##        changes for pagination
+#        pagination_enabled: false
     mapping:
         paths: ['%kernel.project_dir%/config/api_platform']
     patch_formats:

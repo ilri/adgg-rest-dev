@@ -1,0 +1,73 @@
+App\Entity\MobFormField:
+  collectionOperations:
+    get:
+      method: get
+      path: /mobformfield
+      filters: [ 'property_filter' ]
+      normalization_context:
+        groups: [ 'mobformfield:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: mobFormId
+            in: query
+            description: 'Filter by the mobile specific Form ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobFormId[]'
+            in: query
+            description: 'Select multiple Form IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+
+    post:
+      method: post
+      path: /mobformfield
+      denormalization_context:
+        groups: [ 'mobformfield:collection:post' ]
+      openapi_context:
+        description:
+          '<h3>Create a mob form field resource</h3>
+           <p>Create a new mob form field resource by providing the required properties in the request body.</p>'
+  itemOperations:
+    get:
+      method: get
+      path: /mobformfield/{id}
+      normalization_context:
+        groups: [ 'mobformfield:item:get' ]
+        description:
+          '<h3>Retrieve a specific mob form field resource</h3>
+           <p>Retrieve details of a specific mob form field resource identified by the <code>id</code> parameter.</p>'
+    put:
+      method: put
+      path: /mobformfield/{id}
+      denormalization_context:
+        groups: [ 'mobformfield:item:put' ]
+      openapi_context:
+        description:
+          '<h3>Replace a mob form resource</h3>
+           <p>Replace the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'
+    patch:
+      method: patch
+      path: /mobformfield/{id}
+      denormalization_context:
+        groups: [ 'mobformfield:item:patch' ]
+      openapi_context:
+        description:
+          '<h3>Update a mob form resource</h3>
+           <p>Update the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'

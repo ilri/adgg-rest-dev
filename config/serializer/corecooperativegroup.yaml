@@ -1,0 +1,111 @@
+App\Entity\CoreCooperativeGroup:
+  attributes:
+    id:
+      groups: [
+        "corecooperativegroup:collection:get",
+        "corecooperativegroup:item:get"
+      ]
+    mob_data_id:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    cooperative_group_name:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    type:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    cooperative_group_type:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    cooperative_group_function:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    offers_livestock_marketing:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    offers_livestock_products:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    number_male_members:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    number_female_members:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    user_id:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    datetime:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    ip_address:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
+    status:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]

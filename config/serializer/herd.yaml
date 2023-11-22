@@ -69,6 +69,22 @@ App\Entity\Herd:
                 "herd:item:put",
                 "herd:item:patch"
             ]
+        mobDataId:
+            groups: [
+                "herd:collection:get",
+                "herd:collection:post",
+                "herd:item:get",
+                "herd:item:put",
+                "herd:item:patch"
+            ]
+        mobFarmId:
+            groups: [
+                "herd:collection:get",
+                "herd:collection:post",
+                "herd:item:get",
+                "herd:item:put",
+                "herd:item:patch"
+            ]
         latitude:
             groups: [
                 "herd:collection:get",

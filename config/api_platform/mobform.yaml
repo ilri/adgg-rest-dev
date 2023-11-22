@@ -1,0 +1,47 @@
+App\Entity\MobForm:
+  collectionOperations:
+    get:
+      method: get
+      path: /mobform
+      filters: ['property_filter' ]
+      normalization_context:
+        groups: [ 'mobform:collection:get' ]
+    post:
+      method: post
+      path: /mobform
+      denormalization_context:
+        groups: [ 'mobform:collection:post' ]
+      openapi_context:
+        description:
+          '<h3>Create a mob form resource</h3>
+           <p>Create a new mob form resource by providing the required properties in the request body.</p>'
+  itemOperations:
+    get:
+      method: get
+      path: /mobform/{id}
+      normalization_context:
+        groups: [ 'mobform:item:get' ]
+      openapi_context:
+        description:
+          '<h3>Retrieve a specific mob form resource</h3>
+           <p>Retrieve details of a specific mob form resource identified by the <code>id</code> parameter.</p>'
+    put:
+      method: put
+      path: /mobform/{id}
+      denormalization_context:
+        groups: [ 'mobform:item:put' ]
+      openapi_context:
+        description:
+          '<h3>Replace a mob form resource</h3>
+           <p>Replace the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'
+    patch:
+      method: patch
+      path: /mobform/{id}
+      denormalization_context:
+        groups: [ 'mobform:item:patch' ]
+      openapi_context:
+        description:
+          '<h3>Update a mob form resource</h3>
+           <p>Update the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'

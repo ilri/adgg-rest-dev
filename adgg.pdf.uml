@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.TestDayMilk_TZN</OriginalElement>
+  <nodes>
+    <node x="278.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_uploads</node>
+    <node x="2464.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_password_reset_codes</node>
+    <node x="4336.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_numbering_format</node>
+    <node x="118.78653846153838" y="1078.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_permission</node>
+    <node x="2373.377564102564" y="2164.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm_metadata</node>
+    <node x="3712.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_data_quality_report_data</node>
+    <node x="4065.377564102564" y="415.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form_field</node>
+    <node x="734.0955128205129" y="307.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.email_template</node>
+    <node x="2630.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.survey22_copy</node>
+    <node x="1940.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.sms_outbox</node>
+    <node x="1044.127564102564" y="2142.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.country_notif_settings</node>
+    <node x="4286.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.inteface_test</node>
+    <node x="2118.877564102564" y="2876.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_event</node>
+    <node x="2228.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.sys_queue</node>
+    <node x="2894.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_calving_short</node>
+    <node x="3909.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.report_testday_lacation</node>
+    <node x="1824.127564102564" y="1999.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_herd</node>
+    <node x="2783.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_validation_errors</node>
+    <node x="1045.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_pd</node>
+    <node x="1855.8115384615385" y="1045.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_client</node>
+    <node x="4165.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_jobs</node>
+    <node x="3696.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_animal</node>
+    <node x="4965.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.z_lactation_file</node>
+    <node x="607.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_graduation_list</node>
+    <node x="1670.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_master_country</node>
+    <node x="3274.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.sys_form_draft</node>
+    <node x="2430.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.rpt_cummulative_animal_registration</node>
+    <node x="3092.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_copy2</node>
+    <node x="2758.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_job_processes</node>
+    <node x="500.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.z_test_day</node>
+    <node x="4905.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_process_types</node>
+    <node x="4793.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm_copy</node>
+    <node x="2580.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.TestDayMilk_TZN</node>
+    <node x="442.0955128205129" y="318.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.sms_template</node>
+    <node x="597.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_exit</node>
+    <node x="5317.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_milk</node>
+    <node x="1262.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_odk_form</node>
+    <node x="3436.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_records_status</node>
+    <node x="2321.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.help_modules</node>
+    <node x="5305.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.x_misplaced</node>
+    <node x="5288.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.x_lactation_file</node>
+    <node x="899.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_report_recipients</node>
+    <node x="4683.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.record_delete</node>
+    <node x="4341.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_table_attributes_group</node>
+    <node x="0.0" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_user_levels</node>
+    <node x="1502.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_animal_event_menus_setup</node>
+    <node x="4324.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_service_providers</node>
+    <node x="1198.5442307692306" y="990.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.country_units</node>
+    <node x="4902.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.migration</node>
+    <node x="4346.377564102564" y="591.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form_field_multiple</node>
+    <node x="1909.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_events_type</node>
+    <node x="3339.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.lactation_tble</node>
+    <node x="3022.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.ethiopia_legacy_tag_id</node>
+    <node x="4696.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.report_adhoc</node>
+    <node x="754.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.y_test_day</node>
+    <node x="309.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_breed_percentages</node>
+    <node x="267.12756410256395" y="2197.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif</node>
+    <node x="949.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.email_outbox</node>
+    <node x="1110.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_report_frequency</node>
+    <node x="4401.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.setting</node>
+    <node x="1773.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_herd_copy2</node>
+    <node x="1516.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_herd_copy</node>
+    <node x="5218.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_background_processes</node>
+    <node x="246.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_species</node>
+    <node x="0.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_limit_parameters</node>
+    <node x="0.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_types</node>
+    <node x="0.0" y="3855.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_table_attribute</node>
+    <node x="4595.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_insemination</node>
+    <node x="2318.0" y="3877.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.help_sections</node>
+    <node x="1385.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.breed_matrix</node>
+    <node x="5168.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_status</node>
+    <node x="2039.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.Test_Day_Milk_Data</node>
+    <node x="2749.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_feed_samples</node>
+    <node x="466.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_dfa_performance_tracking</node>
+    <node x="1337.127564102564" y="2186.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_password_reset_history</node>
+    <node x="4635.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.rpt_dashboard_cummulative_animal_reg_milk_production_per_year</node>
+    <node x="266.0" y="3866.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_master_list</node>
+    <node x="3951.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_calving</node>
+    <node x="5009.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_weight</node>
+    <node x="3111.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_calender_status_colors</node>
+    <node x="4079.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.sys_app_session</node>
+    <node x="2101.470512820513" y="682.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm</node>
+    <node x="4351.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form</node>
+    <node x="542.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_local_settings</node>
+    <node x="2143.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_breed_combination</node>
+    <node x="3343.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_unit_user_access</node>
+    <node x="0.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.y_lactation_file</node>
+    <node x="546.7865384615384" y="913.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif_types</node>
+    <node x="4049.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.ethiopia_thi</node>
+    <node x="1664.8115384615385" y="1100.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_organization</node>
+    <node x="814.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_data_quality_check</node>
+    <node x="5379.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_graduation_settings</node>
+    <node x="3751.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_other_status</node>
+    <node x="1664.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_account_avatars</node>
+    <node x="5055.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm_copy2</node>
+    <node x="180.9999999999999" y="296.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_roles</node>
+    <node x="4631.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_breed_group</node>
+    <node x="4562.377564102564" y="569.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.ic_data_file</node>
+    <node x="5479.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.helth_card</node>
+    <node x="889.377564102564" y="759.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users</node>
+    <node x="780.127564102564" y="2164.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_audit_trail</node>
+    <node x="1621.127564102564" y="2164.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_log</node>
+    <node x="2439.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_temp_graduation_list</node>
+    <node x="5109.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.odkattributes</node>
+    <node x="141.75" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_master_list_type</node>
+    <node x="799.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.tbl_user_unit_location</node>
+    <node x="3662.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_ai_straws</node>
+    <node x="2538.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_upload_details_sync</node>
+    <node x="1456.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_batch_stages</node>
+    <node x="1180.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_user_credentials</node>
+    <node x="3108.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.survey13</node>
+    <node x="0.0" y="318.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_resources</node>
+    <node x="3788.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.doctrine_migration_versions</node>
+    <node x="323.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_agents</node>
+    <node x="1862.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_excel_import</node>
+    <node x="1008.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.xx_test_day</node>
+    <node x="3523.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_graduation_log</node>
+    <node x="2223.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.help_content</node>
+    <node x="4463.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_timezone_ref</node>
+    <node x="483.12756410256395" y="2164.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users_notification_settings</node>
+    <node x="2201.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.query</node>
+    <node x="3627.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_reports</node>
+    <node x="3394.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_copy</node>
+    <node x="2096.377564102564" y="1757.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal</node>
+    <node x="4050.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_calender_events</node>
+    <node x="2861.377564102564" y="0.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.survey22</node>
+    <node x="1710.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif_queue</node>
+    <node x="3058.0" y="4763.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm_metadata_type</node>
+    <node x="1956.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.android_apps</node>
+    <node x="5418.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_master_currency</node>
+    <node x="1262.0" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.x_test_day</node>
+    <node x="1393.0" y="5363.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.sys_cache_form_selection</node>
+    <node x="2791.5" y="3572.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_calving_twin</node>
+    <node x="0.0" y="5107.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_species_composition</node>
+    <node x="1625.377564102564" y="197.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_country</node>
+    <node x="3314.0" y="4287.0">e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.interface_data_quality_report_data_weekly</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif_types" relationship="REFERENCES">
+      <point x="0.0" y="-94.5" />
+      <point x="365.12756410256395" y="1726.0" />
+      <point x="615.0365384615384" y="1726.0" />
+      <point x="-68.25" y="270.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif_types" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.sms_template" relationship="REFERENCES">
+      <point x="-68.25" y="-270.5" />
+      <point x="615.0365384615384" y="650.0" />
+      <point x="578.0955128205129" y="650.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_user_levels" relationship="REFERENCES">
+      <point x="0.0" y="-424.5" />
+      <point x="1031.377564102564" y="650.0" />
+      <point x="1196.083333333333" y="650.0" />
+      <point x="1196.083333333333" y="171.0" />
+      <point x="111.5" y="171.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_herd" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm" relationship="REFERENCES">
+      <point x="0.0" y="-292.5" />
+      <point x="1930.127564102564" y="1736.0" />
+      <point x="2209.970512820513" y="1736.0" />
+      <point x="0.0" y="501.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_permission" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_resources" relationship="REFERENCES">
+      <point x="-46.25" y="-105.5" />
+      <point x="165.03653846153838" y="660.0" />
+      <point x="80.5" y="660.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.country_notif_settings" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_country" relationship="REFERENCES">
+      <point x="68.25" y="-149.5" />
+      <point x="1248.877564102564" y="1716.0" />
+      <point x="1551.0980769230769" y="1716.0" />
+      <point x="1551.0980769230769" y="660.0" />
+      <point x="1730.877564102564" y="660.0" />
+      <point x="0.0" y="215.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_master_list" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_master_list_type" relationship="REFERENCES">
+      <point x="0.0" y="-182.5" />
+      <point x="360.5" y="3830.0" />
+      <point x="241.75" y="3830.0" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif_types" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.email_template" relationship="REFERENCES">
+      <point x="68.25" y="-270.5" />
+      <point x="751.5365384615384" y="650.0" />
+      <point x="826.0955128205129" y="650.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm" relationship="REFERENCES">
+      <point x="0.0" y="-534.5" />
+      <point x="2224.877564102564" y="1736.0" />
+      <point x="2209.970512820513" y="1736.0" />
+      <point x="0.0" y="501.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users_notification_settings" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users" relationship="REFERENCES">
+      <point x="69.25" y="-127.5" />
+      <point x="690.877564102564" y="1726.0" />
+      <point x="1012.252564102564" y="1726.0" />
+      <point x="1012.252564102564" y="1716.0" />
+      <point x="960.377564102564" y="1716.0" />
+      <point x="-71.0" y="424.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm_metadata" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm" relationship="REFERENCES">
+      <point x="0.0" y="-127.5" />
+      <point x="2479.377564102564" y="1736.0" />
+      <point x="2209.970512820513" y="1736.0" />
+      <point x="0.0" y="501.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.ic_data_file" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form" relationship="REFERENCES">
+      <point x="0.0" y="-204.5" />
+      <point x="4655.377564102564" y="390.0" />
+      <point x="4444.377564102564" y="390.0" />
+      <point x="0.0" y="182.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.country_units" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_country" relationship="REFERENCES">
+      <point x="0.0" y="-193.5" />
+      <point x="1302.0442307692306" y="660.0" />
+      <point x="1730.877564102564" y="660.0" />
+      <point x="0.0" y="215.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_organization" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_country" relationship="REFERENCES">
+      <point x="0.0" y="-83.5" />
+      <point x="1750.3115384615385" y="660.0" />
+      <point x="1730.877564102564" y="660.0" />
+      <point x="0.0" y="215.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_password_reset_history" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users" relationship="REFERENCES">
+      <point x="0.0" y="-105.5" />
+      <point x="1469.127564102564" y="1726.0" />
+      <point x="1012.252564102564" y="1726.0" />
+      <point x="1012.252564102564" y="1716.0" />
+      <point x="960.377564102564" y="1716.0" />
+      <point x="-71.0" y="424.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.help_sections" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.help_modules" relationship="REFERENCES">
+      <point x="0.0" y="-127.5" />
+      <point x="0.0" y="127.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_client" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_country" relationship="REFERENCES">
+      <point x="0.0" y="-138.5" />
+      <point x="1961.8115384615385" y="660.0" />
+      <point x="1730.877564102564" y="660.0" />
+      <point x="0.0" y="215.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_permission" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_roles" relationship="REFERENCES">
+      <point x="46.25" y="-105.5" />
+      <point x="257.5365384615384" y="660.0" />
+      <point x="275.4999999999999" y="660.0" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_table_attribute" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_master_list_type" relationship="REFERENCES">
+      <point x="0.0" y="-193.5" />
+      <point x="123.0" y="3830.0" />
+      <point x="241.75" y="3830.0" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_roles" relationship="REFERENCES">
+      <point x="-94.66666666666669" y="-424.5" />
+      <point x="936.7108974358972" y="660.0" />
+      <point x="275.4999999999999" y="660.0" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_farm" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_country" relationship="REFERENCES">
+      <point x="0.0" y="-501.5" />
+      <point x="2209.970512820513" y="660.0" />
+      <point x="1730.877564102564" y="660.0" />
+      <point x="0.0" y="215.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal_event" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_animal" relationship="REFERENCES">
+      <point x="0.0" y="-325.5" />
+      <point x="0.0" y="534.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.country_notif_settings" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif_types" relationship="REFERENCES">
+      <point x="-68.25" y="-149.5" />
+      <point x="1112.377564102564" y="1736.0" />
+      <point x="773.9999999999999" y="1736.0" />
+      <point x="773.9999999999999" y="1716.0" />
+      <point x="751.5365384615384" y="1716.0" />
+      <point x="68.25" y="270.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users_notification_settings" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.conf_notif_types" relationship="REFERENCES">
+      <point x="-69.25" y="-127.5" />
+      <point x="552.377564102564" y="1736.0" />
+      <point x="773.9999999999999" y="1736.0" />
+      <point x="773.9999999999999" y="1716.0" />
+      <point x="751.5365384615384" y="1716.0" />
+      <point x="68.25" y="270.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_log" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users" relationship="REFERENCES">
+      <point x="0.0" y="-127.5" />
+      <point x="1712.627564102564" y="1706.0" />
+      <point x="1102.377564102564" y="1706.0" />
+      <point x="71.0" y="424.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form_field" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form" relationship="REFERENCES">
+      <point x="0.0" y="-358.5" />
+      <point x="4195.877564102564" y="390.0" />
+      <point x="4444.377564102564" y="390.0" />
+      <point x="0.0" y="182.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form_field_multiple" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.form" relationship="REFERENCES">
+      <point x="0.0" y="-182.5" />
+      <point x="0.0" y="182.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_audit_trail" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users" relationship="REFERENCES">
+      <point x="0.0" y="-127.5" />
+      <point x="902.127564102564" y="1726.0" />
+      <point x="1012.252564102564" y="1726.0" />
+      <point x="1012.252564102564" y="1716.0" />
+      <point x="960.377564102564" y="1716.0" />
+      <point x="-71.0" y="424.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_users" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.core_country" relationship="REFERENCES">
+      <point x="94.66666666666663" y="-424.5" />
+      <point x="1126.0442307692306" y="660.0" />
+      <point x="1730.877564102564" y="660.0" />
+      <point x="0.0" y="215.5" />
+    </edge>
+    <edge source="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_roles" target="e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_user_levels" relationship="REFERENCES">
+      <point x="0.0" y="-116.5" />
+      <point x="275.4999999999999" y="171.0" />
+      <point x="111.5" y="171.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.32139267767408464" showDependencies="false" x="752.0426406761594" y="418.77887763648835" />
+  <SelectedNodes>
+    <node>e9aca4c0-836e-4d33-8cae-1d60e11c15ec.TABLE:adgg.auth_user_levels</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

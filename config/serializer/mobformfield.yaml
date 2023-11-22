@@ -1,0 +1,231 @@
+App\Entity\MobFormField:
+  attributes:
+    id:
+      groups: [
+        "mobformfield:collection:get",
+        "mobformfield:item:get"
+      ]
+    form_id:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    attribute_colm:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    attribute_val:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    fieldvalue_set:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    type:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    required:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    label:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    description:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    name:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    subtype:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    maxlength:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    min_val:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    max_val:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    className:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    inline:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    multiple:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    parent_id:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    parent_relation:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    parent_value:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    parent_multiple_value:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    child_id:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    field_count:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    slno:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    filter:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    added_by:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    added_datetime:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    ip_address:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
+    status:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]

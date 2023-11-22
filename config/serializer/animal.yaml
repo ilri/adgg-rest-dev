@@ -13,6 +13,62 @@ App\Entity\Animal:
                 "animal:item:put",
                 "animal:item:patch"
             ]
+        mobDataId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        mobFarmId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        mobHerdId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        mobSireId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        damName:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        sireName:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        mobDamId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
         tagId:
             groups: [
                 "animal:collection:get",
@@ -238,6 +294,14 @@ App\Entity\Animal:
                 "animal:item:patch"
             ]
         additionalAttributes:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
+        mobAdditionalAttributes:
             groups: [
                 "animal:collection:get",
                 "animal:collection:post",

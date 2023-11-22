@@ -56,6 +56,30 @@ App\Entity\Farm:
             style: form
             explode: true
             allowReserved: false
+          - name: mobDataId
+            in: query
+            description: 'Filter by the mobile specific data ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDataId[]'
+            in: query
+            description: 'Select multiple data IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
           - name: page
             in: query
             description: 'The collection page number'

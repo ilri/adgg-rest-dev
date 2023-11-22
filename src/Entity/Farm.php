@@ -47,6 +47,13 @@ class Farm
     /**
      * @var string|null
      *
+     * @ORM\Column(name="mob_data_id", type="string", length=45, nullable=true, options={"comment"="This is specific for AADGG mobile application"})
+     */
+    private $mobDataId;
+
+    /**
+     * @var string|null
+     *
      * @ORM\Column(name="code", type="string", length=128, nullable=true)
      *
      */
@@ -138,6 +145,22 @@ class Farm
      *
      */
     private $isActive = true;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="is_cooperative", type="integer", nullable=true)
+     *
+     */
+    private $isCooperative = true;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="is_group", type="integer", nullable=true)
+     *
+     */
+    private $isGroup = true;
 
     /**
      * @var string|null
@@ -240,6 +263,41 @@ class Farm
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getMobDataId(): ?string
+    {
+        return $this->mobDataId;
+    }
+
+    public function setMobDataId(?string $mobDataId): self
+    {
+        $this->mobDataId = $mobDataId;
+
+        return $this;
+    }
+    public function getIsCooperative(): ?int
+    {
+        return $this->isCooperative;
+    }
+
+    public function setIsCooperative(?int $isCooperative): self
+    {
+        $this->isCooperative = $isCooperative;
+
+        return $this;
+    }
+
+    public function getIsGroup(): ?int
+    {
+        return $this->isGroup;
+    }
+
+    public function setIsGroup(?int $isGroup): self
+    {
+        $this->isGroup = $isGroup;
+
+        return $this;
     }
 
     public function getCode(): ?string

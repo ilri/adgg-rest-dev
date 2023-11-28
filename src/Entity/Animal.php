@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{
-    AdditionalAttributesTrait,
+use App\Entity\Traits\{AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
     IdentifiableTrait,
+    MobAdditionalAttributesTrait,
     ODKIdentifiableTrait,
     OrganisationTrait,
-    UpdatedTrait
-};
+    UpdatedTrait};
 use App\Repository\AnimalRepository;
 use Carbon\Carbon;
 use Doctrine\Common\Collections\{
@@ -31,6 +30,7 @@ class Animal
 {
     use AdministrativeDivisionsTrait;
     use AdditionalAttributesTrait;
+    use MobAdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -45,6 +45,55 @@ class Animal
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mob_data_id", type="string", length=45, nullable=true, options={"comment"="This is specific for AADGG mobile application"})
+     */
+    private $mobDataId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mob_farm_id", type="string", length=50, nullable=true, options={"comment"="This is specific for AADGG mobile application farm_id"})
+     */
+    private $mobFarmId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mob_herd_id", type="string", length=50, nullable=true, options={"comment"="This is specific for AADGG mobile application herd_id"})
+     */
+    private $mobHerdId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mob_sire_id", type="string", length=50, nullable=true, options={"comment"="This is specific for AADGG mobile application sire_id"})
+     */
+    private $mobSireId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mob_dam_id", type="string", length=50, nullable=true, options={"comment"="This is specific for AADGG mobile application dam_id"})
+     */
+    private $mobDamId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="sire_name", type="string", length=50, nullable=true, options={"comment"="This is specific for AADGG mobile application sire name"})
+     */
+    private $sireName;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="dam_name", type="string", length=50, nullable=true, options={"comment"="This is specific for AADGG mobile application dam name"})
+     */
+    private $damName;
 
     /**
      * @var string|null
@@ -235,6 +284,68 @@ class Animal
         return $this->id;
     }
 
+    public function getMobDataId(): ?string
+    {
+        return $this->mobDataId;
+    }
+
+    public function setMobDataId(?string $mobDataId): self
+    {
+        $this->mobDataId = $mobDataId;
+
+        return $this;
+    }
+
+    public function getMobFarmId(): ?string
+    {
+        return $this->mobFarmId;
+    }
+
+    public function setMobFarmId(?string $mobFarmId): self
+    {
+        $this->mobFarmId = $mobFarmId;
+
+        return $this;
+    }
+
+    public function getMobHerdId(): ?string
+    {
+        return $this->mobHerdId;
+    }
+
+    public function setMobHerdId(?string $mobHerdId): self
+    {
+        $this->mobHerdId = $mobHerdId;
+
+        return $this;
+    }
+
+    public function getMobSireId(): ?string
+    {
+        return $this->mobSireId;
+    }
+
+    public function setMobSireId(?string $mobSireId): self
+    {
+        $this->mobSireId = $mobSireId;
+
+        return $this;
+    }
+
+    public function getMobDamId(): ?string
+    {
+        return $this->mobDamId;
+    }
+
+    public function setMobDamId(?string $mobDamId): self
+    {
+        $this->mobDamId = $mobDamId;
+
+        return $this;
+    }
+
+
+
     public function getName(): ?string
     {
         return $this->name;
@@ -243,6 +354,29 @@ class Animal
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+    public function getSireName(): ?string
+    {
+        return $this->sireName;
+    }
+
+    public function setSireName(?string $sireName): self
+    {
+        $this->sireName = $sireName;
+
+        return $this;
+    }
+
+    public function getDamName(): ?string
+    {
+        return $this->damName;
+    }
+
+    public function setDamName(?string $damName): self
+    {
+        $this->damName = $damName;
 
         return $this;
     }

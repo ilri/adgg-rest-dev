@@ -1,0 +1,97 @@
+App\Entity\MobFormFieldMultiple:
+  collectionOperations:
+    get:
+      method: get
+      path: /mobformfieldmultiple
+      filters: [ 'property_filter' ]
+      normalization_context:
+        groups: [ 'mobformfieldmultiple:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: mobFormId
+            in: query
+            description: 'Filter by the mobile specific Form ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobFormId[]'
+            in: query
+            description: 'Select multiple Form IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobFieldId
+            in: query
+            description: 'Filter by the mobile specific Field ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobFieldId[]'
+            in: query
+            description: 'Select multiple Field IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+    post:
+      method: post
+      path: /mobformfieldmultiple
+      denormalization_context:
+        groups: [ 'mobformfieldmultiple:collection:post' ]
+      openapi_context:
+        description:
+          '<h3>Create a mob form field multiple resource</h3>
+           <p>Create a new mob form field multiple resource by providing the required properties in the request body.</p>'
+  itemOperations:
+    get:
+      method: get
+      path: /mobformfieldmultiple/{id}
+      normalization_context:
+        groups: [ 'mobformfieldmultiple:item:get' ]
+      openapi_context:
+        description:
+          '<h3>Retrieve a specific mob form field multiple resource</h3>
+           <p>Retrieve details of a specific mob form resource identified by the <code>id</code> parameter.</p>'
+    put:
+      method: put
+      path: /mobformfieldmultiple/{id}
+      denormalization_context:
+        groups: [ 'mobformfieldmultiple:item:put' ]
+      openapi_context:
+        description:
+          '<h3>Replace a mob form field multiple resource</h3>
+           <p>Replace the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'
+    patch:
+      method: patch
+      path: /mobformfieldmultiple/{id}
+      denormalization_context:
+        groups: [ 'mobformfieldmultiple:item:patch' ]
+      openapi_context:
+        description:
+          '<h3>Update a mob form field multiple resource</h3>
+           <p>Update the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'

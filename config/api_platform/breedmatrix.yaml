@@ -7,6 +7,19 @@ App\Entity\BreedMatrix:
       normalization_context:
         groups: [ 'breedmatrix:collection:get' ]
       openapi_context:
+        description:
+          '<div>
+                       <h3>Breed Matrix Endpoint</h3>
+                       <p>This endpoint retrieves a collection of breed matrix based on specified filters.</p>
+                       <p>Use the following parameters to filter the breed matrix:</p>
+                       <ul>
+                         <li><code>breedId</code>: Filter by the breed ID. To utilize this you can list all breeds </li>
+                         <li><code>speciesId</code>: Filter by the species ID.</li>
+                         <li><code>name</code>: Filter by name.</li>
+                         <!-- Add other parameters here as per your requirements -->
+                       </ul>
+                       <p>Combine different parameters to refine your search and retrieve specific sets of breed matrix.</p>
+                     </div>'
         parameters:
           - name: breedId
             in: query

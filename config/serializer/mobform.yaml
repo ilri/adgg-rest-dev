@@ -1,0 +1,103 @@
+App\Entity\MobForm:
+  attributes:
+    id:
+      groups: [
+        "mobform:collection:get",
+        "mobform:item:get"
+      ]
+    title:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    description:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    type:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    pic_min:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    pic_max:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    ltype:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    added_by:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    datetime:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    ip_address:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    dormant:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    slno:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]
+    status:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]

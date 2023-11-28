@@ -1,0 +1,84 @@
+App\Entity\CoreCooperativeGroup:
+  collectionOperations:
+    get:
+      method: get
+      path: /corecooperativegroup
+      filters: [ 'country_isocode_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'corecooperativegroup:collection:get' ]
+      openapi_context:
+        description:
+          '<div>
+              <h3>Cooperative Group Collection Endpoint</h3>
+                       <p>This endpoint retrieves a collection of cooperative groups based on specified filters.</p>
+                       <p>Use the following parameters to filter the cooperative groups:</p>
+                       <ul>
+                         <li><code>mobDataId</code>: Filter by the mobile-specific Data ID.</li>
+                         <!-- Add other parameters here as per your requirements -->
+                       </ul>
+                       <p>Combine different parameters to refine your search and retrieve specific sets of cooperative groups.</p>
+                     </div>'
+        parameters:
+          - name: mobDataId
+            in: query
+            description: 'Filter by the mobile specific Data ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDataId[]'
+            in: query
+            description: 'Select multiple Data IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+
+    post:
+      method: post
+      path: /corecooperativegroup
+      denormalization_context:
+        groups: [ 'corecooperativegroup:collection:post' ]
+      openapi_context:
+        description:
+          '<h3>Create a Cooperative Group field resource</h3>
+           <p>Create a new Cooperative Group field resource by providing the required properties in the request body.</p>'
+  itemOperations:
+    get:
+      method: get
+      path: /corecooperativegroup/{id}
+      normalization_context:
+        groups: [ 'corecooperativegroup:item:get' ]
+        description:
+          '<h3>Retrieve a specific Cooperative Group field resource</h3>
+           <p>Retrieve details of a specific mob form field resource identified by the <code>id</code> parameter.</p>'
+    put:
+      method: put
+      path: /corecooperativegroup/{id}
+      denormalization_context:
+        groups: [ 'corecooperativegroup:item:put' ]
+      openapi_context:
+        description:
+          '<h3>Replace a Cooperative Group resource</h3>
+           <p>Replace the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'
+    patch:
+      method: patch
+      path: /corecooperativegroup/{id}
+      denormalization_context:
+        groups: [ 'corecooperativegroup:item:patch' ]
+      openapi_context:
+        description:
+          '<h3>Update a Cooperative Group resource</h3>
+           <p>Update the existing mob form resource specified by the <code>id</code> parameter by providing the required properties in the request body.</p>
+           <p><strong>Required properties:</strong></p>'

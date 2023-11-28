@@ -7,6 +7,22 @@ App\Entity\Farm:
       normalization_context:
         groups: [ 'farm:collection:get' ]
       openapi_context:
+        description:
+          '<div>
+                       <h3>Farm Collection Endpoint</h3>
+                       <p>This endpoint retrieves a collection of farms based on specified filters.</p>
+                       <p>Use the following parameters to filter the farms:</p>
+                       <ul>
+                         <li><code>phone</code>: Provide a farmer exact phone number.</li>
+            <li><code>id</code>:
+              The farm ID. For example: 1</li>
+            <li><code>mobDataId</code>: Filter by the mobile-specific data ID.</li>
+            <li><code>page</code>: Specifies the collection page number.</li>
+            <li><code>pagination</code>: Enable or disable pagination.</li>
+            <li><code>countryCode</code>: Provide the country ISO 3166-1 alpha-2 code.</li>
+            </ul>
+            <p>Combine different parameters to refine your search and retrieve specific sets of farms.</p>
+            </div>'
         parameters:
           - name: phone
             in: query
@@ -53,6 +69,30 @@ App\Entity\Farm:
               type: array
               items:
                 type: integer
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobDataId
+            in: query
+            description: 'Filter by the mobile specific data ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDataId[]'
+            in: query
+            description: 'Select multiple data IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
             style: form
             explode: true
             allowReserved: false

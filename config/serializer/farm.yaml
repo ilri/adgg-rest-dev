@@ -31,6 +31,30 @@ App\Entity\Farm:
                 "farm:item:put",
                 "farm:item:patch"
             ]
+        mobDataid:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
+        isCooperative:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
+        isGroup:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
 
         districtId:
             groups: [

@@ -44,6 +44,20 @@ class Herd
     /**
      * @var string|null
      *
+     * @ORM\Column(name="mob_data_id", type="string", length=45, nullable=true, options={"comment"="This is specific for AADGG mobile application"})
+     */
+    private $mobDataId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mob_farm_id", type="string", length=45, nullable=true, options={"comment"="This is specific for AADGG mobile application farm_id"})
+     */
+    private $mobFarmId;
+
+    /**
+     * @var string|null
+     *
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
@@ -110,6 +124,30 @@ class Herd
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getMobDataId(): ?string
+    {
+        return $this->mobDataId;
+    }
+
+    public function setMobDataId(?string $mobDataId): self
+    {
+        $this->mobDataId = $mobDataId;
+
+        return $this;
+    }
+
+    public function getMobFarmId(): ?string
+    {
+        return $this->mobFarmId;
+    }
+
+    public function setMobFarmId(?string $mobFarmId): self
+    {
+        $this->mobFarmId = $mobFarmId;
+
+        return $this;
     }
 
     public function getName(): ?string

@@ -7,6 +7,25 @@ App\Entity\Animal:
       normalization_context:
         groups: ['animal:collection:get']
       openapi_context:
+        description:
+          '<div>
+                       <h3>Animal Endpoint</h3>
+                       <p>This endpoint allows you to retrieve a collection of animals by applying specific filters.</p>
+                       <p>To retrieve animals, use various parameters to tailor your search:</p>
+                       <ul>
+                         <li><code>tagId</code>: Filters animals by their unique tag ID. For example, use <code>T19000001</code>.</li>
+                         <li><code>mobDataId</code>: Filters by the mobile-specific data ID.</li>
+                         <li><code>mobFarmId</code>: Filters by the mobile-specific farm ID.</li>
+                         <li><code>mobHerdId</code>: Filters by the mobile-specific herd ID.</li>
+                         <li><code>mobSireId</code>: Filters by the mobile-specific sire ID.</li>
+                         <li><code>mobDamId</code>: Filters by the mobile-specific dam ID.</li>
+                         <li><code>animalType</code>: Identifies the type of animal. Provide an integer value, e.g., <code>1</code> for a specific animal type.</li>
+                         <li><code>page</code>: Specifies the collection page number.</li>
+                         <li><code>pagination</code>: Enables or disables pagination.</li>
+                         <li><code>countryCode</code>: Provide the country ISO 3166-1 alpha-2 code.</li>
+                       </ul>
+                       <p>Combine different parameters to refine your search and retrieve specific sets of animals.</p>
+                     </div>'
         parameters:
           - name: tagId
             in: query
@@ -22,6 +41,126 @@ App\Entity\Animal:
           - name: 'tagId[]'
             in: query
             description: 'Select multiple tag IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobDataId
+            in: query
+            description: 'Filter by the mobile specific data ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDataId[]'
+            in: query
+            description: 'Select multiple data IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobFarmId
+            in: query
+            description: 'Filter by the mobile specific farm ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobFarmId[]'
+            in: query
+            description: 'Select multiple farm IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobHerdId
+            in: query
+            description: 'Filter by the mobile specific Herd ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobHerdId[]'
+            in: query
+            description: 'Select multiple Herd IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobSireId
+            in: query
+            description: 'Filter by the mobile specific Sire ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobSireId[]'
+            in: query
+            description: 'Select multiple Sire IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobDamId
+            in: query
+            description: 'Filter by the mobile specific Dam ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDamId[]'
+            in: query
+            description: 'Select multiple Dam IDs'
             required: false
             deprecated: false
             allowEmptyValue: false

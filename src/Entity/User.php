@@ -744,7 +744,27 @@ class User implements UserInterface
         }
         $roles[] = 'ROLE_USER';
 
+        // Add ROLE_MOB to users with a specific condition (you can adjust this condition accordingly)
+        if ($this->conditionForMobRole()) {
+            $roles[] = 'ROLE_MOB';
+        }
+
         return $roles;
+    }
+
+    // Define the condition to grant ROLE_MOB to certain users
+    private function conditionForMobRole(): bool
+    {
+        // Implement your logic here to determine if the user should have ROLE_MOB
+        // For example, checking specific user attributes or roles
+
+        // Replace this with your condition
+        // Example: Check if the user belongs to specific role
+        if ( $this->getRole()->getName() === 'Mobile App Developer') {
+            return true;
+        }
+
+        return false;
     }
 
     /**

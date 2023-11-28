@@ -7,6 +7,22 @@ App\Entity\AnimalEvent:
       normalization_context:
         groups: [ 'animalevent:collection:get' ]
       openapi_context:
+        description:
+          '<div>
+                       <h3>Animal Event Collection Endpoint</h3>
+                       <p>This endpoint retrieves a collection of animal events based on specified filters.</p>
+                       <p>Use the following parameters to filter animal events:</p>
+                       <ul>
+                         <li><code>animal</code>: Filter by a given animal resource path.</li>
+                         <li><code>eventDate[before]</code>: Returns events before or on a given date.</li>
+                         <li><code>eventDate[strictly_before]</code>: Returns events strictly before a given date.</li>
+                         <li><code>eventDate[after]</code>: Returns events after or on a given date.</li>
+                         <li><code>eventDate[strictly_after]</code>: Returns events strictly after a given date.</li>
+                         <li><code>properties[]</code>: Returns only selected properties of animal event resources.</li>
+                         <!-- Add other parameters here as per your requirements -->
+                       </ul>
+                       <p>Combine different parameters to refine your search and retrieve specific sets of animal events.</p>
+                     </div>'
         parameters:
           - name: animal
             in: query
@@ -133,6 +149,27 @@ App\Entity\AnimalEvent:
       summary: 'Retrieves a sub-collection of AnimalEvent resources by event type.'
       description: 'Retrieves a sub-collection of AnimalEvent resources by event type.'
       openapi_context:
+        description:
+          '<div>
+                            <p>The event type parameter used for filtering AnimalEvent resources. It specifies the type of event and supports the following options:</p>
+                            <ul>
+                              <li><code>ai_events</code>: Artificial Insemination Events - Records the process of artificial insemination in animals.</li>
+                              <li><code>calving_events</code>: Calving Events - Captures the birth of offspring in animals.</li>
+                              <li><code>certification_events</code>: Certification Events - Documents certification-related events for animals.</li>
+                              <li><code>exits_events</code>: Exit Events - Records events related to animals exiting a location or system.</li>
+                              <li><code>hair_sampling_events</code>: Hair Sampling Events - Documents events related to collecting hair samples from animals.</li>
+                              <li><code>health_events</code>: Health Events - Records events concerning the health status or conditions of animals.</li>
+                              <li><code>hoof_health_events</code>: Hoof Health Events - Captures events related to the health condition of animal hooves.</li>
+                              <li><code>hoof_treatment_events</code>: Hoof Treatment Events - Documents treatments related to animal hoof health.</li>
+                              <li><code>injury_events</code>: Injury Events - Records events related to injuries suffered by animals.</li>
+                              <li><code>milking_events</code>: Milking Events - Captures events associated with the process of milking animals.</li>
+                              <li><code>parasite_infection_events</code>: Parasite Infection Events - Documents events related to parasite infections in animals.</li>
+                              <li><code>pregnancy_diagnosis_events</code>: Pregnancy Diagnosis Events - Records events concerning the diagnosis of pregnancy in animals.</li>
+                              <li><code>synchronization_events</code>: Synchronization Events - Documents events related to synchronizing animal processes.</li>
+                              <li><code>vaccination_events</code>: Vaccination Events - Captures events related to the vaccination of animals.</li>
+                              <li><code>weights_events</code>: Weights Events - Records events related to measuring the weight of animals.</li>
+                            </ul>
+                          </div>'
         parameters:
           - name: event_type
             in: path

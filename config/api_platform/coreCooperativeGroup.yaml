@@ -7,6 +7,17 @@ App\Entity\CoreCooperativeGroup:
       normalization_context:
         groups: [ 'corecooperativegroup:collection:get' ]
       openapi_context:
+        description:
+          '<div>
+              <h3>Cooperative Group Collection Endpoint</h3>
+                       <p>This endpoint retrieves a collection of cooperative groups based on specified filters.</p>
+                       <p>Use the following parameters to filter the cooperative groups:</p>
+                       <ul>
+                         <li><code>mobDataId</code>: Filter by the mobile-specific Data ID.</li>
+                         <!-- Add other parameters here as per your requirements -->
+                       </ul>
+                       <p>Combine different parameters to refine your search and retrieve specific sets of cooperative groups.</p>
+                     </div>'
         parameters:
           - name: mobDataId
             in: query

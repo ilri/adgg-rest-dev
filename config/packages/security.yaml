@@ -46,5 +46,6 @@ security:
         - { path: ^/authentication_token, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, roles: ROLE_API_USER }
         - { path: ^/.*, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/mob, roles: ROLE_MOB}
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

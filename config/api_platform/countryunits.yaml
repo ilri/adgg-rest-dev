@@ -7,6 +7,68 @@ App\Entity\CountryUnits:
       normalization_context:
         groups: [ 'countryunits:collection:get' ]
       openapi_context:
+        description:
+          '<div style="text-align: center; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+             <h3 style="color: #333;">Administrative Units</h3>
+             <p style="color: #666; font-size: 16px; margin-bottom: 20px;">This feature allows you to explore the administrative divisions of a country.</p>
+
+             <div style="display: flex; justify-content: space-around;">
+               <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                 <p style="font-size: 18px; color: #333;">
+                   <strong>Step 1:</strong> Provide the Country Code<br/>
+                   Use the ISO 3166-1 alpha-2 country code to specify the country of interest.
+                 </p>
+               </div>
+               <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                 <p style="font-size: 18px; color: #333;">
+                   <strong>Step 2:</strong> Select Administrative Level<br/>
+                   Choose the desired administrative level:
+                   <br/><em>
+                     <ul style="list-style-type: none; padding-left: 0;">
+                       <li>1 = Region</li>
+                       <li>2 = District</li>
+                       <li>3 = Ward</li>
+                       <li>4 = Village</li>
+                     </ul>
+                   </em>
+                 </p>
+               </div>
+               <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                 <p style="font-size: 18px; color: #333;">
+                   <strong>Step 3:</strong> Optional Parent ID (For Detailed Queries)<br/>
+                   Optionally provide a parent ID along with the administrative level for more granular queries.
+                 </p>
+                 <div style="font-size: 16px; color: #444;">
+                   <p style="margin-bottom: 10px;">
+                     At each level, the ID is the parent to the next level.
+                   </p>
+                   <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; text-align: left;">
+                     <p style="margin-bottom: 10px; color: #333;">
+                       Example: In KE (Kenya), level = 1.
+                     </p>
+                     <pre style="font-family: monospace; font-size: 14px; background-color: #f8f8f8; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+                     {
+                       "id": 10924,
+                       "countryCode": "1000",
+                       "name": "Bungoma",
+                       "level": 1,
+                       "parentId": 11,
+                       "country": {
+                         "id": "/api/countries/11",
+                         "type": "Country"
+                       }
+                     }
+                     </pre>
+                     <p style="margin-bottom: 10px; color: #333;">
+                       To retrieve all Districts of Bungoma, provide parentId in level 2 with id = 10924 and level = 2. This will list all the districts of Bungoma.
+                     </p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <p style="color: #666; font-size: 16px; margin-top: 20px;">Follow these steps to access specific administrative divisions within a country.</p>
+           </div>
+           '
         parameters:
           - name: countryCode
             in: query

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
+ * @ORM\Table(name="interface_limit_parameters")
  * @ORM\Entity(repositoryClass=ParameterLimitsRepository::class)
  */
 class ParameterLimits
@@ -98,12 +99,7 @@ class ParameterLimits
      */
     private $updatedBy;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="name",type="string", length=255, nullable=true)
-     */
-    private $name;
+
 
     public function getId(): ?int
     {
@@ -238,18 +234,6 @@ class ParameterLimits
     public function setUpdatedBy(?int $updatedBy): self
     {
         $this->updatedBy = $updatedBy;
-
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
 
         return $this;
     }

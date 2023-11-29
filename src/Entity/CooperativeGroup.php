@@ -8,10 +8,11 @@ use App\Repository\CoreCooperativeGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="core_cooperative_group")
  * @ORM\Entity(repositoryClass=CoreCooperativeGroupRepository::class)
  */
 #[ApiResource]
-class CoreCooperativeGroup
+class CooperativeGroup
 {
     use CountryTrait;
     /**

@@ -1,0 +1,111 @@
+App\Entity\CooperativeGroup:
+  attributes:
+    id:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    mob_data_id:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    cooperative_group_name:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    type:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    cooperative_group_type:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    cooperative_group_function:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    offers_livestock_marketing:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    offers_livestock_products:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    number_male_members:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    number_female_members:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    user_id:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    datetime:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    ip_address:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]
+    status:
+      groups: [
+        'cooperativegroup:collection:get',
+        'cooperativegroup:collection:post',
+        'cooperativegroup:item:get',
+        'cooperativegroup:item:put',
+        'cooperativegroup:item:patch'
+      ]

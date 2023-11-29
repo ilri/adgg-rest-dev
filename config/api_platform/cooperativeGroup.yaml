@@ -1,11 +1,11 @@
-App\Entity\CoreCooperativeGroup:
+App\Entity\CooperativeGroup:
   collectionOperations:
     get:
       method: get
-      path: /corecooperativegroup
+      path: /cooperativegroup
       filters: [ 'country_isocode_filter', 'property_filter' ]
       normalization_context:
-        groups: [ 'corecooperativegroup:collection:get' ]
+        groups: [ 'cooperativegroup:collection:get' ]
       openapi_context:
         description:
           '<div>
@@ -46,9 +46,9 @@ App\Entity\CoreCooperativeGroup:
 
     post:
       method: post
-      path: /corecooperativegroup
+      path: /cooperativegroup
       denormalization_context:
-        groups: [ 'corecooperativegroup:collection:post' ]
+        groups: [ 'cooperativegroup:collection:post' ]
       openapi_context:
         description:
           '<h3>Create a Cooperative Group field resource</h3>
@@ -56,17 +56,17 @@ App\Entity\CoreCooperativeGroup:
   itemOperations:
     get:
       method: get
-      path: /corecooperativegroup/{id}
+      path: /cooperativegroup/{id}
       normalization_context:
-        groups: [ 'corecooperativegroup:item:get' ]
+        groups: [ 'cooperativegroup:item:get' ]
         description:
           '<h3>Retrieve a specific Cooperative Group field resource</h3>
            <p>Retrieve details of a specific mob form field resource identified by the <code>id</code> parameter.</p>'
     put:
       method: put
-      path: /corecooperativegroup/{id}
+      path: /cooperativegroup/{id}
       denormalization_context:
-        groups: [ 'corecooperativegroup:item:put' ]
+        groups: [ 'cooperativegroup:item:put' ]
       openapi_context:
         description:
           '<h3>Replace a Cooperative Group resource</h3>
@@ -74,9 +74,9 @@ App\Entity\CoreCooperativeGroup:
            <p><strong>Required properties:</strong></p>'
     patch:
       method: patch
-      path: /corecooperativegroup/{id}
+      path: /cooperativegroup/{id}
       denormalization_context:
-        groups: [ 'corecooperativegroup:item:patch' ]
+        groups: [ 'cooperativegroup:item:patch' ]
       openapi_context:
         description:
           '<h3>Update a Cooperative Group resource</h3>

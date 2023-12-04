@@ -7,6 +7,7 @@ use App\Repository\MobFormFieldMultipleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="form_field_multiple")
  * @ORM\Entity(repositoryClass=MobFormFieldMultipleRepository::class)
  */
 #[ApiResource]
@@ -31,7 +32,7 @@ class MobFormFieldMultiple
     /**
      * @var int|null
      *
-     * @ORM\Column(name="field_id",  type="int", nullable=true)
+     * @ORM\Column(name="field_id",  type="integer", nullable=true)
      */
     private $field_id;
 

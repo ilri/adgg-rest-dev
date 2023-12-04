@@ -7,6 +7,7 @@ use App\Repository\MobFormRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="form")
  * @ORM\Entity(repositoryClass=MobFormRepository::class)
  */
 #[ApiResource]

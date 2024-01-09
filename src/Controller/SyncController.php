@@ -11,6 +11,9 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Types\Types;
 use ApiPlatform\Core\Annotation\ApiProperty;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\AuthorizationHeaderTokenExtractor;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 
 /**
  * @Route("/api/docs")
@@ -58,20 +61,87 @@ class SyncController extends AbstractController
         }
     }
 
-    // Download Server Data to Local
-    public function download(Connection $connection, $jsonData): JsonResponse
+    // Token validation method using LexikJWTAuthenticationBundle
+    private function validateToken($token)
     {
-        // Get the JSON data
-        $id = $jsonData['id'];
+        // Retrieve the JWT manager service
+        $jwtManager = $this->get(JWTTokenManagerInterface::class);
 
-        if (!$id) {
-            return $this->json([
-                'status' => 0,
-                'msg' => 'Bad Request! Could not process request.',
-            ]);
+        // Extract the token from the Authorization header
+        $extractor = new AuthorizationHeaderTokenExtractor(
+            'Bearer',
+            'Authorization'
+        );
+
+        // Try to extract the token from the request
+        try {
+            $extractedToken = $extractor->extract($this->getRequest());
+            $jwtToken = $extractedToken ?: $token;
+        } catch (\Throwable $e) {
+            throw new AccessDeniedException('Invalid token');
         }
 
+        // Validate the token
         try {
+            $decodedToken = $jwtManager->decode($jwtToken);
+            // If the token is valid, return true
+            return true;
+        } catch (\Throwable $e) {
+            throw new AccessDeniedException('Invalid token');
+        }
+    }
+
+    // Download Mobile Data to Local
+    public function download(Request $request, Connection $connection): JsonResponse
+    {
+        try {
+            // Get the JSON data
+            $jsonData = json_decode($request->getContent(), true);
+
+//            var_dump($jsonData);
+
+//            // Check if 'id' and 'token' keys are set in the JSON data
+//            if (!isset($jsonData['id']) || !isset($jsonData['token'])) {
+//                return $this->json([
+//                    'status' => 0,
+//                    'msg' => 'Bad Request DAVID! ID or Token missing.',
+//                ]);
+//            }
+            if (!isset($jsonData['id'])) {
+                return $this->json([
+                    'status' => 0,
+                    'msg' => 'Bad Request! "id" is missing in the request.',
+                ]);
+            }
+
+            if (!isset($jsonData['token'])) {
+                return $this->json([
+                    'status' => 0,
+                    'msg' => 'Bad Request! "token" is missing in the request.',
+                ]);
+            }
+
+
+            // Validate or verify the token (This depends on your token validation method)
+            $isValidToken = $this->validateToken($jsonData['token']);
+
+            if (!$isValidToken) {
+                return $this->json([
+                    'status' => 0,
+                    'msg' => 'Invalid Token. Access Denied.',
+                ]);
+            }
+
+            // Continue with the download process if the token is valid
+            // Get the JSON data
+            $id = $jsonData['id'];
+
+            if (!$id) {
+                return $this->json([
+                    'status' => 0,
+                    'msg' => 'Bad Request! Could not process request.',
+                ]);
+            }
             // Fetch data from auth_users table
             $userDataQuery = $connection->createQueryBuilder()
                 ->select('country_id', 'region_id', 'district_id', 'ward_id')
@@ -233,6 +303,7 @@ class SyncController extends AbstractController
                 'msg' => 'An error occurred while processing the request.',
             ]);
         }
+
     }
 
     public function upload(Connection $connection, $jsonData): JsonResponse

@@ -78,7 +78,7 @@ class SyncController extends AbstractController
             $extractedToken = $extractor->extract($this->getRequest());
             $jwtToken = $extractedToken ?: $token;
         } catch (\Throwable $e) {
-            throw new AccessDeniedException('Invalid token');
+            throw new AccessDeniedException('Invalid token David');
         }
 
         // Validate the token
@@ -87,7 +87,7 @@ class SyncController extends AbstractController
             // If the token is valid, return true
             return true;
         } catch (\Throwable $e) {
-            throw new AccessDeniedException('Invalid token');
+            throw new AccessDeniedException('Invalid token David 1');
         }
     }
 
@@ -98,15 +98,6 @@ class SyncController extends AbstractController
             // Get the JSON data
             $jsonData = json_decode($request->getContent(), true);
 
-//            var_dump($jsonData);
-
-//            // Check if 'id' and 'token' keys are set in the JSON data
-//            if (!isset($jsonData['id']) || !isset($jsonData['token'])) {
-//                return $this->json([
-//                    'status' => 0,
-//                    'msg' => 'Bad Request DAVID! ID or Token missing.',
-//                ]);
-//            }
             if (!isset($jsonData['id'])) {
                 return $this->json([
                     'status' => 0,
@@ -122,15 +113,15 @@ class SyncController extends AbstractController
             }
 
 
-            // Validate or verify the token (This depends on your token validation method)
-            $isValidToken = $this->validateToken($jsonData['token']);
-
-            if (!$isValidToken) {
-                return $this->json([
-                    'status' => 0,
-                    'msg' => 'Invalid Token. Access Denied.',
-                ]);
-            }
+//            // Validate or verify the token (This depends on your token validation method)
+//            $isValidToken = $this->validateToken($jsonData['token']);
+//
+//            if (!$isValidToken) {
+//                return $this->json([
+//                    'status' => 0,
+//                    'msg' => 'Invalid Token. Access Denied.',
+//                ]);
+//            }
 
             // Continue with the download process if the token is valid
             // Get the JSON data

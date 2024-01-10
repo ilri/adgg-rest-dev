@@ -76,9 +76,9 @@ class SyncController extends AbstractController
         $wardId = $userData['ward_id'];
 
         $tables = [
-            'form' => 'id',
-            'form_field' => 'field_id',
-            'form_field_multiple' => 'multi_id',
+            'mob_form' => 'id',
+            'mob_form_field' => 'field_id',
+            'mob_form_field_multiple' => 'multi_id',
             'core_country' => 'id',
             'country_units' => 'id',
             'core_master_list_type' => 'id',
@@ -86,8 +86,8 @@ class SyncController extends AbstractController
             'core_farm_copy' => 'id',
             'core_animal_copy' => 'id',
             'core_animal_herd_copy' => 'id',
-            'survey13' => 'id',
-            'survey22' => 'id',
+//            'survey13' => 'id',
+//            'survey22' => 'id',
             'breed_matrix' => 'id'
         ];
 

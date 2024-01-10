@@ -4,30 +4,13 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use ApiPlatform\Core\Annotation\ApiProperty;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\AuthorizationHeaderTokenExtractor;
-use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
-
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Exception;
-use Doctrine\DBAL\Types\Types;
 
-/**
- * @Route("/api/docs")
- */
 class SyncController extends AbstractController
 {
-    /**
-     * @var int The identifier for the resource
-     *
-     * @ApiProperty(identifier=true)
-     */
-    private $id;
-
     /**
      * @Route("/sync", name="sync", methods={"POST"})
      */
@@ -47,11 +30,11 @@ class SyncController extends AbstractController
         // Switch based on the 'purpose' value to call different methods
         switch ($jsonData['purpose']) {
             case 'download':
-                return $this->performDownload($connection, $jsonData);
+                return $this->download($connection, $jsonData);
                 break;
 
             case 'upload':
-                return $this->performUpload($connection, $jsonData);
+                return $this->upload($connection, $jsonData);
                 break;
 
             default:
@@ -63,17 +46,11 @@ class SyncController extends AbstractController
         }
     }
 
-
-    // Download Mobile Data to Local
-    public function performDownload(Request $request, Connection $connection): JsonResponse
+    // Download Server Data to Local
+    public function download(Connection $connection, $jsonData): JsonResponse
     {
-
-        $jsonData = json_decode($request->getContent(), true);
-
         // Get the JSON data
         $id = $jsonData['id'];
-
-        var_dump($id);
 
         if (!$id) {
             return $this->json([
@@ -81,15 +58,10 @@ class SyncController extends AbstractController
                 'msg' => 'Bad Request! Could not process request.',
             ]);
         }
-        // Fetch data from auth_users table
-        $userDataQuery = $connection->createQueryBuilder()
-            ->select('country_id', 'region_id', 'district_id', 'ward_id')
-            ->from('auth_users')
-            ->where('id = :id')
-            ->setParameter('id', $id, Types::INTEGER)
-            ->execute();
 
-        $userData = $userDataQuery->fetchAssociative();
+        // Fetch data from auth_users table
+        $userDataQuery = $connection->query('SELECT country_id, region_id, district_id, ward_id FROM auth_users WHERE id = ' . $id);
+        $userData = $userDataQuery->fetch();
 
         if (!$userData) {
             return $this->json([
@@ -116,14 +88,14 @@ class SyncController extends AbstractController
             'core_animal_herd_copy' => 'id',
             'survey13' => 'id',
             'survey22' => 'id',
-            'breed_matrix' => 'id',
+            'breed_matrix' => 'id'
         ];
 
         $structure = $records = [];
 
         foreach ($tables as $table => $pk) {
             // Get table structure
-            $fields = $connection->executeQuery("SHOW COLUMNS FROM $table")->fetchAllAssociative();
+            $fields = $connection->query("SHOW COLUMNS FROM " . $table)->fetchAll();
             foreach ($fields as $key => $field) {
                 if ($fields[$key]['Field'] == $pk) {
                     if (strpos($fields[$key]['Type'], 'int') !== false) {
@@ -143,39 +115,35 @@ class SyncController extends AbstractController
 
             if ($table === 'core_country') {
                 // Fetch data from core_country table where id matches $countryId
-                $query = $connection->createQueryBuilder()
-                    ->select('*')
-                    ->from($table)
-                    ->where('id = :countryId')
-                    ->setParameter('countryId', $countryId, Types::INTEGER)
-                    ->execute();
-                $records[$table] = $query->fetchAllAssociative();
+                $query = $connection->query('SELECT * FROM ' . $table . ' WHERE id = ' . $countryId);
+                $records[$table] = $query->fetchAll();
             } else if ($table === 'country_units') {
                 $queryResults = [];
+
                 // Fetch data for region, district, ward, and village
                 $regionQuery = $connection->createQueryBuilder()
                     ->select('*')
                     ->from('country_units')
                     ->where('id = :regionId')
-                    ->setParameter('regionId', $regionId, Types::INTEGER)
+                    ->setParameter('regionId', $regionId)
                     ->execute();
-                $queryResults['region'] = $regionQuery->fetchAllAssociative();
+                $queryResults['region'] = $regionQuery->fetchAll();
 
                 $districtQuery = $connection->createQueryBuilder()
                     ->select('*')
                     ->from('country_units')
                     ->where('id = :districtId')
-                    ->setParameter('districtId', $districtId, Types::INTEGER)
+                    ->setParameter('districtId', $districtId)
                     ->execute();
-                $queryResults['district'] = $districtQuery->fetchAllAssociative();
+                $queryResults['district'] = $districtQuery->fetchAll();
 
                 $wardQuery = $connection->createQueryBuilder()
                     ->select('*')
                     ->from('country_units')
                     ->where('parent_id = :districtId')
-                    ->setParameter('districtId', $districtId, Types::INTEGER)
+                    ->setParameter('districtId', $districtId)
                     ->execute();
-                $queryResults['ward'] = $wardQuery->fetchAllAssociative();
+                $queryResults['ward'] = $wardQuery->fetchAll();
 
                 // Fetch data for villages within each ward
                 foreach ($queryResults['ward'] as $ward) {
@@ -185,9 +153,9 @@ class SyncController extends AbstractController
                         ->select('*')
                         ->from('country_units')
                         ->where('parent_id = :wardId')
-                        ->setParameter('wardId', $wardId, Types::INTEGER)
+                        ->setParameter('wardId', $wardId)
                         ->execute();
-                    $queryResults['village'][$wardId] = $villageQuery->fetchAllAssociative();
+                    $queryResults['village'][$wardId] = $villageQuery->fetchAll();
                 }
 
                 // Flatten the hierarchy data into a single array of objects
@@ -200,33 +168,14 @@ class SyncController extends AbstractController
 
                 // Assign the flattened data to the 'country_units' key in the $records array
                 $records[$table] = $flattenedData;
-            } else if (in_array($table, ['core_farm_copy', 'core_animal_copy', 'core_animal_herd_copy'])) {
-                $query = $connection->createQueryBuilder()
-                    ->select('*')
-                    ->from($table)
-                    ->where('country_id = :countryId')
-                    ->andWhere('region_id = :regionId')
-                    ->andWhere('district_id = :districtId')
-                    ->orderBy($pk)
-                    ->setParameters([
-                        'countryId' => $countryId,
-                        'regionId' => $regionId,
-                        'districtId' => $districtId,
-                    ], [
-                        'countryId' => Types::INTEGER,
-                        'regionId' => Types::INTEGER,
-                        'districtId' => Types::INTEGER,
-                    ])
-                    ->execute();
-                $records[$table] = $query->fetchAllAssociative();
+            }else if (in_array($table, ['core_farm_copy', 'core_animal_copy', 'core_animal_herd_copy'])) {
+                $query = $connection->query('SELECT * FROM ' . $table . ' WHERE country_id = ' . $countryId . ' AND region_id = ' . $regionId . ' AND district_id = ' . $districtId . ' ORDER BY ' . $pk);
+                $records[$table] = $query->fetchAll();
             } else {
-                $query = $connection->createQueryBuilder()
-                    ->select('*')
-                    ->from($table)
-                    ->orderBy($pk)
-                    ->execute();
-                $records[$table] = $query->fetchAllAssociative();
+                $query = $connection->query('SELECT * FROM ' . $table . ' ORDER BY ' . $pk);
+                $records[$table] = $query->fetchAll();
             }
+
         }
 
         $return = [
@@ -235,147 +184,128 @@ class SyncController extends AbstractController
             'structure' => $structure,
         ];
 
-//            return $this->json($return);
-        return $this->json([
-            'status' => 1,
-            'msg' => 'Download operation performed successfully.',
-            // Include any response data or messages here as needed
-        ]);
-
-
+        return $this->json($return);
     }
 
-    public function performUpload(Connection $connection, $jsonData): JsonResponse
+    public function upload(Connection $connection, $jsonData): JsonResponse
     {
         date_default_timezone_set("UTC");
         $queries = $jsonData['queries'];
-        try {
-            foreach ($queries as $query) {
-                $data = (array)json_decode($query['data']); // Use object syntax here
-                switch ($query['type']) { // Use object syntax here
-                    case 'query':
-                        switch ($query['action']) { // Use object syntax here
-                            case 'insert':
-                                // Create the column names and values for the INSERT query
-                                $columns = [];
-                                $values = [];
+        foreach ($queries as $query) {
+            $data = (array) json_decode($query['data']); // Use object syntax here
+            switch ($query['type']) { // Use object syntax here
+                case 'query':
+                    switch ($query['action']) { // Use object syntax here
+                        case 'insert':
+                            // Create the column names and values for the INSERT query
+                            $columns = [];
+                            $values = [];
 
-                                foreach ($data['data'] as $column => $value) {
-                                    $columns[] = $column;
-                                    $values[] = "'" . $value . "'";
-                                }
+                            foreach ($data['data'] as $column => $value) {
+                                $columns[] = $column;
+                                $values[] = "'" . $value . "'";
+                            }
 
-                                $columns = implode(', ', $columns);
-                                $values = implode(', ', $values);
+                            $columns = implode(', ', $columns);
+                            $values = implode(', ', $values);
 
-                                // Create the INSERT query
-                                $sql = "INSERT INTO " . $data['tablename'] . " ($columns) VALUES ($values)";
-                                $connection->executeQuery($sql); // Execute the query
-                                break;
-                        }
+                            // Create the INSERT query
+                            $sql = "INSERT INTO " . $data['tablename'] . " ($columns) VALUES ($values)";
+                            $connection->query($sql); // Execute the query
+                            break;
+                    }
+                    // Insert into query table
+                    $sql = "INSERT INTO query (type, action, time, creator, platform, data) VALUES ('" . $query['type'] . "', '" . $query['action'] . "', '" . $query['time'] . "', '" . $query['creator'] . "', 'mobile', '" . $query['data'] . "')";
+                    $connection->query($sql); // Execute the query
+                    break;
 
-                        // Insert into query table
-                        $sql = "INSERT INTO query (type, action, time, creator, platform, data) VALUES (:type, :action, :time, :creator, 'mobile', :data)";
-                        $connection->executeQuery($sql, [
-                            'type' => $query['type'],
-                            'action' => $query['action'],
-                            'time' => $query['time'],
-                            'creator' => $query['creator'],
-                            'data' => $query['data'],
-                        ], [
-                            'type' => Types::STRING,
-                            'action' => Types::STRING,
-                            'time' => Types::STRING,
-                            'creator' => Types::STRING,
-                            'data' => Types::STRING,
-                        ]);
-                        break;
+                case 'surveyimage':
+                    switch ($query['action']) {
+                        case 'insert':
+                            //Insert into survey table
+                            // Create the column names and values for the INSERT query
+                            $columns = [];
+                            $values = [];
 
-                    case 'surveyimage':
-                        switch ($query['action']) {
-                            case 'insert':
-                                // Insert into survey table
-                                // Create the column names and values for the INSERT query
-                                $columns = [];
-                                $values = [];
+                            foreach ($data['data'] as $column => $value) {
+                                $columns[] = $column;
+                                $values[] = "'" . $value . "'";
+                            }
 
-                                foreach ($data['data'] as $column => $value) {
-                                    $columns[] = $column;
-                                    $values[] = "'" . $value . "'";
-                                }
+                            $columns = implode(', ', $columns);
+                            $values = implode(', ', $values);
 
-                                $columns = implode(', ', $columns);
-                                $values = implode(', ', $values);
+                            // Create the INSERT query
+                            $sql = "INSERT INTO " . $data['table_name'] . " ($columns) VALUES ($values)";
+                            $connection->query($sql);
+                            break;
+                    }
 
-                                // Create the INSERT query
-                                $sql = "INSERT INTO " . $data['table_name'] . " ($columns) VALUES ($values)";
-                                $connection->executeQuery($sql);
-                                break;
-                        }
+                    // Insert into query table
+                    $sql = "INSERT INTO query (type, action, time, creator, platform, data) VALUES ('" . $query['type'] . "', '" . $query['action'] . "', '" . $query['time'] . "', '" . $query['creator'] . "', 'mobile', '" . $query['data'] . "')";
+                    $connection->query($sql); // Execute the query
+                    break;
+            }
+        }
 
-                        // Insert into query table
-                        $sql = "INSERT INTO query (type, action, time, creator, platform, data) VALUES (:type, :action, :time, :creator, 'mobile', :data)";
-                        $connection->executeQuery($sql, [
-                            'type' => $query['type'],
-                            'action' => $query['action'],
-                            'time' => $query['time'],
-                            'creator' => $query['creator'],
-                            'data' => $query['data'],
-                        ], [
-                            'type' => Types::STRING,
-                            'action' => Types::STRING,
-                            'time' => Types::STRING,
-                            'creator' => Types::STRING,
-                            'data' => Types::STRING,
-                        ]);
-                        break;
+        // Step 1: Select data_id from core_animal_herd_copy table
+        $query1 = "SELECT farm_id FROM core_animal_herd_copy WHERE farmid IS NULL";
+        $result1 = $connection->query($query1);
+
+        if ($result1) {
+            $data1 = $result1->fetchAll(); // Correctly fetch data
+            foreach ($data1 as $row1) {
+                $farm_id = $row1['farm_id'];
+
+                // Step 2: Select id from core_farm_copy table using data_id
+                $query2 = "SELECT id FROM core_farm_copy WHERE data_id = '".$farm_id."'";
+                $result2 = $connection->query($query2);
+
+                if ($result2) {
+                    $data2 = $result2->fetchAll(); // Correctly fetch data
+                    foreach ($data2 as $row2) {
+                        $updateid = $row2['id'];
+                        // Step 3: Update core_animal_herd_copy table with farm_id
+                        $query3 = "UPDATE core_animal_herd_copy SET farmid = $updateid WHERE farm_id = '".$farm_id."'";
+                        $connection->query($query3);
+                    }
                 }
             }
-
-            return $this->json([
-                'msg' => 'Successfully synced LocalDB with remoteDB.',
-                'status' => 1,
-            ]);
-        } catch (Exception $e) {
-            return $this->json([
-                'status' => 0,
-                'msg' => 'An error occurred while processing the request.',
-            ]);
         }
+
+        return $this->json([
+            'msg' => 'Successfully synced LocalDB with remoteDB.',
+            'status' => 1
+        ]);
     }
 
-    /**
-     * @Route("/upload-file", name="upload_file", methods={"POST"})
-     */
-    public function uploadFileNew(Request $request): JsonResponse
+    public function upload_file_new()
     {
         date_default_timezone_set("UTC");
         if (!defined('UPLOAD_DIR')) {
             define('UPLOAD_DIR', 'survey/');
         }
 
-        $file = $request->files->get('file');
-        if (!$file || $file->getError() !== UPLOAD_ERR_OK) {
+        if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
             return $this->json([
                 'msg' => 'Error uploading file.',
-                'status' => 0,
+                'status' => 0
             ]);
         }
 
-        $uploadPath = UPLOAD_DIR . $file->getClientOriginalName();
+        $uploadPath = UPLOAD_DIR . $_FILES['file']['name'];
 
-        try {
-            $file->move($uploadPath);
-
-            return $this->json([
-                'msg' => 'Successfully uploaded file to server.',
-                'status' => 1,
-            ]);
-        } catch (Exception $e) {
+        if (!move_uploaded_file($_FILES['file']['tmp_name'], $uploadPath)) {
             return $this->json([
                 'msg' => 'Error moving uploaded file.',
-                'status' => 0,
+                'status' => 0
             ]);
         }
+
+        return $this->json([
+            'msg' => 'Successfully uploaded file to server.',
+            'status' => 1
+        ]);
     }
+
 }

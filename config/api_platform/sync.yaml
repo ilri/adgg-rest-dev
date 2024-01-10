@@ -26,15 +26,16 @@ App\Controller\SyncController:
               schema:
                 type: object
                 properties:
-                  data:
+                  queries:
                     type: array
+                    items:
+                      type: object
         responses:
           200:
             description: 'Data uploaded successfully'
           400:
             description: 'Bad Request'
-  itemOperations:
-    get:
+    post_sync:
       method: 'POST'
       path: '/sync'
       controller: 'App\Controller\SyncController::sync'
@@ -44,5 +45,19 @@ App\Controller\SyncController:
         responses:
           200:
             description: 'Data synchronized successfully'
+          400:
+            description: 'Bad Request'
+
+  itemOperations:
+    post_upload_file_new:
+      method: 'POST'
+      path: '/upload-file'
+      controller: 'App\Controller\SyncController::uploadFileNew'
+      openapi_context:
+        summary: 'Upload file'
+        description: 'Upload a file to the server.'
+        responses:
+          200:
+            description: 'File uploaded successfully'
           400:
             description: 'Bad Request'

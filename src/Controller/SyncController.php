@@ -45,12 +45,12 @@ class SyncController extends AbstractController
 
         // Switch based on the 'purpose' value to call different methods
         switch ($jsonData['purpose']) {
-            case 'download':
-                return $this->download($connection, $jsonData);
+            case 'x':
+                return $this->performDownload($connection, $jsonData);
                 break;
 
             case 'upload':
-                return $this->upload($connection, $jsonData);
+                return $this->performUpload($connection, $jsonData);
                 break;
 
             default:
@@ -93,7 +93,7 @@ class SyncController extends AbstractController
 //    }
 
     // Download Mobile Data to Local
-    public function download(Request $request, Connection $connection): JsonResponse
+    public function performDownload(Request $request, Connection $connection): JsonResponse
     {
         try {
 //            // Get the JSON data
@@ -303,7 +303,7 @@ class SyncController extends AbstractController
 
     }
 
-    public function upload(Connection $connection, $jsonData): JsonResponse
+    public function performUpload(Connection $connection, $jsonData): JsonResponse
     {
         date_default_timezone_set("UTC");
         $queries = $jsonData['queries'];

@@ -21,10 +21,11 @@ use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 class SyncController extends AbstractController
 {
     /**
-     * @ApiProperty(identifier=true) // Define the identifier property
+     * @var int The identifier for the resource
+     *
+     * @ApiProperty(identifier=true)
      */
     private $id;
-
 
     /**
      * @Route("/sync", name="sync", methods={"POST"})
@@ -62,41 +63,44 @@ class SyncController extends AbstractController
     }
 
     // Token validation method using LexikJWTAuthenticationBundle
-    private function validateToken($token)
-    {
-        // Retrieve the JWT manager service
-        $jwtManager = $this->get(JWTTokenManagerInterface::class);
-
-        // Extract the token from the Authorization header
-        $extractor = new AuthorizationHeaderTokenExtractor(
-            'Bearer',
-            'Authorization'
-        );
-
-        // Try to extract the token from the request
-        try {
-            $extractedToken = $extractor->extract($this->getRequest());
-            $jwtToken = $extractedToken ?: $token;
-        } catch (\Throwable $e) {
-            throw new AccessDeniedException('Invalid token David');
-        }
-
-        // Validate the token
-        try {
-            $decodedToken = $jwtManager->decode($jwtToken);
-            // If the token is valid, return true
-            return true;
-        } catch (\Throwable $e) {
-            throw new AccessDeniedException('Invalid token David 1');
-        }
-    }
+//    private function validateToken($token)
+//    {
+//        // Retrieve the JWT manager service
+//        $jwtManager = $this->get(JWTTokenManagerInterface::class);
+//
+//        // Extract the token from the Authorization header
+//        $extractor = new AuthorizationHeaderTokenExtractor(
+//            'Bearer',
+//            'Authorization'
+//        );
+//
+//        // Try to extract the token from the request
+//        try {
+//            $extractedToken = $extractor->extract($this->getRequest());
+//            $jwtToken = $extractedToken ?: $token;
+//        } catch (\Throwable $e) {
+//            throw new AccessDeniedException('Invalid token David');
+//        }
+//
+//        // Validate the token
+//        try {
+//            $decodedToken = $jwtManager->decode($jwtToken);
+//            // If the token is valid, return true
+//            return true;
+//        } catch (\Throwable $e) {
+//            throw new AccessDeniedException('Invalid token David 1');
+//        }
+//    }
 
     // Download Mobile Data to Local
     public function download(Request $request, Connection $connection): JsonResponse
     {
         try {
-            // Get the JSON data
+//            // Get the JSON data
             $jsonData = json_decode($request->getContent(), true);
+
+            var_dump($jsonData);
+//            die();
 
             if (!isset($jsonData['id'])) {
                 return $this->json([
@@ -126,6 +130,8 @@ class SyncController extends AbstractController
             // Continue with the download process if the token is valid
             // Get the JSON data
             $id = $jsonData['id'];
+
+            var_dump($id);
 
             if (!$id) {
                 return $this->json([

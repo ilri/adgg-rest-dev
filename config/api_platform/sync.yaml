@@ -37,7 +37,7 @@ App\Controller\SyncController:
             description: 'Bad Request'
     post_sync:
       method: 'POST'
-      path: '/sync'
+      path: '/api/sync'
       controller: 'App\Controller\SyncController::sync'
       openapi_context:
         summary: 'Synchronize data'

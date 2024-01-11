@@ -83,11 +83,10 @@ class SyncController extends AbstractController
             'country_units' => 'id',
             'core_master_list_type' => 'id',
             'core_master_list' => 'id',
-            'core_farm_copy' => 'id',
-            'core_animal_copy' => 'id',
-            'core_animal_herd_copy' => 'id',
-//            'survey13' => 'id',
-//            'survey22' => 'id',
+            'core_farm' => 'id',
+            'core_animal' => 'id',
+            'core_animal_herd' => 'id',
+            'core_cooperative_group' => 'id',
             'breed_matrix' => 'id'
         ];
 
@@ -168,7 +167,7 @@ class SyncController extends AbstractController
 
                 // Assign the flattened data to the 'country_units' key in the $records array
                 $records[$table] = $flattenedData;
-            }else if (in_array($table, ['core_farm_copy', 'core_animal_copy', 'core_animal_herd_copy'])) {
+            }else if (in_array($table, ['core_farm', 'core_animal', 'core_animal_herd'])) {
                 $query = $connection->query('SELECT * FROM ' . $table . ' WHERE country_id = ' . $countryId . ' AND region_id = ' . $regionId . ' AND district_id = ' . $districtId . ' ORDER BY ' . $pk);
                 $records[$table] = $query->fetchAll();
             } else {
@@ -249,7 +248,7 @@ class SyncController extends AbstractController
         }
 
         // Step 1: Select data_id from core_animal_herd_copy table
-        $query1 = "SELECT farm_id FROM core_animal_herd_copy WHERE farmid IS NULL";
+        /*$query1 = "SELECT farm_id FROM core_animal_herd_copy WHERE farmid IS NULL";
         $result1 = $connection->query($query1);
 
         if ($result1) {
@@ -271,7 +270,7 @@ class SyncController extends AbstractController
                     }
                 }
             }
-        }
+        }*/
 
         return $this->json([
             'msg' => 'Successfully synced LocalDB with remoteDB.',

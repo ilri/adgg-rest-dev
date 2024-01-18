@@ -24,6 +24,7 @@ class SyncController extends AbstractController
 
         // If 'purpose' key is not set in the JSON data, return a bad request response
         // testing
+        // testing 2
         if (!isset($jsonData['purpose'])) {
             return $this->json([
                 'status' => 0,

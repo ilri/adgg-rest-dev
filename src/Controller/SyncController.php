@@ -9,10 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Connection;
 
+use Symfony\Component\HttpKernel\Attribute\AsController;
+
+#[AsController]
 class SyncController extends AbstractController
 {
     /**
-     * @Route("/sync", name="sync", methods={"POST"})
+     * @Route("/api/sync", name="sync", methods={"POST"})
      */
     public function sync(Request $request, Connection $connection): JsonResponse
     {
@@ -20,6 +23,8 @@ class SyncController extends AbstractController
         $jsonData = json_decode($request->getContent(), true);
 
         // If 'purpose' key is not set in the JSON data, return a bad request response
+        // testing
+        // testing 2
         if (!isset($jsonData['purpose'])) {
             return $this->json([
                 'status' => 0,
@@ -60,8 +65,13 @@ class SyncController extends AbstractController
         }
 
         // Fetch data from auth_users table
-        $userDataQuery = $connection->query('SELECT country_id, region_id, district_id, ward_id FROM auth_users WHERE id = ' . $id);
-        $userData = $userDataQuery->fetch();
+        $userData = $connection->createQueryBuilder()
+            ->select('country_id', 'region_id', 'district_id', 'ward_id')
+            ->from('auth_users')
+            ->where('id = :id')
+            ->setParameter('id', $id)
+            ->execute()
+            ->fetchAssociative();
 
         if (!$userData) {
             return $this->json([
@@ -114,8 +124,13 @@ class SyncController extends AbstractController
 
             if ($table === 'core_country') {
                 // Fetch data from core_country table where id matches $countryId
-                $query = $connection->query('SELECT * FROM ' . $table . ' WHERE id = ' . $countryId);
-                $records[$table] = $query->fetchAll();
+                $query = $connection->createQueryBuilder()
+                    ->select('*')
+                    ->from($table)
+                    ->where('id = :countryId')
+                    ->setParameter('countryId', $countryId)
+                    ->execute();
+                $records[$table] = $query->fetchAllAssociative();
             } else if ($table === 'country_units') {
                 $queryResults = [];
 
@@ -126,7 +141,7 @@ class SyncController extends AbstractController
                     ->where('id = :regionId')
                     ->setParameter('regionId', $regionId)
                     ->execute();
-                $queryResults['region'] = $regionQuery->fetchAll();
+                $queryResults['region'] = $regionQuery->fetchAllAssociative();
 
                 $districtQuery = $connection->createQueryBuilder()
                     ->select('*')
@@ -134,7 +149,7 @@ class SyncController extends AbstractController
                     ->where('id = :districtId')
                     ->setParameter('districtId', $districtId)
                     ->execute();
-                $queryResults['district'] = $districtQuery->fetchAll();
+                $queryResults['district'] = $districtQuery->fetchAllAssociative();
 
                 $wardQuery = $connection->createQueryBuilder()
                     ->select('*')
@@ -142,7 +157,7 @@ class SyncController extends AbstractController
                     ->where('parent_id = :districtId')
                     ->setParameter('districtId', $districtId)
                     ->execute();
-                $queryResults['ward'] = $wardQuery->fetchAll();
+                $queryResults['ward'] = $wardQuery->fetchAllAssociative();
 
                 // Fetch data for villages within each ward
                 foreach ($queryResults['ward'] as $ward) {
@@ -154,7 +169,7 @@ class SyncController extends AbstractController
                         ->where('parent_id = :wardId')
                         ->setParameter('wardId', $wardId)
                         ->execute();
-                    $queryResults['village'][$wardId] = $villageQuery->fetchAll();
+                    $queryResults['village'][$wardId] = $villageQuery->fetchAllAssociative();
                 }
 
                 // Flatten the hierarchy data into a single array of objects
@@ -168,11 +183,27 @@ class SyncController extends AbstractController
                 // Assign the flattened data to the 'country_units' key in the $records array
                 $records[$table] = $flattenedData;
             }else if (in_array($table, ['core_farm', 'core_animal', 'core_animal_herd'])) {
-                $query = $connection->query('SELECT * FROM ' . $table . ' WHERE country_id = ' . $countryId . ' AND region_id = ' . $regionId . ' AND district_id = ' . $districtId . ' ORDER BY ' . $pk);
-                $records[$table] = $query->fetchAll();
+                $query = $connection->createQueryBuilder()
+                    ->select('*')
+                    ->from($table)
+                    ->where('country_id = :countryId')
+                    ->andWhere('region_id = :regionId')
+                    ->andWhere('district_id = :districtId')
+                    ->orderBy($pk)
+                    ->setParameters([
+                        'countryId' => $countryId,
+                        'regionId' => $regionId,
+                        'districtId' => $districtId,
+                    ])
+                    ->execute();
+                $records[$table] = $query->fetchAllAssociative();
             } else {
-                $query = $connection->query('SELECT * FROM ' . $table . ' ORDER BY ' . $pk);
-                $records[$table] = $query->fetchAll();
+                $query = $connection->createQueryBuilder()
+                    ->select('*')
+                    ->from($table)
+                    ->orderBy($pk)
+                    ->execute();
+                $records[$table] = $query->fetchAllAssociative();
             }
 
         }
@@ -278,6 +309,10 @@ class SyncController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/api/upload_file_new", name="app_syncimage", methods={"POST"})
+     */
     public function upload_file_new()
     {
         date_default_timezone_set("UTC");

@@ -1,64 +1,17 @@
-## config/api_platform/sync.yaml
-#App\Controller\SyncController:
-#  collectionOperations:
-#    get_download:
-#      method: 'GET'
-#      path: '/sync/download'
-#      controller: 'App\Controller\SyncController::download'
-#      openapi_context:
-#        summary: 'Download data'
-#        description: 'Download data from the server.'
-#        responses:
-#          200:
-#            description: 'Data downloaded successfully'
-#          400:
-#            description: 'Bad Request'
-##    post_upload:
-##      method: 'POST'
-##      path: '/sync/upload'
-##      controller: 'App\Controller\SyncController::upload'
-##      openapi_context:
-##        summary: 'Upload data'
-##        description: 'Upload data to the server.'
-##        requestBody:
-##          content:
-##            application/json:
-##              schema:
-##                type: object
-##                properties:
-##                  queries:
-##                    type: array
-##                    items:
-##                      type: object
-##        responses:
-##          200:
-##            description: 'Data uploaded successfully'
-##          400:
-##            description: 'Bad Request'
-##    post_sync:
-##      method: 'POST'
-##      path: '/sync'
-##      controller: 'App\Controller\SyncController::sync'
-##      openapi_context:
-##        summary: 'Synchronize data'
-##        description: 'Synchronize data between local and remote databases.'
-##        responses:
-##          200:
-##            description: 'Data synchronized successfully'
-##          400:
-##            description: 'Bad Request'
-#
-#
-#  itemOperations:
-#    post_upload_file_new:
-#      method: 'POST'
-#      path: '/upload-file'
-#      controller: 'App\Controller\SyncController::uploadFileNew'
-#      openapi_context:
-#        summary: 'Upload file'
-#        description: 'Upload a file to the server.'
-#        responses:
-#          200:
-#            description: 'File uploaded successfully'
-#          400:
-#            description: 'Bad Request'
+# config/api_platform/sync.yaml
+App\Controller\SyncController:
+  itemOperations: []
+  collectionOperations:
+        post_sync:
+          method: 'POST'
+          path: '/sync'
+          controller: 'App\Controller\SyncController::sync'
+          openapi_context:
+            summary: 'Synchronize data'
+            description: 'Synchronize data between local and remote databases.'
+            responses:
+              200:
+                description: 'Data synchronized successfully'
+              400:
+                description: 'Bad Request'
+

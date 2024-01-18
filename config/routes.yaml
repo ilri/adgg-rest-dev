@@ -7,10 +7,10 @@ authentication_token:
   methods: ['POST']
 
 app_sync:
-  path: /sync
+  path: /api/sync
   controller: App\Controller\SyncController::sync
   methods: ['POST']
 app_syncimage:
-  path: /upload_file_new
+  path: /api/upload_file_new
   controller: App\Controller\SyncController::upload_file_new
   methods: ['POST']

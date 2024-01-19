@@ -23,8 +23,6 @@ class SyncController extends AbstractController
         $jsonData = json_decode($request->getContent(), true);
 
         // If 'purpose' key is not set in the JSON data, return a bad request response
-        // testing
-        // testing 2
         if (!isset($jsonData['purpose'])) {
             return $this->json([
                 'status' => 0,

@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use Doctrine\DBAL\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -215,6 +216,13 @@ class SyncController extends AbstractController
         return $this->json($return);
     }
 
+    // Function to log messages to a file
+    function logMessage($message, $logFile = 'app.log') {
+        $timestamp = date('Y-m-d H:i:s');
+        $logEntry = "[$timestamp] $message" . PHP_EOL;
+        file_put_contents($logFile, $logEntry, FILE_APPEND);
+    }
+
     public function upload(Connection $connection, $jsonData): JsonResponse
     {
         date_default_timezone_set("UTC");
@@ -242,9 +250,16 @@ class SyncController extends AbstractController
                             $connection->query($sql); // Execute the query
                             break;
                     }
+
                     // Insert into query table
                     $sql = "INSERT INTO query (type, action, time, creator, platform, data) VALUES ('" . $query['type'] . "', '" . $query['action'] . "', '" . $query['time'] . "', '" . $query['creator'] . "', 'mobile', '" . $query['data'] . "')";
-                    $connection->query($sql); // Execute the query
+                    $this->logMessage($sql);
+                    try {
+                        $connection->query($sql);
+                    } catch (Exception $e) {
+                        $e->$this->logMessage($e->getMessage());
+                    } // Execute the query
+
                     break;
 
                 case 'surveyimage':

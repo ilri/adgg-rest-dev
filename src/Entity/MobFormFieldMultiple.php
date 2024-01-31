@@ -7,7 +7,7 @@ use App\Repository\MobFormFieldMultipleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="form_field_multiple")
+ * @ORM\Table(name="mob_form_field_multiple")
  * @ORM\Entity(repositoryClass=MobFormFieldMultipleRepository::class)
  */
 #[ApiResource]

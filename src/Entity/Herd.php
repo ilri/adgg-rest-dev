@@ -112,7 +112,7 @@ class Herd
     private $migrationId;
 
     /**
-     * @var Farm
+     * @var Farm|null
      *
      * @ORM\ManyToOne(targetEntity="Farm")
      * @ORM\JoinColumns({

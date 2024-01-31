@@ -14,12 +14,17 @@ App\Entity\Farm:
                        <p>Use the following parameters to filter the farms:</p>
                        <ul>
                          <li><code>phone</code>: Provide a farmer exact phone number.</li>
+                         <li><code>Create By</code>Provide a user ID</li>
             <li><code>id</code>:
               The farm ID. For example: 1</li>
             <li><code>mobDataId</code>: Filter by the mobile-specific data ID.</li>
             <li><code>page</code>: Specifies the collection page number.</li>
             <li><code>pagination</code>: Enable or disable pagination.</li>
             <li><code>countryCode</code>: Provide the country ISO 3166-1 alpha-2 code.</li>
+            <li><code>Region Id</code>: Filter by regionId</li>
+            <li><code>District Id</code>: Filter by districtID</li>
+            <li><code>Ward Id</code>Filter by wardID</li>
+            <li><code>Village Id</code>villageId</li>
             </ul>
             <p>Combine different parameters to refine your search and retrieve specific sets of farms.</p>
             </div>'
@@ -47,6 +52,17 @@ App\Entity\Farm:
                 type: string
             style: form
             explode: true
+            allowReserved: false
+          - name: createdBy
+            in: query
+            description: 'Filter by user id of the field agent'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
             allowReserved: false
           - name: id
             in: query
@@ -127,6 +143,50 @@ App\Entity\Farm:
             allowEmptyValue: false
             schema:
               type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: regionId
+            in: query
+            description: 'Filter by the Region ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: districtId
+            in: query
+            description: 'Filter by the District ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: wardId
+            in: query
+            description: 'Filter by the ward ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: villageId
+            in: query
+            description: 'Filter by the Village ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
             style: form
             explode: false
             allowReserved: false

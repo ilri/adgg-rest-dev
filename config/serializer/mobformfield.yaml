@@ -1,9 +1,9 @@
 App\Entity\MobFormField:
   attributes:
-    id:
+    field_id:
       groups: [
-        "mobformfield:collection:get",
-        "mobformfield:item:get"
+        'mobformfield:collection:get',
+        'mobformfield:item:get',
       ]
     form_id:
       groups: [

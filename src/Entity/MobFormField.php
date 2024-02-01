@@ -18,7 +18,7 @@ class MobFormField
      *
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="field_id", type="integer")
+     * @ORM\Column( name="field_id", type="integer")
      */
 
     private $id;

@@ -5,6 +5,14 @@ App\Entity\MobFormFieldMultiple:
         "mobformfieldmultiple:collection:get",
         "mobformfieldmultiple:item:get"
       ]
+    multi_id:
+      groups: [
+        'mobformfieldmultiple:collection:get',
+        'mobformfieldmultiple:collection:post',
+        'mobformfieldmultiple:item:get',
+        'mobformfieldmultiple:item:put',
+        'mobformfieldmultiple:item:patch'
+      ]
     form_id:
       groups: [
         'mobformfieldmultiple:collection:get',

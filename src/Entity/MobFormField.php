@@ -18,10 +18,17 @@ class MobFormField
      *
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="field_id", type="integer")
+     * @ORM\Column( type="integer")
      */
 
     private $id;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="field_id", type="integer", nullable=true)
+     */
+    private $field_id;
 
     /**
      * @var int|null
@@ -222,6 +229,18 @@ class MobFormField
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getFieldId(): ?int
+    {
+        return $this->field_id;
+    }
+
+    public function setFieldId(?int $field_id): self
+    {
+        $this->field_id = $field_id;
+
+        return $this;
     }
 
     public function getFormId(): ?int

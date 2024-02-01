@@ -18,9 +18,16 @@ class MobFormFieldMultiple
      *
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="multi_id", type="integer")
+     * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="multi_id",  type="integer", nullable=true)
+     */
+    private $multi_id;
 
     /**
      * @var int|null
@@ -97,6 +104,17 @@ class MobFormFieldMultiple
         return $this->id;
     }
 
+    public function getMultiId(): ?int
+    {
+        return $this->multi_id;
+    }
+
+    public function setMultiId(?int $multi_id): self
+    {
+        $this->multi_id = $multi_id;
+
+        return $this;
+    }
     public function getFormId(): ?int
     {
         return $this->form_id;

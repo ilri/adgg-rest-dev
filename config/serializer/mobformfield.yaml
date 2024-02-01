@@ -1,17 +1,9 @@
 App\Entity\MobFormField:
   attributes:
-    id:
-      groups: [
-        "mobformfield:collection:get",
-        "mobformfield:item:get"
-      ]
     field_id:
       groups: [
         'mobformfield:collection:get',
-        'mobformfield:collection:post',
         'mobformfield:item:get',
-        'mobformfield:item:put',
-        'mobformfield:item:patch'
       ]
     form_id:
       groups: [

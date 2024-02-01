@@ -102,6 +102,10 @@ services:
         arguments: [ { 'level': 'exact', 'parentId': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'countryunits.search_filter' } ]
 
+    App\Serializer\Normalizer\IncludeNullsObjectNormalizer:
+        tags:
+            - { name: serializer.normalizer }
+
 
 
 

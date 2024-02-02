@@ -66,7 +66,7 @@ services:
     #API Platform Filters
     animal.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'tagId': 'exact', 'animalType': 'exact' } ]
+        arguments: [ { 'tagId': 'exact', 'animalType': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'animal.search_filter' } ]
 
     animalevent.search_filter:
@@ -81,7 +81,7 @@ services:
 
     animalevent.date_filter:
         parent: 'api_platform.doctrine.orm.date_filter'
-        arguments: [ { eventDate: ~ } ]
+        arguments: [ { eventDate: ~, 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'animalevent.date_filter' } ]
 
     property_filter:

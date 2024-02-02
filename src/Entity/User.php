@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\CountryTrait;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -283,6 +284,11 @@ class User implements UserInterface
      * })
      */
     private $country;
+
+    /**
+     * @ORM\Column(name="country_id", type="integer", length=128, nullable=true)
+     */
+    private $countryId;
 
     /**
      * @return string
@@ -725,6 +731,18 @@ class User implements UserInterface
     public function setCountry(?Country $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getCountryId(): ?int
+    {
+        return $this->countryId;
+    }
+
+    public function setCountryId(int $countryId): self
+    {
+        $this->countryId = $countryId;
 
         return $this;
     }

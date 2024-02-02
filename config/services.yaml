@@ -64,6 +64,11 @@ services:
         arguments: [ '@doctrine.orm.default_entity_manager' ]
 
     #API Platform Filters
+    user.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'id': 'exact' ,'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'user.search_filter' } ]
+
     animal.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { 'tagId': 'exact', 'animalType': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' } ]

@@ -66,6 +66,50 @@ App\Entity\User:
             style: form
             explode: false
             allowReserved: false
+          - name: regionId
+            in: query
+            description: 'Filter by the Region ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: districtId
+            in: query
+            description: 'Filter by the District ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: wardId
+            in: query
+            description: 'Filter by the ward ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: villageId
+            in: query
+            description: 'Filter by the Village ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
     post:
       method: post
       path: /user

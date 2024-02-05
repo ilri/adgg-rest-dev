@@ -110,6 +110,8 @@ class MasterList
      */
     private $listType;
 
+
+
     public function getId(): ?int
     {
         return $this->id;

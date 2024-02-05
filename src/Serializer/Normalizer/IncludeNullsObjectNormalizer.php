@@ -6,6 +6,7 @@ use App\Entity\Animal;
 use App\Entity\AnimalEvent;
 use App\Entity\Farm;
 use App\Entity\Herd;
+use App\Entity\MobForm;
 use App\Entity\MobFormField;
 use App\Entity\MobFormFieldMultiple;
 use Symfony\Component\Serializer\Normalizer\ContextAwareNormalizerInterface;
@@ -20,6 +21,8 @@ class IncludeNullsObjectNormalizer implements ContextAwareNormalizerInterface
             || $data instanceof Farm
             || $data instanceof Herd
             || $data instanceof Animal
+            || $data instanceof MobForm
+            || $data instanceof MobFormField
             || $data instanceof AnimalEvent;
     }
 

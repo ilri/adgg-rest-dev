@@ -111,6 +111,9 @@ services:
         tags:
             - { name: serializer.normalizer }
 
+    App\Serializer\Normalizer\MasterListNormalizer:
+        tags: [ serializer.normalizer ]
+
 
 
 

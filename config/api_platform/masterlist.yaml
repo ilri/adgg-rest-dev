@@ -10,7 +10,7 @@ App\Entity\MasterList:
         parameters:
           - name: listType
             in: query
-            description:  'The path to a given master list type <br><br> *For example: /api/master_list_type/1*'
+            description:  'The path to a given master list type <br><br> *For example: 1*'
             required: false
             deprecated: false
             allowEmptyValue: false

@@ -22,7 +22,6 @@ class IncludeNullsObjectNormalizer implements ContextAwareNormalizerInterface
             || $data instanceof Herd
             || $data instanceof Animal
             || $data instanceof MobForm
-            || $data instanceof MobFormField
             || $data instanceof AnimalEvent;
     }
 

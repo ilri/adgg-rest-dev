@@ -194,6 +194,17 @@ App\Entity\AnimalEvent:
             style: form
             explode: false
             allowReserved: false
+          - name: isActive
+            in: query
+            description: 'Filter by the isActive'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
     custom_events:
       method: get
       path: /animal_events/{event_type}

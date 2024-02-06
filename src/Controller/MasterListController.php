@@ -1,5 +1,7 @@
 <?php
 
+// src/Controller/MasterListController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,6 +13,7 @@ use App\Entity\MasterList;
 
 class MasterListController extends AbstractController
 {
+
     /**
      * @Route("/api/master_lists", name="get_active_master_lists", methods={"GET"})
      */
@@ -21,28 +24,12 @@ class MasterListController extends AbstractController
         // Use the custom repository method to retrieve only active MasterLists
         $activeMasterLists = $repository->findActiveMasterLists();
 
-//        // Transform the entities to an array or use serialization if needed
-//        $serializedMasterLists = [];
-//        foreach ($activeMasterLists as $masterList) {
-//            $serializedMasterLists[] = [
-//                'id' => $masterList->getId(),
-//                'value' => $masterList->getValue(),
-//                'label' => $masterList->getLabel(),
-//                'description' => $masterList->getDescription(),
-//                'createdAt' => $masterList->getCreatedAt()->format(\DateTime::RFC3339),
-//                'createdBy' => $masterList->getCreatedBy(),
-//                'orderBy' => $masterList->getOrderBy(),
-//                'listtype' => intval($masterList->getListType()->getId()),
-//                // Add other fields as needed
-//            ];
-//        }
-//
-//        // Return the serialized data as a JSON response
-//        return new JsonResponse($serializedMasterLists);
         // Use Symfony Serializer to convert entities to array
         $serializedMasterLists = $serializer->normalize($activeMasterLists, null, [AbstractNormalizer::IGNORED_ATTRIBUTES => ['masterList']]);
 
         // Return the serialized data as a JSON response
         return new JsonResponse($serializedMasterLists);
     }
+
 }
+

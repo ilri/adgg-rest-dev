@@ -63,4 +63,13 @@ class FarmRepository extends ServiceEntityRepository
             ->setMaxResults($pageSize)
         ;
     }
+
+    public function findActiveFarm()
+    {
+        return $this->createQueryBuilder('ml')
+            ->andWhere('ml.isActive = :isActive')
+            ->setParameter('isActive', true)
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -22,6 +22,7 @@ class MasterListNormalizer implements ContextAwareNormalizerInterface
             'id' => $object->getId(),
             'value' => $object->getValue(),
             'label' => $object->getLabel(),
+            'isActive' => $object->getIsActive(),
             'description' => $object->getDescription(),
             'createdAt' => $object->getCreatedAt()->format(\DateTime::RFC3339),
             'createdBy' => $object->getCreatedBy(),

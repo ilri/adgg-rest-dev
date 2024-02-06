@@ -16,4 +16,13 @@ class MasterListRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, MasterList::class);
     }
+
+    public function findActiveMasterLists()
+    {
+        return $this->createQueryBuilder('ml')
+            ->andWhere('ml.isActive = :isActive')
+            ->setParameter('isActive', true)
+            ->getQuery()
+            ->getResult();
+    }
 }

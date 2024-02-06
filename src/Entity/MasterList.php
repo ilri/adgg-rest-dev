@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\MasterListRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * MasterList
  *
@@ -110,7 +111,13 @@ class MasterList
      */
     private $listType;
 
-
+    /**
+     * @ORM\PrePersist
+     */
+    public function preLoad()
+    {
+        $this->isActive = 1;
+    }
 
     public function getId(): ?int
     {

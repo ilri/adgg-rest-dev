@@ -1,0 +1,28 @@
+App\Entity\VActiveCoreMasterLists:
+  collectionOperations:
+    get:
+      method: get
+      path: /v_master_lists
+      filters: [ 'vactivecoremasterlist.search_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'vactivecoremasterlist:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: list_type_id
+            in: query
+            description: 'Filter by the List Type ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+
+  itemOperations:
+    get:
+      method: get
+      path: /v_master_lists/{id}
+      normalization_context:
+        groups: [ 'vactivecoremasterlist:item:get' ]

@@ -27,7 +27,7 @@ class MasterListNormalizer implements ContextAwareNormalizerInterface
             'createdAt' => $object->getCreatedAt()->format(\DateTime::RFC3339),
             'createdBy' => $object->getCreatedBy(),
             'orderBy' => $object->getOrderBy(),
-            'listtype' => intval($object->getListType()->getId()), // Convert listtype to integer
+            'listtype' => intval($object->getListType()->getId()),
         ];
 
         return $data;

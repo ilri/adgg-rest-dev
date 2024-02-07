@@ -1,0 +1,47 @@
+App\Entity\VActiveCoreMasterLists:
+    attributes:
+        id:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        name:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        label:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        value:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        description:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        orderBy:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        listtypeid:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        createdAt:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
+        createdBy:
+            groups: [
+               "vactivecoremasterlist:collection:get",
+               "vactivecoremasterlist:item:get"
+            ]

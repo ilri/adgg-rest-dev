@@ -111,13 +111,6 @@ class MasterList
      */
     private $listType;
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function preLoad()
-    {
-        $this->isActive = 1;
-    }
 
     public function getId(): ?int
     {

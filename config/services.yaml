@@ -114,6 +114,7 @@ services:
     App\Serializer\Normalizer\MasterListNormalizer:
         tags: [ serializer.normalizer ]
 
-
-
-
+    vactivecoremasterlist.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'list_type_id': 'exact', 'isActive': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'vactivecoremasterlist.search_filter' } ]

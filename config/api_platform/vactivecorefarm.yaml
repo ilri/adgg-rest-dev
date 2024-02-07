@@ -1,0 +1,211 @@
+App\Entity\VActiveCoreFarm:
+  collectionOperations:
+    get:
+      method: get
+      path: /vactivecorefarm
+      filters: [ 'vactivecorefarm.search_filter', 'country_isocode_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'vactivecorefarm:collection:get' ]
+      openapi_context:
+        description:
+          '<div>
+            <h3>Farm Collection Endpoint</h3>
+            <p>This endpoint retrieves a collection of farms based on specified filters.</p>
+            <p>Use the following parameters to filter the farms:</p>
+                  <ul>
+                    <li><code>phone</code>: Provide a farmer exact phone number.</li>
+                    <li><code>Create By</code>Provide a user ID</li>
+            <li><code>id</code>:
+              The farm ID. For example: 1</li>
+            <li><code>mobDataId</code>: Filter by the mobile-specific data ID.</li>
+            <li><code>page</code>: Specifies the collection page number.</li>
+            <li><code>pagination</code>: Enable or disable pagination.</li>
+            <li><code>countryCode</code>: Provide the country ISO 3166-1 alpha-2 code.</li>
+            <li><code>Region Id</code>: Filter by regionId</li>
+            <li><code>District Id</code>: Filter by districtID</li>
+            <li><code>Ward Id</code>Filter by wardID</li>
+            <li><code>Village Id</code>villageId</li>
+            </ul>
+            <p>Combine different parameters to refine your search and retrieve specific sets of farms.</p>
+            </div>'
+        parameters:
+          - name: phone
+            in: query
+            description: 'Provide a farmer''s exact phone number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'phone[]'
+            in: query
+            description: 'Provide several exact phone numbers'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: id
+            in: query
+            description: 'The farm ID<br><br>*For example: 1*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'id[]'
+            in: query
+            description: 'Provide multiple farm IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobDataId
+            in: query
+            description: 'Filter by the mobile specific data ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDataId[]'
+            in: query
+            description: 'Select multiple data IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: page
+            in: query
+            description: 'The collection page number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+              default: 1
+            style: form
+            explode: false
+            allowReserved: false
+          - name: pagination
+            in: query
+            description: 'Enable or disable pagination'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: boolean
+            style: form
+            explode: false
+            allowReserved: false
+          - name: countryCode
+            in: query
+            description: 'Provide the country ISO 3166-1 alpha-2 code'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: createdBy
+            in: query
+            description: 'Filter by field agent'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: regionId
+            in: query
+            description: 'Filter by the Region ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: districtId
+            in: query
+            description: 'Filter by the District ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: wardId
+            in: query
+            description: 'Filter by the ward ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: villageId
+            in: query
+            description: 'Filter by the Village ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: isActive
+            in: query
+            description: 'Filter by the isActive'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+
+  itemOperations:
+    get:
+      method: get
+      path: /vactivecorefarm/{id}
+      normalization_context:
+        groups: [ 'vactivecorefarm:item:get' ]
+

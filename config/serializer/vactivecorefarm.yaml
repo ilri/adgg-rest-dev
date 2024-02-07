@@ -1,0 +1,154 @@
+App\Entity\VActiveCoreFarm:
+  attributes:
+    id:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    code:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    name:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    regionId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    mobDataid:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    isCooperative:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    isGroup:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+
+    districtId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    wardId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    villageId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    orgId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    clientId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    regDate:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    farmername:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    phone:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    email:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    fieldAgentId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    project:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    farmType:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    genderCode:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    farmerIsHhHead:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    isActive:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    isDeleted:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    latitude:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    longitude:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+
+    country:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    createdAt:
+      groups: [
+        "farm:collection:get",
+        "farm:item:get"
+      ]
+    createdBy:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    updatedAt:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    updatedBy:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]

@@ -2,7 +2,7 @@ App\Entity\VActiveCoreMasterLists:
   collectionOperations:
     get:
       method: get
-      path: /v_master_lists
+      path: /master_lists
       filters: [ 'vactivecoremasterlist.search_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'vactivecoremasterlist:collection:get' ]
@@ -23,6 +23,6 @@ App\Entity\VActiveCoreMasterLists:
   itemOperations:
     get:
       method: get
-      path: /v_master_lists/{id}
+      path: /master_lists/{id}
       normalization_context:
         groups: [ 'vactivecoremasterlist:item:get' ]

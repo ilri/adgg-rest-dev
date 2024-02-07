@@ -74,6 +74,11 @@ services:
         arguments: [ { 'tagId': 'exact', 'animalType': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' , 'isActive': 'exact'} ]
         tags: [ { name: 'api_platform.filter', id: 'animal.search_filter' } ]
 
+    vactivecoreanimal.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'tagId': 'exact', 'animalType': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' , 'isActive': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'vactivecoreanimal.search_filter' } ]
+
     animalevent.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { 'animal': 'exact' , 'isActive': 'exact'} ]
@@ -83,6 +88,11 @@ services:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { 'phone': 'exact', 'id': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact', 'isActive': 'exact'} ]
         tags: [ { name: 'api_platform.filter', id: 'farm.search_filter' } ]
+
+    vactivecorefarm.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'phone': 'exact', 'id': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact', 'isActive': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'vactivecorefarm.search_filter' } ]
 
     animalevent.date_filter:
         parent: 'api_platform.doctrine.orm.date_filter'

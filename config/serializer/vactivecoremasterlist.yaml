@@ -15,6 +15,7 @@ App\Entity\VActiveCoreMasterLists:
                 "vactivecoremasterlist:collection:get",
                 "vactivecoremasterlist:item:get"
             ]
+
         value:
             groups: [
                 "vactivecoremasterlist:collection:get",

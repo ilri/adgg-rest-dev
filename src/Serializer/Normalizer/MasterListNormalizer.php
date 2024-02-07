@@ -19,6 +19,7 @@ class MasterListNormalizer implements ContextAwareNormalizerInterface
         $data = [
             '@id' => '/api/v_master_lists/'.$object->getId(),
             '@type' => 'VActiveCoreMasterLists',
+            'id' => $object->getId(),
             'value' => $object->getValue(),
             'label' => $object->getLabel(),
             'isActive' => $object->getIsActive(),

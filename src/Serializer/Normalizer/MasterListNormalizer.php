@@ -4,22 +4,21 @@
 
 namespace App\Serializer\Normalizer;
 
-use App\Entity\MasterList;
+use App\Entity\VActiveCoreMasterLists;
 use Symfony\Component\Serializer\Normalizer\ContextAwareNormalizerInterface;
 
 class MasterListNormalizer implements ContextAwareNormalizerInterface
 {
     public function supportsNormalization($data, $format = null, array $context = [])
     {
-        return $data instanceof MasterList;
+        return $data instanceof VActiveCoreMasterLists;
     }
 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [
-            '@id' => '/api/master_lists/'.$object->getId(),
-            '@type' => 'MasterList',
-            'id' => $object->getId(),
+            '@id' => '/api/v_master_lists/'.$object->getId(),
+            '@type' => 'VActiveCoreMasterLists',
             'value' => $object->getValue(),
             'label' => $object->getLabel(),
             'isActive' => $object->getIsActive(),
@@ -27,7 +26,7 @@ class MasterListNormalizer implements ContextAwareNormalizerInterface
             'createdAt' => $object->getCreatedAt()->format(\DateTime::RFC3339),
             'createdBy' => $object->getCreatedBy(),
             'orderBy' => $object->getOrderBy(),
-            'listtype' => intval($object->getListType()->getId()),
+            'listtypeid' => $object->getListTypeId(),
         ];
 
         return $data;

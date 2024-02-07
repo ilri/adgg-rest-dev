@@ -75,12 +75,11 @@ class VActiveCoreMasterLists
         return $this->id;
     }
 
-    public function setValue(?int $value): self
+    public function getValue(): ?string
     {
-        $this->value = $value;
-
-        return $this;
+        return $this->value;
     }
+
 
     public function getLabel(): ?string
     {

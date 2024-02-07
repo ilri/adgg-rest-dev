@@ -1,0 +1,218 @@
+App\Entity\VActiveCoreAnimal:
+    attributes:
+        id:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        name:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mobDataId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mobFarmId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mobHerdId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mobSireId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        damName:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        sireName:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mobDamId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        tagId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        herdId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        countryId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        regionId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        districtId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        wardId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        villageId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        orgId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        animalType:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        species:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        sex:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        birthdate:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        sireType:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        sireId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        sireTagId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        damId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        damTagId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mainBreed:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        breedComposition:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        animalPhoto:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        latitude:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        longitude:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mapAddress:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        regDate:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        hairSampleId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        migrationId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        odkAnimalCode:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        farm:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        additionalAttributes:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        mobAdditionalAttributes:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        createdAt:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        createdBy:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        updatedAt:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        updatedBy:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+

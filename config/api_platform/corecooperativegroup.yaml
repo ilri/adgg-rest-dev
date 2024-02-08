@@ -1,11 +1,11 @@
-App\Entity\CooperativeGroup:
+App\Entity\CoreCooperativeGroup:
   collectionOperations:
     get:
       method: get
       path: /cooperativegroup
-      filters: [ 'cooperativegroup.search_filter', 'country_isocode_filter', 'property_filter' ]
+      filters: [ 'corecooperativegroup.search_filter', 'country_isocode_filter', 'property_filter' ]
       normalization_context:
-        groups: [ 'cooperativegroup:collection:get' ]
+        groups: [ 'corecooperativegroup:collection:get' ]
       openapi_context:
         description:
           '<div>
@@ -59,7 +59,7 @@ App\Entity\CooperativeGroup:
       method: post
       path: /cooperativegroup
       denormalization_context:
-        groups: [ 'cooperativegroup:collection:post' ]
+        groups: [ 'corecooperativegroup:collection:post' ]
       openapi_context:
         description:
           '<h3>Create a Cooperative Group field resource</h3>
@@ -69,7 +69,7 @@ App\Entity\CooperativeGroup:
       method: get
       path: /cooperativegroup/{id}
       normalization_context:
-        groups: [ 'cooperativegroup:item:get' ]
+        groups: [ 'corecooperativegroup:item:get' ]
         description:
           '<h3>Retrieve a specific Cooperative Group field resource</h3>
            <p>Retrieve details of a specific mob form field resource identified by the <code>id</code> parameter.</p>'
@@ -77,7 +77,7 @@ App\Entity\CooperativeGroup:
       method: put
       path: /cooperativegroup/{id}
       denormalization_context:
-        groups: [ 'cooperativegroup:item:put' ]
+        groups: [ 'corecooperativegroup:item:put' ]
       openapi_context:
         description:
           '<h3>Replace a Cooperative Group resource</h3>
@@ -87,7 +87,7 @@ App\Entity\CooperativeGroup:
       method: patch
       path: /cooperativegroup/{id}
       denormalization_context:
-        groups: [ 'cooperativegroup:item:patch' ]
+        groups: [ 'corecooperativegroup:item:patch' ]
       openapi_context:
         description:
           '<h3>Update a Cooperative Group resource</h3>

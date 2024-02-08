@@ -3,10 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Entity\Traits\AdministrativeDivisionsTrait;
-use App\Entity\Traits\CountryTrait;
-use App\Entity\Traits\CreatedTrait;
-use App\Entity\Traits\UpdatedTrait;
 use App\Repository\CoreCooperativeGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=CoreCooperativeGroupRepository::class)
  */
 #[ApiResource]
-class CooperativeGroup
+class CoreCooperativeGroup
 {
     /**
      * @var int
@@ -134,87 +130,40 @@ class CooperativeGroup
     private $isGroup = true;
 
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Column(name="country_id", type="integer", nullable=false)
      */
-    protected $countryId;
+    private $countryId;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="state_id", type="integer", nullable=true)
      */
-    protected $regionId;
+    private $regionId;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="dist_id", type="integer", nullable=true)
      */
-    protected $districtId;
+    private $districtId;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="ward_id", type="integer", nullable=true)
      */
-    protected $wardId;
+    private $wardId;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="village_id", type="integer", nullable=true)
      */
-    protected $villageId;
+    private $villageId;
 
-    public function getRegionId(): ?int
-    {
-        return $this->regionId;
-    }
-
-    public function setRegionId(?int $regionId): self
-    {
-        $this->regionId = $regionId;
-
-        return $this;
-    }
-
-    public function getDistrictId(): ?int
-    {
-        return $this->districtId;
-    }
-
-    public function setDistrictId(?int $districtId): self
-    {
-        $this->districtId = $districtId;
-
-        return $this;
-    }
-
-    public function getWardId(): ?int
-    {
-        return $this->wardId;
-    }
-
-    public function setWardId(?int $wardId): self
-    {
-        $this->wardId = $wardId;
-
-        return $this;
-    }
-
-    public function getVillageId(): ?int
-    {
-        return $this->villageId;
-    }
-
-    public function setVillageId(?int $villageId): self
-    {
-        $this->villageId = $villageId;
-
-        return $this;
-    }
 
     public function getCountryId(): ?int
     {
@@ -402,4 +351,53 @@ class CooperativeGroup
 
         return $this;
     }
+
+    public function getRegionId(): ?int
+    {
+        return $this->regionId;
+    }
+
+    public function setRegionId(?int $regionId): self
+    {
+        $this->regionId = $regionId;
+
+        return $this;
+    }
+
+    public function getDistrictId(): ?int
+    {
+        return $this->districtId;
+    }
+
+    public function setDistrictId(?int $districtId): self
+    {
+        $this->districtId = $districtId;
+
+        return $this;
+    }
+
+    public function getWardId(): ?int
+    {
+        return $this->wardId;
+    }
+
+    public function setWardId(?int $wardId): self
+    {
+        $this->wardId = $wardId;
+
+        return $this;
+    }
+
+    public function getVillageId(): ?int
+    {
+        return $this->villageId;
+    }
+
+    public function setVillageId(?int $villageId): self
+    {
+        $this->villageId = $villageId;
+
+        return $this;
+    }
+
 }

@@ -2,7 +2,8 @@
 
 namespace App\Serializer\Normalizer;
 
-use App\Entity\CooperativeGroup;
+
+use App\Entity\CoreCooperativeGroup;
 use App\Entity\MobForm;
 use App\Entity\MobFormField;
 use App\Entity\MobFormFieldMultiple;
@@ -15,6 +16,7 @@ class IncludeNullsObjectNormalizer implements ContextAwareNormalizerInterface
     {
         return $data instanceof MobFormField
             || $data instanceof MobFormFieldMultiple
+            || $data instanceof CoreCooperativeGroup
             || $data instanceof MobForm;
     }
 

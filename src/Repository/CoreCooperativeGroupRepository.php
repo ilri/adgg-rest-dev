@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\CooperativeGroup;
+use App\Entity\CoreCooperativeGroup;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<CooperativeGroup>
+ * @extends ServiceEntityRepository<CoreCooperativeGroup>
  *
- * @method CooperativeGroup|null find($id, $lockMode = null, $lockVersion = null)
- * @method CooperativeGroup|null findOneBy(array $criteria, array $orderBy = null)
- * @method CooperativeGroup[]    findAll()
- * @method CooperativeGroup[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method CoreCooperativeGroup|null find($id, $lockMode = null, $lockVersion = null)
+ * @method CoreCooperativeGroup|null findOneBy(array $criteria, array $orderBy = null)
+ * @method CoreCooperativeGroup[]    findAll()
+ * @method CoreCooperativeGroup[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class CoreCooperativeGroupRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CooperativeGroup::class);
+        parent::__construct($registry, CoreCooperativeGroup::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(CooperativeGroup $entity, bool $flush = true): void
+    public function add(CoreCooperativeGroup $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class CoreCooperativeGroupRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(CooperativeGroup $entity, bool $flush = true): void
+    public function remove(CoreCooperativeGroup $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,7 +48,7 @@ class CoreCooperativeGroupRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return CooperativeGroup[] Returns an array of CooperativeGroup objects
+    //  * @return CoreCooperativeGroup[] Returns an array of CoreCooperativeGroup objects
     //  */
     /*
     public function findByExampleField($value)
@@ -65,7 +65,7 @@ class CoreCooperativeGroupRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?CooperativeGroup
+    public function findOneBySomeField($value): ?CoreCooperativeGroup
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')

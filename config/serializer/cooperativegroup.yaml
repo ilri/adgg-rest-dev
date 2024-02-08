@@ -144,3 +144,23 @@ App\Entity\CooperativeGroup:
         "cooperativegroup:collection:get",
         "cooperativegroup:item:get"
       ]
+    regionId:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    districtId:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    wardId:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    villageId:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]

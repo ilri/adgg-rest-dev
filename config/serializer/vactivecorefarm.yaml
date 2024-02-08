@@ -132,6 +132,11 @@ App\Entity\VActiveCoreFarm:
         "vactivecorefarm:collection:get",
         "vactivecorefarm:item:get"
       ]
+    countryId:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
     createdAt:
       groups: [
         "vactivecorefarm:collection:get",
@@ -152,7 +157,6 @@ App\Entity\VActiveCoreFarm:
         "vactivecorefarm:collection:get",
         "vactivecorefarm:item:get"
       ]
-
     additionalAttributes:
       groups: [
         "vactivecorefarm:collection:get",

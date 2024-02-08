@@ -243,14 +243,12 @@ class VActiveCoreFarm
     private $uniqueIdOdk;
 
     /**
-     * @var Country
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="country_id", type="integer", nullable=false)
      */
-    private $country;
+    protected $countryId;
+
 
     public function getId(): ?int
     {
@@ -414,8 +412,8 @@ class VActiveCoreFarm
         return $this->uniqueIdOdk;
     }
 
-    public function getCountry(): ?Country
+    public function getCountryId(): ?int
     {
-        return $this->country;
+        return $this->countryId;
     }
 }

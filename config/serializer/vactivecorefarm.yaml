@@ -134,8 +134,8 @@ App\Entity\VActiveCoreFarm:
       ]
     createdAt:
       groups: [
-        "farm:collection:get",
-        "farm:item:get"
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
       ]
     createdBy:
       groups: [
@@ -148,6 +148,12 @@ App\Entity\VActiveCoreFarm:
         "vactivecorefarm:item:get"
       ]
     updatedBy:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+
+    additionalAttributes:
       groups: [
         "vactivecorefarm:collection:get",
         "vactivecorefarm:item:get"

@@ -3,7 +3,7 @@ App\Entity\CooperativeGroup:
     get:
       method: get
       path: /cooperativegroup
-      filters: [ 'country_isocode_filter', 'property_filter' ]
+      filters: [ 'cooperativegroup.search_filter', 'country_isocode_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'cooperativegroup:collection:get' ]
       openapi_context:

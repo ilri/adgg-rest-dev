@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Entity\Traits\AdministrativeDivisionsTrait;
 use App\Entity\Traits\CountryTrait;
 use App\Entity\Traits\CreatedTrait;
 use App\Entity\Traits\UpdatedTrait;
@@ -16,9 +17,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class CooperativeGroup
 {
-    use CountryTrait;
-    use CreatedTrait;
-    use UpdatedTrait;
     /**
      * @var int
      *
@@ -134,6 +132,101 @@ class CooperativeGroup
      *
      */
     private $isGroup = true;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="country_id", type="integer", nullable=false)
+     */
+    protected $countryId;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="state_id", type="integer", nullable=true)
+     */
+    protected $regionId;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="dist_id", type="integer", nullable=true)
+     */
+    protected $districtId;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ward_id", type="integer", nullable=true)
+     */
+    protected $wardId;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="village_id", type="integer", nullable=true)
+     */
+    protected $villageId;
+
+    public function getRegionId(): ?int
+    {
+        return $this->regionId;
+    }
+
+    public function setRegionId(?int $regionId): self
+    {
+        $this->regionId = $regionId;
+
+        return $this;
+    }
+
+    public function getDistrictId(): ?int
+    {
+        return $this->districtId;
+    }
+
+    public function setDistrictId(?int $districtId): self
+    {
+        $this->districtId = $districtId;
+
+        return $this;
+    }
+
+    public function getWardId(): ?int
+    {
+        return $this->wardId;
+    }
+
+    public function setWardId(?int $wardId): self
+    {
+        $this->wardId = $wardId;
+
+        return $this;
+    }
+
+    public function getVillageId(): ?int
+    {
+        return $this->villageId;
+    }
+
+    public function setVillageId(?int $villageId): self
+    {
+        $this->villageId = $villageId;
+
+        return $this;
+    }
+
+    public function getCountryId(): ?int
+    {
+        return $this->countryId;
+    }
+
+    public function setCountryId(int $countryId): self
+    {
+        $this->countryId = $countryId;
+
+        return $this;
+    }
 
 
 

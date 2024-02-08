@@ -1,0 +1,75 @@
+App\Entity\VActiveCoreAnimalHerd:
+  collectionOperations:
+    get:
+      method: get
+      path: /herds
+      filters: ['vactivecoreanimalherd.search_filter', 'country_isocode_filter', 'property_filter']
+      normalization_context:
+        groups: [ 'vactivecoreanimalherd:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: mobDataId
+            in: query
+            description: 'Filter by the mobile specific data ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDataId[]'
+            in: query
+            description: 'Select multiple data IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobFarmId
+            in: query
+            description: 'Filter by the mobile specific farm ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobFarmId[]'
+            in: query
+            description: 'Select multiple farm IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: createdBy
+            in: query
+            description: 'Filter by field agent'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+  itemOperations:
+    get:
+      method: get
+      path: /herds/{id}
+      normalization_context:
+        groups: [ 'vactivecoreanimalherd:item:get' ]

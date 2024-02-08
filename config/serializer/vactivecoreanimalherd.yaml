@@ -1,0 +1,117 @@
+App\Entity\VActiveCoreAnimalHerd:
+    attributes:
+        id:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        name:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        countryId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        regionId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        districtId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        wardId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        villageId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        orgId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        clientId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        mobDataId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        mobFarmId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        latitude:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        longitude:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        mapAddress:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        regDate:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        project:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        migrationId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        farm:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        additionalAttributes:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        createdAt:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        createdBy:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        updatedAt:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        updatedBy:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]

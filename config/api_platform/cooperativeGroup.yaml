@@ -43,6 +43,17 @@ App\Entity\CooperativeGroup:
             style: form
             explode: true
             allowReserved: false
+          - name: createdBy
+            in: query
+            description: 'Filter by field agent'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
 
     post:
       method: post

@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{AdditionalAttributesTrait,
+use App\Entity\Traits\{
     AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
     IdentifiableTrait,
-    MobAdditionalAttributesTrait,
     ODKIdentifiableTrait,
     OrganisationTrait,
     UpdatedTrait};
@@ -30,8 +29,6 @@ use Doctrine\ORM\Mapping as ORM;
 class VActiveCoreAnimal
 {
     use AdministrativeDivisionsTrait;
-    use AdditionalAttributesTrait;
-    use MobAdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -109,6 +106,13 @@ class VActiveCoreAnimal
      * @ORM\Column(name="tag_id", type="string", length=128, nullable=true)
      */
     private $tagId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="original_tag_id", type="string", length=128, nullable=true)
+     */
+    private $originalTagId;
 
     /**
      * @var int|null
@@ -275,6 +279,58 @@ class VActiveCoreAnimal
      */
     private $animalEvents;
 
+    /**
+     * @var array|null
+     *
+     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
+     */
+    protected $additionalAttributes;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default"="1"})
+     *
+     */
+    private $isActive = true;
+
+    /**
+     * @var array|null
+     *
+     * @ORM\Column(name="mob_additional_attributes", type="json", nullable=true)
+     */
+    protected $mobAdditionalAttributes;
+
+
+    public function getMobAdditionalAttributes(): ?array
+    {
+        return $this->mobAdditionalAttributes;
+    }
+
+    public function setMobAdditionalAttributes(?array $mobAdditionalAttributes): self
+    {
+        $this->mobAdditionalAttributes = $mobAdditionalAttributes;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function getAdditionalAttributes(): ?array
+    {
+        return $this->additionalAttributes;
+    }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): self
+    {
+        $this->additionalAttributes = $additionalAttributes;
+
+        return $this;
+    }
+
     public function __construct()
     {
         $this->animalEvents = new ArrayCollection();
@@ -335,6 +391,11 @@ class VActiveCoreAnimal
     public function getTagId(): ?string
     {
         return $this->tagId;
+    }
+
+    public function getOriginalTagId(): ?string
+    {
+        return $this->originalTagId;
     }
 
 

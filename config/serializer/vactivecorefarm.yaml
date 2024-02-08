@@ -25,12 +25,12 @@ App\Entity\VActiveCoreFarm:
         "vactivecorefarm:collection:get",
         "vactivecorefarm:item:get"
       ]
-    isCooperative:
+    isCooperativeMember:
       groups: [
         "vactivecorefarm:collection:get",
         "vactivecorefarm:item:get"
       ]
-    isGroup:
+    isGroupMember:
       groups: [
         "vactivecorefarm:collection:get",
         "vactivecorefarm:item:get"
@@ -127,11 +127,6 @@ App\Entity\VActiveCoreFarm:
         "vactivecorefarm:item:get"
       ]
 
-    country:
-      groups: [
-        "vactivecorefarm:collection:get",
-        "vactivecorefarm:item:get"
-      ]
     countryId:
       groups: [
         "vactivecorefarm:collection:get",
@@ -158,6 +153,11 @@ App\Entity\VActiveCoreFarm:
         "vactivecorefarm:item:get"
       ]
     additionalAttributes:
+      groups: [
+        "vactivecorefarm:collection:get",
+        "vactivecorefarm:item:get"
+      ]
+    mobAdditionalAttributes:
       groups: [
         "vactivecorefarm:collection:get",
         "vactivecorefarm:item:get"

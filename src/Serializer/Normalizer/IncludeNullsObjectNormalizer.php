@@ -4,6 +4,7 @@ namespace App\Serializer\Normalizer;
 
 use App\Entity\Animal;
 use App\Entity\AnimalEvent;
+use App\Entity\CooperativeGroup;
 use App\Entity\Farm;
 use App\Entity\Herd;
 use App\Entity\MobForm;
@@ -18,6 +19,7 @@ class IncludeNullsObjectNormalizer implements ContextAwareNormalizerInterface
     {
         return $data instanceof MobFormField
             || $data instanceof MobFormFieldMultiple
+            || $data instanceof CooperativeGroup
             || $data instanceof MobForm;
     }
 

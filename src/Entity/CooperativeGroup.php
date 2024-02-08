@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Entity\Traits\CountryTrait;
+use App\Entity\Traits\CreatedTrait;
+use App\Entity\Traits\UpdatedTrait;
 use App\Repository\CoreCooperativeGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,6 +17,8 @@ use Doctrine\ORM\Mapping as ORM;
 class CooperativeGroup
 {
     use CountryTrait;
+    use CreatedTrait;
+    use UpdatedTrait;
     /**
      * @var int
      *
@@ -106,7 +110,7 @@ class CooperativeGroup
      *
      * @ORM\Column(name="ip_address", type="string", length=100, nullable=true)
      */
-    private $ip_address;
+    private $ipAddress;
 
     /**
      * @var integer|null
@@ -114,6 +118,36 @@ class CooperativeGroup
      * @ORM\Column(name="status", type="integer", nullable=true)
      */
     private $status;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="is_cooperative", type="integer", nullable=true)
+     *
+     */
+    private $isCooperative = true;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="is_group", type="integer", nullable=true)
+     *
+     */
+    private $isGroup = true;
+
+
+
+    public function getIsCooperative(): ?int
+    {
+        return $this->isCooperative;
+    }
+
+
+    public function getIsGroup(): ?int
+    {
+        return $this->isGroup;
+    }
+
 
     public function getId(): ?int
     {
@@ -254,12 +288,12 @@ class CooperativeGroup
 
     public function getIpAddress(): ?string
     {
-        return $this->ip_address;
+        return $this->ipAddress;
     }
 
-    public function setIpAddress(?string $ip_address): self
+    public function setIpAddress(?string $ipAddress): self
     {
-        $this->ip_address = $ip_address;
+        $this->ipAddress = $ipAddress;
 
         return $this;
     }

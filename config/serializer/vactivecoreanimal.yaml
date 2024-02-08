@@ -50,6 +50,11 @@ App\Entity\VActiveCoreAnimal:
                 "vactivecoreanimal:collection:get",
                 "vactivecoreanimal:item:get"
             ]
+        OriginalTagId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
         herdId:
             groups: [
                 "vactivecoreanimal:collection:get",
@@ -171,6 +176,11 @@ App\Entity\VActiveCoreAnimal:
                 "vactivecoreanimal:item:get"
             ]
         migrationId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        isActive:
             groups: [
                 "vactivecoreanimal:collection:get",
                 "vactivecoreanimal:item:get"

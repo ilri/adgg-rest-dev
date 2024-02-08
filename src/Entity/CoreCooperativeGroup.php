@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Entity\Traits\CreatedTrait;
 use App\Repository\CoreCooperativeGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class CoreCooperativeGroup
 {
+    use CreatedTrait;
     /**
      * @var int
      *
@@ -93,9 +95,9 @@ class CoreCooperativeGroup
     private $user_id;
 
     /**
-     * @var \DateTime
+     * @var | string
      *
-     * @ORM\Column(name="datetime", type="datetime", nullable=true)
+     * @ORM\Column(name="datetime", type="string", nullable=true)
      */
     private $datetime;
 
@@ -316,12 +318,12 @@ class CoreCooperativeGroup
         return $this;
     }
 
-    public function getDatetime(): ?\DateTimeInterface
+    public function getDatetime(): ?string
     {
         return $this->datetime;
     }
 
-    public function setDatetime(?\DateTimeInterface $datetime): self
+    public function setDatetime(?string $datetime): self
     {
         $this->datetime = $datetime;
 

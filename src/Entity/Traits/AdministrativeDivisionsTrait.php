@@ -11,28 +11,28 @@ trait AdministrativeDivisionsTrait
      *
      * @ORM\Column(name="region_id", type="integer", nullable=true)
      */
-    protected $regionId;
+    private $regionId;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="district_id", type="integer", nullable=true)
      */
-    protected $districtId;
+    private $districtId;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="ward_id", type="integer", nullable=true)
      */
-    protected $wardId;
+    private $wardId;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="village_id", type="integer", nullable=true)
      */
-    protected $villageId;
+    private $villageId;
 
     public function getRegionId(): ?int
     {

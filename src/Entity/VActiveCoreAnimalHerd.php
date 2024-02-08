@@ -8,6 +8,7 @@ use App\Entity\Traits\AdministrativeDivisionsTrait;
 use App\Entity\Traits\CountryTrait;
 use App\Entity\Traits\CreatedTrait;
 use App\Entity\Traits\IdentifiableTrait;
+use App\Entity\Traits\MobAdditionalAttributesTrait;
 use App\Entity\Traits\ODKIdentifiableTrait;
 use App\Entity\Traits\OrganisationTrait;
 use App\Entity\Traits\UpdatedTrait;
@@ -22,6 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class VActiveCoreAnimalHerd
 {
     use AdministrativeDivisionsTrait;
+    use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
     use ODKIdentifiableTrait;
@@ -50,6 +52,13 @@ class VActiveCoreAnimalHerd
      * @ORM\Column(name="mob_farm_id", type="string", length=45, nullable=true, options={"comment"="This is specific for AADGG mobile application farm_id"})
      */
     private $mobFarmId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="species_id", type="string", length=45, nullable=true, options={"comment"="This is specific for AADGG mobile application species_id"})
+     */
+    private $speciesId;
 
     /**
      * @var string|null
@@ -124,11 +133,38 @@ class VActiveCoreAnimalHerd
      */
     protected $additionalAttributes;
 
+    /**
+     * @var array|null
+     *
+     * @ORM\Column(name="mob_additional_attributes", type="json", nullable=true)
+     */
+    protected $mobAdditionalAttributes;
+
 
     public function getAdditionalAttributes(): ?array
     {
         return $this->additionalAttributes;
     }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): self
+    {
+        $this->additionalAttributes = $additionalAttributes;
+
+        return $this;
+    }
+
+    public function getMobAdditionalAttributes(): ?array
+    {
+        return $this->mobAdditionalAttributes;
+    }
+
+    public function setMobAdditionalAttributes(?array $mobAdditionalAttributes): self
+    {
+        $this->mobAdditionalAttributes = $mobAdditionalAttributes;
+
+        return $this;
+    }
+
 
 
     public function getId(): ?int
@@ -211,6 +247,11 @@ class VActiveCoreAnimalHerd
     public function getFarm(): ?Farm
     {
         return $this->farm;
+    }
+
+    public  function getSpeciesId(): ?string
+    {
+        return $this->speciesId;
     }
 
 }

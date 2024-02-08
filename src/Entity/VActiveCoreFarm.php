@@ -241,12 +241,6 @@ class VActiveCoreFarm
      */
     private $uniqueIdOdk;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="country_id", type="integer", nullable=false)
-     */
-    protected $countryId;
 
     /**
      * @var array|null
@@ -448,10 +442,5 @@ class VActiveCoreFarm
     public function getUniqueIdOdk(): ?string
     {
         return $this->uniqueIdOdk;
-    }
-
-    public function getCountryId(): ?int
-    {
-        return $this->countryId;
     }
 }

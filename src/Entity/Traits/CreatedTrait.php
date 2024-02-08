@@ -11,14 +11,14 @@ trait CreatedTrait
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
-    protected $createdAt;
+    private $createdAt;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="created_by", type="integer", nullable=true)
      */
-    protected $createdBy;
+    private $createdBy;
 
     public function getCreatedAt(): ?\DateTime
     {

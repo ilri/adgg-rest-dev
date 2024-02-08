@@ -11,7 +11,7 @@ trait MobAdditionalAttributesTrait
      *
      * @ORM\Column(name="mob_additional_attributes", type="json", nullable=true)
      */
-    protected $mobAdditionalAttributes;
+    private $mobAdditionalAttributes;
 
 
     public function getMobAdditionalAttributes(): ?array

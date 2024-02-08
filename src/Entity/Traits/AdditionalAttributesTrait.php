@@ -11,7 +11,7 @@ trait AdditionalAttributesTrait
      *
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
      */
-    protected $additionalAttributes;
+    private $additionalAttributes;
 
 
     public function getAdditionalAttributes(): ?array

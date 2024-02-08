@@ -55,6 +55,11 @@ App\Entity\VActiveCoreAnimalHerd:
                 "vactivecoreanimalherd:collection:get",
                 "vactivecoreanimalherd:item:get"
             ]
+        speciesId:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
         latitude:
             groups: [
                 "vactivecoreanimalherd:collection:get",
@@ -91,6 +96,11 @@ App\Entity\VActiveCoreAnimalHerd:
                 "vactivecoreanimalherd:item:get"
             ]
         additionalAttributes:
+            groups: [
+                "vactivecoreanimalherd:collection:get",
+                "vactivecoreanimalherd:item:get"
+            ]
+        mobadditionalAttributes:
             groups: [
                 "vactivecoreanimalherd:collection:get",
                 "vactivecoreanimalherd:item:get"

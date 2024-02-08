@@ -11,7 +11,7 @@ trait CountryTrait
      *
      * @ORM\Column(name="country_id", type="integer", nullable=false)
      */
-    protected $countryId;
+    private $countryId;
 
     public function getCountryId(): ?int
     {

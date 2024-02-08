@@ -85,6 +85,16 @@ App\Entity\CooperativeGroup:
         'cooperativegroup:item:put',
         'cooperativegroup:item:patch'
       ]
+    isCooperative:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    isGroup:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
     datetime:
       groups: [
         'cooperativegroup:collection:get',
@@ -108,4 +118,29 @@ App\Entity\CooperativeGroup:
         'cooperativegroup:item:get',
         'cooperativegroup:item:put',
         'cooperativegroup:item:patch'
+      ]
+    ipAddress:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    createdAt:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    createdBy:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    updatedAt:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
+      ]
+    updatedBy:
+      groups: [
+        "cooperativegroup:collection:get",
+        "cooperativegroup:item:get"
       ]

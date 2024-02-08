@@ -22,7 +22,6 @@ use Doctrine\ORM\Mapping as ORM;
 class VActiveCoreFarm
 {
     use AdministrativeDivisionsTrait;
-    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -143,18 +142,18 @@ class VActiveCoreFarm
     /**
      * @var int|null
      *
-     * @ORM\Column(name="is_cooperative", type="integer", nullable=true)
+     * @ORM\Column(name="is_cooperative_member", type="integer", nullable=true)
      *
      */
-    private $isCooperative = true;
+    private $isCooperativeMember = true;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="is_group", type="integer", nullable=true)
+     * @ORM\Column(name="is_group_member", type="integer", nullable=true)
      *
      */
-    private $isGroup = true;
+    private $isGroupMember = true;
 
     /**
      * @var string|null
@@ -249,6 +248,45 @@ class VActiveCoreFarm
      */
     protected $countryId;
 
+    /**
+     * @var array|null
+     *
+     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
+     */
+    protected $additionalAttributes;
+
+    /**
+     * @var array|null
+     *
+     * @ORM\Column(name="mob_additional_attributes", type="json", nullable=true)
+     */
+    protected $mobAdditionalAttributes;
+
+
+    public function getAdditionalAttributes(): ?array
+    {
+        return $this->additionalAttributes;
+    }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): self
+    {
+        $this->additionalAttributes = $additionalAttributes;
+
+        return $this;
+    }
+
+    public function getMobAdditionalAttributes(): ?array
+    {
+        return $this->mobAdditionalAttributes;
+    }
+
+    public function setMobAdditionalAttributes(?array $mobAdditionalAttributes): self
+    {
+        $this->mobAdditionalAttributes = $mobAdditionalAttributes;
+
+        return $this;
+    }
+
 
     public function getId(): ?int
     {
@@ -261,15 +299,15 @@ class VActiveCoreFarm
     }
 
 
-    public function getIsCooperative(): ?int
+    public function getIsCooperativeMember(): ?int
     {
-        return $this->isCooperative;
+        return $this->isCooperativeMember;
     }
 
 
-    public function getIsGroup(): ?int
+    public function getIsGroupMember(): ?int
     {
-        return $this->isGroup;
+        return $this->isGroupMember;
     }
 
 

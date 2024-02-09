@@ -211,7 +211,7 @@ App\Entity\Farm:
                 "farm:item:patch"
             ]
 
-        country:
+        countryId:
             groups: [
                     "farm:collection:get",
                     "farm:collection:post",

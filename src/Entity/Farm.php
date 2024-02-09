@@ -250,15 +250,6 @@ class Farm
      */
     private $uniqueIdOdk;
 
-    /**
-     * @var Country
-     *
-     * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
-     * })
-     */
-    private $country;
 
     public function getId(): ?int
     {
@@ -579,18 +570,6 @@ class Farm
     public function setUniqueIdOdk(?string $uniqueIdOdk): self
     {
         $this->uniqueIdOdk = $uniqueIdOdk;
-
-        return $this;
-    }
-
-    public function getCountry(): ?Country
-    {
-        return $this->country;
-    }
-
-    public function setCountry(?Country $country): self
-    {
-        $this->country = $country;
 
         return $this;
     }

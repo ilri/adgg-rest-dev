@@ -131,17 +131,17 @@ class Farm
     private $genderCode;
 
     /**
-     * @var bool
+     * @var int|null
      *
-     * @ORM\Column(name="farmer_is_hh_head", type="boolean", nullable=false, options={"default"="1"})
+     * @ORM\Column(name="farmer_is_hh_head", type="integer", nullable=false)
      *
      */
     private $farmerIsHhHead = true;
 
     /**
-     * @var bool
+     * @var int|null
      *
-     * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default"="1"})
+     * @ORM\Column(name="is_active", type="integer", nullable=false)
      *
      */
     private $isActive = true;
@@ -411,24 +411,24 @@ class Farm
         return $this;
     }
 
-    public function getFarmerIsHhHead(): ?bool
+    public function getFarmerIsHhHead(): ?int
     {
         return $this->farmerIsHhHead;
     }
 
-    public function setFarmerIsHhHead(bool $farmerIsHhHead): self
+    public function setFarmerIsHhHead(int $farmerIsHhHead): self
     {
         $this->farmerIsHhHead = $farmerIsHhHead;
 
         return $this;
     }
 
-    public function getIsActive(): ?bool
+    public function getIsActive(): ?int
     {
         return $this->isActive;
     }
 
-    public function setIsActive(bool $isActive): self
+    public function setIsActive(int $isActive): self
     {
         $this->isActive = $isActive;
 

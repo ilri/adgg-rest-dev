@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Entity\Traits\CountryTrait;
 use App\Entity\Traits\CreatedTrait;
 use App\Repository\CoreCooperativeGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,6 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 class CoreCooperativeGroup
 {
     use CreatedTrait;
+    use CountryTrait;
     /**
      * @var int
      *
@@ -132,12 +134,6 @@ class CoreCooperativeGroup
      */
     private $isGroup = true;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="country_id", type="integer", nullable=false)
-     */
-    private $countryId;
 
     /**
      * @var int|null
@@ -172,18 +168,6 @@ class CoreCooperativeGroup
         return $this->id;
     }
 
-
-    public function getCountryId(): ?int
-    {
-        return $this->countryId;
-    }
-
-    public function setCountryId(int $countryId): self
-    {
-        $this->countryId = $countryId;
-
-        return $this;
-    }
 
     public function getIsCooperative(): ?int
     {

@@ -5,7 +5,7 @@ App\Entity\CoreCooperativeGroup:
         "corecooperativegroup:collection:get",
         "corecooperativegroup:item:get"
       ]
-    mob_data_id:
+    mobDataId:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -13,7 +13,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    cooperative_group_name:
+    cooperativeGroupName:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -29,7 +29,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    cooperative_group_type:
+    cooperativeGroupType:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -37,7 +37,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    cooperative_group_function:
+    cooperativeGroupFunction:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -45,7 +45,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    offers_livestock_marketing:
+    offersLivestockMarketing:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -53,7 +53,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    offers_livestock_products:
+    offersLivestockProducts:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -61,7 +61,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    number_male_members:
+    numberMaleMembers:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -69,7 +69,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    number_female_members:
+    numberFemaleMembers:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -77,7 +77,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    user_id:
+    userId:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -87,13 +87,19 @@ App\Entity\CoreCooperativeGroup:
       ]
     isCooperative:
       groups: [
-        "corecooperativegroup:collection:get",
-        "corecooperativegroup:item:get"
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
       ]
     isGroup:
       groups: [
-        "corecooperativegroup:collection:get",
-        "corecooperativegroup:item:get"
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
       ]
     datetime:
       groups: [
@@ -103,7 +109,7 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
       ]
-    ip_address:
+    ipAddress:
       groups: [
         'corecooperativegroup:collection:get',
         'corecooperativegroup:collection:post',
@@ -118,11 +124,6 @@ App\Entity\CoreCooperativeGroup:
         'corecooperativegroup:item:get',
         'corecooperativegroup:item:put',
         'corecooperativegroup:item:patch'
-      ]
-    ipAddress:
-      groups: [
-        "corecooperativegroup:collection:get",
-        "corecooperativegroup:item:get"
       ]
     createdAt:
       groups: [

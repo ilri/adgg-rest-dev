@@ -157,6 +157,14 @@ App\Entity\Herd:
                 "herd:item:put",
                 "herd:item:patch"
             ]
+        mobAdditionalAttributes:
+            groups: [
+                "herd:collection:get",
+                "herd:collection:post",
+                "herd:item:get",
+                "herd:item:put",
+                "herd:item:patch"
+            ]
         createdAt:
             groups: [
                 "herd:collection:get",

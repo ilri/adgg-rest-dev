@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{
-    AdditionalAttributesTrait,
+use App\Entity\Traits\{AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
     IdentifiableTrait,
+    MobAdditionalAttributesTrait,
     ODKIdentifiableTrait,
     OrganisationTrait,
-    UpdatedTrait
-};
+    UpdatedTrait};
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +24,7 @@ class Herd
 {
     use AdministrativeDivisionsTrait;
     use AdditionalAttributesTrait;
+    use MobAdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;

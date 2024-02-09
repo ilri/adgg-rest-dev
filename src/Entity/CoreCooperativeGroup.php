@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="core_cooperative_group")
  * @ORM\Entity(repositoryClass=CoreCooperativeGroupRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 #[ApiResource]
 class CoreCooperativeGroup
@@ -25,18 +26,18 @@ class CoreCooperativeGroup
     private $id;
 
     /**
-     * @var string|null
+     * @var int|string|null
      *
-     * @ORM\Column(name="mob_data_id",  type="string", length=250)
+     * @ORM\Column(name="mob_data_id",  type="string", length=250, nullable=true)
      */
-    private $mob_data_id;
+    private $mobDataId;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="cooperative_group_name", type="string", length=255, nullable=true)
      */
-    private $cooperative_group_name;
+    private $cooperativeGroupName;
 
     /**
      * @var string|null
@@ -50,49 +51,49 @@ class CoreCooperativeGroup
      *
      * @ORM\Column(name="cooperative_group_type", type="string", length=100, nullable=true)
      */
-    private $cooperative_group_type;
+    private $cooperativeGroupType;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="cooperative_group_function", type="string", length=100, nullable=true)
      */
-    private $cooperative_group_function;
+    private $cooperativeGroupFunction;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="offers_livestock_marketing", type="string", length=100, nullable=true)
      */
-    private $offers_livestock_marketing;
+    private $offersLivestockMarketing;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="offers_livestock_products",  type="string", length=100, nullable=true)
      */
-    private $offers_livestock_products;
+    private $offersLivestockProducts;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="number_male_members", type="string", length=50, nullable=true)
      */
-    private $number_male_members;
+    private $numberMaleMembers;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="number_female_members", type="string", length=50, nullable=true)
      */
-    private $number_female_members;
+    private $numberFemaleMembers;
 
     /**
      * @var integer|null
      *
      * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
-    private $user_id;
+    private $userId;
 
     /**
      * @var | string
@@ -166,6 +167,11 @@ class CoreCooperativeGroup
      */
     private $villageId;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
 
     public function getCountryId(): ?int
     {
@@ -179,11 +185,16 @@ class CoreCooperativeGroup
         return $this;
     }
 
-
-
     public function getIsCooperative(): ?int
     {
         return $this->isCooperative;
+    }
+
+    public function setIsCooperative(string $isCooperative): self
+    {
+        $this->isCooperative = $isCooperative;
+
+        return $this;
     }
 
 
@@ -192,32 +203,34 @@ class CoreCooperativeGroup
         return $this->isGroup;
     }
 
-
-    public function getId(): ?int
+    public function setIsGroup(int $isGroup): self
     {
-        return $this->id;
+        $this->isGroup = $isGroup;
+
+        return $this;
     }
+
 
     public function getMobDataId(): ?string
     {
-        return $this->mob_data_id;
+        return $this->mobDataId;
     }
 
-    public function setMobDataId(string $mob_data_id): self
+    public function setMobDataId(string $mobDataId): self
     {
-        $this->mob_data_id = $mob_data_id;
+        $this->mobDataId = $mobDataId;
 
         return $this;
     }
 
     public function getCooperativeGroupName(): ?string
     {
-        return $this->cooperative_group_name;
+        return $this->cooperativeGroupName;
     }
 
-    public function setCooperativeGroupName(?string $cooperative_group_name): self
+    public function setCooperativeGroupName(?string $cooperativeGroupName): self
     {
-        $this->cooperative_group_name = $cooperative_group_name;
+        $this->cooperativeGroupName = $cooperativeGroupName;
 
         return $this;
     }
@@ -236,84 +249,84 @@ class CoreCooperativeGroup
 
     public function getCooperativeGroupType(): ?string
     {
-        return $this->cooperative_group_type;
+        return $this->cooperativeGroupType;
     }
 
-    public function setCooperativeGroupType(?string $cooperative_group_type): self
+    public function setCooperativeGroupType(?string $cooperativeGroupType): self
     {
-        $this->cooperative_group_type = $cooperative_group_type;
+        $this->cooperativeGroupType = $cooperativeGroupType;
 
         return $this;
     }
 
     public function getCooperativeGroupFunction(): ?string
     {
-        return $this->cooperative_group_function;
+        return $this->cooperativeGroupFunction;
     }
 
-    public function setCooperativeGroupFunction(?string $cooperative_group_function): self
+    public function setCooperativeGroupFunction(?string $cooperativeGroupFunction): self
     {
-        $this->cooperative_group_function = $cooperative_group_function;
+        $this->cooperativeGroupFunction = $cooperativeGroupFunction;
 
         return $this;
     }
 
     public function getOffersLivestockMarketing(): ?string
     {
-        return $this->offers_livestock_marketing;
+        return $this->offersLivestockMarketing;
     }
 
-    public function setOffersLivestockMarketing(?string $offers_livestock_marketing): self
+    public function setOffersLivestockMarketing(?string $offersLivestockMarketing): self
     {
-        $this->offers_livestock_marketing = $offers_livestock_marketing;
+        $this->offersLivestockMarketing = $offersLivestockMarketing;
 
         return $this;
     }
 
     public function getOffersLivestockProducts(): ?string
     {
-        return $this->offers_livestock_products;
+        return $this->offersLivestockProducts;
     }
 
-    public function setOffersLivestockProducts(?string $offers_livestock_products): self
+    public function setOffersLivestockProducts(?string $offersLivestockProducts): self
     {
-        $this->offers_livestock_products = $offers_livestock_products;
+        $this->offersLivestockProducts = $offersLivestockProducts;
 
         return $this;
     }
 
     public function getNumberMaleMembers(): ?string
     {
-        return $this->number_male_members;
+        return $this->numberMaleMembers;
     }
 
-    public function setNumberMaleMembers(?string $number_male_members): self
+    public function setNumberMaleMembers(?string $numberMaleMembers): self
     {
-        $this->number_male_members = $number_male_members;
+        $this->numberMaleMembers = $numberMaleMembers;
 
         return $this;
     }
 
     public function getNumberFemaleMembers(): ?string
     {
-        return $this->number_female_members;
+        return $this->numberFemaleMembers;
     }
 
-    public function setNumberFemaleMembers(?string $number_female_members): self
+    public function setNumberFemaleMembers(?string $numberFemaleMembers): self
     {
-        $this->number_female_members = $number_female_members;
+        $this->numberFemaleMembers = $numberFemaleMembers;
 
         return $this;
     }
 
     public function getUserId(): ?int
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
-    public function setUserId(?int $user_id): self
+    public function setUserId(?int $userId): self
     {
-        $this->user_id = $user_id;
+        $this->userId = $userId;
 
         return $this;
     }

@@ -145,24 +145,44 @@ App\Entity\CoreCooperativeGroup:
         "corecooperativegroup:collection:get",
         "corecooperativegroup:item:get"
       ]
+    countryId:
+      groups: [
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
+      ]
     regionId:
       groups: [
-        "corecooperativegroup:collection:get",
-        "corecooperativegroup:item:get"
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
       ]
     districtId:
       groups: [
-        "corecooperativegroup:collection:get",
-        "corecooperativegroup:item:get"
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
       ]
     wardId:
       groups: [
-        "corecooperativegroup:collection:get",
-        "corecooperativegroup:item:get"
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
       ]
     villageId:
       groups: [
-        "corecooperativegroup:collection:get",
-        "corecooperativegroup:item:get"
+        'corecooperativegroup:collection:get',
+        'corecooperativegroup:collection:post',
+        'corecooperativegroup:item:get',
+        'corecooperativegroup:item:put',
+        'corecooperativegroup:item:patch'
       ]
 

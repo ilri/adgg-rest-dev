@@ -21,6 +21,14 @@ App\Entity\Herd:
                 "herd:item:put",
                 "herd:item:patch"
             ]
+        speciesId:
+            groups: [
+                "herd:collection:get",
+                "herd:collection:post",
+                "herd:item:get",
+                "herd:item:put",
+                "herd:item:patch"
+            ]
         regionId:
             groups: [
                 "herd:collection:get",

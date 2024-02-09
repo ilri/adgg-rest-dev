@@ -121,6 +121,13 @@ class Herd
      */
     private $farm;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="species_id", type="integer", nullable=true)
+     */
+    private $speciesId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -254,6 +261,18 @@ class Herd
     public function setFarm(?Farm $farm): self
     {
         $this->farm = $farm;
+
+        return $this;
+    }
+
+    public function getSpeciesId(): ?int
+    {
+        return $this->speciesId;
+    }
+
+    public function setSpeciesId(?int $speciesId): self
+    {
+        $this->speciesId = $speciesId;
 
         return $this;
     }

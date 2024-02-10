@@ -7,6 +7,7 @@ use App\Entity\CoreCooperativeGroup;
 use App\Entity\MobForm;
 use App\Entity\MobFormField;
 use App\Entity\MobFormFieldMultiple;
+use App\Entity\VActiveCoreMasterLists;
 use Symfony\Component\Serializer\Normalizer\ContextAwareNormalizerInterface;
 
 class IncludeNullsObjectNormalizer implements ContextAwareNormalizerInterface
@@ -17,6 +18,7 @@ class IncludeNullsObjectNormalizer implements ContextAwareNormalizerInterface
         return $data instanceof MobFormField
             || $data instanceof MobFormFieldMultiple
             || $data instanceof CoreCooperativeGroup
+            || $data instanceof VActiveCoreMasterLists
             || $data instanceof MobForm;
     }
 

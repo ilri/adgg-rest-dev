@@ -8,7 +8,7 @@ App\Entity\VActiveCoreMasterLists:
         groups: [ 'vactivecoremasterlist:collection:get' ]
       openapi_context:
         parameters:
-          - name: list_type_id
+          - name: listTypeId
             in: query
             description: 'Filter by the List Type ID'
             required: false

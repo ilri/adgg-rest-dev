@@ -26,22 +26,27 @@ class VActiveCoreMasterLists
     private $value;
 
     /**
+     * @var string|null
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $label;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @var int|null
+     *
+     * @ORM\Column(name="order_by",type="integer", nullable=true)
      */
-    private $order_by;
+    private $orderBy;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @var int|null
+     *
+     * @ORM\Column(name="species_id", type="integer", nullable=true)
      */
-    private $species_id;
+    private $speciesId;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="gender", type="string", length=255, nullable=true)
      */
     private $gender;
 
@@ -51,24 +56,25 @@ class VActiveCoreMasterLists
     private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(name="list_type_id", type="integer", nullable=true)
      */
-    private $list_type_id;
+    private $listTypeId;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(name="is_active", type="boolean", nullable=true)
      */
-    private $is_active;
+    private $isActive;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
-    private $created_at;
+    private $createdAt;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(name="created_by", type="integer", nullable=true)
      */
-    private $created_by;
+    private $createdBy;
+
 
     public function getId(): ?int
     {
@@ -89,12 +95,12 @@ class VActiveCoreMasterLists
 
     public function getOrderBy(): ?int
     {
-        return $this->order_by;
+        return $this->orderBy;
     }
 
-    public function getSpeciesId(): ?int
+    public function getSpeciesId(): ?string
     {
-        return $this->species_id;
+        return $this->speciesId;
     }
 
     public function getGender(): ?string
@@ -111,24 +117,24 @@ class VActiveCoreMasterLists
 
     public function getListTypeId(): ?int
     {
-        return $this->list_type_id;
+        return $this->listTypeId;
     }
 
 
     public function getIsActive(): ?bool
     {
-        return $this->is_active;
+        return $this->isActive;
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
 
     public function getCreatedBy(): ?int
     {
-        return $this->created_by;
+        return $this->createdBy;
     }
 
 }

@@ -110,6 +110,13 @@ class Animal
     private $tagId;
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(name="original_tag_id", type="string", length=128, nullable=true)
+     */
+    private $originalTagId;
+
+    /**
      * @var int|null
      *
      * @ORM\Column(name="herd_id", type="integer", nullable=true)
@@ -274,6 +281,14 @@ class Animal
      */
     private $animalEvents;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default"="1"})
+     *
+     */
+    private $isActive = true;
+
     public function __construct()
     {
         $this->animalEvents = new ArrayCollection();
@@ -283,6 +298,7 @@ class Animal
     {
         return $this->id;
     }
+
 
     public function getMobDataId(): ?string
     {
@@ -490,6 +506,18 @@ class Animal
         return $this;
     }
 
+    public function getOriginalTagId(): ?string
+    {
+        return $this->originalTagId;
+    }
+
+    public function setOriginalTagId(?string $originalTagId): self
+    {
+        $this->originalTagId = $originalTagId;
+
+        return $this;
+    }
+
     public function getDamId(): ?int
     {
         return $this->damId;
@@ -654,6 +682,18 @@ class Animal
     public function setFarm(?Farm $farm): self
     {
         $this->farm = $farm;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(?string $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

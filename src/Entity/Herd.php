@@ -11,16 +11,17 @@ use App\Entity\Traits\{AdditionalAttributesTrait,
     ODKIdentifiableTrait,
     OrganisationTrait,
     UpdatedTrait};
+use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Herd
  *
  * @ORM\Table(name="core_animal_herd", indexes={@ORM\Index(name="farm_id", columns={"farm_id"}), @ORM\Index(name="org_id", columns={"country_id"})})
- * @ORM\Entity(repositoryClass=AnimalHerdRepository::class)
- *
+ * @ORM\Entity(repositoryClass=HerdRepository::class)
  * @ORM\HasLifecycleCallbacks()
  */
+#[ApiResource]
 class Herd
 {
     use AdministrativeDivisionsTrait;

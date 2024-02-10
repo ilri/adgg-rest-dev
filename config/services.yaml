@@ -103,11 +103,6 @@ services:
         class: 'App\Filter\CountryISOCodeFilter'
         tags: [ { name: 'api_platform.filter', id: 'country_isocode_filter' } ]
 
-    masterlist.search_filter:
-        parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'listTypeId': 'exact', 'isActive': 'exact' } ]
-        tags: [ { name: 'api_platform.filter', id: 'masterlist.search_filter' } ]
-
     countryunits.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { 'level': 'exact', 'parentId': 'exact' } ]
@@ -122,7 +117,7 @@ services:
 
     vactivecoremasterlist.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'list_type_id': 'exact', 'isActive': 'exact' } ]
+        arguments: [ { 'listTypeId': 'exact', 'isActive': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'vactivecoremasterlist.search_filter' } ]
 
     corecooperativegroup.search_filter:

@@ -28,10 +28,6 @@ services:
 #    App\Controller\:
 #        resource: '../src/Controller/'
 #        tags: ['controller.service_arguments']
-    App\Controller\SyncController\:
-        resource: '../src/Controller/SyncController.php'
-        tags:
-            - { name: 'api_platform.resource', shortName: 'SyncUploadDownload' }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

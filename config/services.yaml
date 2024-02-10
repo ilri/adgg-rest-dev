@@ -105,7 +105,7 @@ services:
 
     masterlist.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'listType': 'exact', 'isActive': 'exact' } ]
+        arguments: [ { 'listTypeId': 'exact', 'isActive': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'masterlist.search_filter' } ]
 
     countryunits.search_filter:

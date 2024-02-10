@@ -31,7 +31,7 @@ App\Entity\VActiveCoreMasterLists:
                 "vactivecoremasterlist:collection:get",
                 "vactivecoremasterlist:item:get"
             ]
-        listtypeid:
+        listTypeId:
             groups: [
                 "vactivecoremasterlist:collection:get",
                 "vactivecoremasterlist:item:get"
@@ -45,4 +45,9 @@ App\Entity\VActiveCoreMasterLists:
             groups: [
                "vactivecoremasterlist:collection:get",
                "vactivecoremasterlist:item:get"
+            ]
+        speciesId:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
             ]

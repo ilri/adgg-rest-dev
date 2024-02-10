@@ -7,161 +7,121 @@ App\Entity\Herd:
             ]
         name:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         countryId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         speciesId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         regionId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         districtId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         wardId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         villageId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         orgId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         clientId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         mobDataId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         mobFarmId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         latitude:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         longitude:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         mapAddress:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         regDate:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         project:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         migrationId:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         farm:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         additionalAttributes:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]
         mobAdditionalAttributes:
             groups: [
-                "herd:collection:get",
                 "herd:collection:post",
-                "herd:item:get",
                 "herd:item:put",
                 "herd:item:patch"
             ]

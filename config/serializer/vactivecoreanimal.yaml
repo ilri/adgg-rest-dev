@@ -50,7 +50,7 @@ App\Entity\VActiveCoreAnimal:
                 "vactivecoreanimal:collection:get",
                 "vactivecoreanimal:item:get"
             ]
-        OriginalTagId:
+        originalTagId:
             groups: [
                 "vactivecoreanimal:collection:get",
                 "vactivecoreanimal:item:get"

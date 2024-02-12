@@ -364,7 +364,7 @@ App\Entity\Animal:
             ]
         isActive:
             groups: [
-                "vactivecoreanimal:collection:get",
-                "vactivecoreanimal:item:get"
+                "animal:collection:get",
+                "animal:item:get"
             ]
 

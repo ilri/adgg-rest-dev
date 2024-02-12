@@ -1,5 +1,215 @@
 App\Entity\Animal:
   collectionOperations:
+    get:
+      method: get
+      path: /animals
+      filters: ['animal.search_filter', 'country_isocode_filter', 'property_filter']
+      normalization_context:
+        groups: ['animal:collection:get']
+      openapi_context:
+        parameters:
+          - name: tagId
+            in: query
+            description: 'The animal''s tag ID<br><br>*Example value: T19000001*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'tagId[]'
+            in: query
+            description: 'Select multiple tag IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobDataId
+            in: query
+            description: 'Filter by the mobile specific data ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDataId[]'
+            in: query
+            description: 'Select multiple data IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobFarmId
+            in: query
+            description: 'Filter by the mobile specific farm ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobFarmId[]'
+            in: query
+            description: 'Select multiple farm IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobHerdId
+            in: query
+            description: 'Filter by the mobile specific Herd ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobHerdId[]'
+            in: query
+            description: 'Select multiple Herd IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobSireId
+            in: query
+            description: 'Filter by the mobile specific Sire ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobSireId[]'
+            in: query
+            description: 'Select multiple Sire IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: mobDamId
+            in: query
+            description: 'Filter by the mobile specific Dam ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'mobDamId[]'
+            in: query
+            description: 'Select multiple Dam IDs'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: string
+            style: form
+            explode: true
+            allowReserved: false
+          - name: animalType
+            in: query
+            description: 'The type of a given animal<br><br>*Example value: 1*'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: 'animalType[]'
+            in: query
+            description: 'Select multiple animal types'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: array
+              items:
+                type: integer
+            style: form
+            explode: true
+            allowReserved: false
+          - name: page
+            in: query
+            description: 'The collection page number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+              default: 1
+            style: form
+            explode: false
+            allowReserved: false
+          - name: pagination
+            in: query
+            description: 'Enable or disable pagination'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: boolean
+            style: form
+            explode: false
+            allowReserved: false
+          - name: countryCode
+            in: query
+            description: 'Provide the country ISO 3166-1 alpha-2 code'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: string
+            style: form
+            explode: false
+            allowReserved: false
     post:
       method: post
       path: /animals
@@ -8,8 +218,13 @@ App\Entity\Animal:
       openapi_context:
         description:
           '<h3>Creates a Animal resource</h3><p>The following properties are **required** and need to be provided in the request body:
-              </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'
+          </p>`countryId`<p>`tagId`</p><p>All other properties are **optional**.</p>'
   itemOperations:
+    get:
+      method: get
+      path: /animals/{id}
+      normalization_context:
+        groups: [ 'animal:item:get' ]
     put:
       method: put
       path: /animals/{id}

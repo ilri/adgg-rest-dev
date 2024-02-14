@@ -274,6 +274,14 @@ class Animal
     private $farm;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="farm_id", type="string", length=128, nullable=true)
+     *
+     */
+    private $farmId;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="AnimalEvent", mappedBy="animal")
@@ -682,6 +690,18 @@ class Animal
     public function setFarm(?Farm $farm): self
     {
         $this->farm = $farm;
+
+        return $this;
+    }
+
+    public function getFarmId(): ?int
+    {
+        return $this->farmId;
+    }
+
+    public function setFarmId(?int $farmId): self
+    {
+        $this->farmId = $farmId;
 
         return $this;
     }

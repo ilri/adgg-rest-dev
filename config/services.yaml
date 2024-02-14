@@ -53,6 +53,10 @@ services:
             event: 'prePersist'
             entity: 'App\Entity\AnimalEvent'
 
+    App\EventListener\AnimalListener:
+        tags:
+            - { name: 'doctrine.event_listener', event: 'postPersist', entity: 'App\Entity\Animal' }
+
     App\Security\AuthenticationSuccessHandler:
         arguments: [ '@lexik_jwt_authentication.jwt_manager' ]
 

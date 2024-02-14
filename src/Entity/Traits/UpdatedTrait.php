@@ -11,14 +11,14 @@ trait UpdatedTrait
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
-    protected $updatedAt;
+    private $updatedAt;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="updated_by", type="integer", nullable=true)})
      */
-    protected $updatedBy;
+    private $updatedBy;
 
     public function getUpdatedAt(): ?\DateTime
     {

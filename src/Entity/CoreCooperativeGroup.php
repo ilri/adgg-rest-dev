@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Entity\Traits\CountryTrait;
 use App\Entity\Traits\CreatedTrait;
+use App\Entity\Traits\UpdatedTrait;
 use App\Repository\CoreCooperativeGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,6 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
 class CoreCooperativeGroup
 {
     use CreatedTrait;
+    use UpdatedTrait;
     use CountryTrait;
     /**
      * @var int

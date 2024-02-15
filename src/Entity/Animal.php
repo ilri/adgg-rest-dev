@@ -332,6 +332,18 @@ class Animal
         return $this;
     }
 
+    public function getHerdId(): ?int
+    {
+        return $this->herdId;
+    }
+
+    public function setHerdId(?int $herdId): self
+    {
+        $this->herdId = $herdId;
+
+        return $this;
+    }
+
     public function getMobHerdId(): ?string
     {
         return $this->mobHerdId;
@@ -413,18 +425,6 @@ class Animal
     public function setTagId(?string $tagId): self
     {
         $this->tagId = $tagId;
-
-        return $this;
-    }
-
-    public function getHerdId(): ?int
-    {
-        return $this->herdId;
-    }
-
-    public function setHerdId(?int $herdId): self
-    {
-        $this->herdId = $herdId;
 
         return $this;
     }

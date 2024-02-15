@@ -1,0 +1,56 @@
+App\Entity\CoreTableAttribute:
+  attributes:
+    id:
+      groups: [
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get",
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get"
+      ]
+    eventType:
+      groups: [
+        "coretableattribute:collection:get",
+        "coretableattribute:collection:post",
+        "coretableattribute:item:get",
+        "coretableattribute:item:put",
+        "coretableattribute:item:patch",
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get"
+      ]
+    eventName:
+      groups: [
+        "coretableattribute:collection:get",
+        "coretableattribute:collection:post",
+        "coretableattribute:item:get",
+        "coretableattribute:item:put",
+        "coretableattribute:item:patch",
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get"
+      ]
+    attributeKey:
+      groups: [
+        "coretableattribute:collection:get",
+        "coretableattribute:collection:post",
+        "coretableattribute:item:get",
+        "coretableattribute:item:put",
+        "coretableattribute:item:patch",
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get"
+      ]
+    attributeLabel:
+      groups: [
+        "coretableattribute:collection:get",
+        "coretableattribute:collection:post",
+        "coretableattribute:item:get",
+        "coretableattribute:item:put",
+        "coretableattribute:item:patch",
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get"
+      ]
+    createdAt:
+      groups: [
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get"
+      ]
+
+

@@ -99,6 +99,11 @@ services:
         arguments: [ { eventDate: ~, 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' , 'isActive': 'exact'} ]
         tags: [ { name: 'api_platform.filter', id: 'animalevent.date_filter' } ]
 
+    coretableattribute.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'eventType': 'exact'} ]
+        tags: [ { name: 'api_platform.filter', id: 'coretableattribute.search_filter' } ]
+
     property_filter:
         parent: 'api_platform.serializer.property_filter'
         tags: [ { name: 'api_platform.filter', id: 'property_filter' } ]

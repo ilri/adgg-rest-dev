@@ -1,0 +1,76 @@
+App\Entity\CoreTableAttribute:
+  collectionOperations:
+    get:
+      method: get
+      path: /attributes
+      filters: ['coretableattribute.search_filter', 'coretableattribute.date_filter', 'property_filter']
+      normalization_context:
+        groups: [ 'coretableattribute:collection:get' ]
+      openapi_context:
+        description:
+          '<div>
+               <h3>Attribute Collection Endpoint</h3>
+               <p>This endpoint retrieves a collection of attributes based on specified filters.</p>
+               <p>Use the following parameters to filter animal events:</p>
+               <ul>
+                 <li><code>1</code>: Calving</li>
+                 <li><code>2</code>: Milk</li>
+                 <li><code>3</code>: Insemination</li>
+                 <li><code>4</code>: Pregnancy_Diagnosis</li>
+                 <li><code>5</code>: Synchronization</li>
+                 <li><code>6</code>: Weight</li>
+                 <li><code>9</code>: Exits</li>
+                 <li><code>10</code>: Hair_Sampling</li>
+                 <li><code>12</code>: Vaccination</li>
+                 <li><code>13</code>: Parasite_Infection</li>
+                 <li><code>14</code>: Injury</li>
+                 <li><code>15</code>: Hoof_Health</li>
+                 <li><code>16</code>: Hoof_Treatment</li>
+                 <li><code>17</code>: Feeding</li>
+                 <li><code>100</code>: Animal_Registration</li>
+                 <li><code>101</code>: Farmer_Registration</li>
+               </ul>
+               <p>Combine different parameters to refine your search and retrieve specific sets of animal events.</p>
+             </div>'
+        parameters:
+          - name: page
+            in: query
+            description: 'The collection page number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+              default: 1
+            style: form
+            explode: false
+            allowReserved: false
+          - name: pagination
+            in: query
+            description: 'Enable or disable pagination'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: boolean
+            style: form
+            explode: false
+            allowReserved: false
+          - name: eventType
+            in: query
+            description: 'Filter by event type'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+  itemOperations:
+    get:
+      method: get
+      path: /attributes/{id}
+      normalization_context:
+        groups: [ 'coretableattribute:item:get' ]
+

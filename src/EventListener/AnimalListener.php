@@ -21,7 +21,6 @@ class AnimalListener
             $entityManager = $args->getObjectManager();
 
             // Fetch the Farm entity based on the provided mob_farm_id
-//            $farm = $entityManager->getRepository(Farm::class)->findOneBy(['mob_data_id' => $entity->getMobFarmId()]);
             $farm = $entityManager->getRepository(Farm::class)->findOneBy(['mobDataId' => $entity->getMobFarmId()]);
 
             // If the farm doesn't exist, throw an exception

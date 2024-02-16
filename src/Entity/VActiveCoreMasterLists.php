@@ -61,6 +61,11 @@ class VActiveCoreMasterLists
     private $listTypeId;
 
     /**
+     * @ORM\Column(name="list_type_name", type="string", nullable=true)
+     */
+    private $listTypeName;
+
+    /**
      * @ORM\Column(name="is_active", type="boolean", nullable=true)
      */
     private $isActive;
@@ -118,6 +123,11 @@ class VActiveCoreMasterLists
     public function getListTypeId(): ?int
     {
         return $this->listTypeId;
+    }
+
+    public function getListTypeName(): ?string
+    {
+        return $this->listTypeName;
     }
 
 

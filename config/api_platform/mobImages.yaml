@@ -1,0 +1,69 @@
+App\Entity\MobImages:
+  collectionOperations:
+    get:
+      method: get
+      path: /images
+      filters: [ 'mobimages.search_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'mobimages:collection:get' ]
+      openapi_context:
+        description:
+          ''
+        parameters:
+          - name: page
+            in: query
+            description: 'The collection page number'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+              default: 1
+            style: form
+            explode: false
+            allowReserved: false
+          - name: pagination
+            in: query
+            description: 'Enable or disable pagination'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: boolean
+            style: form
+            explode: false
+            allowReserved: false
+
+    post:
+      method: post
+      path: /images
+      denormalization_context:
+        groups: [ 'mobimages:collection:post' ]
+      openapi_context:
+        description:
+          '<h3>Creates a Mob Images resource</h3>'
+  itemOperations:
+    get:
+      method: get
+      path: /images/{id}
+      normalization_context:
+        groups: [ 'mobimages:item:get' ]
+    put:
+      method: put
+      path: /images/{id}
+      denormalization_context:
+        groups: [ 'mobimages:item:put' ]
+      openapi_context:
+        description:
+          '<h3>Replaces the mobile images resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+    patch:
+      method: patch
+      path: /images/{id}
+      denormalization_context:
+        groups: [ 'mobimages:item:patch' ]
+      openapi_context:
+        description:
+          '<h3>Updates the mobile images resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
+          </p>`farmerIsHhHead`<p>All other properties are **optional**.</p>'
+

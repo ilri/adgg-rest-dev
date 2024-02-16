@@ -1,0 +1,31 @@
+App\Entity\MobImages:
+    attributes:
+        id:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:item:get"
+            ]
+        sourceId:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
+        imageName:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch",
+            ]
+        description:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]

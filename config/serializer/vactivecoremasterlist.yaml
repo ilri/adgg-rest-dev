@@ -36,6 +36,11 @@ App\Entity\VActiveCoreMasterLists:
                 "vactivecoremasterlist:collection:get",
                 "vactivecoremasterlist:item:get"
             ]
+        listTypeName:
+            groups: [
+                "vactivecoremasterlist:collection:get",
+                "vactivecoremasterlist:item:get"
+            ]
         createdAt:
             groups: [
                 "vactivecoremasterlist:collection:get",

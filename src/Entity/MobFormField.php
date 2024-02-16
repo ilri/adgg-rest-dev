@@ -45,6 +45,13 @@ class MobFormField
     private $attribute_val;
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(name="attribute_key",type="string")
+     */
+    private $attribute_key;
+
+    /**
      * @var int|null
      *
      * @ORM\Column(name="fieldvalue_set", type="integer", nullable=true)
@@ -256,6 +263,18 @@ class MobFormField
     public function setAttributeVal(int $attribute_val): self
     {
         $this->attribute_val = $attribute_val;
+
+        return $this;
+    }
+
+    public function getAttributeKey(): ?int
+    {
+        return $this->attribute_key;
+    }
+
+    public function setAttributeKey(int $attribute_key): self
+    {
+        $this->attribute_key = $attribute_key;
 
         return $this;
     }

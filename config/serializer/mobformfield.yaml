@@ -29,6 +29,14 @@ App\Entity\MobFormField:
         'mobformfield:item:put',
         'mobformfield:item:patch'
       ]
+    attribute_key:
+      groups: [
+        'mobformfield:collection:get',
+        'mobformfield:collection:post',
+        'mobformfield:item:get',
+        'mobformfield:item:put',
+        'mobformfield:item:patch'
+      ]
     fieldvalue_set:
       groups: [
         'mobformfield:collection:get',

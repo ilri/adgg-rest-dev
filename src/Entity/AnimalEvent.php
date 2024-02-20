@@ -80,7 +80,14 @@ class AnimalEvent
      *
      * @ORM\Column(name="mob_event_data_id", type="string", nullable=false)
      */
-    private $mob_event_data_id;
+    private $mobEventDataId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mob_animal_data_id", type="string", nullable=false)
+     */
+    private $mobAnimalDataId;
 
     /**
      * @var \DateTime|null
@@ -362,6 +369,24 @@ class AnimalEvent
     {
         $this->mob_event_data_id = $mob_event_data_id;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getMobAnimalDataId(): ?string
+    {
+        return $this->mobAnimalDataId;
+    }
+
+    /**
+     * @param string|null $mobAnimalDataId
+     */
+    public function setMobAnimalDataId(?string $mobAnimalDataId): void
+    {
+        $this->mobAnimalDataId = $mobAnimalDataId;
+    }
+
+
 
 
 }

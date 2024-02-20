@@ -5,6 +5,14 @@ App\Entity\MobImages:
                 "mobimages:collection:get",
                 "mobimages:item:get"
             ]
+        mobDataId:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
         coreTableId:
             groups: [
                 "mobimages:collection:get",

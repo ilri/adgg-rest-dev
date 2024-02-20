@@ -8,10 +8,12 @@ use App\Repository\MobImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\EventListener\MobImageListener;
 
 /**
  * @ORM\Table (name="mob_images")
  * @ORM\Entity(repositoryClass=MobImagesRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 #[ApiResource]
 class MobImages
@@ -23,6 +25,11 @@ class MobImages
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @ORM\Column(name="mob_data_id", type="integer")
+     */
+    private $mobDataId;
 
     /**
      * @ORM\Column(name="core_table_id", type="integer")

@@ -5,7 +5,7 @@ App\Entity\MobImages:
                 "mobimages:collection:get",
                 "mobimages:item:get"
             ]
-        sourceId:
+        coreTableId:
             groups: [
                 "mobimages:collection:get",
                 "mobimages:collection:post",
@@ -13,7 +13,7 @@ App\Entity\MobImages:
                 "mobimages:item:put",
                 "mobimages:item:patch"
             ]
-        imageName:
+        coreTableType:
             groups: [
                 "mobimages:collection:get",
                 "mobimages:collection:post",
@@ -21,7 +21,31 @@ App\Entity\MobImages:
                 "mobimages:item:put",
                 "mobimages:item:patch",
             ]
-        description:
+        imageFilePath:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
+        imageServerLocation:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
+        createdAt:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
+        createdBy:
             groups: [
                 "mobimages:collection:get",
                 "mobimages:collection:post",

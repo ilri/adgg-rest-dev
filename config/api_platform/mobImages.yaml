@@ -7,8 +7,7 @@ App\Entity\MobImages:
       normalization_context:
         groups: [ 'mobimages:collection:get' ]
       openapi_context:
-        description:
-          ''
+        description: ''
         parameters:
           - name: page
             in: query
@@ -33,7 +32,6 @@ App\Entity\MobImages:
             style: form
             explode: false
             allowReserved: false
-
     post:
       method: post
       path: /images
@@ -48,22 +46,5 @@ App\Entity\MobImages:
       path: /images/{id}
       normalization_context:
         groups: [ 'mobimages:item:get' ]
-    put:
-      method: put
-      path: /images/{id}
-      denormalization_context:
-        groups: [ 'mobimages:item:put' ]
-      openapi_context:
-        description:
-          '<h3>Replaces the mobile images resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
-    patch:
-      method: patch
-      path: /images/{id}
-      denormalization_context:
-        groups: [ 'mobimages:item:patch' ]
-      openapi_context:
-        description:
-          '<h3>Updates the mobile images resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`farmerIsHhHead`<p>All other properties are **optional**.</p>'
+
 

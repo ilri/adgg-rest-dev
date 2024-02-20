@@ -3,8 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Entity\Traits\CreatedTrait;
 use App\Repository\MobImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Table (name="mob_images")
@@ -13,6 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class MobImages
 {
+    use CreatedTrait;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -21,58 +25,141 @@ class MobImages
     private $id;
 
     /**
-     * @ORM\Column(name="source_id", type="integer")
+     * @ORM\Column(name="core_table_id", type="integer")
      */
-    private $sourceId;
+    private $coreTableId;
 
     /**
-     * @ORM\Column(name="image_name", type="string", length=255)
+     * @ORM\Column(name="core_table_type", type="integer")
      */
-    private $imageName;
+    private $coreTableType;
 
     /**
-     * @ORM\Column(name="description",type="string", length=255)
+     * @ORM\Column(name="image_file_path",type="string", length=255)
      */
-    private $description;
+    private $imageFilePath;
+
+    /**
+     * @ORM\Column(name="image_server_location",type="string", length=255)
+     */
+    private $imageServerLocation;
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getSourceId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getCoreTableId()
     {
-        return $this->sourceId;
+        return $this->coreTableId;
     }
 
-    public function setSourceId(int $sourceId): self
+    /**
+     * @param mixed $coreTableId
+     */
+    public function setCoreTableId($coreTableId): void
     {
-        $this->sourceId = $sourceId;
-
-        return $this;
+        $this->coreTableId = $coreTableId;
     }
 
-    public function getImageName(): ?string
+    /**
+     * @return mixed
+     */
+    public function getCoreTableType()
     {
-        return $this->imageName;
+        return $this->coreTableType;
     }
 
-    public function setImageName(?string $imageName): self
+    /**
+     * @param mixed $coreTableType
+     */
+    public function setCoreTableType($coreTableType): void
     {
-        $this->imageName = $imageName;
-
-        return $this;
+        $this->coreTableType = $coreTableType;
     }
 
-    public function getDescription(): ?string
+    /**
+     * @return mixed
+     */
+    public function getImageFilePath()
     {
-        return $this->description;
+        return $this->imageFilePath;
     }
 
-    public function setDescription(?string $description): self
+    /**
+     * @param mixed $imageFilePath
+     */
+    public function setImageFilePath($imageFilePath): void
     {
-        $this->description = $description;
-
-        return $this;
+        $this->imageFilePath = $imageFilePath;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImageServerLocation()
+    {
+        return $this->imageServerLocation;
+    }
+
+    /**
+     * @param mixed $imageServerLocation
+     */
+    public function setImageServerLocation($imageServerLocation): void
+    {
+        $this->imageServerLocation = $imageServerLocation;
+    }
+
+    public function uploadImageFile(): void
+    {
+        if (null === $this->imageFile) {
+            return;
+        }
+
+        $originalFilename = pathinfo($this->imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $newFilename = $originalFilename.'-'.uniqid().'.'.$this->imageFile->guessExtension();
+
+        $this->imageFilePath = $newFilename;
+        $this->imageServerLocation = 'public/images/mob_images/';
+
+        $this->imageFile->move(
+            $this->getImageUploadDirectory(),
+            $this->imageFilePath
+        );
+
+        $this->imageFile = null;
+    }
+
+    private function getImageUploadDirectory(): string
+    {
+        return __DIR__.'/../../public/uploads/images';
+    }
+
+    /**
+     * @var File|null
+     * imageFile property is of type File or null. This property is used to temporarily store an instance of the
+     * uploaded file during the file upload process. The File class is part of Symfony's HttpFoundation
+     */
+    private $imageFile;
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile): void
+    {
+        $this->imageFile = $imageFile;
+
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->setCreatedAtValue(new \DateTime('now'));
+        }
+    }
+
+
 }

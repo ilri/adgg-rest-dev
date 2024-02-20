@@ -7,7 +7,17 @@ App\Entity\AnimalEvent:
                 "animal:collection:get",
                 "animal:item:get"
             ]
-        mob_event_data_id:
+        mobEventDataId:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:collection:post",
+                "animalevent:item:get",
+                "animalevent:item:put",
+                "animalevent:item:patch",
+                "animal:collection:get",
+                "animal:item:get"
+            ]
+        mobAnimalDataId:
             groups: [
                 "animalevent:collection:get",
                 "animalevent:collection:post",

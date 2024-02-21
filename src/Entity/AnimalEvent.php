@@ -359,15 +359,15 @@ class AnimalEvent
      */
     public function getMobEventDataId(): ?string
     {
-        return $this->mob_event_data_id;
+        return $this->mobEventDataId;
     }
 
     /**
-     * @param string|null $mob_event_data_id
+     * @param string|null $mobEventDataId
      */
-    public function setMobEventDataId(?string $mob_event_data_id): void
+    public function setMobEventDataId(?string $mobEventDataId): void
     {
-        $this->mob_event_data_id = $mob_event_data_id;
+        $this->mobEventDataId = $mobEventDataId;
     }
 
     /**

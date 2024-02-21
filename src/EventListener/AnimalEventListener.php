@@ -35,8 +35,6 @@ class AnimalEventListener
                 throw new \Exception('Animal not found for the provided mobAnimalDataId');
             }
 
-            var_dump($animalId);
-
             // Set the animal_id on the Animal Event entity
             $entity->setAnimalId($animalId);
 

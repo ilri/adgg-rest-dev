@@ -175,6 +175,16 @@ class AnimalEvent
     private $animalId;
 
     /**
+     * @var Animal
+     *
+     * @ORM\ManyToOne(targetEntity="Animal", inversedBy="animalEvents")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
+     * })
+     */
+    private $animal;
+
+    /**
      * @var MilkYieldRecord
      */
     private $milkYieldRecord;
@@ -375,6 +385,18 @@ class AnimalEvent
     public function setAnimalId(?int $animalId): self
     {
         $this->animalId = $animalId;
+
+        return $this;
+    }
+
+    public function getAnimal(): ?Animal
+    {
+        return $this->animal;
+    }
+
+    public function setAnimal(?Animal $animal): self
+    {
+        $this->animal = $animal;
 
         return $this;
     }

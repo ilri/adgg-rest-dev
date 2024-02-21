@@ -28,7 +28,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass=AnimalEventRepository::class)
  * @ORM\HasLifecycleCallbacks()
  * @UniqueEntity(
- *     fields={"eventType", "eventDate", "animal"},
+ *     fields={"eventType", "eventDate", "animalId"},
  *     message="An animal event of this type already exists for the animal on this date."
  * )
  */
@@ -166,15 +166,13 @@ class AnimalEvent
      */
     private $migrationId;
 
+
     /**
-     * @var Animal
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="Animal", inversedBy="animalEvents")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="animal_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="animal_id", type="integer", nullable=false)
      */
-    private $animal;
+    private $animalId;
 
     /**
      * @var MilkYieldRecord
@@ -330,17 +328,6 @@ class AnimalEvent
         return $this;
     }
 
-    public function getAnimal(): ?Animal
-    {
-        return $this->animal;
-    }
-
-    public function setAnimal(?Animal $animal): self
-    {
-        $this->animal = $animal;
-
-        return $this;
-    }
 
     public function getMilkYieldRecord(): ?MilkYieldRecord
     {
@@ -354,39 +341,42 @@ class AnimalEvent
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
+
     public function getMobEventDataId(): ?string
     {
         return $this->mobEventDataId;
     }
 
-    /**
-     * @param string|null $mobEventDataId
-     */
+
     public function setMobEventDataId(?string $mobEventDataId): void
     {
         $this->mobEventDataId = $mobEventDataId;
     }
 
-    /**
-     * @return string|null
-     */
+
     public function getMobAnimalDataId(): ?string
     {
         return $this->mobAnimalDataId;
     }
 
-    /**
-     * @param string|null $mobAnimalDataId
-     */
+
     public function setMobAnimalDataId(?string $mobAnimalDataId): void
     {
         $this->mobAnimalDataId = $mobAnimalDataId;
     }
 
 
+    public function getAnimalId(): ?int
+    {
+        return $this->animalId;
+    }
 
+
+    public function setAnimalId(?int $animalId): self
+    {
+        $this->animalId = $animalId;
+
+        return $this;
+    }
 
 }

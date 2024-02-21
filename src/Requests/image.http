@@ -3,7 +3,7 @@
 POST http://127.0.0.1:8000/api/images
 Content-Type: multipart/form-data; boundary=Boundary_2_bHash_bTimestamp
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDg0OTcxMDMsImV4cCI6MTcwODUwMDcwMywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidGVzdHVzZXI4In0.e37PxJkXfcXIp6xnlbbGkhRsxYxl9s13fF2kXp-MMRGEBs-B4aFuv0Qy5_l5wn6tBaTK4JlUgsUxRR7J91PbAX0MH-dxrFcOkAXwovLPllMFOYHM36Nq33bcHcGwg4wP62SidykjqRkU99JlVn1KYmJuYjYUFUxkXkFiWrUhsUdHEYMeqCje6oSUlV5YCJdLr9G7yW3lpE_biiNeCdKrCh4D1WTX3LEPdJ-fIHQ642BQvwECKVM8feqlEWf8z4vgfucuavGsqsuB86NvfBPSZCUmzSprfjz7mUjUCEpRvODeFfbPzL4kWfsA1Q7g43w801dB_m_P12g4ne1Ef7nLiw
-MIME-Version: 1.0
+#MIME-Version: 1.0
 --Boundary_2_bHash_bTimestamp
 Content-Type: text/plain
 Content-Disposition: form-data; name="coreTableId"

@@ -53,7 +53,7 @@ class AnimalEventListener
         $rsm = new ResultSetMapping();
         $rsm->addScalarResult('animalId', 'animalId');
 
-        $sql = 'SELECT setAnimalIdForAnimalEventProcedure(:mobAnimalDataId) as animalId';
+        $sql = 'SELECT fn_getAnimalID_mob(:mobAnimalDataId) as animalId';
         $query = $this->entityManager->createNativeQuery($sql, $rsm);
         $query->setParameter('mobAnimalDataId', $mobAnimalDataId);
 

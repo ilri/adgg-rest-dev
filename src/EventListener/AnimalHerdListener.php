@@ -8,7 +8,7 @@ use App\Entity\Herd;
 
 class AnimalHerdListener
 {
-        public function postPersist(LifecycleEventArgs $args)
+    public function postPersist(LifecycleEventArgs $args)
         {
             $entity = $args->getObject();
 

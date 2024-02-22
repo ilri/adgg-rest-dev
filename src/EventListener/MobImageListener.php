@@ -25,9 +25,6 @@ class MobImageListener
     {
         $request = $event->getRequest();
 
-//        var_dump('Listener is triggered.');
-//        var_dump($request->files->all());
-
         // Check if it's a POST request and has the required parameters
         if ($request->isMethod('POST') && $request->files->has('imageFile')) {
             var_dump('inside the if statement');

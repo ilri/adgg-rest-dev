@@ -2,32 +2,53 @@
 
 namespace App\EventListener;
 
+use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 use App\Entity\Animal;
-use App\Entity\Herd;
 
 class AnimalHerdListener
 {
+    private $entityManager;
+
+    public function __construct($entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     public function postPersist(LifecycleEventArgs $args)
-        {
-            $entity = $args->getObject();
+    {
+        $entity = $args->getObject();
 
-            if ($entity instanceof Animal) {
-                // Check if herd_id is provided in the post payload
-                if ($entity->getHerdId() !== null) {
-                    return; // Skip execution if herd_id is already provided
-                }
+        if ($entity instanceof Animal) {
+            // Check if herd_id is provided in the post payload
+            if ($entity->getHerdId() !== null) {
+                return; // Skip execution if herd_id is already provided
+            }
 
-                $entityManager = $args->getObjectManager();
+            // Fetch the herd_id using the stored function
+            $herdId = $this->fetchHerdId($entity->getHerdId());
 
-                // Fetch the Herd entity based on the provided mob_herd_id
-                $herd = $entityManager->getRepository(Herd::class)->findOneBy(['mobDataId' => $entity->getHerdId()]);
-
-                // Set the farm_id on the Animal entity
-                $entity->setHerdId($herd->getId());
+            // Set the herd_id on the Animal entity if it's not null
+            if ($herdId !== null) {
+                $entity->setHerdId($herdId);
 
                 // Flush the changes
-                $entityManager->flush();
+                $this->entityManager->flush();
             }
         }
+    }
+
+    private function fetchHerdId($mobFarmDataId)
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('herdId', 'herdId');
+
+        $sql = 'SELECT fn_getHerdID_mob(:mobHerdDataId) as herdId';
+        $query = $this->entityManager->createNativeQuery($sql, $rsm);
+        $query->setParameter('mobHerdDataId', $mobFarmDataId);
+
+        $result = $query->getSingleResult();
+
+        return $result['herdId'];
+    }
 }

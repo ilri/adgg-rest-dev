@@ -54,8 +54,16 @@ services:
             entity: 'App\Entity\AnimalEvent'
 
     App\EventListener\AnimalListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
         tags:
             - { name: 'doctrine.event_listener', event: 'postPersist', entity: 'App\Entity\Animal' }
+
+    App\EventListener\AnimalHerdListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'doctrine.event_listener', event: 'postPersist', entity: 'App\Entity\Herd' }
 
     App\EventListener\AnimalEventListener:
         arguments:

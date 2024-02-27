@@ -2,8 +2,8 @@
 
 namespace App\OpenApi;
 
-use ApiPlatform\Core\OpenApi\Factory\OpenApiFactoryInterface;
-use ApiPlatform\Core\OpenApi\OpenApi;
+use ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface;
+use ApiPlatform\OpenApi\OpenApi;
 
 /**
  * @see https://api-platform.com/docs/core/openapi/#overriding-the-openapi-specification

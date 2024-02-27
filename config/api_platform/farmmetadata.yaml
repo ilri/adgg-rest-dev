@@ -13,8 +13,44 @@ App\Entity\FarmMetadata:
         groups: [ 'farmmetadata:collection:post' ]
       openapi_context:
         description:
-          '<h3>Creates a FarmMetadata resource</h3><p>The following properties are **required** and need to be provided in the request body:
-          </p>`countryId`<p>`farm`</p>`type`<p>All other properties are **optional**.</p>'
+          '<h3>Creates a FarmMetadata resource</h3>
+           <p>The following properties are <strong>required</strong> and need to be provided in the request body:</p>
+           <ul>
+             <li><code>countryId</code></li>
+             <li><code>farm</code></li>
+             <li><code>type</code></li>
+             <li><code>code</code></li>
+             <li><code>name</code></li>
+           </ul>
+           <p>All other properties are <strong>optional</strong>.</p>
+
+           <h4>Farm Metadata Type:</h4>
+           <ul>
+             <li><code>1</code>: Cattle Feeding Systems</li>
+             <li><code>2</code>: Cattle Health Services</li>
+             <li><code>3</code>: Cattle Breeding Technologies</li>
+             <li><code>4</code>: Cattle Breeding Technologies: own bulls used</li>
+             <li><code>5</code>: Cattle Breeding Technologies: other bulls used</li>
+             <li><code>6</code>: Cattle Breeding Technologies: Scheme bulls used</li>
+             <li><code>7</code>: Cattle Breeding Technologies: Details of AI provider</li>
+             <li><code>8</code>: Household Members</li>
+             <li><code>9</code>: Farmer Technology Mobilization</li>
+             <li><code>10</code>: Milk Utilization</li>
+             <li><code>11</code>: Milk Utilization (Buyers)</li>
+             <li><code>12</code>: Improved Fodder Adoption</li>
+             <li><code>13</code>: Feedback To Household</li>
+             <li><code>14</code>: Land ownership and use</li>
+             <li><code>15</code>: Water sources</li>
+             <li><code>16</code>: Livestock Details</li>
+             <li><code>17</code>: Details for other livestock species owned</li>
+             <li><code>18</code>: Cattle details</li>
+             <li><code>19</code>: Cooperative / Group Membership</li>
+             <li><code>20</code>: Cattle Housing and Structures</li>
+             <li><code>21</code>: Farm structures details</li>
+             <li><code>22</code>: Farm Extension Services</li>
+             <li><code>23</code>: Concentrates feeds</li>
+           </ul>
+           '
   itemOperations:
     get:
       method: get

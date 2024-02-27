@@ -51,6 +51,13 @@ class MobImages
      */
     private $imageServerLocation;
 
+    /**
+     * @var File|null
+     * imageFile property is of type File or null. This property is used to temporarily store an instance of the
+     * uploaded file during the file upload process. The File class is part of Symfony's HttpFoundation
+     */
+    private $imageFile;
+
 
 
     public function getId(): ?int
@@ -144,15 +151,10 @@ class MobImages
 
     private function getImageUploadDirectory(): string
     {
-        return __DIR__.'/../../public/uploads/images';
+        return __DIR__.'/../../public/images/mob_images';
     }
 
-    /**
-     * @var File|null
-     * imageFile property is of type File or null. This property is used to temporarily store an instance of the
-     * uploaded file during the file upload process. The File class is part of Symfony's HttpFoundation
-     */
-    private $imageFile;
+
 
     public function getImageFile(): ?File
     {

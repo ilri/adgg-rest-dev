@@ -27,6 +27,8 @@ App\Entity\CoreTableAttribute:
                  <li><code>15</code>: Hoof_Health</li>
                  <li><code>16</code>: Hoof_Treatment</li>
                  <li><code>17</code>: Feeding</li>
+                 <li><code>100</code>: Animal_Registration</li>
+                 <li><code>101</code>: Farmer_Registration</li>
                </ul>
                <p>Combine different parameters to refine your search and retrieve specific sets of animal events.</p>
              </div>'

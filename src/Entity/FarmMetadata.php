@@ -38,7 +38,7 @@ class FarmMetadata
      *
      * @ORM\Column(name="type", type="integer", nullable=false)
      */
-    private $type;
+    private $farmMetadatatype;
 
     /**
      * @var Farm
@@ -55,14 +55,14 @@ class FarmMetadata
         return $this->id;
     }
 
-    public function getType(): ?int
+    public function getFarmMetadatatype(): ?int
     {
-        return $this->type;
+        return $this->farmMetadatatype;
     }
 
-    public function setType(int $type): self
+    public function setFarmMetadatatype(int $farmMetadatatype): self
     {
-        $this->type = $type;
+        $this->farmMetadatatype = $farmMetadatatype;
 
         return $this;
     }

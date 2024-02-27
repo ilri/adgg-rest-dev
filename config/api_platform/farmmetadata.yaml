@@ -3,9 +3,22 @@ App\Entity\FarmMetadata:
     get:
       method: get
       path: /farm_metadata
-      filters: [ 'country_isocode_filter', 'property_filter' ]
+      filters: [ 'farmmetadata.search_filter', 'property_filter' ]
       normalization_context:
         groups: [ 'farmmetadata:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: farmMetadataType
+            in: query
+            description: 'filter by farm metadata type'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
     post:
       method: post
       path: /farm_metadata
@@ -51,6 +64,30 @@ App\Entity\FarmMetadata:
              <li><code>23</code>: Concentrates feeds</li>
            </ul>
            '
+        parameters:
+          - name: farmMetadataType
+            in: query
+            description: 'filter by farm metadata type'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: createdBy
+            in: query
+            description: 'filter by created by'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+
   itemOperations:
     get:
       method: get

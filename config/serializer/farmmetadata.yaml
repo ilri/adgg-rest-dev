@@ -5,7 +5,7 @@ App\Entity\FarmMetadata:
                 "farmmetadata:collection:get",
                 "farmmetadata:item:get"
             ]
-        type:
+        farmMetadatatype:
             groups: [
                 "farmmetadata:collection:get",
                 "farmmetadata:collection:post",
@@ -23,9 +23,9 @@ App\Entity\FarmMetadata:
             ]
         farm:
             groups: [
-                "farmmetadata:collection:get",
-                "farmmetadata:collection:post",
-                "farmmetadata:item:get",
-                "farmmetadata:item:put",
-                "farmmetadata:item:patch"
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
             ]

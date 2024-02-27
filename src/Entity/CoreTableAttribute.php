@@ -37,6 +37,11 @@ class CoreTableAttribute
     private $tableId;
 
     /**
+     * @ORM\Column(name="farm_metadata_type" ,type="integer", nullable=true)
+     */
+    private $farmMetadataType;
+
+    /**
      * @ORM\Column(name="group_id", type="integer", nullable=true)
      */
     private $groupId;
@@ -229,4 +234,17 @@ class CoreTableAttribute
 
         return $this;
     }
+
+    public function getFarmMetadataType()
+    {
+        return $this->farmMetadataType;
+    }
+
+
+    public function setFarmMetadataType($farmMetadataType): void
+    {
+        $this->farmMetadataType = $farmMetadataType;
+    }
+
+
 }

@@ -10,28 +10,8 @@ App\Entity\CoreTableAttribute:
         description:
           '<div>
                <h3>Attribute Collection Endpoint</h3>
-               <p>This endpoint retrieves a collection of attributes based on specified filters.</p>
-               <p>Use the following parameters to filter animal events:</p>
-               <ul>
-                 <li><code>1</code>: Calving</li>
-                 <li><code>2</code>: Milk</li>
-                 <li><code>3</code>: Insemination</li>
-                 <li><code>4</code>: Pregnancy_Diagnosis</li>
-                 <li><code>5</code>: Synchronization</li>
-                 <li><code>6</code>: Weight</li>
-                 <li><code>9</code>: Exits</li>
-                 <li><code>10</code>: Hair_Sampling</li>
-                 <li><code>12</code>: Vaccination</li>
-                 <li><code>13</code>: Parasite_Infection</li>
-                 <li><code>14</code>: Injury</li>
-                 <li><code>15</code>: Hoof_Health</li>
-                 <li><code>16</code>: Hoof_Treatment</li>
-                 <li><code>17</code>: Feeding</li>
-                 <li><code>100</code>: Animal_Registration</li>
-                 <li><code>101</code>: Farmer_Registration</li>
-               </ul>
-               <p>Combine different parameters to refine your search and retrieve specific sets of animal events.</p>
-             </div>'
+               </div>
+               '
         parameters:
           - name: page
             in: query
@@ -58,7 +38,65 @@ App\Entity\CoreTableAttribute:
             allowReserved: false
           - name: eventType
             in: query
-            description: 'Filter by event type'
+            description: 'Filter by event type
+              <div><p>This endpoint retrieves a collection of attributes based on specified filters.</p>
+                 <p>Use the following parameters to filter animal events:</p>
+                 <ul>
+                   <li><code>1</code>: Calving</li>
+                   <li><code>2</code>: Milk</li>
+                   <li><code>3</code>: Insemination</li>
+                   <li><code>4</code>: Pregnancy_Diagnosis</li>
+                   <li><code>5</code>: Synchronization</li>
+                   <li><code>6</code>: Weight</li>
+                   <li><code>9</code>: Exits</li>
+                   <li><code>10</code>: Hair_Sampling</li>
+                   <li><code>12</code>: Vaccination</li>
+                   <li><code>13</code>: Parasite_Infection</li>
+                   <li><code>14</code>: Injury</li>
+                   <li><code>15</code>: Hoof_Health</li>
+                   <li><code>16</code>: Hoof_Treatment</li>
+                   <li><code>17</code>: Feeding</li>
+                   <li><code>100</code>: Animal_Registration</li>
+                   <li><code>101</code>: Farmer_Registration</li>
+                 </ul>
+                 <p>Combine different parameters to refine your search and retrieve specific sets of animal events.</p>
+               </div>'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: farmMetadataType
+            in: query
+            description: '<div> <h4>Farm Metadata Type:</h4>
+               <ul>
+                 <li><code>1</code>: Cattle Feeding Systems</li>
+                 <li><code>2</code>: Cattle Health Services</li>
+                 <li><code>3</code>: Cattle Breeding Technologies</li>
+                 <li><code>4</code>: Cattle Breeding Technologies: own bulls used</li>
+                 <li><code>5</code>: Cattle Breeding Technologies: other bulls used</li>
+                 <li><code>6</code>: Cattle Breeding Technologies: Scheme bulls used</li>
+                 <li><code>7</code>: Cattle Breeding Technologies: Details of AI provider</li>
+                 <li><code>8</code>: Household Members</li>
+                 <li><code>9</code>: Farmer Technology Mobilization</li>
+                 <li><code>10</code>: Milk Utilization</li>
+                 <li><code>11</code>: Milk Utilization (Buyers)</li>
+                 <li><code>12</code>: Improved Fodder Adoption</li>
+                 <li><code>13</code>: Feedback To Household</li>
+                 <li><code>14</code>: Land ownership and use</li>
+                 <li><code>15</code>: Water sources</li>
+                 <li><code>16</code>: Livestock Details</li>
+                 <li><code>17</code>: Details for other livestock species owned</li>
+                 <li><code>18</code>: Cattle details</li>
+                 <li><code>19</code>: Cooperative / Group Membership</li>
+                 <li><code>20</code>: Cattle Housing and Structures</li>
+                 <li><code>21</code>: Farm structures details</li>
+                 <li><code>22</code>: Farm Extension Services</li>
+                 <li><code>23</code>: Concentrates feeds</li>
+               </ul></div>'
             required: false
             deprecated: false
             allowEmptyValue: false

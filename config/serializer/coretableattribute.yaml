@@ -47,6 +47,16 @@ App\Entity\CoreTableAttribute:
         "coretableattribute:collection:get",
         "coretableattribute:item:get"
       ]
+    farmMetadataType:
+      groups: [
+        "coretableattribute:collection:get",
+        "coretableattribute:collection:post",
+        "coretableattribute:item:get",
+        "coretableattribute:item:put",
+        "coretableattribute:item:patch",
+        "coretableattribute:collection:get",
+        "coretableattribute:item:get"
+      ]
     createdAt:
       groups: [
         "coretableattribute:collection:get",

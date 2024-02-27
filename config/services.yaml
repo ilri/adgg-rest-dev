@@ -126,7 +126,7 @@ services:
 
     coretableattribute.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'eventType': 'exact'} ]
+        arguments: [ { 'eventType': 'exact', 'farmMetadataType': 'exact'} ]
         tags: [ { name: 'api_platform.filter', id: 'coretableattribute.search_filter' } ]
 
     property_filter:

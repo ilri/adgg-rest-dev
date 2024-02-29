@@ -73,6 +73,12 @@ services:
         tags:
             - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\AnimalEvent' }
 
+    App\EventListener\FarmMetadataListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\FarmMetadata' }
+
     App\EventListener\MobImageListener:
         arguments:
             $entityManager: '@doctrine.orm.entity_manager'

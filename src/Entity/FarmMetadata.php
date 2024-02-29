@@ -50,6 +50,13 @@ class FarmMetadata
     /**
      * @var int
      *
+     * @ORM\Column(name="mob_event_data_id", type="integer", nullable=false)
+     */
+    private $farmMetadataMobEventDataId;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="mob_farm_metadata_additional_attributes", type="integer", nullable=false)
      */
     private $farmMetadataMobAddtionalAttributes;
@@ -100,6 +107,18 @@ class FarmMetadata
     {
         $this->farmMetadataMobAddtionalAttributes = $farmMetadataMobAddtionalAttributes;
     }
+
+    public function getFarmMetadataMobEventDataId(): int
+    {
+        return $this->farmMetadataMobEventDataId;
+    }
+
+    public function setFarmMetadataMobEventDataId(int $farmMetadataMobEventDataId): void
+    {
+        $this->farmMetadataMobEventDataId = $farmMetadataMobEventDataId;
+    }
+
+
 
     public function getFarm(): ?Farm
     {

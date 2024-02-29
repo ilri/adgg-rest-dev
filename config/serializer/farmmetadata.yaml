@@ -13,6 +13,14 @@ App\Entity\FarmMetadata:
                 "farmmetadata:item:put",
                 "farmmetadata:item:patch"
             ]
+        farmMetadataMobDataId:
+            groups: [
+                "farmmetadata:collection:get",
+                "farmmetadata:collection:post",
+                "farmmetadata:item:get",
+                "farmmetadata:item:put",
+                "farmmetadata:item:patch"
+            ]
         countryId:
             groups: [
                 "farmmetadata:collection:get",

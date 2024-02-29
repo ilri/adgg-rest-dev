@@ -29,7 +29,7 @@ App\Entity\MobImages:
                 "mobimages:item:put",
                 "mobimages:item:patch",
             ]
-        imageFilePath:
+        imageFileName:
             groups: [
                 "mobimages:collection:get",
                 "mobimages:collection:post",

@@ -234,6 +234,7 @@ App\Entity\AnimalEvent:
                               <li><code>synchronization_events</code>: Synchronization Events - Documents events related to synchronizing animal processes.</li>
                               <li><code>vaccination_events</code>: Vaccination Events - Captures events related to the vaccination of animals.</li>
                               <li><code>weights_events</code>: Weights Events - Records events related to measuring the weight of animals.</li>
+                              <li><code>general_health_events</code>: General Health Events - Records events related to general health of an animal.</li>
                             </ul>
                           </div>'
         parameters:
@@ -261,6 +262,7 @@ App\Entity\AnimalEvent:
                 - synchronization_events
                 - vaccination_events
                 - weights_events
+                - general_health_events
             style: simple
             explode: false
             allowReserved: false

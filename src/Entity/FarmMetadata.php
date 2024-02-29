@@ -41,6 +41,13 @@ class FarmMetadata
     private $farmMetadatatype;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="mob_farm_metadata_data_id", type="integer", nullable=false)
+     */
+    private $farmMetadataMobDataId;
+
+    /**
      * @var Farm
      *
      * @ORM\ManyToOne(targetEntity="Farm")
@@ -78,4 +85,16 @@ class FarmMetadata
 
         return $this;
     }
+
+    public function getFarmMetadataMobDataId(): int
+    {
+        return $this->farmMetadataMobDataId;
+    }
+
+    public function setFarmMetadataMobDataId(int $farmMetadataMobDataId): void
+    {
+        $this->farmMetadataMobDataId = $farmMetadataMobDataId;
+    }
+
+
 }

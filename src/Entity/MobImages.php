@@ -42,9 +42,9 @@ class MobImages
     private $coreTableType;
 
     /**
-     * @ORM\Column(name="image_file_path",type="string", length=255)
+     * @ORM\Column(name="image_file_name",type="string", length=255)
      */
-    private $imageFilePath;
+    private $imageFileName;
 
     /**
      * @ORM\Column(name="image_server_location",type="string", length=255)
@@ -100,17 +100,17 @@ class MobImages
     /**
      * @return mixed
      */
-    public function getImageFilePath()
+    public function getImageFileName()
     {
-        return $this->imageFilePath;
+        return $this->imageFileName;
     }
 
     /**
-     * @param mixed $imageFilePath
+     * @param mixed $imageFileName
      */
-    public function setImageFilePath($imageFilePath): void
+    public function setImageFilePath($imageFileName): void
     {
-        $this->imageFilePath = $imageFilePath;
+        $this->imageFileName = $imageFileName;
     }
 
     /**

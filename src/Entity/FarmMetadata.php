@@ -48,6 +48,13 @@ class FarmMetadata
     private $farmMetadataMobDataId;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="mob_farm_metadata_additional_attributes", type="integer", nullable=false)
+     */
+    private $farmMetadataMobAddtionalAttributes;
+
+    /**
      * @var Farm
      *
      * @ORM\ManyToOne(targetEntity="Farm")
@@ -74,6 +81,26 @@ class FarmMetadata
         return $this;
     }
 
+    public function getFarmMetadataMobDataId(): int
+    {
+        return $this->farmMetadataMobDataId;
+    }
+
+    public function setFarmMetadataMobDataId(int $farmMetadataMobDataId): void
+    {
+        $this->farmMetadataMobDataId = $farmMetadataMobDataId;
+    }
+
+    public function getFarmMetadataMobAddtionalAttributes(): int
+    {
+        return $this->farmMetadataMobAddtionalAttributes;
+    }
+
+    public function setFarmMetadataMobAddtionalAttributes(int $farmMetadataMobAddtionalAttributes): void
+    {
+        $this->farmMetadataMobAddtionalAttributes = $farmMetadataMobAddtionalAttributes;
+    }
+
     public function getFarm(): ?Farm
     {
         return $this->farm;
@@ -85,16 +112,4 @@ class FarmMetadata
 
         return $this;
     }
-
-    public function getFarmMetadataMobDataId(): int
-    {
-        return $this->farmMetadataMobDataId;
-    }
-
-    public function setFarmMetadataMobDataId(int $farmMetadataMobDataId): void
-    {
-        $this->farmMetadataMobDataId = $farmMetadataMobDataId;
-    }
-
-
 }

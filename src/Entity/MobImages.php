@@ -29,7 +29,7 @@ class MobImages
     /**
      * @ORM\Column(name="mob_data_id", type="integer")
      */
-    private $mobDataId;
+    private $mobImageDataId;
 
     /**
      * @ORM\Column(name="core_table_id", type="integer")
@@ -96,6 +96,24 @@ class MobImages
     {
         $this->coreTableType = $coreTableType;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMobImageDataId()
+    {
+        return $this->mobImageDataId;
+    }
+
+    /**
+     * @param mixed $mobImageDataId
+     */
+    public function setMobImageDataId($mobImageDataId): void
+    {
+        $this->mobImageDataId = $mobImageDataId;
+    }
+
+
 
     /**
      * @return mixed

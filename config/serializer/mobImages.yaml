@@ -5,7 +5,7 @@ App\Entity\MobImages:
                 "mobimages:collection:get",
                 "mobimages:item:get"
             ]
-        mobDataId:
+        mobImageDataId:
             groups: [
                 "mobimages:collection:get",
                 "mobimages:collection:post",

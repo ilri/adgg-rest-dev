@@ -213,11 +213,11 @@ App\Entity\Farm:
 
         countryId:
             groups: [
-                    "farm:collection:get",
-                    "farm:collection:post",
-                    "farm:item:get",
-                    "farm:item:put",
-                    "farm:item:patch"
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
             ]
         createdAt:
             groups: [

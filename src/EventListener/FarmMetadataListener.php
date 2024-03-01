@@ -23,15 +23,15 @@ class FarmMetadataListener
         $entity = $args->getObject();
 
         if ($entity instanceof FarmMetadata) {
-            // Check if herd_id is provided in the post payload
+            // Check if farm_id is provided in the post payload
             if ($entity->getFarm() !== null) {
                 return; // Skip execution if herd_id is already provided
             }
 
-            // Fetch the herd_id using the stored function
+            // Fetch the farm_id using the stored function
             $farmId = $this->fetchFarmMetdataId($entity->getFarm());
 
-            // Set the herd_id on the Animal entity if it's not null
+            // Set the farm_id on the Animal entity if it's not null
             if ($farmId !== null) {
                 $entity->setFarm($farmId);
 

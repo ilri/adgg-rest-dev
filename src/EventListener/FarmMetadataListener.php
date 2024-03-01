@@ -46,7 +46,7 @@ class FarmMetadataListener
         $rsm = new ResultSetMapping();
         $rsm->addScalarResult('farmId', 'farmId');
 
-        $sql = 'SELECT fn_getFarmID_mob(:mobFarmDataId) as farmId';
+        $sql = 'SELECT fn_getFarmID_mob(:mobFarmMetadataDataId) as farmId';
         $query = $this->entityManager->createNativeQuery($sql, $rsm);
         $query->setParameter('mobFarmMetadataDataId', $mobFarmMetadataDataId);
 

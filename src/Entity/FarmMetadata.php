@@ -41,23 +41,23 @@ class FarmMetadata
     private $farmMetadatatype;
 
     /**
-     * @var int
+     * @var string|null
      *
-     * @ORM\Column(name="mob_farm_metadata_data_id", type="string", nullable=false)
+     * @ORM\Column(name="mob_farm_metadata_data_id", type="string", nullable=true)
      */
     private $farmMetadataMobDataId;
 
     /**
-     * @var int
+     * @var string|null
      *
-     * @ORM\Column(name="mob_event_data_id", type="string", nullable=false)
+     * @ORM\Column(name="mob_form_event_data_id", type="string", nullable=true)
      */
     private $farmMetadataMobEventDataId;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="mob_farm_metadata_additional_attributes", type="integer", nullable=false)
+     * @ORM\Column(name="mob_additional_attributes", type="string", nullable=false)
      */
     private $farmMetadataMobAddtionalAttributes;
 
@@ -88,37 +88,38 @@ class FarmMetadata
         return $this;
     }
 
-    public function getFarmMetadataMobDataId(): string
+    public function getFarmMetadataMobDataId(): ?string
     {
         return $this->farmMetadataMobDataId;
     }
 
-    public function setFarmMetadataMobDataId(string $farmMetadataMobDataId): void
+    public function setFarmMetadataMobDataId(?string $farmMetadataMobDataId): self
     {
         $this->farmMetadataMobDataId = $farmMetadataMobDataId;
+        return $this;
     }
 
-    public function getFarmMetadataMobAddtionalAttributes(): string
+    public function getFarmMetadataMobAddtionalAttributes(): ?string
     {
         return $this->farmMetadataMobAddtionalAttributes;
     }
 
-    public function setFarmMetadataMobAddtionalAttributes(string $farmMetadataMobAddtionalAttributes): void
+    public function setFarmMetadataMobAddtionalAttributes(?string $farmMetadataMobAddtionalAttributes): self
     {
         $this->farmMetadataMobAddtionalAttributes = $farmMetadataMobAddtionalAttributes;
+        return $this;
     }
 
-    public function getFarmMetadataMobEventDataId(): string
+    public function getFarmMetadataMobEventDataId(): ?string
     {
         return $this->farmMetadataMobEventDataId;
     }
 
-    public function setFarmMetadataMobEventDataId(string $farmMetadataMobEventDataId): void
+    public function setFarmMetadataMobEventDataId(?string $farmMetadataMobEventDataId): self
     {
         $this->farmMetadataMobEventDataId = $farmMetadataMobEventDataId;
+        return $this;
     }
-
-
 
     public function getFarm(): ?Farm
     {

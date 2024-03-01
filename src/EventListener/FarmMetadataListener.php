@@ -29,11 +29,13 @@ class FarmMetadataListener
             }
 
             // Fetch the farm_id using the stored function
-            $farmId = $this->fetchFarmMetdataId($entity->getFarm());
+            $farmId = $this->fetchFarmMetdataId($entity->getFarmMetadataMobDataId());
+
+            $farm = $this->entityManager->getRepository(Farm::class)->find($farmId);
 
             // Set the farm_id on the Animal entity if it's not null
-            if ($farmId !== null) {
-                $entity->setFarm($farmId);
+            if ($farm !== null) {
+                $entity->setFarm($farm);
 
                 // Flush the changes
                 $this->entityManager->flush();
@@ -41,14 +43,18 @@ class FarmMetadataListener
         }
     }
 
-    private function fetchFarmMetdataId($mobFarmMetadataDataId)
+    private function fetchFarmMetdataId($farmMetadataMobDataId)
     {
+        if ($farmMetadataMobDataId === null) {
+            // Handle null case appropriately
+            throw new \InvalidArgumentException("Farm metadata Mobile Data Id is null");
+        }
         $rsm = new ResultSetMapping();
         $rsm->addScalarResult('farmId', 'farmId');
 
-        $sql = 'SELECT fn_getFarmID_mob(:mobFarmMetadataDataId) as farmId';
+        $sql = 'SELECT fn_getFarmID_mob(:farmMetadataMobDataId) as farmId';
         $query = $this->entityManager->createNativeQuery($sql, $rsm);
-        $query->setParameter('mobFarmMetadataDataId', $mobFarmMetadataDataId);
+        $query->setParameter('farmMetadataMobDataId', $farmMetadataMobDataId);
 
         $result = $query->getSingleResult();
 

@@ -43,14 +43,14 @@ class FarmMetadata
     /**
      * @var int
      *
-     * @ORM\Column(name="mob_farm_metadata_data_id", type="integer", nullable=false)
+     * @ORM\Column(name="mob_farm_metadata_data_id", type="string", nullable=false)
      */
     private $farmMetadataMobDataId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="mob_event_data_id", type="integer", nullable=false)
+     * @ORM\Column(name="mob_event_data_id", type="string", nullable=false)
      */
     private $farmMetadataMobEventDataId;
 
@@ -88,22 +88,22 @@ class FarmMetadata
         return $this;
     }
 
-    public function getFarmMetadataMobDataId(): int
+    public function getFarmMetadataMobDataId(): string
     {
         return $this->farmMetadataMobDataId;
     }
 
-    public function setFarmMetadataMobDataId(int $farmMetadataMobDataId): void
+    public function setFarmMetadataMobDataId(string $farmMetadataMobDataId): void
     {
         $this->farmMetadataMobDataId = $farmMetadataMobDataId;
     }
 
-    public function getFarmMetadataMobAddtionalAttributes(): int
+    public function getFarmMetadataMobAddtionalAttributes(): string
     {
         return $this->farmMetadataMobAddtionalAttributes;
     }
 
-    public function setFarmMetadataMobAddtionalAttributes(int $farmMetadataMobAddtionalAttributes): void
+    public function setFarmMetadataMobAddtionalAttributes(string $farmMetadataMobAddtionalAttributes): void
     {
         $this->farmMetadataMobAddtionalAttributes = $farmMetadataMobAddtionalAttributes;
     }

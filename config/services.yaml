@@ -79,12 +79,6 @@ services:
         tags:
             - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\FarmMetadata' }
 
-    App\EventListener\MobImageListener:
-        arguments:
-            $entityManager: '@doctrine.orm.entity_manager'
-        tags:
-            - { name: 'kernel.event_listener', event: 'kernel.controller' }
-
     App\Security\AuthenticationSuccessHandler:
         arguments: [ '@lexik_jwt_authentication.jwt_manager' ]
 

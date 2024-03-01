@@ -108,12 +108,12 @@ class FarmMetadata
         $this->farmMetadataMobAddtionalAttributes = $farmMetadataMobAddtionalAttributes;
     }
 
-    public function getFarmMetadataMobEventDataId(): int
+    public function getFarmMetadataMobEventDataId(): string
     {
         return $this->farmMetadataMobEventDataId;
     }
 
-    public function setFarmMetadataMobEventDataId(int $farmMetadataMobEventDataId): void
+    public function setFarmMetadataMobEventDataId(string $farmMetadataMobEventDataId): void
     {
         $this->farmMetadataMobEventDataId = $farmMetadataMobEventDataId;
     }

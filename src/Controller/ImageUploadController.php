@@ -57,9 +57,16 @@ class ImageUploadController extends AbstractController
         $mobImageDataId = $request->request->get('mobImageDataId');
         $mobImage->setMobImageDataId($mobImageDataId);
 
-        // Use the fetchAnimalId function to get coreTableId
-        $coreTableId = $this->fetchAnimalId($mobImageDataId);
-        $mobImage->setCoreTableId($coreTableId);
+        // Determine the coreTableId based on coreTableType
+        if ($coreTableType == 2) {
+            // For coreTableType 2, fetch coreTableId using fetchAnimalId
+            $coreTableId = $this->fetchAnimalId($mobImageDataId);
+            $mobImage->setCoreTableId($coreTableId);
+        } else {
+            // For other coreTableTypes, fetch coreTableId using fetchEventId
+            $coreTableId = $this->fetchEventId($mobImageDataId);
+            $mobImage->setCoreTableId($coreTableId);
+        }
 
         // Handle image upload
         $imageFile = $request->files->get('imageFile');
@@ -93,6 +100,20 @@ class ImageUploadController extends AbstractController
         $result = $query->getSingleResult();
 
         return $result['animalId'];
+    }
+
+    private function fetchEventId($mobEventDataId)
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('eventId', 'eventId');
+
+        $sql = 'SELECT fn_getEventID_mob(:mobEventDataId) as eventId';
+        $query = $this->entityManager->createNativeQuery($sql, $rsm);
+        $query->setParameter('mobEventDataId', $mobEventDataId);
+
+        $result = $query->getSingleResult();
+
+        return $result['eventId'];
     }
 
     private function determineImageServerLocation($mobImage): string

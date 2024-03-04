@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{
-    AdditionalAttributesTrait,
+use App\Entity\Traits\{AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
+    DataSourceTrait,
     IdentifiableTrait,
     ODKIdentifiableTrait,
     OrganisationTrait,
-    UpdatedTrait
-};
+    UpdatedTrait};
 use App\EventListener\{
     LactationListener,
     MilkingEventListener
@@ -42,6 +41,7 @@ class AnimalEvent
     use ODKIdentifiableTrait;
     use OrganisationTrait;
     use UpdatedTrait;
+    use DataSourceTrait;
 
     public const EVENT_TYPE_CALVING = 1;
     public const EVENT_TYPE_MILKING = 2;

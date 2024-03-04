@@ -53,6 +53,14 @@ App\Entity\AnimalEvent:
                 "animalevent:item:put",
                 "animalevent:item:patch"
             ]
+        sourceId:
+            groups: [
+                "animalevent:collection:get",
+                "animalevent:collection:post",
+                "animalevent:item:get",
+                "animalevent:item:put",
+                "animalevent:item:patch"
+            ]
         regionId:
             groups: [
                 "animalevent:collection:get",

@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{
-    AdditionalAttributesTrait,
+use App\Entity\Traits\{AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
+    DataSourceTrait,
     IdentifiableTrait,
     ODKIdentifiableTrait,
     OrganisationTrait,
-    UpdatedTrait
-};
+    UpdatedTrait};
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FarmRepository;
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -34,6 +33,7 @@ class Farm
     use ODKIdentifiableTrait;
     use OrganisationTrait;
     use UpdatedTrait;
+    use DataSourceTrait;
 
     /**
      * @var int

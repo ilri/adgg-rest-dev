@@ -6,9 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait DataSourceTrait
 {
-
     /**
-     * @var int | null
+     * @var int|null
      *
      * @ORM\Column(name="source_id", type="integer", nullable=true)
      */
@@ -16,14 +15,11 @@ trait DataSourceTrait
 
     public function getSourceId(): int
     {
-        return $this->sourceId;
+        return $this->sourceId ?? 0;
     }
 
-    public function setSourceId(int $sourceId): void
+    public function setSourceId(?int $sourceId): void
     {
         $this->sourceId = $sourceId;
     }
-
-
-
 }

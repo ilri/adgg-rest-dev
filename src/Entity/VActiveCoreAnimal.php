@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{
-    AdministrativeDivisionsTrait,
+use App\Entity\Traits\{AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
+    DataSourceTrait,
     IdentifiableTrait,
     ODKIdentifiableTrait,
     OrganisationTrait,
@@ -35,6 +35,7 @@ class VActiveCoreAnimal
     use ODKIdentifiableTrait;
     use OrganisationTrait;
     use UpdatedTrait;
+    use DataSourceTrait;
 
     /**
      *

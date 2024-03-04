@@ -7,6 +7,7 @@ use App\Entity\Traits\AdditionalAttributesTrait;
 use App\Entity\Traits\AdministrativeDivisionsTrait;
 use App\Entity\Traits\CountryTrait;
 use App\Entity\Traits\CreatedTrait;
+use App\Entity\Traits\DataSourceTrait;
 use App\Entity\Traits\IdentifiableTrait;
 use App\Entity\Traits\ODKIdentifiableTrait;
 use App\Entity\Traits\OrganisationTrait;
@@ -28,6 +29,7 @@ class VActiveCoreFarm
     use ODKIdentifiableTrait;
     use OrganisationTrait;
     use UpdatedTrait;
+    use DataSourceTrait;
     /**
      * @var int
      *

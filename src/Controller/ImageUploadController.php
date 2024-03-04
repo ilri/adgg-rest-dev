@@ -58,7 +58,10 @@ class ImageUploadController extends AbstractController
         $mobImage->setMobImageDataId($mobImageDataId);
 
         // Determine the coreTableId based on coreTableType
-        if ($coreTableType == 2) {
+        if ($coreTableType === null || $coreTableType === '') {
+            throw new \InvalidArgumentException('Set value on attribute coreTableType. This cannot be NULL');
+        }
+        else if ($coreTableType == 2) {
             // For coreTableType 2, fetch coreTableId using fetchAnimalId
             $coreTableId = $this->fetchAnimalId($mobImageDataId);
             $mobImage->setCoreTableId($coreTableId);

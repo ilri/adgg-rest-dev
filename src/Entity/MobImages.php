@@ -71,7 +71,7 @@ class MobImages
     private $coreTableId;
 
     /**
-     * @ORM\Column(name="core_table_type", type="string")
+     * @ORM\Column(name="core_table_type", type="integer")
      */
     private $coreTableType;
 
@@ -103,6 +103,14 @@ class MobImages
      * @ORM\Column(name="created_by", type="integer", nullable=true)
      */
     private $createdBy;
+
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="field_id", type="integer", nullable=true)
+     */
+    private $fieldId;
 
     public function __construct()
     {
@@ -248,4 +256,13 @@ class MobImages
         $this->coreTableId = $coreTableId;
     }
 
+    public function getFieldId(): ?int
+    {
+        return $this->fieldId;
+    }
+
+    public function setFieldId(?int $fieldId): void
+    {
+        $this->fieldId = $fieldId;
+    }
 }

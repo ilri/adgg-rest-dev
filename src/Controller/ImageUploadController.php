@@ -32,9 +32,9 @@ class ImageUploadController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         // Extract necessary data from the request
-        $mobDataId = $request->request->get('mobImageDataId');
         $coreTableType = $request->request->get('coreTableType');
         $imageServerLocation = $request->request->get('imageServerLocation');
+        $fieldId = $request->request->get('fieldId');
 
         // Get the authenticated user
         $user = $this->getUser();
@@ -45,6 +45,7 @@ class ImageUploadController extends AbstractController
         // Set mobDataId property
         $mobImage->setCoreTableType($coreTableType);
         $mobImage->setImageServerLocation($imageServerLocation);
+        $mobImage->setFieldId($fieldId);
 
         // Set createdBy based on the authenticated user
         $user = $security->getUser();

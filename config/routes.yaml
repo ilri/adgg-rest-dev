@@ -5,13 +5,3 @@
 authentication_token:
   path: /authentication_token
   methods: ['POST']
-
-webhook_upload:
-  path: /webhook/upload
-  controller: 'App\Controller\WebhookController::handleImageUpload'
-  methods: ['POST']
-
-upload_image:
-  path: /upload-image
-  controller: 'App\Controller\ImageUploadController::uploadImage'
-  methods: ['POST']

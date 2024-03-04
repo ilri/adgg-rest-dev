@@ -141,10 +141,10 @@ class Farm
     /**
      * @var int|null
      *
-     * @ORM\Column(name="is_active", type="integer", nullable=false)
+     * @ORM\Column(name="is_active", type="integer", nullable=false, options={"default"="1"})
      *
      */
-    private $isActive = true;
+    private $isActive;
 
     /**
      * @var int|null

@@ -294,12 +294,12 @@ class Animal
     private $animalEvents;
 
     /**
-     * @var bool
+     * @var int|null
      *
      * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default"="1"})
      *
      */
-    private $isActive = true;
+    private $isActive;
 
     public function __construct()
     {
@@ -710,12 +710,12 @@ class Animal
         return $this;
     }
 
-    public function getIsActive(): ?bool
+    public function getIsActive(): ?int
     {
         return $this->isActive;
     }
 
-    public function setIsActive(?string $isActive): self
+    public function setIsActive(?int $isActive): self
     {
         $this->isActive = $isActive;
 

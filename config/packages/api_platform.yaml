@@ -4,16 +4,14 @@ api_platform:
         pagination_client_enabled: true
     collection:
         pagination:
-#            enabled: false
             enabled_parameter_name: pagination
             items_per_page: 1000
-#    defaults:
-##        changes for pagination
-#        pagination_enabled: false
     mapping:
         paths: ['%kernel.project_dir%/config/api_platform']
     patch_formats:
-        json: ['application/merge-patch+json']
+        json: [ 'application/merge-patch+json' ]
+        # Add the following line:
+        multipart: [ 'multipart/form-data' ]
     swagger:
         versions: [3]
         api_keys:

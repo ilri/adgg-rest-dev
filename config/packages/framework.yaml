@@ -19,3 +19,5 @@ framework:
         enable_annotations: true
         mapping:
             paths: ['%kernel.project_dir%/config/serializer']
+    annotations:
+        enabled: true

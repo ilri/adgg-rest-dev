@@ -2,23 +2,57 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiResource;
-use App\Entity\Traits\CreatedTrait;
-use App\Repository\MobImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use App\EventListener\MobImageListener;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ORM\Table (name="mob_images")
- * @ORM\Entity(repositoryClass=MobImagesRepository::class)
+ * @ORM\Table(name="mob_images")
+ * @ORM\Entity(repositoryClass="App\Repository\MobImagesRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
+ * @ApiResource(
+ *       iri="http://schema.org/MediaObject",
+ *       normalizationContext={
+ *           "groups"={"media_object_read"}
+ *       },
+ *       collectionOperations={
+ *           "post"={
+ *               "controller"=ImageUploadController::class,
+ *               "deserialize"=false,
+ *
+ *               "validation_groups"={"Default", "media_object_create"},
+ *               "openapi_context"={
+ *                   "requestBody"={
+ *                       "content"={
+ *                           "multipart/form-data"={
+ *                               "schema"={
+ *                                   "type"="object",
+ *                                   "properties"={
+ *                                       "file"={
+ *                                           "type"="string",
+ *                                           "format"="binary"
+ *                                       }
+ *                                   }
+ *                               }
+ *                           }
+ *                       }
+ *                   }
+ *               }
+ *           },
+ *           "get"
+ *       },
+ *       itemOperations={
+ *           "get"
+ *       },
+ *      attributes={
+ *            "path"="/api/images"
+ *        }
+ *   )
  */
-#[ApiResource]
 class MobImages
 {
-    use CreatedTrait;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -37,98 +71,64 @@ class MobImages
     private $coreTableId;
 
     /**
-     * @ORM\Column(name="core_table_type", type="integer")
+     * @ORM\Column(name="core_table_type", type="string")
      */
     private $coreTableType;
 
     /**
-     * @ORM\Column(name="image_file_name",type="string", length=255)
+     * @ORM\Column(name="image_file_name", type="string", length=255, nullable=true)
      */
-    private $imageFileName;
+    private $imageName;
+
 
     /**
-     * @ORM\Column(name="image_server_location",type="string", length=255)
+     * @ORM\Column(name="image_server_location", type="string", length=255)
      */
     private $imageServerLocation;
 
     /**
+     * @Vich\UploadableField(mapping="mob_images", fileNameProperty="imageName")
      * @var File|null
-     * imageFile property is of type File or null. This property is used to temporarily store an instance of the
-     * uploaded file during the file upload process. The File class is part of Symfony's HttpFoundation
      */
     private $imageFile;
 
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="created_by", type="integer", nullable=true)
+     */
+    private $createdBy;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCoreTableId()
+    public function getImageName(): ?string
     {
-        return $this->coreTableId;
+        return $this->imageName;
     }
 
-    /**
-     * @param mixed $coreTableId
-     */
-    public function setCoreTableId($coreTableId): void
+    public function setImageName(?string $imageName): self
     {
-        $this->coreTableId = $coreTableId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCoreTableType()
-    {
-        return $this->coreTableType;
-    }
-
-    /**
-     * @param mixed $coreTableType
-     */
-    public function setCoreTableType($coreTableType): void
-    {
-        $this->coreTableType = $coreTableType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMobImageDataId()
-    {
-        return $this->mobImageDataId;
-    }
-
-    /**
-     * @param mixed $mobImageDataId
-     */
-    public function setMobImageDataId($mobImageDataId): void
-    {
-        $this->mobImageDataId = $mobImageDataId;
+        $this->imageName = $imageName;
+        return $this;
     }
 
 
-
-    /**
-     * @return mixed
-     */
-    public function getImageFileName()
+    public function setImageFilePath($imageName): void
     {
-        return $this->imageFileName;
-    }
-
-    /**
-     * @param mixed $imageFileName
-     */
-    public function setImageFilePath($imageFileName): void
-    {
-        $this->imageFileName = $imageFileName;
+        $this->imageName = $imageName;
     }
 
     /**
@@ -147,45 +147,105 @@ class MobImages
         $this->imageServerLocation = $imageServerLocation;
     }
 
-    public function uploadImageFile(): void
-    {
-        if (null === $this->imageFile) {
-            return;
-        }
-
-        $originalFilename = pathinfo($this->imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-        $newFilename = $originalFilename.'-'.uniqid().'.'.$this->imageFile->guessExtension();
-
-        $this->imageFilePath = $newFilename;
-        $this->imageServerLocation = 'public/images/mob_images/';
-
-        $this->imageFile->move(
-            $this->getImageUploadDirectory(),
-            $this->imageFilePath
-        );
-
-        $this->imageFile = null;
-    }
-
-    private function getImageUploadDirectory(): string
-    {
-        return __DIR__.'/../../public/images/mob_images';
-    }
-
-
-
     public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
 
-    public function setImageFile(?File $imageFile): void
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
 
-        if ($this->imageFile instanceof UploadedFile) {
-            $this->setCreatedAtValue(new \DateTime('now'));
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called, and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
         }
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMobImageDataId()
+    {
+        return $this->mobImageDataId;
+    }
+
+    /**
+     * @param mixed $mobImageDataId
+     */
+    public function setMobImageDataId($mobImageDataId): void
+    {
+        $this->mobImageDataId = $mobImageDataId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoreTableType()
+    {
+        return $this->coreTableType;
+    }
+
+    /**
+     * @param mixed $coreTableType
+     */
+    public function setCoreTableType($coreTableType): void
+    {
+        $this->coreTableType = $coreTableType;
+    }
+
+    public function getCreatedBy(): ?int
+    {
+        return $this->createdBy;
+    }
+
+
+    /**
+     * @param int|null $createdBy
+     */
+    public function setCreatedBy(?int $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoreTableId()
+    {
+        return $this->coreTableId;
+    }
+
+    /**
+     * @param mixed $coreTableId
+     */
+    public function setCoreTableId($coreTableId): void
+    {
+        $this->coreTableId = $coreTableId;
     }
 
 }

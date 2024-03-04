@@ -1,50 +1,66 @@
-App\Entity\MobImages:
-  collectionOperations:
-    get:
-      method: get
-      path: /images
-      filters: [ 'mobimages.search_filter', 'property_filter' ]
-      normalization_context:
-        groups: [ 'mobimages:collection:get' ]
-      openapi_context:
-        description: ''
-        parameters:
-          - name: page
-            in: query
-            description: 'The collection page number'
-            required: false
-            deprecated: false
-            allowEmptyValue: false
-            schema:
-              type: integer
-              default: 1
-            style: form
-            explode: false
-            allowReserved: false
-          - name: pagination
-            in: query
-            description: 'Enable or disable pagination'
-            required: false
-            deprecated: false
-            allowEmptyValue: false
-            schema:
-              type: boolean
-            style: form
-            explode: false
-            allowReserved: false
-    post:
-      method: post
-      path: /images
-      denormalization_context:
-        groups: [ 'mobimages:collection:post' ]
-      openapi_context:
-        description:
-          '<h3>Creates a Mob Images resource</h3>'
-  itemOperations:
-    get:
-      method: get
-      path: /images/{id}
-      normalization_context:
-        groups: [ 'mobimages:item:get' ]
-
-
+#App\Entity\MobImages:
+#  collectionOperations:
+#    post:
+#      method: post
+#      path: /images
+#      controller: 'App\Controller\ImageUploadController::uploadImage'
+#      formats:
+#        json: {
+#          "application/ld+json": "application/ld+json",
+#          "application/json": "application/json",
+#          "multipart/form-data": "multipart/form-data; boundary=<calculated when request is sent>"
+#        }
+#      normalizationContext:
+#        groups: ['mobimages:read']
+#      denormalizationContext:
+#        groups: ['mobimages:write']
+#      openapi_context:
+#        description: '<h3>Creates a Mob Images resource</h3>'
+#        requestBody:
+#          required: true
+#          content:
+#            multipart/form-data:
+#              schema:
+#                type: object
+#                properties:
+#                  imageFile:
+#                    type: string
+#                    format: binary
+#    get:
+#      method: get
+#      path: /images
+#      filters: ['mobimages.search_filter', 'property_filter']
+#      normalization_context:
+#        groups: ['mobimages:collection:get']
+#      openapi_context:
+#        description: ''
+#        parameters:
+#          - name: page
+#            in: query
+#            description: 'The collection page number'
+#            required: false
+#            deprecated: false
+#            allowEmptyValue: false
+#            schema:
+#              type: integer
+#              default: 1
+#            style: form
+#            explode: false
+#            allowReserved: false
+#          - name: pagination
+#            in: query
+#            description: 'Enable or disable pagination'
+#            required: false
+#            deprecated: false
+#            allowEmptyValue: false
+#            schema:
+#              type: boolean
+#            style: form
+#            explode: false
+#            allowReserved: false
+#  itemOperations:
+#    get:
+#      method: get
+#      path: /images/{id}
+#      normalization_context:
+#        groups: ['mobimages:item:get']

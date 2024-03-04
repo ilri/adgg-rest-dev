@@ -10,7 +10,7 @@ trait DataSourceTrait
     /**
      * @var int | null
      *
-     * @ORM\Column(name="source_id", type="integer", nullable=false)
+     * @ORM\Column(name="source_id", type="integer", nullable=true)
      */
     private $sourceId;
 

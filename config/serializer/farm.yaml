@@ -219,6 +219,14 @@ App\Entity\Farm:
                 "farm:item:put",
                 "farm:item:patch"
             ]
+        sourceId:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
         createdAt:
             groups: [
                 "farm:collection:get",

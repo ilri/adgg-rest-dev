@@ -2,12 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{
-    AdditionalAttributesTrait,
-    CountryTrait,
-    CreatedTrait,
-    ODKIdentifiableTrait
-};
+use App\Entity\Traits\{AdditionalAttributesTrait, CountryTrait, CreatedTrait, DataSourceTrait, ODKIdentifiableTrait};
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,6 +18,7 @@ class FarmMetadata
     use CountryTrait;
     use CreatedTrait;
     use ODKIdentifiableTrait;
+    use DataSourceTrait;
 
     /**
      * @var int

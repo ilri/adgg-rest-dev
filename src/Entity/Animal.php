@@ -6,6 +6,7 @@ use App\Entity\Traits\{AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
+    DataSourceTrait,
     IdentifiableTrait,
     MobAdditionalAttributesTrait,
     ODKIdentifiableTrait,
@@ -17,6 +18,7 @@ use Doctrine\Common\Collections\{
     ArrayCollection,
     Collection
 };
+use Carbon\Traits\Date;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,6 +39,7 @@ class Animal
     use ODKIdentifiableTrait;
     use OrganisationTrait;
     use UpdatedTrait;
+    use DataSourceTrait;
 
     /**
      *

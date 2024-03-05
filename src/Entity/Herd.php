@@ -6,6 +6,7 @@ use App\Entity\Traits\{AdditionalAttributesTrait,
     AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
+    DataSourceTrait,
     IdentifiableTrait,
     MobAdditionalAttributesTrait,
     ODKIdentifiableTrait,
@@ -33,6 +34,7 @@ class Herd
     use ODKIdentifiableTrait;
     use OrganisationTrait;
     use UpdatedTrait;
+    use DataSourceTrait;
 
     /**
      * @var int

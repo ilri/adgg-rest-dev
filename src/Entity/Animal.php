@@ -269,7 +269,7 @@ class Animal
     /**
      * @var Farm
      *
-     * @ORM\ManyToOne(targetEntity="Farm")
+     * @ORM\ManyToOne(targetEntity="Farm", inversedBy="Animal")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="farm_id", referencedColumnName="id")
      * })

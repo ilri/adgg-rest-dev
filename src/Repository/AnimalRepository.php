@@ -22,4 +22,15 @@ class AnimalRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Animal::class);
     }
+
+    public function findAnimalWithFarmById(int $animalId)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a', 'f') // Select both Animal and Farm
+            ->innerJoin('a.farm', 'f') // Doctrine infers the join condition from the association mapping
+            ->where('a.id = :animalId')
+            ->setParameter('animalId', $animalId)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

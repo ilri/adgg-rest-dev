@@ -276,7 +276,6 @@ class Animal
      */
     private $farm;
 
-
     /**
      * @var int|null
      *

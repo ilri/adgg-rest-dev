@@ -101,3 +101,11 @@ App\Entity\MobForm:
         'mobform:item:put',
         'mobform:item:patch'
       ]
+    eventId:
+      groups: [
+        'mobform:collection:get',
+        'mobform:collection:post',
+        'mobform:item:get',
+        'mobform:item:put',
+        'mobform:item:patch'
+      ]

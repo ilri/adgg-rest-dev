@@ -106,6 +106,14 @@ class MobForm
      */
     private $status;
 
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="event_id", type="integer")
+     */
+    private $eventId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -254,4 +262,16 @@ class MobForm
 
         return $this;
     }
+
+    public function getEventId(): ?int
+    {
+        return $this->eventId;
+    }
+
+    public function setEventId(?int $eventId): void
+    {
+        $this->eventId = $eventId;
+    }
+
+
 }

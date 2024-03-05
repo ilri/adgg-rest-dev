@@ -26,8 +26,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Herd
 {
     use AdministrativeDivisionsTrait;
-    use AdditionalAttributesTrait;
-    use MobAdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -131,6 +129,20 @@ class Herd
      * @ORM\Column(name="species_id", type="integer", nullable=true)
      */
     private $speciesId;
+
+    /**
+     * @var array|null
+     *
+     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
+     */
+    protected $additionalAttributes;
+
+    /**
+     * @var array|null
+     *
+     * @ORM\Column(name="mob_additional_attributes", type="json", nullable=true)
+     */
+    protected $mobAdditionalAttributes;
 
     public function getId(): ?int
     {
@@ -280,4 +292,26 @@ class Herd
 
         return $this;
     }
+
+    public function getAdditionalAttributes(): ?array
+    {
+        return $this->additionalAttributes;
+    }
+
+    public function setAdditionalAttributes(?array $additionalAttributes): void
+    {
+        $this->additionalAttributes = $additionalAttributes;
+    }
+
+    public function getMobAdditionalAttributes(): ?array
+    {
+        return $this->mobAdditionalAttributes;
+    }
+
+    public function setMobAdditionalAttributes(?array $mobAdditionalAttributes): void
+    {
+        $this->mobAdditionalAttributes = $mobAdditionalAttributes;
+    }
+
+
 }

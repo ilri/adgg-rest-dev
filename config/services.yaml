@@ -96,6 +96,11 @@ services:
         arguments: [ { 'tagId': 'exact', 'animalType': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' , 'isActive': 'exact'} ]
         tags: [ { name: 'api_platform.filter', id: 'animal.search_filter' } ]
 
+    vbullsregistered.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'tagId': 'exact', 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' , 'isActive': 'exact' } ]
+        tags: [ { name: 'api_platform.filter', id: 'vbullsregistered.search_filter' } ]
+
     vactivecoreanimal.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { 'tagId': 'exact', 'animalType': 'exact' , 'createdBy': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' , 'isActive': 'exact' } ]

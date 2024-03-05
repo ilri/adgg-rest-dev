@@ -1,0 +1,228 @@
+App\Entity\VBullsRegistered:
+    attributes:
+        id:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        name:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mobDataId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mobFarmId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mobHerdId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mobSireId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        damName:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        sireName:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mobDamId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        tagId:
+            groups: [
+                "vactivecoreanimal:collection:get",
+                "vactivecoreanimal:item:get"
+            ]
+        originalTagId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        herdId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        countryId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        regionId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        districtId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        wardId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        villageId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        orgId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        animalType:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        species:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        sex:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        birthdate:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        sireType:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        sireId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        sireTagId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        damId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        damTagId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mainBreed:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        breedComposition:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        animalPhoto:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        latitude:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        longitude:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mapAddress:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        regDate:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        hairSampleId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        migrationId:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        isActive:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        odkAnimalCode:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        farm:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        additionalAttributes:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        mobAdditionalAttributes:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        createdAt:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        createdBy:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        updatedAt:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+        updatedBy:
+            groups: [
+                "vbullsregistered:collection:get",
+                "vbullsregistered:item:get"
+            ]
+

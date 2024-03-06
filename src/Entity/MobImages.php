@@ -54,7 +54,6 @@ use ApiPlatform\Core\Annotation\ApiResource;
  */
 class MobImages
 {
-    use UpdatedTrait;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -117,7 +116,7 @@ class MobImages
     /**
      * @var int|null
      *
-     * @ORM\Column(name="file_data_id", type="integer", nullable=true)
+     * @ORM\Column(name="mob_file_data_id", type="integer", nullable=true)
      */
     private $mobFileDataId;
 

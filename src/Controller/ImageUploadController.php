@@ -64,7 +64,7 @@ class ImageUploadController extends AbstractController
             throw new \InvalidArgumentException('Set value on attribute coreTableType. This cannot be NULL');
         }
         //101 refers to table id defined in the master list list_type_id = 20027
-        else if ($coreTableType == 101) {
+        else if ($coreTableType == 100) {
             // For coreTableType 2, fetch coreTableId using fetchAnimalId
             $coreTableId = $this->fetchAnimalId($mobImageDataId);
             $mobImage->setCoreTableId($coreTableId);

@@ -21,6 +21,14 @@ App\Entity\MobImages:
                 "mobimages:item:put",
                 "mobimages:item:patch"
             ]
+        mobFileDataId:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
         coreTableId:
             groups: [
                 "mobimages:collection:get",
@@ -62,6 +70,22 @@ App\Entity\MobImages:
                 "mobimages:item:patch"
             ]
         createdBy:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
+        updatedAt:
+            groups: [
+                "mobimages:collection:get",
+                "mobimages:collection:post",
+                "mobimages:item:get",
+                "mobimages:item:put",
+                "mobimages:item:patch"
+            ]
+        updatedBy:
             groups: [
                 "mobimages:collection:get",
                 "mobimages:collection:post",

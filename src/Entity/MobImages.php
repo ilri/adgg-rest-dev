@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\UpdatedTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -53,6 +54,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
  */
 class MobImages
 {
+    use UpdatedTrait;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -111,6 +113,13 @@ class MobImages
      * @ORM\Column(name="field_id", type="integer", nullable=true)
      */
     private $fieldId;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="file_data_id", type="integer", nullable=true)
+     */
+    private $mobFileDataId;
 
     public function __construct()
     {
@@ -265,4 +274,16 @@ class MobImages
     {
         $this->fieldId = $fieldId;
     }
+
+    public function getMobFileDataId(): ?int
+    {
+        return $this->mobFileDataId;
+    }
+
+    public function setMobFileDataId(?int $mobFileDataId): void
+    {
+        $this->mobFileDataId = $mobFileDataId;
+    }
+
+
 }

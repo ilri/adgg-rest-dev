@@ -373,6 +373,9 @@ App\Entity\Animal:
         isActive:
             groups: [
                 "animal:collection:get",
-                "animal:item:get"
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
             ]
 

@@ -35,6 +35,7 @@ class ImageUploadController extends AbstractController
         $coreTableType = $request->request->get('coreTableType');
         $imageServerLocation = $request->request->get('imageServerLocation');
         $fieldId = $request->request->get('fieldId');
+        $mobFileDataId = $request->request->get('mobFileDataId');
 
         // Get the authenticated user
         $user = $this->getUser();
@@ -46,6 +47,7 @@ class ImageUploadController extends AbstractController
         $mobImage->setCoreTableType($coreTableType);
         $mobImage->setImageServerLocation($imageServerLocation);
         $mobImage->setFieldId($fieldId);
+        $mobImage->setMobFileDataId($mobFileDataId);
 
         // Set createdBy based on the authenticated user
         $user = $security->getUser();

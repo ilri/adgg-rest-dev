@@ -110,8 +110,8 @@ class MilkingEventListener
     private function getTotalMilkRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
-        $morning = $additionalAttributes['59'];
-        $evening = $additionalAttributes['61'];
+        $morning = $additionalAttributes['59'] ?? 0;
+        $evening = $additionalAttributes['61'] ?? 0;
         $midday = $additionalAttributes['68'] ?? 0;
 
         return $morning + $evening + $midday;

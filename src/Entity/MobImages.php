@@ -62,7 +62,7 @@ class MobImages
     private $id;
 
     /**
-     * @ORM\Column(name="mob_data_id", type="integer")
+     * @ORM\Column(name="mob_data_id", type="string",length=255,)
      */
     private $mobImageDataId;
 
@@ -114,9 +114,9 @@ class MobImages
     private $fieldId;
 
     /**
-     * @var int|null
+     * @var string|null
      *
-     * @ORM\Column(name="mob_file_data_id", type="integer", nullable=true)
+     * @ORM\Column(name="mob_file_data_id", type="string",length=255, nullable=true)
      */
     private $mobFileDataId;
 

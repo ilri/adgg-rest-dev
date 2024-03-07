@@ -274,12 +274,12 @@ class MobImages
         $this->fieldId = $fieldId;
     }
 
-    public function getMobFileDataId(): ?int
+    public function getMobFileDataId(): ?string
     {
         return $this->mobFileDataId;
     }
 
-    public function setMobFileDataId(?int $mobFileDataId): void
+    public function setMobFileDataId(?string $mobFileDataId): void
     {
         $this->mobFileDataId = $mobFileDataId;
     }

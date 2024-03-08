@@ -136,6 +136,11 @@ services:
         arguments: [ { 'eventType': 'exact', 'farmMetadataType': 'exact'} ]
         tags: [ { name: 'api_platform.filter', id: 'coretableattribute.search_filter' } ]
 
+    breedmatrix.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'speciesId': 'exact'} ]
+        tags: [ { name: 'api_platform.filter', id: 'breedmatrix.search_filter' } ]
+
     property_filter:
         parent: 'api_platform.serializer.property_filter'
         tags: [ { name: 'api_platform.filter', id: 'property_filter' } ]

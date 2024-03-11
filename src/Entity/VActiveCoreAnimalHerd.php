@@ -117,7 +117,7 @@ class VActiveCoreAnimalHerd
     private $migrationId;
 
     /**
-     * @var Farm|null
+     * @var Farm
      *
      * @ORM\ManyToOne(targetEntity="Farm")
      * @ORM\JoinColumns({
@@ -125,6 +125,13 @@ class VActiveCoreAnimalHerd
      * })
      */
     private $farm;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="farm_id",  nullable=true)
+     */
+    private $farmId;
 
     /**
      * @var array|null
@@ -164,8 +171,6 @@ class VActiveCoreAnimalHerd
 
         return $this;
     }
-
-
 
     public function getId(): ?int
     {
@@ -237,13 +242,6 @@ class VActiveCoreAnimalHerd
         return $this->migrationId;
     }
 
-    public function setMigrationId(?string $migrationId): self
-    {
-        $this->migrationId = $migrationId;
-
-        return $this;
-    }
-
     public function getFarm(): ?Farm
     {
         return $this->farm;
@@ -252,6 +250,11 @@ class VActiveCoreAnimalHerd
     public  function getSpeciesId(): ?string
     {
         return $this->speciesId;
+    }
+
+    public function getFarmId(): ?int
+    {
+        return $this->farmId;
     }
 
 }

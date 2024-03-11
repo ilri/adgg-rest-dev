@@ -117,7 +117,7 @@ class LactationListener
 
         if ($days > 365) {
             // Return an exception if the calving interval exceeds 365 days
-            return new \RuntimeException('Calving interval exceeds 365 days for animal with ID: ' . $animal->getId());
+            return new \RuntimeException('Calving interval exceeds 365 days for animal with ID: ' . $animal->getId()."  or MobDataId:". $animal->getMobDataId());
         }
 
         return [

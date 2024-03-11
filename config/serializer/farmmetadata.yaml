@@ -61,6 +61,14 @@ App\Entity\FarmMetadata:
                 "farmmetadata:item:put",
                 "farmmetadata:item:patch"
             ]
+        createdAt:
+            groups: [
+                "farmmetadata:collection:get",
+                "farmmetadata:collection:post",
+                "farmmetadata:item:get",
+                "farmmetadata:item:put",
+                "farmmetadata:item:patch"
+            ]
         additionalAttributes:
             groups: [
                 "farmmetadata:collection:get",

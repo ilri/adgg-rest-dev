@@ -301,6 +301,14 @@ App\Entity\Animal:
                 "farm:item:put",
                 "farm:item:patch"
             ]
+        farmId:
+            groups: [
+                "animal:collection:get",
+                "animal:collection:post",
+                "animal:item:get",
+                "animal:item:put",
+                "animal:item:patch"
+            ]
         originalTagId:
             groups: [
                 "animal:collection:get",

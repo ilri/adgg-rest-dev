@@ -68,9 +68,10 @@ class FarmMetadata
     private $farm;
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="farm_id", type="integer", nullable=false)
+     * @ORM\Column(name="farm_id", type="integer",nullable=true)
+     *
      */
     private $farmId;
 
@@ -162,5 +163,4 @@ class FarmMetadata
     {
         $this->farmId = $farmId;
     }
-
 }

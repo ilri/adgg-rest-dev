@@ -278,7 +278,7 @@ class Animal
     /**
      * @var int|null
      *
-     * @ORM\Column(name="farm_id", type="integer", length=128, nullable=true)
+     * @ORM\Column(name="farm_id", type="integer",nullable=true)
      *
      */
     private $farmId;

@@ -538,6 +538,4 @@ class VActiveCoreAnimal
         return $this->farmId;
     }
 
-
-
 }

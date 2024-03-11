@@ -53,6 +53,7 @@ App\Entity\FarmMetadata:
                 "farmmetadata:item:put",
                 "farmmetadata:item:patch"
             ]
+
         createdBy:
             groups: [
                 "farmmetadata:collection:get",

@@ -273,6 +273,14 @@ class VActiveCoreAnimal
     private $farm;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="farm_id", type="integer", nullable=true)
+     *
+     */
+    private $farmId;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="AnimalEvent", mappedBy="animal")
@@ -523,6 +531,11 @@ class VActiveCoreAnimal
     public function getFarm(): ?Farm
     {
         return $this->farm;
+    }
+
+    public function getFarmId(): ?int
+    {
+        return $this->farmId;
     }
 
 

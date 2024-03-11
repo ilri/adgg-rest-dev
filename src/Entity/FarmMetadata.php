@@ -68,6 +68,13 @@ class FarmMetadata
     private $farm;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="farm_id", type="integer", nullable=false)
+     */
+    private $farmId;
+
+    /**
      * @var array|null
      *
      * @ORM\Column(name="additional_attributes", type="json", nullable=true)
@@ -146,5 +153,14 @@ class FarmMetadata
         $this->additionalAttributes = $additionalAttributes;
     }
 
+    public function getFarmId(): int
+    {
+        return $this->farmId;
+    }
+
+    public function setFarmId(int $farmId): void
+    {
+        $this->farmId = $farmId;
+    }
 
 }

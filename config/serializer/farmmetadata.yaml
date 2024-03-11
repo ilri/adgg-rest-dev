@@ -87,3 +87,11 @@ App\Entity\FarmMetadata:
                 "farm:item:put",
                 "farm:item:patch"
             ]
+        farmId:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]

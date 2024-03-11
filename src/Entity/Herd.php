@@ -14,6 +14,7 @@ use App\Entity\Traits\{AdditionalAttributesTrait,
     UpdatedTrait};
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\HerdRepository;
 
 /**
  * Herd
@@ -22,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=HerdRepository::class)
  * @ORM\HasLifecycleCallbacks()
  */
-#[ApiResource]
+
 class Herd
 {
     use AdministrativeDivisionsTrait;

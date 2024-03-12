@@ -1,5 +1,13 @@
 App\Entity\Herd:
   collectionOperations:
+    get:
+      method: get
+      path: /herds
+      filters: [ 'farmmetadata.search_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'farmmetadata:collection:get' ]
+      openapi_context:
+        description: '<h3>Get is only utilized during post otherwise </h3>'
     post:
       method: post
       path: /herds

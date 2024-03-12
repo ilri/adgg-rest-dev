@@ -16,7 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method VActiveCoreAnimalHerd[]    findAll()
  * @method VActiveCoreAnimalHerd[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class IsActiveCoreAnimalHerdRepository extends ServiceEntityRepository
+class VActiveCoreAnimalHerdRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -47,32 +47,4 @@ class IsActiveCoreAnimalHerdRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return VActiveCoreAnimalHerd[] Returns an array of VActiveCoreAnimalHerd objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?VActiveCoreAnimalHerd
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

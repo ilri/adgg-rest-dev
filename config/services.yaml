@@ -55,6 +55,12 @@ services:
             event: 'prePersist'
             entity: 'App\Entity\AnimalEvent'
 
+    App\EventListener\AnimalCoreHerdListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\Herd' }
+
     App\EventListener\CalvingIntervalListener:
         arguments:
             $entityManager: '@doctrine.orm.entity_manager'

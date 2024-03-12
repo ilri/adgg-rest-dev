@@ -23,6 +23,14 @@ App\Entity\Farm:
                 "milkyieldrecord:collection:get",
                 "milkyieldrecord:item:get"
             ]
+        farmId:
+            groups: [
+                "farm:collection:get",
+                "farm:collection:post",
+                "farm:item:get",
+                "farm:item:put",
+                "farm:item:patch"
+            ]
         regionId:
             groups: [
                 "farm:collection:get",

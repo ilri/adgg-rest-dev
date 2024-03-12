@@ -2,6 +2,7 @@
 
 namespace App\EventListener;
 
+use App\Entity\Herd;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 use App\Entity\Animal;
@@ -15,26 +16,22 @@ class AnimalHerdListener
         $this->entityManager = $entityManager;
     }
 
-    public function postPersist(LifecycleEventArgs $args)
+    public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getObject();
 
         if ($entity instanceof Animal) {
-            // Check if herd_id is provided in the post payload
+            // Check if farm_id is provided in the post payload
             if ($entity->getHerdId() !== null) {
                 return; // Skip execution if herd_id is already provided
             }
 
-            // Fetch the herd_id using the stored function
-            $herdId = $this->fetchHerdId($entity->getHerdId());
+            // Fetch the farm_id using the stored function
+            $herdId = $this->fetchHerdId($entity->getMobHerdId());
 
-            // Set the herd_id on the Animal entity if it's not null
-            if ($herdId !== null) {
-                $entity->setHerdId($herdId);
+            $entity->setHerdId($herdId);
 
-                // Flush the changes
-                $this->entityManager->flush();
-            }
+            $this->entityManager->flush();
         }
     }
 
@@ -51,4 +48,19 @@ class AnimalHerdListener
 
         return $result['herdId'];
     }
+
+    private function fetchFarmId($mobFarmDataId)
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('farmId', 'farmId');
+
+        $sql = 'SELECT fn_getFarmID_mob(:mobFarmDataId) as farmId';
+        $query = $this->entityManager->createNativeQuery($sql, $rsm);
+        $query->setParameter('mobFarmDataId', $mobFarmDataId);
+
+        $result = $query->getSingleResult();
+
+        return $result['farmId'];
+    }
+
 }

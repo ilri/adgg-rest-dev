@@ -127,6 +127,13 @@ class Herd
     /**
      * @var int|null
      *
+     * @ORM\Column(name="farm_id", type="integer", nullable=true)
+     */
+    private $farmId;
+
+    /**
+     * @var int|null
+     *
      * @ORM\Column(name="species_id", type="integer", nullable=true)
      */
     private $speciesId;
@@ -312,6 +319,18 @@ class Herd
     public function setMobAdditionalAttributes(?array $mobAdditionalAttributes): void
     {
         $this->mobAdditionalAttributes = $mobAdditionalAttributes;
+    }
+
+    public function getFarmId(): ?int
+    {
+        return $this->farmId;
+    }
+
+    public function setFarmId(?int $farmId): self
+    {
+        $this->farmId = $farmId;
+
+        return $this;
     }
 
 

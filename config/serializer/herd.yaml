@@ -113,6 +113,12 @@ App\Entity\Herd:
                 "herd:item:put",
                 "herd:item:patch"
             ]
+        farmId:
+            groups: [
+                "herd:collection:post",
+                "herd:item:put",
+                "herd:item:patch"
+            ]
         additionalAttributes:
             groups: [
                 "herd:collection:post",

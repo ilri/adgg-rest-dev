@@ -90,11 +90,6 @@ App\Entity\VActiveCoreAnimalHerd:
                 "vactivecoreanimalherd:collection:get",
                 "vactivecoreanimalherd:item:get"
             ]
-        farm:
-            groups: [
-                "farm:collection:get",
-                "farm:item:get"
-            ]
         farmId:
             groups: [
                 "vactivecoreanimalherd:collection:get",

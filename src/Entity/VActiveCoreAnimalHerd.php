@@ -3,21 +3,20 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Entity\Traits\AdditionalAttributesTrait;
 use App\Entity\Traits\AdministrativeDivisionsTrait;
 use App\Entity\Traits\CountryTrait;
 use App\Entity\Traits\CreatedTrait;
 use App\Entity\Traits\IdentifiableTrait;
-use App\Entity\Traits\MobAdditionalAttributesTrait;
 use App\Entity\Traits\ODKIdentifiableTrait;
 use App\Entity\Traits\OrganisationTrait;
 use App\Entity\Traits\UpdatedTrait;
-use App\Repository\IsActiveCoreAnimalHerdRepository;
+use App\Repository\VActiveCoreAnimalHerdRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="v_active_core_animal_herd")
- * @ORM\Entity(repositoryClass=IsActiveCoreAnimalHerdRepository::class)
+ * @ORM\Entity(repositoryClass=VActiveCoreAnimalHerdRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 #[ApiResource]
 class VActiveCoreAnimalHerd

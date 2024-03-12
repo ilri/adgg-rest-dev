@@ -4,6 +4,7 @@ namespace App\EventListener;
 
 use App\Entity\Animal;
 use App\Entity\AnimalEvent;
+use App\Entity\ParameterLimits;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Query\ResultSetMapping;
@@ -26,6 +27,7 @@ class LactationListener
      */
     public function prePersist(AnimalEvent $milkingEvent, LifecycleEventArgs $event): void
     {
+
         if ($milkingEvent->getEventType() !== AnimalEvent::EVENT_TYPE_MILKING) {
             return;
         }
@@ -52,26 +54,26 @@ class LactationListener
             // Calculate the difference in days
             $daysinmilk = $calving->getEventDate()->diff($milkingEvent->getEventDate())->days;
 
-            // Check if the difference is greater than or equal to 220 days
-            if ($daysinmilk >= 1000) {
-                throw new \RuntimeException('DIM(Days In Milk) is greater than or equal to 1000 days for animal with ID: ' . $animalId);
-            }
-            // Get the calving interval data
-            $calvingIntervalResult = $this->getCalvingInterval($animalEntity);
+            // Retrieve Days In Milk from parameterlist
+            $daysinmilklimits = $this->getParameterListValues('lactation_period');
 
-            if ($calvingIntervalResult instanceof \RuntimeException) {
-                // Handle the exception as needed
-                throw $calvingIntervalResult;
+            // Check if the difference is greater than or equal
+            if ($daysinmilk < $daysinmilklimits['min_value'] || $daysinmilk >= $daysinmilklimits['max_value'] ) {
+                throw new \RuntimeException(
+                    'Days In Milk is not within the valid range (%d to %d days) for animal: %s',
+                    $daysinmilklimits['min_value'],
+                    $daysinmilklimits['max_value'],
+                    $animalId
+                );
             }
+
         }
 
         // Set the lactation ID of the new calving event
         $milkingEvent->setLactationId($calving->getId());
-
-
     }
 
-    private function fetchAnimalId($mobAnimalDataId)
+    public function fetchAnimalId($mobAnimalDataId)
     {
         $rsm = new ResultSetMapping();
         $rsm->addScalarResult('animalId', 'animalId');
@@ -91,7 +93,7 @@ class LactationListener
      * @param Animal $animal
      * @return AnimalEvent|null
      */
-    private function getLastCalvingEvent(Animal $animal): ?AnimalEvent
+    public function getLastCalvingEvent(Animal $animal): ?AnimalEvent
     {
         $events = $animal->getAnimalEvents()->filter(function (AnimalEvent $element) {
             return $element->getEventType() == AnimalEvent::EVENT_TYPE_CALVING;
@@ -100,29 +102,21 @@ class LactationListener
         return $events->first() ?: null;
     }
 
-    /**
-     * Get the calving interval for an animal.
-     *
-     * @param Animal $animal
-     * @return \RuntimeException|array
-     */
-    private function getCalvingInterval(Animal $animal)
+    private function getParameterListValues($category)
     {
-        $lastCalving = $this->getLastCalvingEvent($animal);
-        $days = null;
+        $parameter = $this->entityManager
+            ->getRepository(ParameterLimits::class)
+            ->findOneBy(['category' => $category]);
 
-        if ($lastCalving) {
-            $days = Carbon::now()->diff($lastCalving->getEventDate())->days;
-        }
-
-        if ($days > 365) {
-            // Return an exception if the calving interval exceeds 365 days
-            return new \RuntimeException('Calving interval exceeds 365 days for animal with ID: ' . $animal->getId()."  or MobDataId:". $animal->getMobDataId());
+        if ($parameter === null) {
+            throw new \RuntimeException('Parameter not found for category: ' . $category);
         }
 
         return [
-            'days_since_last_calving' => $days,
+            'min_value' => $parameter->getMinValue(),
+            'max_value' => $parameter->getMaxValue(),
         ];
     }
+
 
 }

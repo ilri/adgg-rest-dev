@@ -202,28 +202,24 @@ class LactationListener
     private  function  getSomaticCellRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
-        $somaticcellcount = $additionalAttributes['66'] ?? 0;
-        return $somaticcellcount;
+        return $additionalAttributes['66'] ?? 0;
     }
 
     private  function  getMilkLactoseRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
-        $milkLactose = $additionalAttributes['65'] ?? 0;
-        return $milkLactose;
+        return $additionalAttributes['65'] ?? 0;
     }
 
     private  function  getMilkProteinRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
-        $milkProtein = $additionalAttributes['64'] ?? 0;
-        return $milkProtein;
+        return $additionalAttributes['64'] ?? 0;
     }
 
     private  function  getMilkFatRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
-        $milkFat = $additionalAttributes['63'] ?? 0;
-        return $milkFat;
+        return $additionalAttributes['63'] ?? 0;
     }
 }

@@ -59,12 +59,12 @@ class LactationListener
 
             // Check if the difference is greater than or equal
             if ($daysinmilk < $daysinmilklimits['min_value'] || $daysinmilk >= $daysinmilklimits['max_value'] ) {
-                throw new \RuntimeException(
+                throw new \RuntimeException(sprintf(
                     'Days In Milk is not within the valid range (%d to %d days) for animal: %s',
                     $daysinmilklimits['min_value'],
                     $daysinmilklimits['max_value'],
                     $animalId
-                );
+                ));
             }
 
         }

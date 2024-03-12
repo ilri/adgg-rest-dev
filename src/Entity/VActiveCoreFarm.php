@@ -18,6 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="v_active_core_farm")
  * @ORM\Entity(repositoryClass=VActiveCoreFarmRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 #[ApiResource]
 class VActiveCoreFarm

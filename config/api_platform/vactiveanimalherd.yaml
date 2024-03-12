@@ -2,7 +2,7 @@ App\Entity\VActiveCoreAnimalHerd:
   collectionOperations:
     get:
       method: get
-      path: /herds
+      path: /vactiveherds
       filters: ['vactivecoreanimalherd.search_filter', 'country_isocode_filter', 'property_filter']
       normalization_context:
         groups: [ 'vactivecoreanimalherd:collection:get' ]
@@ -70,6 +70,6 @@ App\Entity\VActiveCoreAnimalHerd:
   itemOperations:
     get:
       method: get
-      path: /herds/{id}
+      path: /vactiveherds/{id}
       normalization_context:
         groups: [ 'vactivecoreanimalherd:item:get' ]

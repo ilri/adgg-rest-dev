@@ -57,14 +57,37 @@ class LactationListener
             // Retrieve Days In Milk from parameterlist
             $daysinmilklimits = $this->getParameterListValues('lactation_period');
 
+            $validationErrors = [];
+
             // Check if the difference is greater than or equal
             if ($daysinmilk < $daysinmilklimits['min_value'] || $daysinmilk >= $daysinmilklimits['max_value'] ) {
-                throw new \RuntimeException(sprintf(
+                $validationErrors[] = sprintf(
                     'Days In Milk is not within the valid range (%d to %d days) for animal: %s',
                     $daysinmilklimits['min_value'],
                     $daysinmilklimits['max_value'],
                     $animalId
-                ));
+                );
+            }
+
+            // Call the new getTotalMilkRecord method
+            $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
+
+            // Retrieve milk amount limits from parameter list
+            $milkAmountLimits = $this->getParameterListValues('milk_amount_limits');
+
+            // Check if the total milk records meet the limits
+            if ($totalMilkRecord < $milkAmountLimits['min_value'] || $totalMilkRecord >= $milkAmountLimits['max_value']) {
+                $validationErrors[] = sprintf(
+                    'Total Milk Records is not within the valid range (%f to %f) for animal: %s',
+                    $milkAmountLimits['min_value'],
+                    $milkAmountLimits['max_value'],
+                    $animalId
+                );
+            }
+
+            // Check for validation errors and throw a single exception if any
+            if (!empty($validationErrors)) {
+                throw new \RuntimeException(implode(" | ", $validationErrors));
             }
 
         }
@@ -116,6 +139,16 @@ class LactationListener
             'min_value' => $parameter->getMinValue(),
             'max_value' => $parameter->getMaxValue(),
         ];
+    }
+
+    private function getTotalMilkRecord(AnimalEvent $milkingEvent): ?float
+    {
+        $additionalAttributes = $milkingEvent->getAdditionalAttributes();
+        $morning = $additionalAttributes['59'] ?? 0;
+        $evening = $additionalAttributes['61'] ?? 0;
+        $midday = $additionalAttributes['68'] ?? 0;
+
+        return $morning + $evening + $midday;
     }
 
 

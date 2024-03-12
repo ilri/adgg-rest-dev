@@ -85,6 +85,54 @@ class LactationListener
                 );
             }
 
+            $somaticCellCount = $this->getSomaticCellRecord($milkingEvent);
+            $somaticCellCountLimits = $this->getParameterListValues('milk_somatic_cell_count_limits');
+
+            if($somaticCellCount < $somaticCellCountLimits['min_value'] || $somaticCellCount > $somaticCellCountLimits['max_value'] ){
+                $validationErrors[] = sprintf(
+                    'Somatic cell count is not within range (%f to %f) for animal: %s',
+                    $somaticCellCountLimits['min_value'],
+                    $somaticCellCountLimits['max_value'],
+                    $animalId
+                );
+            }
+
+            $milkLactose = $this->getMilkLactoseRecord($milkingEvent);
+            $milkLactoseLimits = $this->getParameterListValues('milk_lactose_limits');
+
+            if($milkLactose < $milkLactoseLimits['min_value'] || $milkLactose > $milkLactoseLimits['max_value'] ){
+                $validationErrors[] = sprintf(
+                    'Milk lactose  is not within range (%f to %f) for animal: %s',
+                    $milkLactoseLimits['min_value'],
+                    $milkLactoseLimits['max_value'],
+                    $animalId
+                );
+            }
+
+            $milkProtein = $this->getMilkProteinRecord($milkingEvent);
+            $milkProteinLimits = $this->getParameterListValues('milk_protein_limits');
+
+            if($milkProtein < $milkProteinLimits['min_value'] || $milkProtein > $milkProteinLimits['max_value'] ){
+                $validationErrors[] = sprintf(
+                    'Milk Protein  is not within range (%f to %f) for animal: %s',
+                    $milkProteinLimits['min_value'],
+                    $milkProteinLimits['max_value'],
+                    $animalId
+                );
+            }
+
+            $milkFat = $this->getMilkFatRecord($milkingEvent);
+            $milkFatLimits = $this->getParameterListValues('milk_fat_limits');
+
+            if($milkFat < $milkFatLimits['min_value'] || $milkFat > $milkFatLimits['max_value'] ){
+                $validationErrors[] = sprintf(
+                    'Milk Fat  is not within range (%f to %f) for animal: %s',
+                    $milkFatLimits['min_value'],
+                    $milkFatLimits['max_value'],
+                    $animalId
+                );
+            }
+
             // Check for validation errors and throw a single exception if any
             if (!empty($validationErrors)) {
                 throw new \RuntimeException(implode(" | ", $validationErrors));
@@ -151,5 +199,31 @@ class LactationListener
         return $morning + $evening + $midday;
     }
 
+    private  function  getSomaticCellRecord(AnimalEvent $milkingEvent): ?float
+    {
+        $additionalAttributes = $milkingEvent->getAdditionalAttributes();
+        $somaticcellcount = $additionalAttributes['66'] ?? 0;
+        return $somaticcellcount;
+    }
 
+    private  function  getMilkLactoseRecord(AnimalEvent $milkingEvent): ?float
+    {
+        $additionalAttributes = $milkingEvent->getAdditionalAttributes();
+        $milkLactose = $additionalAttributes['65'] ?? 0;
+        return $milkLactose;
+    }
+
+    private  function  getMilkProteinRecord(AnimalEvent $milkingEvent): ?float
+    {
+        $additionalAttributes = $milkingEvent->getAdditionalAttributes();
+        $milkProtein = $additionalAttributes['64'] ?? 0;
+        return $milkProtein;
+    }
+
+    private  function  getMilkFatRecord(AnimalEvent $milkingEvent): ?float
+    {
+        $additionalAttributes = $milkingEvent->getAdditionalAttributes();
+        $milkFat = $additionalAttributes['63'] ?? 0;
+        return $milkFat;
+    }
 }

@@ -25,16 +25,20 @@ class AnimalSireListener
                 return; // Skip execution if herd_id is already provided
             }
 
-            // Fetch the sire_id using the stored function
-            $sireId = $this->fetchSireId($entity->getMobSireId());
 
             $animalType = $entity->getAnimalType();
+            $mobSireId = $entity->getMobSireId();
 
-            $sire = $this->entityManager->getRepository(Animal::class)->find($sireId);
-
+            // Check if animal type is 1, 2, 8, 9
+            $allowedAnimalTypes = [3, 5, 10, 12];
             // Set the sire_id on the Animal entity if it's not null, also confirm that it is not an AI straw
-            if ($sire !== null & $animalType !== 6) {
-                $entity->setSireId($sire);
+            if (!in_array($entity->getAnimalType(), $allowedAnimalTypes)) {
+                throw new \Exception('This animal is not a sire. mobAnimalDataId: ' .$mobSireId  ." Animal Type: ". $animalType);
+            }else{
+                // Fetch the dam_id using the stored function
+                $sireId = (int) $this->fetchSireId($entity->getSireId());
+
+                $entity->setSireId($sireId);
 
                 // Flush the changes
                 $this->entityManager->flush();

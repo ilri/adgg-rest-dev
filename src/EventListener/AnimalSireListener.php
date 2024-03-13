@@ -28,10 +28,12 @@ class AnimalSireListener
             // Fetch the sire_id using the stored function
             $sireId = $this->fetchSireId($entity->getMobSireId());
 
+            $animalType = $entity->getAnimalType();
+
             $sire = $this->entityManager->getRepository(Animal::class)->find($sireId);
 
-            // Set the sire_id on the Animal entity if it's not null
-            if ($sire !== null) {
+            // Set the sire_id on the Animal entity if it's not null, also confirm that it is not an AI straw
+            if ($sire !== null & $animalType !== 6) {
                 $entity->setSireId($sire);
 
                 // Flush the changes

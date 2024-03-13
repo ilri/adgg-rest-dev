@@ -25,14 +25,18 @@ class AnimalDamListener
                 return; // Skip execution if herd_id is already provided
             }
 
-            // Fetch the dam_id using the stored function
-            $damId = $this->fetchDamId($entity->getMobDamId());
+            $animalType = $entity->getAnimalType();
+            $mobDamId = $entity->getMobDamId();
 
-            $dam = $this->entityManager->getRepository(Animal::class)->find($damId);
+            // Check if animal type is 3, 5, 10, or 12
+            $allowedAnimalTypes = [1, 2, 8, 9];
+            if (!in_array($entity->getAnimalType(), $allowedAnimalTypes)) {
+                throw new \Exception('This animal is not a dam. mobAnimalDataId: ' .$mobDamId  ." Animal Type: ". $animalType);
+            }else{
+                // Fetch the dam_id using the stored function
+                $damId = (int) $this->fetchDamId($entity->getMobDamId());
 
-            // Set the dam_id on the Animal entity if it's not null
-            if ($dam !== null) {
-                $entity->setDamId($dam);
+                $entity->setDamId($damId);
 
                 // Flush the changes
                 $this->entityManager->flush();

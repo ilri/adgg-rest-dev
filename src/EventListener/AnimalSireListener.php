@@ -28,7 +28,7 @@ class AnimalSireListener
             $mobSireId = $entity->getMobSireId();
 
             // Check if animal type is 1, 2, 8, 9
-            $allowedAnimalTypes = [3, 5, 10, 12];
+            $allowedAnimalTypes = [1, 2, 8, 9];
             // Set the sire_id on the Animal entity if it's not null, also confirm that it is not an AI straw
             if (!in_array($entity->getAnimalType(), $allowedAnimalTypes)) {
                 throw new \Exception('This animal with mobSireDataId: ' .$mobSireId  ." is a bisexual");

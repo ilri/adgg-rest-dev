@@ -28,7 +28,7 @@ class AnimalDamListener
             $mobDamId = $entity->getMobDamId();
 
             // Check if animal type is 3, 5, 10, or 12
-            $allowedAnimalTypes = [1, 2, 8, 9];
+            $allowedAnimalTypes = [3, 5, 10, 12];
             if (!in_array($entity->getAnimalType(), $allowedAnimalTypes)) {
                 throw new \Exception('This animal with mobDamDataId: ' .$mobDamId  ." is a bisexual");
             }else{

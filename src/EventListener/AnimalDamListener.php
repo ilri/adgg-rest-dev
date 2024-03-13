@@ -25,13 +25,12 @@ class AnimalDamListener
                 return; // Skip execution if herd_id is already provided
             }
 
-            $animalType = $entity->getAnimalType();
             $mobDamId = $entity->getMobDamId();
 
             // Check if animal type is 3, 5, 10, or 12
             $allowedAnimalTypes = [1, 2, 8, 9];
             if (!in_array($entity->getAnimalType(), $allowedAnimalTypes)) {
-                throw new \Exception('This animal is not a dam. mobAnimalDataId: ' .$mobDamId  ." Animal Type: ". $animalType);
+                throw new \Exception('This animal with mobAnimalDataId: ' .$mobDamId  ." is a bisexual");
             }else{
                 // Fetch the dam_id using the stored function
                 $damId = (int) $this->fetchDamId($entity->getMobDamId());

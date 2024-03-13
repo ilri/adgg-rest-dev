@@ -182,7 +182,7 @@ services:
 
     corecooperativegroup.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ {  'createdBy': 'exact', 'countryId': 'exact',' 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' } ]
+        arguments: [ {  'createdBy': 'exact', 'countryId': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'corecooperativegroup.search_filter' } ]
 
     vactivecoreanimalherd.search_filter:

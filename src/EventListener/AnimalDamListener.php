@@ -26,9 +26,15 @@ class AnimalDamListener
             }
 
             $mobDamId = $entity->getMobDamId();
-            if ($mobDamId !== null){
+            $registrationAnimalType = (int) $this->fetchDamAnimalType($mobDamId);
+
+            // Check if animal type at registration allows it to be a dam
+            $allowedDamTypes = [1, 2, 8, 9];
+            if (!in_array($registrationAnimalType, $allowedDamTypes)) {
+                throw new \Exception('This animal with mobDamDataId: ' . $mobDamId . ' is not allowed as a dam. It is a sire with AnimalType: ' . $registrationAnimalType);
+            }else if ($mobDamId !== null){
                 // Fetch the dam_id using the stored function
-                $damId = (int) $this->fetchDamId($entity->getMobDamId());
+                $damId = (int) $this->fetchDamId($mobDamId);
 
                 $entity->setDamId($damId);
 
@@ -51,6 +57,20 @@ class AnimalDamListener
         $result = $query->getSingleResult();
 
         return $result['damId'];
+    }
+
+    private function fetchDamAnimalType($mobDamDataId)
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('animalType', 'animalType');
+
+        $sql = 'SELECT fn_getAnimalType_mob(:mobDamDataId) as animalType';
+        $query = $this->entityManager->createNativeQuery($sql, $rsm);
+        $query->setParameter('mobDamDataId', $mobDamDataId);
+
+        $result = $query->getSingleResult();
+
+        return $result['animalType'];
     }
 
 }

@@ -26,13 +26,13 @@ class AnimalSireListener
             }
 
             $mobSireId = $entity->getMobSireId();
+            $registrationAnimalType = $entity->getAnimalType();
 
-            // Check if animal type is 1, 2, 8, 9
-            $allowedAnimalTypes = [1, 2, 8, 9];
-            // Set the sire_id on the Animal entity if it's not null, also confirm that it is not an AI straw
-            if (!in_array($entity->getAnimalType(), $allowedAnimalTypes)) {
-                throw new \Exception('This animal with mobSireDataId: ' .$mobSireId  ." is a bisexual");
-            }else{
+            // Check if animal type at registration allows it to be a sire
+            $allowedSireTypes = [3, 5, 10, 12];
+            if (!in_array($registrationAnimalType, $allowedSireTypes)) {
+                throw new \Exception('This animal with mobSireDataId: ' . $mobSireId . ' is not a sire. It is a Dam with Animal Type: ' . $registrationAnimalType);
+            }else if ($mobSireId !== null) {
                 // Fetch the dam_id using the stored function
                 $sireId = (int) $this->fetchSireId($entity->getSireId());
 

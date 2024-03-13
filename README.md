@@ -1,4 +1,4 @@
-# ADGG ZOETIS API
+# ADGG Developer API
 
 zoetis version of adgg rest api
 

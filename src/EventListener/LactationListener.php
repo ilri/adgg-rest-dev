@@ -60,7 +60,7 @@ class LactationListener
             $validationErrors = [];
 
             // Check if the difference is greater than or equal
-            if ($daysinmilk < $daysinmilklimits['min_value'] || $daysinmilk >= $daysinmilklimits['max_value'] ) {
+            if (($daysinmilk < $daysinmilklimits['min_value'] || $daysinmilk >= $daysinmilklimits['max_value']) & $daysinmilk !== NULL ) {
                 $validationErrors[] = sprintf(
                     'Days In Milk is not within the valid range (%d to %d days) for animal: %s',
                     $daysinmilklimits['min_value'],
@@ -76,7 +76,7 @@ class LactationListener
             $milkAmountLimits = $this->getParameterListValues('milk_amount_limits');
 
             // Check if the total milk records meet the limits
-            if ($totalMilkRecord < $milkAmountLimits['min_value'] || $totalMilkRecord >= $milkAmountLimits['max_value']) {
+            if (($totalMilkRecord < $milkAmountLimits['min_value'] || $totalMilkRecord >= $milkAmountLimits['max_value']) & $totalMilkRecord !== NULL) {
                 $validationErrors[] = sprintf(
                     'Total Milk Records is not within the valid range (%f to %f) for animal: %s',
                     $milkAmountLimits['min_value'],
@@ -88,7 +88,7 @@ class LactationListener
             $somaticCellCount = $this->getSomaticCellRecord($milkingEvent);
             $somaticCellCountLimits = $this->getParameterListValues('milk_somatic_cell_count_limits');
 
-            if($somaticCellCount < $somaticCellCountLimits['min_value'] || $somaticCellCount > $somaticCellCountLimits['max_value'] ){
+            if(($somaticCellCount < $somaticCellCountLimits['min_value'] || $somaticCellCount > $somaticCellCountLimits['max_value']) & $somaticCellCount !== NULL ){
                 $validationErrors[] = sprintf(
                     'Somatic cell count is not within range (%f to %f) for animal: %s',
                     $somaticCellCountLimits['min_value'],
@@ -100,7 +100,7 @@ class LactationListener
             $milkLactose = $this->getMilkLactoseRecord($milkingEvent);
             $milkLactoseLimits = $this->getParameterListValues('milk_lactose_limits');
 
-            if($milkLactose < $milkLactoseLimits['min_value'] || $milkLactose > $milkLactoseLimits['max_value'] ){
+            if(($milkLactose < $milkLactoseLimits['min_value'] || $milkLactose > $milkLactoseLimits['max_value'] ) & $milkLactose !== NULL){
                 $validationErrors[] = sprintf(
                     'Milk lactose  is not within range (%f to %f) for animal: %s',
                     $milkLactoseLimits['min_value'],
@@ -112,7 +112,7 @@ class LactationListener
             $milkProtein = $this->getMilkProteinRecord($milkingEvent);
             $milkProteinLimits = $this->getParameterListValues('milk_protein_limits');
 
-            if($milkProtein < $milkProteinLimits['min_value'] || $milkProtein > $milkProteinLimits['max_value'] ){
+            if(($milkProtein < $milkProteinLimits['min_value'] || $milkProtein > $milkProteinLimits['max_value']) & $milkProtein !== NULL ){
                 $validationErrors[] = sprintf(
                     'Milk Protein  is not within range (%f to %f) for animal: %s',
                     $milkProteinLimits['min_value'],
@@ -124,7 +124,7 @@ class LactationListener
             $milkFat = $this->getMilkFatRecord($milkingEvent);
             $milkFatLimits = $this->getParameterListValues('milk_fat_limits');
 
-            if($milkFat < $milkFatLimits['min_value'] || $milkFat > $milkFatLimits['max_value'] ){
+            if(($milkFat < $milkFatLimits['min_value'] || $milkFat > $milkFatLimits['max_value'] ) & $milkFat !== NULL){
                 $validationErrors[] = sprintf(
                     'Milk Fat  is not within range (%f to %f) for animal: %s',
                     $milkFatLimits['min_value'],

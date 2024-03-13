@@ -93,6 +93,18 @@ services:
         tags:
             - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\FarmMetadata' }
 
+    App\EventListener\AnimalSireListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\Animal' }
+
+    App\EventListener\AnimalDamListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\Animal' }
+
     App\Security\AuthenticationSuccessHandler:
         arguments: [ '@lexik_jwt_authentication.jwt_manager' ]
 

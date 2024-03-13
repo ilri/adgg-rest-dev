@@ -30,7 +30,7 @@ class AnimalDamListener
             // Check if animal type is 3, 5, 10, or 12
             $allowedAnimalTypes = [1, 2, 8, 9];
             if (!in_array($entity->getAnimalType(), $allowedAnimalTypes)) {
-                throw new \Exception('This animal with mobAnimalDataId: ' .$mobDamId  ." is a bisexual");
+                throw new \Exception('This animal with mobDamDataId: ' .$mobDamId  ." is a bisexual");
             }else{
                 // Fetch the dam_id using the stored function
                 $damId = (int) $this->fetchDamId($entity->getMobDamId());

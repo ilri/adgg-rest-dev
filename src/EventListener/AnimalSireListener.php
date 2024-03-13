@@ -26,13 +26,7 @@ class AnimalSireListener
             }
 
             $mobSireId = $entity->getMobSireId();
-            $registrationAnimalType = $entity->getAnimalType();
-
-            // Check if animal type at registration allows it to be a sire
-            $allowedSireTypes = [3, 5, 10, 12];
-            if (!in_array($registrationAnimalType, $allowedSireTypes)) {
-                throw new \Exception('This animal with mobSireDataId: ' . $mobSireId . ' is not a sire. It is a Dam with Animal Type: ' . $registrationAnimalType);
-            }else if ($mobSireId !== null) {
+            if ($mobSireId !== null) {
                 // Fetch the dam_id using the stored function
                 $sireId = (int) $this->fetchSireId($entity->getSireId());
 

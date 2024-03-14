@@ -21,6 +21,17 @@ class AnimalListener
         $entity = $args->getObject();
 
         if ($entity instanceof Animal) {
+
+            // Check if registration date is before birthdate
+            if ($entity->getRegDate() >= $entity->getBirthDate()) {
+                throw new \InvalidArgumentException("Registration date must be before the birth date.");
+            }
+
+            // Check if birthdate is in the future
+            $now = new \DateTime();
+            if ($entity->getBirthDate() > $now) {
+                throw new \InvalidArgumentException("Birth date cannot be in the future.");
+            }
             // Check if farm_id is provided in the post payload
             if ($entity->getFarm() !== null) {
                 return; // Skip execution if herd_id is already provided
@@ -55,4 +66,6 @@ class AnimalListener
 
         return $result['farmId'];
     }
+
+
 }

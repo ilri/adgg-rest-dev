@@ -45,6 +45,16 @@ class LactationListener
             throw new \RuntimeException('Animal not found for ID: ' . $animalId);
         }
 
+        // Determine if an animal is a male animal
+        $registrationAnimalType = (int)$this->fetchAnimalType($milkingEvent->getMobAnimalDataId());
+
+        $maleAnimalTypes = [5, 12, 3, 10];
+
+        if (in_array($registrationAnimalType, $maleAnimalTypes)) {
+            throw new \RuntimeException('A male animal cannot be milked: ' . $animalId);
+        }
+
+
         $calving = $this->getLastCalvingEvent($animalEntity);
 
         if ($calving === null) {
@@ -156,6 +166,20 @@ class LactationListener
         $result = $query->getSingleResult();
 
         return $result['animalId'];
+    }
+
+    private function fetchAnimalType($mobAnimalDataId)
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('animalType', 'animalType');
+
+        $sql = 'SELECT fn_getAnimalType_mob(:mobAnimalDataId) as animalType';
+        $query = $this->entityManager->createNativeQuery($sql, $rsm);
+        $query->setParameter('mobAnimalDataId', $mobAnimalDataId);
+
+        $result = $query->getSingleResult();
+
+        return $result['animalType'];
     }
 
     /**

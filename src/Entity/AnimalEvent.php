@@ -14,7 +14,8 @@ use App\Entity\Traits\{AdditionalAttributesTrait,
 use App\EventListener\{
     LactationListener,
     CalvingIntervalListener,
-    MilkingEventListener
+    MilkingEventListener,
+    WeightEventListener
 };
 use App\Repository\AnimalEventRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -32,7 +33,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     message="An animal event of this type already exists for the animal on this date."
  * )
  */
-//TODO return this line: @ORM\EntityListeners({LactationListener::class, MilkingEventListener::class, CalvingIntervalListener::class})
+//TODO return this line: @ORM\EntityListeners({LactationListener::class, MilkingEventListener::class, CalvingIntervalListener::class, WeightEventListener::class})
 class AnimalEvent
 {
     use AdministrativeDivisionsTrait;

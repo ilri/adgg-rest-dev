@@ -69,6 +69,14 @@ services:
             event: 'prePersist'
             entity: 'App\Entity\AnimalEvent'
 
+    App\EventListener\WeightEventListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            name: 'doctrine.orm.entity_listener'
+            event: 'prePersist'
+            entity: 'App\Entity\AnimalEvent'
+
     App\EventListener\AnimalListener:
         arguments:
             $entityManager: '@doctrine.orm.entity_manager'

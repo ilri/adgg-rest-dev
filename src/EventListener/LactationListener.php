@@ -48,7 +48,7 @@ class LactationListener
         // Determine if an animal is a male animal
         $registrationAnimalType = (int)$this->fetchAnimalType($milkingEvent->getMobAnimalDataId());
 
-        $maleAnimalTypes = [5, 12, 3, 10];
+        $maleAnimalTypes = [3, 5, 12, 10];
 
         if (in_array($registrationAnimalType, $maleAnimalTypes)) {
             throw new \RuntimeException('A male animal cannot be milked: ' . $animalId);

@@ -25,7 +25,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * AnimalEvent
  *
  * @ORM\Table(name="core_animal_event", indexes={@ORM\Index(name="animal_id", columns={"animal_id"}), @ORM\Index(name="country_id", columns={"country_id", "region_id", "district_id", "ward_id", "village_id"}), @ORM\Index(name="data_collection_date", columns={"data_collection_date"}), @ORM\Index(name="event_date", columns={"event_date"}), @ORM\Index(name="event_type", columns={"event_type"}), @ORM\Index(name="lactation_id", columns={"lactation_id"}), @ORM\Index(name="org_id", columns={"org_id", "client_id"})})
- *
+ * @ORM\EntityListeners({LactationListener::class, MilkingEventListener::class, CalvingIntervalListener::class, WeightEventListener::class})
  * @ORM\Entity(repositoryClass=AnimalEventRepository::class)
  * @ORM\HasLifecycleCallbacks()
  * @UniqueEntity(
@@ -33,7 +33,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     message="An animal event of this type already exists for the animal on this date."
  * )
  */
-//TODO return this line: @ORM\EntityListeners({LactationListener::class, MilkingEventListener::class, CalvingIntervalListener::class, WeightEventListener::class})
+
 class AnimalEvent
 {
     use AdministrativeDivisionsTrait;

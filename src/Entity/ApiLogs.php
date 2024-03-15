@@ -15,11 +15,11 @@ use Doctrine\ORM\Mapping as ORM;
 class ApiLogs
 {
     /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private  $id;
+    private $id;
 
     /**
      * @ORM\Column(name="created_by",type="integer")

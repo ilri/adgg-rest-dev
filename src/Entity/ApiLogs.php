@@ -42,7 +42,7 @@ class ApiLogs
     private $requestUri;
 
     /**
-     * @ORM\Column(name="status_code",type="string", length=500, nullable=true)
+     * @ORM\Column(name="http_status_code",type="string", length=500, nullable=true)
      */
     private $statusCode;
 

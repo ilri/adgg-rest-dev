@@ -87,7 +87,7 @@ class LactationListener
             $milkAmountLimits = $this->getParameterListValues('milk_amount_limits');
 
             // Check if the total milk records meet the limits
-            if (($totalMilkRecord < $milkAmountLimits['min_value'] || $totalMilkRecord >= $milkAmountLimits['max_value']) & $totalMilkRecord !== NULL) {
+            if (($totalMilkRecord < $milkAmountLimits['min_value'] || $totalMilkRecord >= $milkAmountLimits['max_value']) & $totalMilkRecord !== 0) {
                 $validationErrors[] = sprintf(
                     'Total Milk Records is not within the valid range (%f to %f) for animal: %s. You provided total milk: %f',
                     $milkAmountLimits['min_value'],
@@ -219,7 +219,7 @@ class LactationListener
         ];
     }
 
-    private function getTotalMilkRecord(AnimalEvent $milkingEvent): ?float
+    private function getTotalMilkRecord(AnimalEvent $milkingEvent): ?int
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
         $morning = $additionalAttributes['59'] ?? 0;

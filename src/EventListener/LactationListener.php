@@ -5,7 +5,6 @@ namespace App\EventListener;
 use App\Entity\Animal;
 use App\Entity\AnimalEvent;
 use App\Entity\ParameterLimits;
-use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\Event\LifecycleEventArgs;

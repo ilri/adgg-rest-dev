@@ -126,9 +126,9 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
             if (!empty($value) && $value !== ['']) {
                 //Checks whether to retrieve the attribute label or ID
                 $serializationType == 'normalize'
-                    ? $updated_key = $this->retrieveAttributeLabel($key)
+                    ? $updated_key = $this->retrieveAttributeKey($key)
                     : $updated_key = $this->retrieveAttributeId($key);
-                if ($updated_key) {
+                if ($updated_key !== null) {
                     $modifiedAdditionalAttributes[$updated_key] = $value;
                 }
             }
@@ -149,6 +149,20 @@ class AdditionalAttributesNormalizer implements NormalizerInterface, Denormalize
         $attr = $this->em->getRepository(TableAttribute::class)->find($identifier);
 
         return $attr ? $attr->getAttributeLabel(): null;
+    }
+
+    /**
+     * Retrieves a CoreTableAttribute object based on its ID
+     * and returns ID used as code.
+     *
+     * @param int|string $identifier
+     * @return string|null
+     */
+    private function retrieveAttributeKey($identifier): ?string
+    {
+        $attr = $this->em->getRepository(TableAttribute::class)->find($identifier);
+
+        return $attr ? $attr->getId(): null;
     }
 
     /**

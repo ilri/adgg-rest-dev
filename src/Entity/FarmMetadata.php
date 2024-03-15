@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FarmMetadata
 {
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use ODKIdentifiableTrait;
@@ -75,13 +76,6 @@ class FarmMetadata
      */
     private $farmId;
 
-    /**
-     * @var array|null
-     *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     */
-    protected $additionalAttributes;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -142,16 +136,6 @@ class FarmMetadata
         $this->farm = $farm;
 
         return $this;
-    }
-
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): void
-    {
-        $this->additionalAttributes = $additionalAttributes;
     }
 
     public function getFarmId(): int

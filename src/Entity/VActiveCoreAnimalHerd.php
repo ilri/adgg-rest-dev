@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Entity\Traits\AdditionalAttributesTrait;
 use App\Entity\Traits\AdministrativeDivisionsTrait;
 use App\Entity\Traits\CountryTrait;
 use App\Entity\Traits\CreatedTrait;
@@ -22,6 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class VActiveCoreAnimalHerd
 {
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -135,29 +137,9 @@ class VActiveCoreAnimalHerd
     /**
      * @var array|null
      *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     */
-    protected $additionalAttributes;
-
-    /**
-     * @var array|null
-     *
      * @ORM\Column(name="mob_additional_attributes", type="json", nullable=true)
      */
     protected $mobAdditionalAttributes;
-
-
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): self
-    {
-        $this->additionalAttributes = $additionalAttributes;
-
-        return $this;
-    }
 
     public function getMobAdditionalAttributes(): ?array
     {

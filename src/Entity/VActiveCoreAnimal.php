@@ -2,7 +2,8 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\{AdministrativeDivisionsTrait,
+use App\Entity\Traits\{AdditionalAttributesTrait,
+    AdministrativeDivisionsTrait,
     CountryTrait,
     CreatedTrait,
     DataSourceTrait,
@@ -29,6 +30,7 @@ use Doctrine\ORM\Mapping as ORM;
 class VActiveCoreAnimal
 {
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -289,13 +291,6 @@ class VActiveCoreAnimal
     private $animalEvents;
 
     /**
-     * @var array|null
-     *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     */
-    protected $additionalAttributes;
-
-    /**
      * @var bool
      *
      * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default"="1"})
@@ -326,18 +321,6 @@ class VActiveCoreAnimal
     public function getIsActive(): ?bool
     {
         return $this->isActive;
-    }
-
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): self
-    {
-        $this->additionalAttributes = $additionalAttributes;
-
-        return $this;
     }
 
     public function __construct()

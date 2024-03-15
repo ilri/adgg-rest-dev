@@ -72,7 +72,7 @@ class LactationListener
             // Check if the difference is greater than or equal
             if (($daysinmilk < $daysinmilklimits['min_value'] || $daysinmilk >= $daysinmilklimits['max_value']) & $daysinmilk !== NULL ) {
                 $validationErrors[] = sprintf(
-                    'Days In Milk is not within the valid range (%d to %d days) for animal: %s. You provided: %f',
+                    'Days In Milk is not within the valid range (%d to %d days) for animal: %s. You provided DIM of: %f',
                     $daysinmilklimits['min_value'],
                     $daysinmilklimits['max_value'],
                     $animalId,

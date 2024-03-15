@@ -238,25 +238,25 @@ class WeightEventListener
     private function getMatureHeartGirthLimitsRecord(AnimalEvent $weightEvent): ?float
     {
         $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['137'] ?? 0;
+        return $additionalAttributes['137'] ?? NULL;
     }
 
     private function getMatureWeightLimitsRecord(AnimalEvent $weightEvent): ?float
     {
         $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['136'] ?? 0;
+        return $additionalAttributes['136'] ?? NULL;
     }
 
     private function getMatureBodyCondScoreRecord(AnimalEvent $weightEvent): ?float
     {
         $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['139'] ?? 0;
+        return $additionalAttributes['139'] ?? NULL;
     }
 
     private function getMatureBodyLengthRecord(AnimalEvent $weightEvent): ?float
     {
         $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['138'] ?? 0;
+        return $additionalAttributes['138'] ?? NULL;
     }
 
 }

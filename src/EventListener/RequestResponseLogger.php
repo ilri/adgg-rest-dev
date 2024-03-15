@@ -32,9 +32,11 @@ class RequestResponseLogger
 
         // Create and persist a log entity
         $log = new ApiLogs();
-        $log->setPayload(json_encode([
-            'request' => $requestData,
+        $log->setPayloadResponse(json_encode([
             'response' => $responseData,
+        ]));
+        $log->setPayloadRequest(json_encode([
+            'request' => $requestData,
         ]));
         $log->setRequestUri($request->getRequestUri());
 

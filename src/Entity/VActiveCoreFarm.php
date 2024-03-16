@@ -24,6 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
 class VActiveCoreFarm
 {
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -244,33 +245,12 @@ class VActiveCoreFarm
      */
     private $uniqueIdOdk;
 
-
-    /**
-     * @var array|null
-     *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     */
-    protected $additionalAttributes;
-
     /**
      * @var array|null
      *
      * @ORM\Column(name="mob_additional_attributes", type="json", nullable=true)
      */
     protected $mobAdditionalAttributes;
-
-
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): self
-    {
-        $this->additionalAttributes = $additionalAttributes;
-
-        return $this;
-    }
 
     public function getMobAdditionalAttributes(): ?array
     {
@@ -283,7 +263,6 @@ class VActiveCoreFarm
 
         return $this;
     }
-
 
     public function getId(): ?int
     {

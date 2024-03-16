@@ -37,6 +37,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class AnimalEvent
 {
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -190,13 +191,6 @@ class AnimalEvent
      * @var MilkYieldRecord
      */
     private $milkYieldRecord;
-
-    /**
-     * @var array|null
-     *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     */
-    protected $additionalAttributes;
 
     /**
      * @var array|null
@@ -417,18 +411,6 @@ class AnimalEvent
         return $this;
     }
 
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): self
-    {
-        $this->additionalAttributes = $additionalAttributes;
-
-        return $this;
-    }
-
     public function getMobAdditionalAttributes(): ?array
     {
         return $this->mobAdditionalAttributes;
@@ -438,7 +420,6 @@ class AnimalEvent
     {
         $this->mobAdditionalAttributes = $mobAdditionalAttributes;
     }
-
 
 
 }

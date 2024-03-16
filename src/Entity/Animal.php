@@ -32,6 +32,7 @@ class Animal
 {
     use AdministrativeDivisionsTrait;
     use MobAdditionalAttributesTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -298,13 +299,6 @@ class Animal
      *
      */
     private $isActive;
-
-    /**
-     * @var array|null
-     *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     */
-    protected $additionalAttributes;
 
 
     public function __construct()
@@ -828,16 +822,4 @@ class Animal
         }
         return null;
     }
-
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): void
-    {
-        $this->additionalAttributes = $additionalAttributes;
-    }
-
-
 }

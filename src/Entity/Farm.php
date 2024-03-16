@@ -26,6 +26,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Farm
 {
     use AdministrativeDivisionsTrait;
+    use AdditionalAttributesTrait;
     use CountryTrait;
     use CreatedTrait;
     use IdentifiableTrait;
@@ -248,13 +249,6 @@ class Farm
      *
      */
     private $uniqueIdOdk;
-
-    /**
-     * @var array|null
-     *
-     * @ORM\Column(name="additional_attributes", type="json", nullable=true)
-     */
-    protected $additionalAttributes;
 
     /**
      * @var array|null
@@ -585,16 +579,6 @@ class Farm
         $this->uniqueIdOdk = $uniqueIdOdk;
 
         return $this;
-    }
-
-    public function getAdditionalAttributes(): ?array
-    {
-        return $this->additionalAttributes;
-    }
-
-    public function setAdditionalAttributes(?array $additionalAttributes): void
-    {
-        $this->additionalAttributes = $additionalAttributes;
     }
 
     public function getMobAdditionalAttributes(): ?array

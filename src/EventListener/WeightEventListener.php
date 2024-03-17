@@ -33,18 +33,9 @@ class WeightEventListener
         $animalId = $this->fetchWeightAnimalId($weightEvent->getMobAnimalDataId());
 
         if ($animalId === null) {
-            throw new \RuntimeException('Animal is null for weight event with ID: ' . $weightEvent->getId());
+            throw new \RuntimeException('Animal is null for weight event with ModDataID: ' . $weightEvent->getMobAnimalDataId());
         }
 
-        // Fetch the animal_id using the MySQL function
-        $animalId = $this->fetchWeightAnimalId($weightEvent->getMobAnimalDataId());
-
-        // If animal_id is still NULL, handle the error or provide a default value
-        if ($animalId === null) {
-            // If animal is not found, handle the error or provide a default value
-            // In this example, an exception is thrown
-            throw new \Exception('Animal not found for the provided mobAnimalDataId');
-        }
 
         $validationErrors = [];
 

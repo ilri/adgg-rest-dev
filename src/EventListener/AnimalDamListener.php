@@ -26,6 +26,9 @@ class AnimalDamListener
             }
 
             $mobDamId = $entity->getMobDamId();
+            if($mobDamId === null){
+                return;
+            }
             $registrationAnimalType = (int) $this->fetchDamAnimalType($mobDamId);
 
             // Check if animal type at registration allows it to be a dam

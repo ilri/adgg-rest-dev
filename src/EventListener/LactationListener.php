@@ -264,13 +264,13 @@ class LactationListener
         $milkLactoseLimits = $this->getParameterListValues('milk_lactose_limits');
 
         if(($milkLactose < $milkLactoseLimits['min_value'] || $milkLactose > $milkLactoseLimits['max_value'] ) & $milkLactose !== NULL){
-            $validationErrors[] = sprintf(
+            throw new \RuntimeException(sprintf(
                 'Milk lactose  is not within range (%f to %f) for animal: %s. You have provided: %f',
                 $milkLactoseLimits['min_value'],
                 $milkLactoseLimits['max_value'],
                 $milkingEvent->getMobAnimalDataId(),
                 $milkLactose
-            );
+            ));
         }
         return $milkLactose;
     }
@@ -281,13 +281,13 @@ class LactationListener
         $milkFatLimits = $this->getParameterListValues('milk_fat_limits');
 
         if(($milkFat < $milkFatLimits['min_value'] || $milkFat > $milkFatLimits['max_value'] ) & $milkFat !== NULL){
-            $validationErrors[] = sprintf(
+            throw new \RuntimeException(sprintf(
                 'Milk Fat  is not within range (%f to %f) for animal: %s. You have provided: %f',
                 $milkFatLimits['min_value'],
                 $milkFatLimits['max_value'],
                 $milkingEvent->getMobAnimalDataId(),
                 $milkFat
-            );
+            ));
         }
         return $milkFat;
     }

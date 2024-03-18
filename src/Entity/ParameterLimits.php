@@ -99,6 +99,13 @@ class ParameterLimits
      */
     private $updatedBy;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="field_id", type="integer", nullable=true)
+     */
+    private $fieldId;
+
 
 
     public function getId(): ?int
@@ -237,4 +244,18 @@ class ParameterLimits
 
         return $this;
     }
+
+    public function getFieldId(): ?int
+    {
+        return $this->fieldId;
+    }
+
+    public function setFieldId(?int $fieldId): self
+    {
+        $this->fieldId = $fieldId;
+
+        return $this;
+    }
+
+
 }

@@ -32,36 +32,40 @@ class RequestResponseLogger
             }
 
             $request = $this->requestStack->getCurrentRequest();
-            $response = $event->getResponse();
 
-            // Get request and response data
-            $requestData = $request->getContent();
-            $responseData = $response->getContent();
+            if ($request->isMethod('POST')) {
+                $response = $event->getResponse();
 
-            // Create and persist a log entity
-            $log = new ApiLogs();
-            $log->setPayloadResponse(json_encode([
-                'response' => $responseData,
-            ]));
-            $log->setPayloadRequest(json_encode([
-                'request' => $requestData,
-            ]));
-            $log->setRequestUri($request->getRequestUri());
+                // Get request and response data
+                $requestData = $request->getContent();
+                $responseData = $response->getContent();
 
-            // Set the authenticated user's ID if available
-            if ($user = $this->security->getUser()) {
-                $log->setUserId($user->getId());
+
+                // Create and persist a log entity
+                $log = new ApiLogs();
+                $log->setPayloadResponse(json_encode([
+                    'response' => $responseData,
+                ]));
+                $log->setPayloadRequest(json_encode([
+                    'request' => $requestData,
+                ]));
+                $log->setRequestUri($request->getRequestUri());
+
+                // Set the authenticated user's ID if available
+                if ($user = $this->security->getUser()) {
+                    $log->setUserId($user->getId());
+                }
+
+                // Set the request method (action) e.g., GET, POST, PUT, DELETE
+                $log->setRequestMethod($request->getMethod());
+
+                // Set the status code from the response
+                $log->setStatusCode($response->getStatusCode());
+
+                // Persist the log entity
+                $this->entityManager->persist($log);
+                $this->entityManager->flush();
             }
-
-            // Set the request method (action) e.g., GET, POST, PUT, DELETE
-            $log->setRequestMethod($request->getMethod());
-
-            // Set the status code from the response
-            $log->setStatusCode($response->getStatusCode());
-
-            // Persist the log entity
-            $this->entityManager->persist($log);
-            $this->entityManager->flush();
         } catch (\Throwable $e) {
             // Handle any other exceptions that may occur during logging
             // Example: $this->logger->error('An error occurred during logging: ' . $e->getMessage());

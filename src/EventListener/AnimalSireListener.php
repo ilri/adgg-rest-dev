@@ -26,11 +26,10 @@ class AnimalSireListener
             }
 
             $mobSireId = $entity->getMobSireId();
+            if($mobSireId === null){
+                return;
+            }
             $registrationAnimalType = (int) $this->fetchSireAnimalType($mobSireId);
-
-//            if($mobSireId === null){
-//                return;
-//            }
 
             // Check if animal type at registration allows it to be a sire
             $allowedSireTypes = [3, 5, 10, 12];

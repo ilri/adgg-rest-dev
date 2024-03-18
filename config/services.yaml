@@ -215,5 +215,5 @@ services:
 
     vactivecoreanimalherd.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'createdBy': 'exact' } ]
+        arguments: [ { 'createdBy': 'exact' , 'countryId': 'exact', 'regionId': 'exact' , 'districtId': 'exact', 'wardId': 'exact', 'villageId': 'exact'} ]
         tags: [ { name: 'api_platform.filter', id: 'vactivecoreanimalherd.search_filter' } ]

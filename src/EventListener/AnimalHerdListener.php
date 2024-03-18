@@ -49,18 +49,4 @@ class AnimalHerdListener
         return $result['herdId'];
     }
 
-    private function fetchFarmId($mobFarmDataId)
-    {
-        $rsm = new ResultSetMapping();
-        $rsm->addScalarResult('farmId', 'farmId');
-
-        $sql = 'SELECT fn_getFarmID_mob(:mobFarmDataId) as farmId';
-        $query = $this->entityManager->createNativeQuery($sql, $rsm);
-        $query->setParameter('mobFarmDataId', $mobFarmDataId);
-
-        $result = $query->getSingleResult();
-
-        return $result['farmId'];
-    }
-
 }

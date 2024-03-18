@@ -86,6 +86,17 @@ App\Entity\ParameterLimits:
             style: form
             explode: false
             allowReserved: false
+          - name: fieldId
+            in: query
+            description: 'Filter by field Id'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
 #    post:
 #      method: post
 #      path: /parameterlimits

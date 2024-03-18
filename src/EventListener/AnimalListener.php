@@ -23,8 +23,8 @@ class AnimalListener
         if ($entity instanceof Animal) {
 
             // Check if registration date is before birthdate
-            if ($entity->getRegDate() >= $entity->getBirthDate()) {
-                throw new \InvalidArgumentException("Registration date must be before the birth date.");
+            if ($entity->getRegDate() < $entity->getBirthDate()) {
+                throw new \InvalidArgumentException("An animal must be born before it is registered.");
             }
 
             // Check if birthdate is in the future

@@ -27,8 +27,14 @@ class AnimalEventListener
                 return; // Skip execution if animal_id is already provided
             }
 
+            $mobAnimalDataId = $entity->getMobAnimalDataId();
+
+            if($mobAnimalDataId === null){
+                return;
+            }
+
             // Fetch the animal_id using the MySQL function
-            $animalId = $this->fetchAnimalId($entity->getMobAnimalDataId());
+            $animalId = $this->fetchAnimalId($mobAnimalDataId);
 
             // If animal_id is still NULL, handle the error or provide a default value
             if ($animalId === null) {

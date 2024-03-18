@@ -26,8 +26,14 @@ class AnimalCoreHerdListener
                 return; // Skip execution if herd_id is already provided
             }
 
+            $mobFarm = $entity->getMobFarmId();
+
+            if($mobFarm === null){
+                return;
+            }
+
             // Fetch the farm_id using the stored function
-            $farmId = $this->fetchFarmForHerdId($entity->getMobFarmId());
+            $farmId = $this->fetchFarmForHerdId($mobFarm);
 
             $farm = $this->entityManager->getRepository(Farm::class)->find($farmId);
 

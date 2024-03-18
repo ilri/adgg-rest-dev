@@ -2,6 +2,7 @@
 
 namespace App\EventListener;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
@@ -23,48 +24,45 @@ class RequestResponseLogger
 
     public function onKernelResponse(ResponseEvent $event)
     {
-        try {
-            // Check if EntityManager is closed
-            if (!$this->entityManager->isOpen()) {
-                // Log or handle the closed EntityManager scenario
-                // Example: $this->logger->error('EntityManager is closed.');
-                return;
-            }
+        // Reopen the EntityManager if it's closed
+        if (!$this->entityManager->isOpen()) {
+            $connection = $this->entityManager->getConnection();
+            $configuration = $this->entityManager->getConfiguration();
+            $eventManager = $this->entityManager->getEventManager();
 
-            $request = $this->requestStack->getCurrentRequest();
-            $response = $event->getResponse();
-
-            // Get request and response data
-            $requestData = $request->getContent();
-            $responseData = $response->getContent();
-
-            // Create and persist a log entity
-            $log = new ApiLogs();
-            $log->setPayloadResponse(json_encode([
-                'response' => $responseData,
-            ]));
-            $log->setPayloadRequest(json_encode([
-                'request' => $requestData,
-            ]));
-            $log->setRequestUri($request->getRequestUri());
-
-            // Set the authenticated user's ID if available
-            if ($user = $this->security->getUser()) {
-                $log->setUserId($user->getId());
-            }
-
-            // Set the request method (action) e.g., GET, POST, PUT, DELETE
-            $log->setRequestMethod($request->getMethod());
-
-            // Set the status code from the response
-            $log->setStatusCode($response->getStatusCode());
-
-            // Persist the log entity
-            $this->entityManager->persist($log);
-            $this->entityManager->flush();
-        } catch (\Throwable $e) {
-            // Handle any other exceptions that may occur during logging
-            // Example: $this->logger->error('An error occurred during logging: ' . $e->getMessage());
+            $this->entityManager = new EntityManager($connection, $configuration, $eventManager);
         }
+
+        $request = $this->requestStack->getCurrentRequest();
+        $response = $event->getResponse();
+
+        // Get request and response data
+        $requestData = $request->getContent();
+        $responseData = $response->getContent();
+
+        // Create and persist a log entity
+        $log = new ApiLogs();
+        $log->setPayloadResponse(json_encode([
+            'response' => $responseData,
+        ]));
+        $log->setPayloadRequest(json_encode([
+            'request' => $requestData,
+        ]));
+        $log->setRequestUri($request->getRequestUri());
+
+        // Set the authenticated user's ID if available
+        if ($user = $this->security->getUser()) {
+            $log->setUserId($user->getId());
+        }
+
+        // Set the request method (action) e.g., GET, POST, PUT, DELETE
+        $log->setRequestMethod($request->getMethod());
+
+        // Set the status code from the response
+        $log->setStatusCode($response->getStatusCode());
+
+        // Persist the log entity
+        $this->entityManager->persist($log);
+        $this->entityManager->flush();
     }
 }

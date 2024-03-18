@@ -146,6 +146,17 @@ App\Entity\Farm:
             style: form
             explode: false
             allowReserved: false
+          - name: countryId
+            in: query
+            description: 'Filter by the Country ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
           - name: regionId
             in: query
             description: 'Filter by the Region ID'

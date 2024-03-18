@@ -108,60 +108,6 @@ class WeightEventListener
         return $result['animalId'];
     }
 
-    private function getParameterListValues($category)
-    {
-        $parameter = $this->entityManager
-            ->getRepository(ParameterLimits::class)
-            ->findOneBy(['category' => $category]);
-
-        if ($parameter === null) {
-            throw new \RuntimeException('Parameter not found for category: ' . $category);
-        }
-
-        return [
-            'min_value' => $parameter->getMinValue(),
-            'max_value' => $parameter->getMaxValue(),
-        ];
-    }
-
-    private function fetchAnimalType($mobAnimalDataId)
-    {
-        $rsm = new ResultSetMapping();
-        $rsm->addScalarResult('animalType', 'animalType');
-
-        $sql = 'SELECT fn_getAnimalType_mob(:mobAnimalDataId) as animalType';
-        $query = $this->entityManager->createNativeQuery($sql, $rsm);
-        $query->setParameter('mobAnimalDataId', $mobAnimalDataId);
-
-        $result = $query->getSingleResult();
-
-        return $result['animalType'];
-    }
-
-    private function getMatureHeartGirthLimitsRecord(AnimalEvent $weightEvent): ?float
-    {
-        $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['137'] ?? NULL;
-    }
-
-    private function getMatureWeightLimitsRecord(AnimalEvent $weightEvent): ?float
-    {
-        $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['136'] ?? NULL;
-    }
-
-    private function getMatureBodyCondScoreRecord(AnimalEvent $weightEvent): ?float
-    {
-        $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['139'] ?? NULL;
-    }
-
-    private function getMatureBodyLengthRecord(AnimalEvent $weightEvent): ?float
-    {
-        $additionalAttributes = $weightEvent->getAdditionalAttributes();
-        return $additionalAttributes['138'] ?? NULL;
-    }
-
     private function validateMatureHeartGirth(AnimalEvent $weightEvent): float
     {
         // Call the new getMatureHeartGirthLimitsRecord method
@@ -180,6 +126,28 @@ class WeightEventListener
             ));
         }
         return $heartGirth;
+    }
+
+    private function getMatureHeartGirthLimitsRecord(AnimalEvent $weightEvent): ?float
+    {
+        $additionalAttributes = $weightEvent->getAdditionalAttributes();
+        return $additionalAttributes['137'] ?? NULL;
+    }
+
+    private function getParameterListValues($category)
+    {
+        $parameter = $this->entityManager
+            ->getRepository(ParameterLimits::class)
+            ->findOneBy(['category' => $category]);
+
+        if ($parameter === null) {
+            throw new \RuntimeException('Parameter not found for category: ' . $category);
+        }
+
+        return [
+            'min_value' => $parameter->getMinValue(),
+            'max_value' => $parameter->getMaxValue(),
+        ];
     }
 
     private function validateMatureWeightLimits(AnimalEvent $weightEvent): float
@@ -204,6 +172,12 @@ class WeightEventListener
 
     }
 
+    private function getMatureWeightLimitsRecord(AnimalEvent $weightEvent): ?float
+    {
+        $additionalAttributes = $weightEvent->getAdditionalAttributes();
+        return $additionalAttributes['136'] ?? NULL;
+    }
+
     private function validateMatureAnimalBodyConditionScore(AnimalEvent $weightEvent): float
     {
         $bodyConditionScore = $this->getMatureBodyCondScoreRecord($weightEvent);
@@ -224,6 +198,12 @@ class WeightEventListener
 
     }
 
+    private function getMatureBodyCondScoreRecord(AnimalEvent $weightEvent): ?float
+    {
+        $additionalAttributes = $weightEvent->getAdditionalAttributes();
+        return $additionalAttributes['139'] ?? NULL;
+    }
+
     private function validateMatureAnimalBodyLength(AnimalEvent $weightEvent): float
     {
         $bodyLength = $this->getMatureBodyLengthRecord($weightEvent);
@@ -242,28 +222,49 @@ class WeightEventListener
         }
         return $bodyLength;
     }
-    private function validateCalfHeartGirth(AnimalEvent $weightEvent): float
+
+    private function getMatureBodyLengthRecord(AnimalEvent $weightEvent): ?float
+    {
+        $additionalAttributes = $weightEvent->getAdditionalAttributes();
+        return $additionalAttributes['138'] ?? NULL;
+    }
+
+    private function validateCalfBodyConditionScore(AnimalEvent $weightEvent): float
     {
         $registrationAnimalType = (int)$this->fetchAnimalType($weightEvent->getMobAnimalDataId());
 
-        $calfHeartGirth = $this->getMatureHeartGirthLimitsRecord($weightEvent);
+        $calfBodyLength = $this->getMatureBodyLengthRecord($weightEvent);
 
-        // Retrieve Calf Heart Girth limits from parameter list
-        $calfHeartGirthLimits = $this->getParameterListValues('calf_heart_girth_limits');
+        // Retrieve Body Length limits from parameter list
+        $calfBodyLengthLimits = $this->getParameterListValues('calf_body_cond_score');
 
-        if (($calfHeartGirth < $calfHeartGirthLimits['min_value'] ||
-                $calfHeartGirth >= $calfHeartGirthLimits['max_value']) &&
-            $calfHeartGirth !== NULL &&
+        if (($calfBodyLength < $calfBodyLengthLimits['min_value'] ||
+                $calfBodyLength >= $calfBodyLengthLimits['max_value']) &&
+            $calfBodyLength !== NULL &&
             in_array($registrationAnimalType, [3, 4, 9, 10])
         ) {
             throw new \RuntimeException(sprintf(
-                'Calf Heart Girth should be in the range (%f to %f) for animal: %s',
-                $calfHeartGirthLimits['min_value'],
-                $calfHeartGirthLimits['max_value'],
+                'Calf body length should be in the range (%f to %f) for animal: %s',
+                $calfBodyLengthLimits['min_value'],
+                $calfBodyLengthLimits['max_value'],
                 $weightEvent->getMobAnimalDataId()
             ));
         }
-        return $calfHeartGirth;
+        return $calfBodyLength;
+    }
+
+    private function fetchAnimalType($mobAnimalDataId)
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('animalType', 'animalType');
+
+        $sql = 'SELECT fn_getAnimalType_mob(:mobAnimalDataId) as animalType';
+        $query = $this->entityManager->createNativeQuery($sql, $rsm);
+        $query->setParameter('mobAnimalDataId', $mobAnimalDataId);
+
+        $result = $query->getSingleResult();
+
+        return $result['animalType'];
     }
 
     private function validateCalfWeightLimits(AnimalEvent $weightEvent): float
@@ -290,28 +291,28 @@ class WeightEventListener
         return $calfWeight;
     }
 
-    private function validateCalfBodyConditionScore(AnimalEvent $weightEvent): float
+    private function validateCalfHeartGirth(AnimalEvent $weightEvent): float
     {
         $registrationAnimalType = (int)$this->fetchAnimalType($weightEvent->getMobAnimalDataId());
 
-        $calfBodyLength = $this->getMatureBodyLengthRecord($weightEvent);
+        $calfHeartGirth = $this->getMatureHeartGirthLimitsRecord($weightEvent);
 
-        // Retrieve Body Length limits from parameter list
-        $calfBodyLengthLimits = $this->getParameterListValues('calf_body_cond_score');
+        // Retrieve Calf Heart Girth limits from parameter list
+        $calfHeartGirthLimits = $this->getParameterListValues('calf_heart_girth_limits');
 
-        if (($calfBodyLength < $calfBodyLengthLimits['min_value'] ||
-                $calfBodyLength >= $calfBodyLengthLimits['max_value']) &&
-            $calfBodyLength !== NULL &&
+        if (($calfHeartGirth < $calfHeartGirthLimits['min_value'] ||
+                $calfHeartGirth >= $calfHeartGirthLimits['max_value']) &&
+            $calfHeartGirth !== NULL &&
             in_array($registrationAnimalType, [3, 4, 9, 10])
         ) {
             throw new \RuntimeException(sprintf(
-                'Calf body length should be in the range (%f to %f) for animal: %s',
-                $calfBodyLengthLimits['min_value'],
-                $calfBodyLengthLimits['max_value'],
+                'Calf Heart Girth should be in the range (%f to %f) for animal: %s',
+                $calfHeartGirthLimits['min_value'],
+                $calfHeartGirthLimits['max_value'],
                 $weightEvent->getMobAnimalDataId()
             ));
         }
-        return $calfBodyLength;
+        return $calfHeartGirth;
     }
 
     private function validateCalfBodyLength(AnimalEvent $weightEvent): float

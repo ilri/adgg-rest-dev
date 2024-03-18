@@ -180,25 +180,25 @@ class LactationListener
         return $morning + $evening + $midday;
     }
 
-    private  function  getSomaticCellRecord(AnimalEvent $milkingEvent): ?float
+    private function getSomaticCellRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
         return $additionalAttributes['66'] ?? NULL;
     }
 
-    private  function  getMilkLactoseRecord(AnimalEvent $milkingEvent): ?float
+    private function getMilkLactoseRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
         return $additionalAttributes['65'] ?? NULL;
     }
 
-    private  function  getMilkProteinRecord(AnimalEvent $milkingEvent): ?float
+    private function getMilkProteinRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
         return $additionalAttributes['64'] ?? NULL;
     }
 
-    private  function  getMilkFatRecord(AnimalEvent $milkingEvent): ?float
+    private function getMilkFatRecord(AnimalEvent $milkingEvent): ?float
     {
         $additionalAttributes = $milkingEvent->getAdditionalAttributes();
         return $additionalAttributes['63'] ?? NULL;
@@ -227,7 +227,7 @@ class LactationListener
         $somaticCellCount = $this->getSomaticCellRecord($milkingEvent);
         $somaticCellCountLimits = $this->getParameterListValues('milk_somatic_cell_count_limits');
 
-        if (($somaticCellCount < $somaticCellCountLimits['min_value'] || $somaticCellCount > $somaticCellCountLimits['max_value']) && $somaticCellCount !== NULL ) {
+        if (($somaticCellCount < $somaticCellCountLimits['min_value'] || $somaticCellCount > $somaticCellCountLimits['max_value']) && $somaticCellCount !== NULL) {
             throw new \RuntimeException(sprintf(
                 'Somatic cell count is not within range (%f to %f) for animal: %s. You provided SCC of: %f',
                 $somaticCellCountLimits['min_value'],
@@ -263,7 +263,7 @@ class LactationListener
         $milkLactose = $this->getMilkLactoseRecord($milkingEvent);
         $milkLactoseLimits = $this->getParameterListValues('milk_lactose_limits');
 
-        if(($milkLactose < $milkLactoseLimits['min_value'] || $milkLactose > $milkLactoseLimits['max_value'] ) & $milkLactose !== NULL){
+        if (($milkLactose < $milkLactoseLimits['min_value'] || $milkLactose > $milkLactoseLimits['max_value']) & $milkLactose !== NULL) {
             throw new \RuntimeException(sprintf(
                 'Milk lactose  is not within range (%f to %f) for animal: %s. You have provided: %f',
                 $milkLactoseLimits['min_value'],
@@ -275,19 +275,21 @@ class LactationListener
         return $milkLactose;
     }
 
-    private function  validateMilkFat(AnimalEvent $milkingEvent): ?float
+    private function validateMilkFat(AnimalEvent $milkingEvent): ?float
     {
         $milkFat = $this->getMilkFatRecord($milkingEvent);
         $milkFatLimits = $this->getParameterListValues('milk_fat_limits');
 
-        if(($milkFat < $milkFatLimits['min_value'] || $milkFat > $milkFatLimits['max_value'] ) & $milkFat !== NULL){
-            throw new \RuntimeException(sprintf(
-                'Milk Fat  is not within range (%f to %f) for animal: %s. You have provided: %f',
-                $milkFatLimits['min_value'],
-                $milkFatLimits['max_value'],
-                $milkingEvent->getMobAnimalDataId(),
-                $milkFat
-            ));
+        if (($milkFat < $milkFatLimits['min_value'] || $milkFat > $milkFatLimits['max_value']) & $milkFat !== NULL) {
+            throw new \RuntimeException(
+                sprintf(
+                    'Milk Fat  is not within range (%f to %f) for animal: %s. You have provided: %f',
+                    $milkFatLimits['min_value'],
+                    $milkFatLimits['max_value'],
+                    $milkingEvent->getMobAnimalDataId(),
+                    $milkFat
+                )
+            );
         }
         return $milkFat;
     }

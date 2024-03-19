@@ -108,37 +108,11 @@ App\Entity\ParameterLimits:
             style: form
             explode: false
             allowReserved: false
-#    post:
-#      method: post
-#      path: /parameterlimits
-#      denormalization_context:
-#        groups: [ 'parameterlimits:collection:post' ]
-#      openapi_context:
-#        description:
-#          '<h3>Creates a parameterlimits resource</h3><p>The following properties are **required** and need to be provided in the request body:
-#          </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
+
   itemOperations:
     get:
       method: get
       path: /parameterlimits/{id}
       normalization_context:
         groups: [ 'parameterlimits:item:get' ]
-#    put:
-#      method: put
-#      path: /parameterlimits/{id}
-#      denormalization_context:
-#        groups: [ 'parameterlimits:item:put' ]
-#      openapi_context:
-#        description:
-#          '<h3>Replaces the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-#           </p>`country`<p>`farmerIsHhHead`</p>`isActive`<p>`isDeleted`</p>`name`<p>All other properties are **optional**.</p>'
-#    patch:
-#      method: patch
-#      path: /parameterlimits/{id}
-#      denormalization_context:
-#        groups: [ 'parameterlimits:item:patch' ]
-#      openapi_context:
-#        description:
-#          '<h3>Updates the Farm resource specified by the `id` parameter</h3><p>The following properties are **required** and need to be provided in the request body:
-#          </p>`farmerIsHhHead`<p>All other properties are **optional**.</p>'
 

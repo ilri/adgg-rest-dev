@@ -87,3 +87,11 @@ App\Entity\ParameterLimits:
                 "parameterlimits:item:put",
                 "parameterlimits:item:patch"
             ]
+        speciesId:
+            groups: [
+                "parameterlimits:collection:get",
+                "parameterlimits:collection:post",
+                "parameterlimits:item:get",
+                "parameterlimits:item:put",
+                "parameterlimits:item:patch"
+            ]

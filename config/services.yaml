@@ -226,5 +226,5 @@ services:
 
     parameterlist.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { 'fieldId': 'exact', 'isActive': 'exact' } ]
+        arguments: [ { 'fieldId': 'exact', 'isActive': 'exact', 'speciesId': 'exact' } ]
         tags: [ { name: 'api_platform.filter', id: 'parameterlist.search_filter' } ]

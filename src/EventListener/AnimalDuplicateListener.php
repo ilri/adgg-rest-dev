@@ -24,7 +24,7 @@ class AnimalDuplicateListener
         }
 
         $villageId = $entity->getVillageId();
-        $farmId = $entity->getFarmId();
+        $mobFarmId = $entity->getMobFarmId();
         $tagId = $entity->getTagId();
 
         // Query to check for duplicate records
@@ -32,7 +32,7 @@ class AnimalDuplicateListener
             ->getRepository(Animal::class)
             ->findOneBy([
                 'villageId' => $villageId,
-                'farmId' => $farmId,
+                'mob_farm_id' => $mobFarmId,
                 'tagId' => $tagId
             ]);
 

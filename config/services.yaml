@@ -101,6 +101,12 @@ services:
         tags:
             - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\FarmMetadata' }
 
+    App\EventListener\AnimalDuplicateListener:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\Animal' }
+
 #    App\EventListener\RequestResponseLogger:
 #        arguments:
 #            $requestStack: '@request_stack'

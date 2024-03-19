@@ -32,7 +32,7 @@ class AnimalDuplicateListener
             ->getRepository(Animal::class)
             ->findOneBy([
                 'villageId' => $villageId,
-                'mob_farm_id' => $mobFarmId,
+                'mobFarmId' => $mobFarmId,
                 'tagId' => $tagId
             ]);
 

@@ -33,8 +33,8 @@ class AnimalListener
                 throw new \InvalidArgumentException("Birth date cannot be in the future.");
             }
             // Check if farm_id is provided in the post payload
-            if ($entity->getFarm() !== null) {
-                return; // Skip execution if herd_id is already provided
+            if ($entity->getMobFarmId() !== null) {
+                return;
             }
 
             // Fetch the farm_id using the stored function

@@ -296,8 +296,11 @@ class LactationListener
 
     private function validateDIM(AnimalEvent $milkingEvent, AnimalEvent $calving): int
     {
+        $calvingDate = $calving->getEventDate();
+        $milkingDate = $milkingEvent->getEventDate();
+
         // Calculate the difference in days
-        $daysInMilk = $calving->getEventDate()->diff($milkingEvent->getEventDate())->days;
+        $daysInMilk = $calvingDate->diff($milkingDate)->days;
 
         // Retrieve Days In Milk from parameterlist
         $daysInMilkLimits = $this->getParameterListValues('lactation_period');

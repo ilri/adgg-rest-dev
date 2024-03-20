@@ -50,6 +50,11 @@ class MilkingEventListener
 
         $eventId = $milkingEvent->getId();
         $calvingEvent = $this->animalEventRepository->findOneCalvingEventById($milkingEvent->getLactationId());
+
+        if ($calvingEvent === null || $calvingEvent->getEventDate() === null) {
+            return;
+        }
+
         $dim = $this->getDIMForMilkingEvent($eventId);
         $emy = $this->getEMYForMilkingEvent($eventId);
         $totalMilkRecord = $this->getTotalMilkRecord($milkingEvent);
@@ -77,7 +82,14 @@ class MilkingEventListener
     private function getDIMForMilkingEvent(int $id): ?int
     {
         $milkingEvent = $this->animalEventRepository->findOneMilkingEventById($id);
+        if ($milkingEvent === null || $milkingEvent->getEventDate() === null) {
+            return null;
+        }
+
         $calvingEvent = $this->animalEventRepository->findOneCalvingEventById($milkingEvent->getLactationId());
+        if ($calvingEvent === null || $calvingEvent->getEventDate() === null) {
+            return null;
+        }
 
         $milkingEventDate = Carbon::parse($milkingEvent->getEventDate()->format('Y-m-d'));
         $calvingEventDate = Carbon::parse($calvingEvent->getEventDate()->format('Y-m-d'));

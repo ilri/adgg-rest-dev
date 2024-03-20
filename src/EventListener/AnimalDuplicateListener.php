@@ -37,7 +37,7 @@ class AnimalDuplicateListener
             ]);
 
         if ($existingAnimal !== null) {
-            throw new \Exception('Duplicate record found.');
+            throw new \Exception('Duplicate record found for animal: '.$tagId);
         }
     }
 }

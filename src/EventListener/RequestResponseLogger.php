@@ -6,7 +6,6 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
 use App\Entity\ApiLogs;
-use Doctrine\ORM\EntityManagerInterface;
 
 class RequestResponseLogger
 {
@@ -14,7 +13,7 @@ class RequestResponseLogger
     private $security;
     private $entityManager;
 
-    public function __construct(RequestStack $requestStack, Security $security, EntityManagerInterface $entityManager)
+    public function __construct(RequestStack $requestStack, Security $security, $entityManager)
     {
         $this->requestStack = $requestStack;
         $this->security = $security;

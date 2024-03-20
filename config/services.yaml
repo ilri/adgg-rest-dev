@@ -107,13 +107,13 @@ services:
         tags:
             - { name: 'doctrine.event_listener', event: 'prePersist', entity: 'App\Entity\Animal' }
 
-#    App\EventListener\RequestResponseLogger:
-#        arguments:
-#            $requestStack: '@request_stack'
-#            $security: '@security.helper'
-#            $entityManager: '@doctrine.orm.entity_manager'
-#        tags:
-#            - { name: 'kernel.event_listener', event: 'kernel.response' }
+    App\EventListener\RequestResponseLogger:
+        arguments:
+            $requestStack: '@request_stack'
+            $security: '@security.helper'
+            $entityManager: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.response' }
 
     App\EventListener\AnimalSireListener:
         arguments:

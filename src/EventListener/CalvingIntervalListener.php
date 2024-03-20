@@ -49,7 +49,7 @@ class CalvingIntervalListener
         $calving = $this->getLastCalvingEvent($animalEntity);
 
         if ($calving === null) {
-            throw new \RuntimeException('Calving event not found for animal with ID: ' . $animalId);
+            return;
         } else {
             // Calculate the difference in days
             $calvingInterval = $calving->getEventDate()->diff($calvingEvent->getEventDate())->days;
@@ -71,6 +71,10 @@ class CalvingIntervalListener
             // Calculate the age at first calving
             $ageAtFirstCalving = $animalEntity->getBirthdate()->diff($calvingEvent->getEventDate())->days;
 
+            if ($ageAtFirstCalving === NULL){
+                return;
+            }
+
             // Retrieve age at first calving limits from parameterlist
             $ageAtFirstCalvingLimits = $this->getParameterListValues('age_at_first_calving');
 
@@ -81,7 +85,7 @@ class CalvingIntervalListener
             ];
 
             // Check if age at first calving is less than 18 months (547 days)
-            if ($ageAtFirstCalving < $ageAtFirstCalvingLimits['min_value'] || $ageAtFirstCalving >= $ageAtFirstCalvingLimits['max_value']) {
+            if (($ageAtFirstCalving < $ageAtFirstCalvingLimits['min_value'] || $ageAtFirstCalving >= $ageAtFirstCalvingLimits['max_value']) && $ageAtFirstCalving !== NULL) {
                 $validationErrors[] = sprintf(
                     'Age at first calving is not within the valid range (%d to %d days) for animal: %s',
                     $ageAtFirstCalvingLimits['min_value'],

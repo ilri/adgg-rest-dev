@@ -39,52 +39,76 @@ class WeightEventListener
 
         $validationErrors = [];
 
-        try {
-            $this->validateMatureHeartGirth($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Mature Heart Girth if the attribute exists
+        if (isset($additionalAttributes['137'])) {
+            try {
+                $this->validateMatureHeartGirth($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
-        try {
-            $this->validateMatureWeightLimits($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Mature Weight Limits if the attribute exists
+        if (isset($additionalAttributes['136'])) {
+            try {
+                $this->validateMatureWeightLimits($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
-        try {
-            $this->validateMatureAnimalBodyConditionScore($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Mature Body Condition Score if the attribute exists
+        if (isset($additionalAttributes['139'])) {
+            try {
+                $this->validateMatureAnimalBodyConditionScore($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
-        try {
-            $this->validateMatureAnimalBodyLength($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Mature Body Length if the attribute exists
+        if (isset($additionalAttributes['138'])) {
+            try {
+                $this->validateMatureAnimalBodyLength($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
-        try {
-            $this->validateCalfBodyConditionScore($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Calf Body Condition Score if the attribute exists
+        if (isset($additionalAttributes['139'])) {
+            try {
+                $this->validateCalfBodyConditionScore($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
-        try {
-            $this->validateCalfWeightLimits($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Calf Weight Limits if the attribute exists
+        if (isset($additionalAttributes['136'])) {
+            try {
+                $this->validateCalfWeightLimits($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
-        try {
-            $this->validateCalfHeartGirth($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Calf Heart Girth if the attribute exists
+        if (isset($additionalAttributes['137'])) {
+            try {
+                $this->validateCalfHeartGirth($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
-        try {
-            $this->validateCalfBodyLength($weightEvent);
-        } catch (\RuntimeException $e) {
-            $validationErrors[] = $e->getMessage();
+        // Validate Calf Body Length if the attribute exists
+        if (isset($additionalAttributes['138'])) {
+            try {
+                $this->validateCalfBodyLength($weightEvent);
+            } catch (\RuntimeException $e) {
+                $validationErrors[] = $e->getMessage();
+            }
         }
 
         // Check for validation errors and throw a single exception if any

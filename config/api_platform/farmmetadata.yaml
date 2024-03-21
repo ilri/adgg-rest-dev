@@ -3,7 +3,7 @@ App\Entity\FarmMetadata:
     get:
       method: get
       path: /farm_metadata
-      filters: [ 'farmmetadata.search_filter', 'property_filter' ]
+      filters: [ 'farmmetadata.search_filter', 'property_filter', 'farm_metadata_filter' ]
       normalization_context:
         groups: [ 'farmmetadata:collection:get' ]
       openapi_context:
@@ -11,6 +11,28 @@ App\Entity\FarmMetadata:
           - name: farmMetadataType
             in: query
             description: 'filter by farm metadata type'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: regionId
+            in: query
+            description: 'Filter by region ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: districtId
+            in: query
+            description: 'Filter by district ID'
             required: false
             deprecated: false
             allowEmptyValue: false

@@ -197,6 +197,10 @@ services:
         class: 'App\Filter\CountryISOCodeFilter'
         tags: [ { name: 'api_platform.filter', id: 'country_isocode_filter' } ]
 
+    farm_metadata_filter:
+        class: 'App\Filter\FarmMetadataFilter'
+        tags: [ { name: 'api_platform.filter', id: 'farm_metadata_filter' } ]
+
     countryunits.search_filter:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { 'level': 'exact', 'parentId': 'exact' } ]

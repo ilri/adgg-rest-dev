@@ -72,3 +72,8 @@ App\Entity\VActiveCoreFarmMetadata:
                 "vactivecorefarmmetadata:collection:get",
                 "vactivecorefarmmetadata:item:get"
             ]
+        farmId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]

@@ -1,0 +1,74 @@
+App\Entity\VActiveCoreFarmMetadata:
+    attributes:
+        id:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        farmMetadatatype:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        farmMetadataMobDataId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        farmMetadataMobEventDataId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        farmMetadataMobAddtionalAttributes:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        countryId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        sourceId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+
+        createdBy:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+
+        createdAt:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        additionalAttributes:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        regionId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        districtId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        wardId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]
+        villageId:
+            groups: [
+                "vactivecorefarmmetadata:collection:get",
+                "vactivecorefarmmetadata:item:get"
+            ]

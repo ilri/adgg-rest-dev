@@ -1,0 +1,83 @@
+App\Entity\VActiveCoreFarmMetadata:
+  collectionOperations:
+    get:
+      method: get
+      path: /vactivefarmmetadata
+      filters: [ 'vactivecorefarmmetadata.search_filter', 'property_filter' ]
+      normalization_context:
+        groups: [ 'vactivecorefarmmetadata:collection:get' ]
+      openapi_context:
+        parameters:
+          - name: farmMetadataType
+            in: query
+            description: 'filter by farm metadata type'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: countryId
+            in: query
+            description: 'Filter by the Country ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: regionId
+            in: query
+            description: 'Filter by the Region ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: districtId
+            in: query
+            description: 'Filter by the District ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: wardId
+            in: query
+            description: 'Filter by the ward ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+          - name: villageId
+            in: query
+            description: 'Filter by the Village ID'
+            required: false
+            deprecated: false
+            allowEmptyValue: false
+            schema:
+              type: integer
+            style: form
+            explode: false
+            allowReserved: false
+
+  itemOperations:
+    get:
+      method: get
+      path: /vactivefarmmetadata/{id}
+      normalization_context:
+        groups: [ 'farmmetadata:item:get' ]
